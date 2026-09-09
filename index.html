@@ -112,11 +112,11 @@
   .sobre-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;}
   .sobre-grid p{color:var(--text-dim);margin-bottom:14px;font-size:15.5px;}
   .sobre-grid p strong{color:var(--text);font-weight:500;}
-  .facts{display:flex;flex-direction:column;gap:0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;height:fit-content;}
-  .facts div{padding:14px 16px;border-bottom:1px solid var(--line);}
-  .facts div:last-child{border-bottom:none;}
-  .facts .k{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-dim);text-transform:lowercase;margin-bottom:4px;}
-  .facts .v{font-size:14.5px;}
+  .facts{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:8px;overflow:hidden;height:fit-content;background:var(--surface);}
+  .facts > div{padding:15px 18px;}
+  .facts > div + div{border-top:1px solid rgba(255,255,255,0.05);}
+  .facts .k{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.05em;color:var(--accent-2);text-transform:uppercase;margin-bottom:5px;}
+  .facts .v{font-size:14.5px;color:var(--text);line-height:1.45;}
 
   /* TRAJETÓRIA — route line, real sequence */
   .route{position:relative;padding-left:28px;}
