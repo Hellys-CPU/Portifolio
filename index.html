@@ -1094,7 +1094,7 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
     if (keys['ArrowLeft'] || keys['a']) ship.x -= ship.speed;
     if (keys['ArrowRight'] || keys['d']) ship.x += ship.speed;
     ship.x = Math.max(ship.w, Math.min(W - ship.w, ship.x));
-    if (keys[' ']) shoot();
+    if (keys[' '] || dragging) shoot();
 
     // spawn rocks
     if (ts - lastRockAt > Math.max(600, 1150 - score*2.5)){
