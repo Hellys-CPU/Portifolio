@@ -4,12 +4,29 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hellys — Logística, PCP & Desenvolvimento</title>
+<meta name="description" content="Hellys — Analista de Processos Operacionais, técnica em Marketing e cursando Ciência da Computação. Sistemas de operação e logística, do banco de dados à interface.">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hellys-cpu.github.io/">
+<meta property="og:title" content="Hellys — Processos, operação e sistemas">
+<meta property="og:description" content="Eu vejo o problema na operação e entrego o sistema que resolve. Portfólio de sistemas próprios, do diagnóstico à produção.">
+<meta property="og:image" content="https://hellys-cpu.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="pt_BR">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hellys — Processos, operação e sistemas">
+<meta name="twitter:description" content="Eu vejo o problema na operação e entrego o sistema que resolve.">
+<meta name="twitter:image" content="https://hellys-cpu.github.io/og-image.png">
+
 <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABmJLR0QA/wD/AP+gvaeTAAADzElEQVR4nO2bPWxbVRiGn+9cO+CENhfs1rIToVApHRASKgqISkAWWEBRg4IYkJiiLiBgJN2gLEDVMpewISRQB9KqalAVVcpgylAxoERtECiB1haOHf/lx8V2fBiCo/w4kPTa98Sxn8n67jmf3/tef9fnR0fYGWUfCb2A5hRIPxACgoD1H332AyUgCjKntR63tHyTSkXv7dRYqgU7Hwu/IopPgWfqpdJFyoIeLRe9Z7LZP9NbL241wLL9XecR/YFL4twkLoqh9HwssjG40QDLDoS/Bwbc1eUqeUHeTCejVysBVflg+8MXONg3D+Aroy91BkJ9lYDAes1fN6fLZTRzSt9/OpVK5SxAfB2HvgPCpnW5hmCX8eq/84s3xD4Segktk6Y1GSBfslZ7FJpB00oM4fOWrDcUyIumlRhDcUoBXaZ1mEKXOa6Ao6aFGEPoVuz/sX098aj/b3OwaRlgWoBpmt4Aj5POTxw7RsAf2BRLJhPMzs7uqn9f37OIbJ6Rz8zcJpdbdCJrT4gdCOsH7Xzu3OcMDGyeQI6NXWZkZGRX/e/cub0tNjw8TCTy44NK2jNNXwItA0wLME3LANMCTNMywLQA07QMMC3ANE1vgKO5QDVOnnye0dEva522btTcgGAwSDAYrHXautH0JdAywLQA09T8HXDt2jhnPzm7q7Y/3bxZ66/fMzU3oFAokElnap22bjR9CTS9ATUvgXoS8Fk8FWxjpaCZShRYKZYd52wIA0Tgo34/7/Z1Yqm1VeT55RLv/ZDg+u8rjnI3RAmcPtHJ+8/Z6zcPcLTDw9eDIXr9bY5yN4QBQ08+UjXeZsFrvR2OcjeEAT32zpX6+GFnm9sNYUAst7rjtdlMyVHuhjDg4s/VB1bLxTJjM0uOcjv6F5iamqa9vX1TbHp6etf9JyYmtu0NLiQXtrX7dmoJn0fxcb+fQw+tPbPfUkXeGZ/nbtbZL8DR3qDbeC3ofbSNlaLmj1wRXQPlDWVAPWiId0A9aRlgWoBpWgawdsamWSkpIGZahUH+UsCvplWYQ8eUaMZMyzCFIJOq6Fm9BORNizGCcEUtxePzWssXprUY4FY6EYsoAEvnP0MzZ1iQq2gtHwJaAaRSqRyWDALOFtgah/PZhegN2HBW4P7yYtzXfvgX4HXAa0qZC1zOJGOnAQ1bRoLpZPSqUrwMxE0oqz/6QiYZGwLWl5i2LajllxfvPtzm/0qrki3ICQ7GcPmW1vJ2diF2kX+ffIWqp8cr+P3dXSUpvyXoV9HSg9DN/t9LWAXioO8JMolwJZ2IRdhy4xX+ARwGCd1dF31OAAAAAElFTkSuQmCC">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#10141a;
+    --bg-alt:#12161d;
     --surface:#171d26;
     --surface-2:#1e2631;
     --line:#2a3341;
@@ -102,6 +119,7 @@
   }
 
   section{padding:64px 0;border-bottom:1px solid var(--line);}
+  section:nth-of-type(even){background:var(--bg-alt);}
   section:last-of-type{border-bottom:none;}
   h2.section-title{
     font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:24px;margin-bottom:8px;
@@ -131,7 +149,10 @@
   }
   .stop.current::before{border-color:var(--accent);background:var(--accent);}
   .stop .when{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-dim);margin-bottom:4px;}
-  .stop h3{font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;margin-bottom:4px;}
+  .stop .titlewrap{display:flex;align-items:center;gap:10px;margin-bottom:4px;}
+  .stop .titlewrap .icon-circle{width:30px;height:30px;flex-shrink:0;}
+  .stop .titlewrap .icon-circle svg{width:15px;height:15px;}
+  .stop h3{font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;margin-bottom:0;}
   .stop p{color:var(--text-dim);font-size:14.5px;max-width:520px;}
 
   /* PROJETOS — record rows, not card-kit */
@@ -210,7 +231,10 @@
   .contact-item{
     border:1px solid var(--line);border-radius:var(--radius);padding:14px 18px;flex:1 1 200px;
   }
-  .contact-item .k{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-dim);margin-bottom:6px;}
+  .contact-item .titlewrap{display:flex;align-items:center;gap:9px;margin-bottom:8px;}
+  .contact-item .titlewrap .icon-circle{width:26px;height:26px;flex-shrink:0;}
+  .contact-item .titlewrap .icon-circle svg{width:13px;height:13px;}
+  .contact-item .k{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-dim);}
   .contact-item .v{font-size:14.5px;color:var(--accent);}
   .placeholder{color:var(--text-dim);font-style:normal;opacity:0.6;}
 
@@ -259,6 +283,11 @@
     border:1px dashed var(--line);margin:10px;border-radius:4px;
   }
   .shot-frame img{display:block;width:100%;height:auto;}
+  .diagram-mock{
+    aspect-ratio:16/8;background:var(--surface-2);margin:0;
+    display:flex;align-items:center;justify-content:center;padding:14px;
+  }
+  .diagram-mock svg{width:100%;height:100%;max-width:420px;}
 
   footer{padding:28px 0 40px;text-align:center;color:var(--text-dim);font-size:12.5px;font-family:'IBM Plex Mono',monospace;}
 
@@ -268,6 +297,19 @@
     .diff-grid{grid-template-columns:1fr;}
     .nav-links{display:none;}
   }
+
+  #back-to-top{
+    position:fixed;bottom:24px;right:24px;z-index:40;
+    width:42px;height:42px;border-radius:50%;
+    background:var(--surface-2);border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    opacity:0;pointer-events:none;transform:translateY(8px);
+    transition:opacity .25s var(--ease),transform .25s var(--ease),border-color .2s;
+  }
+  #back-to-top.visible{opacity:1;pointer-events:auto;transform:translateY(0);}
+  #back-to-top:hover{border-color:var(--accent);}
+  #back-to-top svg{width:18px;height:18px;stroke:var(--text);fill:none;stroke-width:1.8;}
+  @media (prefers-reduced-motion: reduce){#back-to-top{transition:opacity .01s;}}
 
   /* ============================================================
      Refinamento visual — aditivo (sobrepõe as regras acima)
@@ -587,17 +629,17 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
   <div class="route">
     <div class="stop">
       <div class="when mono">formação</div>
-      <h3>Técnico em Marketing</h3>
+      <div class="titlewrap"><div class="icon-circle"><svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5-10-5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/><path d="M22 9v6"/></svg></div><h3>Técnico em Marketing</h3></div>
       <p>Base em comunicação, análise de público e estruturação de informação — hoje aplicada em relatórios e comunicação interna da operação.</p>
     </div>
     <div class="stop">
       <div class="when mono">carreira</div>
-      <h3>Analista de Processos Operacionais</h3>
+      <div class="titlewrap"><div class="icon-circle"><svg viewBox="0 0 24 24"><path d="M9 3h6v4H9z"/><path d="M4 7h16v13H4z"/><path d="M4 12h16"/></svg></div><h3>Analista de Processos Operacionais</h3></div>
       <p>Atuação direta na operação, planejando, controlando e resolvendo gargalos do dia a dia. A partir dessa vivência, início do desenvolvimento de ferramentas próprias.</p>
     </div>
     <div class="stop current">
       <div class="when mono">em andamento</div>
-      <h3>Ciência da Computação</h3>
+      <div class="titlewrap"><div class="icon-circle"><svg viewBox="0 0 24 24"><path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/></svg></div><h3>Ciência da Computação</h3></div>
       <p>Formação acadêmica em curso, aplicada em paralelo ao desenvolvimento do TRK PCP 2026 e de projetos pessoais de software.</p>
     </div>
   </div>
@@ -721,6 +763,23 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
       <li>Alerta automático de holerite pendente e retenção de dados por 2 anos alinhada à lei trabalhista</li>
       <li>Dois perfis de acesso: RH (controle total) e funcionário (só-leitura + upload próprio)</li>
     </ul>
+    <div class="shot-frame">
+      <div class="chrome"><span></span><span></span><span></span></div>
+      <div class="diagram-mock">
+        <svg viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
+          <rect x="20" y="10" width="120" height="130" rx="4" fill="none" stroke="var(--line)" stroke-width="2"/>
+          <rect x="30" y="22" width="100" height="34" rx="2" fill="none" stroke="var(--text-dim)" stroke-width="1.4"/>
+          <rect x="30" y="64" width="100" height="34" rx="2" fill="none" stroke="var(--text-dim)" stroke-width="1.4"/>
+          <rect x="30" y="106" width="100" height="24" rx="2" fill="none" stroke="var(--text-dim)" stroke-width="1.4"/>
+          <circle cx="120" cy="39" r="2.4" fill="var(--accent)"/>
+          <circle cx="120" cy="81" r="2.4" fill="var(--text-dim)"/>
+          <circle cx="120" cy="118" r="2.4" fill="var(--text-dim)"/>
+          <path d="M170 30h90M170 30v90M170 120h90M260 30v90" fill="none" stroke="var(--line)" stroke-width="1.4"/>
+          <path d="M182 50h20M182 60h30M182 90h24M182 100h18" stroke="var(--accent-2)" stroke-width="2" stroke-linecap="round"/>
+          <text x="215" y="18" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--text-dim)">funcionário.pdf</text>
+        </svg>
+      </div>
+    </div>
     <div class="chips">
       <span class="chip">HTML / CSS / JS</span>
       <span class="chip">Supabase / PostgreSQL</span>
@@ -745,6 +804,22 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
       <li>Mapa interativo com posição do veículo e destino, histórico exportável em CSV</li>
       <li>Alterna entre duas APIs de rota (HERE Maps / OpenRouteService) e compara resultados</li>
     </ul>
+    <div class="shot-frame">
+      <div class="chrome"><span></span><span></span><span></span></div>
+      <div class="diagram-mock">
+        <svg viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
+          <g stroke="var(--line)" stroke-width="1">
+            <path d="M0 30h300M0 60h300M0 90h300M0 120h300M30 0v150M75 0v150M120 0v150M165 0v150M210 0v150M255 0v150"/>
+          </g>
+          <path d="M40 115 C 90 60, 170 100, 250 35" fill="none" stroke="var(--accent-2)" stroke-width="2.4" stroke-dasharray="6 5"/>
+          <circle cx="40" cy="115" r="5" fill="var(--accent)"/>
+          <circle cx="250" cy="35" r="5" fill="var(--accent-2)"/>
+          <rect x="150" y="55" width="86" height="30" rx="4" fill="var(--surface)" stroke="var(--line)"/>
+          <text x="193" y="68" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--text)">18.4 km</text>
+          <text x="193" y="80" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--accent)">ETA 24min</text>
+        </svg>
+      </div>
+    </div>
     <div class="chips">
       <span class="chip">HTML / CSS / JS</span>
       <span class="chip">Leaflet</span>
@@ -767,6 +842,23 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
       <li>Planilhas, consultas e painéis para volumes, rotas, transportadoras, pendências e desempenho</li>
       <li>Substitui apuração manual por atualização automática de dados</li>
     </ul>
+    <div class="shot-frame">
+      <div class="chrome"><span></span><span></span><span></span></div>
+      <div class="diagram-mock">
+        <svg viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 130h260" stroke="var(--line)" stroke-width="1.4"/>
+          <path d="M20 20v110" stroke="var(--line)" stroke-width="1.4"/>
+          <rect x="40" y="90" width="24" height="40" fill="var(--surface-2)" stroke="var(--accent-2)" stroke-width="1.6"/>
+          <rect x="80" y="65" width="24" height="65" fill="var(--surface-2)" stroke="var(--accent-2)" stroke-width="1.6"/>
+          <rect x="120" y="80" width="24" height="50" fill="var(--surface-2)" stroke="var(--accent-2)" stroke-width="1.6"/>
+          <rect x="160" y="45" width="24" height="85" fill="var(--surface-2)" stroke="var(--accent-2)" stroke-width="1.6"/>
+          <rect x="200" y="58" width="24" height="72" fill="var(--surface-2)" stroke="var(--accent-2)" stroke-width="1.6"/>
+          <polyline points="52,95 92,72 132,85 172,50 212,62" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="172" cy="50" r="3.2" fill="var(--accent)"/>
+          <text x="245" y="30" font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--text-dim)">volume</text>
+        </svg>
+      </div>
+    </div>
     <div class="chips">
       <span class="chip">Excel avançado</span>
       <span class="chip">Power Query</span>
@@ -882,13 +974,26 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
   <h2 class="section-title">Contato</h2>
   <p class="section-sub">Fale comigo por qualquer um destes canais.</p>
   <div class="contact-grid">
-    <div class="contact-item"><div class="k">e-mail</div><div class="v"><a href="mailto:guilherme.hellys1@gmail.com">guilherme.hellys1@gmail.com</a></div></div>
-    <div class="contact-item"><div class="k">whatsapp</div><div class="v"><a href="https://wa.me/5511994032102" target="_blank" rel="noopener">(11) 99403-2102</a></div></div>
-    <div class="contact-item"><div class="k">github</div><div class="v"><a href="https://github.com/Hellys-CPU" target="_blank" rel="noopener">github.com/Hellys-CPU</a></div></div>
+    <div class="contact-item">
+      <div class="titlewrap"><div class="icon-circle"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3z"/><path d="M3 6l9 7 9-7"/></svg></div><div class="k">e-mail</div></div>
+      <div class="v"><a href="mailto:guilherme.hellys1@gmail.com">guilherme.hellys1@gmail.com</a></div>
+    </div>
+    <div class="contact-item">
+      <div class="titlewrap"><div class="icon-circle"><svg viewBox="0 0 24 24"><path d="M4 20l1.4-4.2A8 8 0 1112 20a8 8 0 01-4-1.1L4 20z"/><path d="M9 10c0 2.5 2.5 5 5 5"/></svg></div><div class="k">whatsapp</div></div>
+      <div class="v"><a href="https://wa.me/5511994032102" target="_blank" rel="noopener">(11) 99403-2102</a></div>
+    </div>
+    <div class="contact-item">
+      <div class="titlewrap"><div class="icon-circle"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.5 9.5 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0012 2z"/></svg></div><div class="k">github</div></div>
+      <div class="v"><a href="https://github.com/Hellys-CPU" target="_blank" rel="noopener">github.com/Hellys-CPU</a></div>
+    </div>
   </div>
 </section>
 
 <footer>hellys · desenvolvimento de sistemas · são paulo</footer>
+
+<a href="#inicio" id="back-to-top" aria-label="Voltar ao topo">
+  <svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</a>
 
 <script>
 (function(){
@@ -918,6 +1023,11 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
     if (currentId){
       var link = links.filter(function(a){ return a.getAttribute('href') === '#' + currentId; })[0];
       if (link) link.classList.add('active');
+    }
+    var backBtn = document.getElementById('back-to-top');
+    if (backBtn){
+      if (window.scrollY > window.innerHeight * 0.8) backBtn.classList.add('visible');
+      else backBtn.classList.remove('visible');
     }
   }
   function onScroll(){
