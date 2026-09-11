@@ -346,6 +346,12 @@
 
   /* HERO — status "ao vivo", botões e moldura de código com vida */
   .hero .tag{display:inline-flex;align-items:center;gap:8px;}
+  .typing-intro{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--text-dim);
+    margin-bottom:14px;letter-spacing:.02em;min-height:18px;
+  }
+  .typing-intro .prompt{color:var(--accent-2);margin-right:4px;}
+  #typing-target{color:var(--text);font-weight:500;}
   .hero .tag::before{
     content:"";width:7px;height:7px;border-radius:50%;background:var(--accent-2);
     animation:pulse 2.2s infinite;
@@ -470,6 +476,7 @@
 <section id="inicio" class="hero wrap" style="border-bottom:none;padding-bottom:0;">
   <div class="hero-grid">
     <div>
+      <div class="typing-intro mono"><span class="prompt">&gt;</span> <span id="typing-target">HELLYS.</span><span class="cursor-blink">▍</span></div>
       <span class="tag mono">status: em produção</span>
       <h1>Eu vejo o problema na operação <em>e entrego o sistema que resolve.</em></h1>
       <p class="lede">Analista de Processos Operacionais, com formação técnica em Marketing e cursando Ciência da Computação. Trabalho de frente com a operação — e não fico só no diagnóstico: eu mesmo desenho, desenvolvo e coloco o sistema em produção, inclusive para cliente externo.</p>
@@ -1338,6 +1345,48 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
 
   ctx.fillStyle = '#05070c';
   ctx.fillRect(0,0,W,H);
+})();
+</script>
+
+<script>
+(function(){
+  var el = document.getElementById('typing-target');
+  if (!el) return;
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) return; // keep static "HELLYS." already in the markup
+
+  var WRONG = 'LELLYS.';
+  var RIGHT = 'HELLYS.';
+  var i = 0;
+
+  function typeWrong(){
+    if (i <= WRONG.length){
+      el.textContent = WRONG.slice(0, i);
+      i++;
+      setTimeout(typeWrong, 95);
+    } else {
+      setTimeout(erase, 550);
+    }
+  }
+  function erase(){
+    if (i > 0){
+      i--;
+      el.textContent = WRONG.slice(0, i);
+      setTimeout(erase, 55);
+    } else {
+      setTimeout(typeRight, 200);
+    }
+  }
+  function typeRight(){
+    if (i <= RIGHT.length){
+      el.textContent = RIGHT.slice(0, i);
+      i++;
+      setTimeout(typeRight, 95);
+    }
+  }
+
+  el.textContent = '';
+  setTimeout(typeWrong, 400);
 })();
 </script>
 
