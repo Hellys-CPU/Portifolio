@@ -346,12 +346,22 @@
 
   /* HERO — status "ao vivo", botões e moldura de código com vida */
   .hero .tag{display:inline-flex;align-items:center;gap:8px;}
-  .typing-intro{
-    font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--text-dim);
-    margin-bottom:14px;letter-spacing:.02em;min-height:18px;
+
+  /* SPLASH DE ENTRADA — some sozinho via CSS mesmo se o JS falhar */
+  #intro-overlay{
+    position:fixed;inset:0;z-index:9999;background:var(--bg);
+    display:flex;align-items:center;justify-content:center;
+    opacity:1;transition:opacity .5s ease;
+    animation:intro-failsafe 0s linear 4.3s forwards;
   }
-  .typing-intro .prompt{color:var(--accent-2);margin-right:4px;}
-  #typing-target{color:var(--text);font-weight:500;}
+  #intro-overlay.hide{opacity:0;pointer-events:none;}
+  @keyframes intro-failsafe{ to { opacity:0; visibility:hidden; pointer-events:none; } }
+  .intro-typing{font-family:'IBM Plex Mono',monospace;font-size:clamp(20px,4vw,32px);color:var(--text);}
+  .intro-typing .prompt{color:var(--accent-2);margin-right:10px;}
+  #intro-typing-target{font-weight:600;}
+  @media (prefers-reduced-motion:reduce){
+    #intro-overlay{display:none;}
+  }
   .hero .tag::before{
     content:"";width:7px;height:7px;border-radius:50%;background:var(--accent-2);
     animation:pulse 2.2s infinite;
@@ -459,6 +469,11 @@
 </head>
 <body>
 
+<div id="intro-overlay">
+  <div class="intro-typing mono"><span class="prompt">&gt;</span> <span id="intro-typing-target"></span><span class="cursor-blink">▍</span></div>
+</div>
+
+
 <header class="nav">
   <div class="nav-inner">
     <a class="brand" href="#inicio"><img src="data:image/png;base64,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" alt="Hellys"></a>
@@ -476,7 +491,6 @@
 <section id="inicio" class="hero wrap" style="border-bottom:none;padding-bottom:0;">
   <div class="hero-grid">
     <div>
-      <div class="typing-intro mono"><span class="prompt">&gt;</span> <span id="typing-target">HELLYS.</span><span class="cursor-blink">▍</span></div>
       <span class="tag mono">status: em produção</span>
       <h1>Eu vejo o problema na operação <em>e entrego o sistema que resolve.</em></h1>
       <p class="lede">Analista de Processos Operacionais, com formação técnica em Marketing e cursando Ciência da Computação. Trabalho de frente com a operação — e não fico só no diagnóstico: eu mesmo desenho, desenvolvo e coloco o sistema em produção, inclusive para cliente externo.</p>
@@ -1350,10 +1364,11 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
 
 <script>
 (function(){
-  var el = document.getElementById('typing-target');
-  if (!el) return;
+  var el = document.getElementById('intro-typing-target');
+  var overlay = document.getElementById('intro-overlay');
+  if (!el || !overlay) return;
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduceMotion) return; // keep static "HELLYS." already in the markup
+  if (reduceMotion) return; // overlay is display:none via CSS already
 
   var WRONG = 'LELLYS.';
   var RIGHT = 'HELLYS.';
@@ -1382,11 +1397,13 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
       el.textContent = RIGHT.slice(0, i);
       i++;
       setTimeout(typeRight, 95);
+    } else {
+      setTimeout(function(){ overlay.classList.add('hide'); }, 500);
     }
   }
 
   el.textContent = '';
-  setTimeout(typeWrong, 400);
+  setTimeout(typeWrong, 300);
 })();
 </script>
 
