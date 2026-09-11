@@ -350,13 +350,14 @@
   /* SPLASH DE ENTRADA — some sozinho via CSS mesmo se o JS falhar */
   #intro-overlay{
     position:fixed;inset:0;z-index:9999;background:var(--bg);
+    height:100vh;height:100dvh;
     display:flex;align-items:center;justify-content:center;
     opacity:1;transition:opacity .5s ease;
     animation:intro-failsafe 0s linear 4.3s forwards;
   }
   #intro-overlay.hide{opacity:0;pointer-events:none;}
   @keyframes intro-failsafe{ to { opacity:0; visibility:hidden; pointer-events:none; } }
-  .intro-typing{font-family:'IBM Plex Mono',monospace;font-size:clamp(20px,4vw,32px);color:var(--text);}
+  .intro-typing{font-family:'IBM Plex Mono',monospace;font-size:clamp(36px,13vw,72px);color:var(--text);letter-spacing:.02em;}
   .intro-typing .prompt{color:var(--accent-2);margin-right:10px;}
   #intro-typing-target{font-weight:600;}
   @media (prefers-reduced-motion:reduce){
