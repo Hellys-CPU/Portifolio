@@ -1375,9 +1375,16 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
   var RIGHT = 'HELLYS.';
   var i = 0;
 
+  function render(str){
+    if (str.slice(-1) === '.') {
+      return str.slice(0, -1) + '<span style="color:var(--accent)">.</span>';
+    }
+    return str;
+  }
+
   function typeWrong(){
     if (i <= WRONG.length){
-      el.textContent = WRONG.slice(0, i);
+      el.innerHTML = render(WRONG.slice(0, i));
       i++;
       setTimeout(typeWrong, 95);
     } else {
@@ -1387,7 +1394,7 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
   function erase(){
     if (i > 0){
       i--;
-      el.textContent = WRONG.slice(0, i);
+      el.innerHTML = render(WRONG.slice(0, i));
       setTimeout(erase, 55);
     } else {
       setTimeout(typeRight, 200);
@@ -1395,7 +1402,7 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
   }
   function typeRight(){
     if (i <= RIGHT.length){
-      el.textContent = RIGHT.slice(0, i);
+      el.innerHTML = render(RIGHT.slice(0, i));
       i++;
       setTimeout(typeRight, 95);
     } else {
