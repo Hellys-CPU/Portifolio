@@ -1060,6 +1060,15 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
         <div class="game-overlay" id="snake-overlay">
           <h4>Rota de Entregas</h4>
           <p>Setas ou WASD para mover<br>pegue os pacotes, não bata na parede nem em você mesmo</p>
+                    <div class="game-leaderboard">
+            <div class="lb-head">// ranking global</div>
+            <ol id="snake-lb-list"><li class="lb-empty">carregando…</li></ol>
+          </div>
+          <div class="game-submit-row" id="snake-submit-row" style="display:none;">
+            <input id="snake-name" maxlength="16" placeholder="seu nome (até 16 letras)">
+            <button id="snake-submit">Salvar</button>
+          </div>
+          <div class="game-saved-note" id="snake-saved-note" style="display:none;">salvo no ranking ✓</div>
           <button id="snake-start">Jogar</button>
         </div>
       </div>
@@ -1084,6 +1093,15 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
         <div class="game-overlay" id="dodge-overlay">
           <h4>Desvie dos Buracos</h4>
           <p>Setas ou A/D para trocar de pista<br>não bata nos buracos</p>
+                    <div class="game-leaderboard">
+            <div class="lb-head">// ranking global</div>
+            <ol id="dodge-lb-list"><li class="lb-empty">carregando…</li></ol>
+          </div>
+          <div class="game-submit-row" id="dodge-submit-row" style="display:none;">
+            <input id="dodge-name" maxlength="16" placeholder="seu nome (até 16 letras)">
+            <button id="dodge-submit">Salvar</button>
+          </div>
+          <div class="game-saved-note" id="dodge-saved-note" style="display:none;">salvo no ranking ✓</div>
           <button id="dodge-start">Jogar</button>
         </div>
       </div>
@@ -1112,6 +1130,15 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
         <div class="game-overlay" id="type-overlay">
           <h4>Teste de Digitação</h4>
           <p>Um trecho de código vai aparecer.<br>Comece a digitar pra iniciar o cronômetro.</p>
+                    <div class="game-leaderboard">
+            <div class="lb-head">// ranking global</div>
+            <ol id="type-lb-list"><li class="lb-empty">carregando…</li></ol>
+          </div>
+          <div class="game-submit-row" id="type-submit-row" style="display:none;">
+            <input id="type-name" maxlength="16" placeholder="seu nome (até 16 letras)">
+            <button id="type-submit">Salvar</button>
+          </div>
+          <div class="game-saved-note" id="type-saved-note" style="display:none;">salvo no ranking ✓</div>
           <button id="type-start">Jogar</button>
         </div>
       </div>
@@ -1136,6 +1163,15 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
         <div class="game-overlay" id="puzzle-overlay">
           <h4>Quebra-Cabeça</h4>
           <p>Clique numa peça vizinha ao espaço vazio pra movê-la.<br>Reorganize até reformar o ícone.</p>
+                    <div class="game-leaderboard">
+            <div class="lb-head">// ranking global</div>
+            <ol id="puzzle-lb-list"><li class="lb-empty">carregando…</li></ol>
+          </div>
+          <div class="game-submit-row" id="puzzle-submit-row" style="display:none;">
+            <input id="puzzle-name" maxlength="16" placeholder="seu nome (até 16 letras)">
+            <button id="puzzle-submit">Salvar</button>
+          </div>
+          <div class="game-saved-note" id="puzzle-saved-note" style="display:none;">salvo no ranking ✓</div>
           <button id="puzzle-start">Jogar</button>
         </div>
       </div>
@@ -1160,6 +1196,15 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
         <div class="game-overlay" id="pong-overlay">
           <h4>Pong</h4>
           <p>Mova o mouse ou use W/S pra controlar sua raquete<br>primeiro a 7 pontos vence</p>
+                    <div class="game-leaderboard">
+            <div class="lb-head">// ranking global</div>
+            <ol id="pong-lb-list"><li class="lb-empty">carregando…</li></ol>
+          </div>
+          <div class="game-submit-row" id="pong-submit-row" style="display:none;">
+            <input id="pong-name" maxlength="16" placeholder="seu nome (até 16 letras)">
+            <button id="pong-submit">Salvar</button>
+          </div>
+          <div class="game-saved-note" id="pong-saved-note" style="display:none;">salvo no ranking ✓</div>
           <button id="pong-start">Jogar</button>
         </div>
       </div>
@@ -1187,6 +1232,15 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
         <div class="game-overlay" id="termo-overlay">
           <h4>Termo</h4>
           <p>Adivinhe o termo de programação em 6 tentativas.<br>Verde = letra certa no lugar certo. Amarelo = existe, lugar errado.</p>
+                    <div class="game-leaderboard">
+            <div class="lb-head">// ranking global</div>
+            <ol id="termo-lb-list"><li class="lb-empty">carregando…</li></ol>
+          </div>
+          <div class="game-submit-row" id="termo-submit-row" style="display:none;">
+            <input id="termo-name" maxlength="16" placeholder="seu nome (até 16 letras)">
+            <button id="termo-submit">Salvar</button>
+          </div>
+          <div class="game-saved-note" id="termo-saved-note" style="display:none;">salvo no ranking ✓</div>
           <button id="termo-start">Jogar</button>
         </div>
       </div>
@@ -1211,6 +1265,15 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
         <div class="game-overlay" id="bug-overlay">
           <h4>Debug o Bug</h4>
           <p>30 segundos. Clique nos bugs assim que aparecerem<br>antes que eles voltem pro código escondido.</p>
+                    <div class="game-leaderboard">
+            <div class="lb-head">// ranking global</div>
+            <ol id="bug-lb-list"><li class="lb-empty">carregando…</li></ol>
+          </div>
+          <div class="game-submit-row" id="bug-submit-row" style="display:none;">
+            <input id="bug-name" maxlength="16" placeholder="seu nome (até 16 letras)">
+            <button id="bug-submit">Salvar</button>
+          </div>
+          <div class="game-saved-note" id="bug-saved-note" style="display:none;">salvo no ranking ✓</div>
           <button id="bug-start">Jogar</button>
         </div>
       </div>
@@ -1235,6 +1298,15 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
         <div class="game-overlay" id="mine-overlay">
           <h4>Campo Minado</h4>
           <p>Clique esquerdo pra abrir, clique direito pra marcar bandeira.<br>Abra todas as células sem mina pra vencer.</p>
+                    <div class="game-leaderboard">
+            <div class="lb-head">// ranking global</div>
+            <ol id="mine-lb-list"><li class="lb-empty">carregando…</li></ol>
+          </div>
+          <div class="game-submit-row" id="mine-submit-row" style="display:none;">
+            <input id="mine-name" maxlength="16" placeholder="seu nome (até 16 letras)">
+            <button id="mine-submit">Salvar</button>
+          </div>
+          <div class="game-saved-note" id="mine-saved-note" style="display:none;">salvo no ranking ✓</div>
           <button id="mine-start">Jogar</button>
         </div>
       </div>
@@ -1259,6 +1331,15 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
         <div class="game-overlay" id="c4-overlay">
           <h4>Lig 4</h4>
           <p>Clique numa coluna pra soltar sua peça.<br>Primeiro a formar 4 em linha vence.</p>
+                    <div class="game-leaderboard">
+            <div class="lb-head">// ranking global</div>
+            <ol id="c4-lb-list"><li class="lb-empty">carregando…</li></ol>
+          </div>
+          <div class="game-submit-row" id="c4-submit-row" style="display:none;">
+            <input id="c4-name" maxlength="16" placeholder="seu nome (até 16 letras)">
+            <button id="c4-submit">Salvar</button>
+          </div>
+          <div class="game-saved-note" id="c4-saved-note" style="display:none;">salvo no ranking ✓</div>
           <button id="c4-start">Jogar</button>
         </div>
       </div>
@@ -1285,6 +1366,15 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
         <div class="game-overlay" id="reflex-overlay">
           <h4>Teste de Reflexo</h4>
           <p>Espere a tela ficar verde e clique o mais rápido possível.<br>Clicar cedo demais é falha.</p>
+                    <div class="game-leaderboard">
+            <div class="lb-head">// ranking global</div>
+            <ol id="reflex-lb-list"><li class="lb-empty">carregando…</li></ol>
+          </div>
+          <div class="game-submit-row" id="reflex-submit-row" style="display:none;">
+            <input id="reflex-name" maxlength="16" placeholder="seu nome (até 16 letras)">
+            <button id="reflex-submit">Salvar</button>
+          </div>
+          <div class="game-saved-note" id="reflex-saved-note" style="display:none;">salvo no ranking ✓</div>
           <button id="reflex-start">Jogar</button>
         </div>
       </div>
@@ -1436,6 +1526,102 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
 </script>
 
 <script>
+window.PortfolioLB = (function(){
+  var SUPABASE_URL = 'https://kmfbkxxfuagdocuknaxh.supabase.co';
+  var SUPABASE_KEY = 'sb_publishable_mo8etwyChA-0B5A2eqkcgw_CK9-chju';
+
+  function escapeHTML(s){
+    return String(s).replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  function fmt(score, unit){
+    return unit ? (score + unit) : score;
+  }
+
+  function load(game, listEl, dir, unit){
+    dir = dir || 'desc';
+    listEl.innerHTML = '<li class="lb-empty">carregando\u2026</li>';
+    fetch(SUPABASE_URL + '/rest/v1/portfolio_game_scores?game=eq.' + encodeURIComponent(game) +
+      '&select=player_name,score&order=score.' + dir + ',created_at.asc&limit=10', {
+      headers: { apikey: SUPABASE_KEY, Authorization: 'Bearer ' + SUPABASE_KEY }
+    }).then(function(r){ return r.ok ? r.json() : []; }).then(function(rows){
+      if (!rows || !rows.length){
+        listEl.innerHTML = '<li class="lb-empty">ningu\u00e9m jogou ainda \u2014 seja a primeira</li>';
+        return;
+      }
+      listEl.innerHTML = rows.map(function(row, i){
+        return '<li><span>' + (i+1) + '. ' + escapeHTML(row.player_name) + '</span><b>' + fmt(row.score, unit) + '</b></li>';
+      }).join('');
+    }).catch(function(){
+      listEl.innerHTML = '<li class="lb-empty">ranking indispon\u00edvel agora</li>';
+    });
+  }
+
+  function submit(game, name, score, onDone){
+    fetch(SUPABASE_URL + '/rest/v1/portfolio_game_scores', {
+      method: 'POST',
+      headers: {
+        apikey: SUPABASE_KEY,
+        Authorization: 'Bearer ' + SUPABASE_KEY,
+        'Content-Type': 'application/json',
+        Prefer: 'return=minimal'
+      },
+      body: JSON.stringify({ game: game, player_name: name, score: score })
+    }).then(function(){ onDone(true); }).catch(function(){ onDone(false); });
+  }
+
+  // wires up a full "leaderboard + save your score" block for one game.
+  // cfg: { game, dir ('desc'|'asc'), unit (optional suffix like 'ms' or 'm'),
+  //        listId, rowId, nameId, submitId, noteId }
+  function attach(cfg){
+    var listEl = document.getElementById(cfg.listId);
+    var rowEl = document.getElementById(cfg.rowId);
+    var nameEl = document.getElementById(cfg.nameId);
+    var btnEl = document.getElementById(cfg.submitId);
+    var noteEl = document.getElementById(cfg.noteId);
+    if (!listEl) return null;
+
+    load(cfg.game, listEl, cfg.dir, cfg.unit);
+
+    function offerSave(score){
+      rowEl.style.display = 'flex';
+      noteEl.style.display = 'none';
+      nameEl.value = '';
+      btnEl.disabled = false;
+      btnEl.textContent = 'Salvar';
+      btnEl.onclick = function(){
+        var name = (nameEl.value || '').trim().slice(0,16) || 'An\u00f4nimo';
+        btnEl.disabled = true;
+        btnEl.textContent = 'Salvando\u2026';
+        submit(cfg.game, name, score, function(ok){
+          if (ok){
+            rowEl.style.display = 'none';
+            noteEl.style.display = 'block';
+            load(cfg.game, listEl, cfg.dir, cfg.unit);
+          } else {
+            btnEl.disabled = false;
+            btnEl.textContent = 'Salvar';
+          }
+        });
+      };
+      nameEl.onkeydown = function(e){ if (e.key === 'Enter') btnEl.onclick(); };
+    }
+
+    function hideSave(){
+      rowEl.style.display = 'none';
+      noteEl.style.display = 'none';
+    }
+
+    return { offerSave: offerSave, hideSave: hideSave, reload: function(){ load(cfg.game, listEl, cfg.dir, cfg.unit); } };
+  }
+
+  return { load: load, submit: submit, attach: attach };
+})();
+</script>
+
+<script>
 (function(){
   var canvas = document.getElementById('game-canvas');
   if (!canvas) return;
@@ -1451,61 +1637,16 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
   var submitBtn = document.getElementById('game-submit');
   var savedNote = document.getElementById('game-saved-note');
 
-  var SUPABASE_URL = 'https://kmfbkxxfuagdocuknaxh.supabase.co';
-  var SUPABASE_KEY = 'sb_publishable_mo8etwyChA-0B5A2eqkcgw_CK9-chju';
-
-  function escapeHTML(s){
-    return String(s).replace(/[&<>"']/g, function(c){
-      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
-    });
-  }
-
-  function loadLeaderboard(){
-    fetch(SUPABASE_URL + '/rest/v1/portfolio_game_scores?select=player_name,score&order=score.desc,created_at.asc&limit=10', {
-      headers: { apikey: SUPABASE_KEY, Authorization: 'Bearer ' + SUPABASE_KEY }
-    }).then(function(r){ return r.ok ? r.json() : []; }).then(function(rows){
-      if (!rows || !rows.length){
-        lbList.innerHTML = '<li class="lb-empty">ninguém jogou ainda — seja a primeira</li>';
-        return;
-      }
-      lbList.innerHTML = rows.map(function(row, i){
-        return '<li><span>' + (i+1) + '. ' + escapeHTML(row.player_name) + '</span><b>' + row.score + '</b></li>';
-      }).join('');
-    }).catch(function(){
-      lbList.innerHTML = '<li class="lb-empty">ranking indisponível agora</li>';
-    });
-  }
-
-  function submitScore(){
-    var name = (nameInput.value || '').trim().slice(0, 16) || 'Anônimo';
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Salvando…';
-    fetch(SUPABASE_URL + '/rest/v1/portfolio_game_scores', {
-      method: 'POST',
-      headers: {
-        apikey: SUPABASE_KEY,
-        Authorization: 'Bearer ' + SUPABASE_KEY,
-        'Content-Type': 'application/json',
-        Prefer: 'return=minimal'
-      },
-      body: JSON.stringify({ player_name: name, score: score })
-    }).then(function(){
-      submitRow.style.display = 'none';
-      savedNote.style.display = 'block';
-      loadLeaderboard();
-    }).catch(function(){
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Salvar';
-    });
-  }
-  submitBtn.addEventListener('click', submitScore);
-  nameInput.addEventListener('keydown', function(e){ if (e.key === 'Enter') submitScore(); });
+  var lb = window.PortfolioLB.attach({
+    game: 'fuga-cinturao', dir: 'desc',
+    listId: 'game-lb-list', rowId: 'game-submit-row',
+    nameId: 'game-name', submitId: 'game-submit', noteId: 'game-saved-note'
+  });
 
   var BEST_KEY = 'fuga-cinturao-best';
   var best = 0;
   try { best = parseInt(localStorage.getItem(BEST_KEY) || '0', 10) || 0; } catch(e) {}
   bestEl.textContent = 'recorde: ' + best;
-  loadLeaderboard();
 
   var accent = '#ff8a3d';
   var accent2 = '#3fc9a8';
@@ -1577,9 +1718,7 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
     overlay.querySelector('p').innerHTML = 'Bateu em um asteroide.<br>Recorde atual: ' + best;
     startBtn.textContent = 'Jogar de novo';
     if (score > 0){
-      submitRow.style.display = 'flex';
-      nameInput.value = '';
-      nameInput.focus();
+      lb.offerSave(score);
     }
   }
 
@@ -1800,6 +1939,12 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
   var scoreEl = document.getElementById('snake-score');
   var bestEl = document.getElementById('snake-best');
 
+  var lb = window.PortfolioLB.attach({
+    game: 'rota-entregas', dir: 'desc',
+    listId: 'snake-lb-list', rowId: 'snake-submit-row',
+    nameId: 'snake-name', submitId: 'snake-submit', noteId: 'snake-saved-note'
+  });
+
   var BEST_KEY = 'rota-entregas-best';
   var best = 0;
   try { best = parseInt(localStorage.getItem(BEST_KEY) || '0', 10) || 0; } catch(e) {}
@@ -1816,6 +1961,7 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
     stepMs = 140;
     lastStep = 0;
     scoreEl.textContent = '0';
+    lb.hideSave();
     placeFood();
   }
 
@@ -1842,6 +1988,7 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
     overlay.querySelector('h4').textContent = 'Fim de rota — ' + score + ' entregas';
     overlay.querySelector('p').innerHTML = 'Bateu na parede ou em você mesmo.<br>Recorde: ' + best;
     startBtn.textContent = 'Jogar de novo';
+    if (score > 0) lb.offerSave(score);
   }
 
   function loop(ts){
@@ -1923,6 +2070,12 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
   var scoreEl = document.getElementById('dodge-score');
   var bestEl = document.getElementById('dodge-best');
 
+  var lb = window.PortfolioLB.attach({
+    game: 'desvie-buracos', dir: 'desc', unit: 'm',
+    listId: 'dodge-lb-list', rowId: 'dodge-submit-row',
+    nameId: 'dodge-name', submitId: 'dodge-submit', noteId: 'dodge-saved-note'
+  });
+
   var BEST_KEY = 'desvie-buracos-best';
   var best = 0;
   try { best = parseInt(localStorage.getItem(BEST_KEY) || '0', 10) || 0; } catch(e) {}
@@ -1939,6 +2092,7 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
     lastSpawn = 0;
     keys = {};
     scoreEl.textContent = '0';
+    lb.hideSave();
   }
 
   function spawnHole(){
@@ -1959,6 +2113,7 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
     overlay.querySelector('h4').textContent = 'Bateu! ' + d + 'm percorridos';
     overlay.querySelector('p').innerHTML = 'Recorde atual: ' + best + 'm';
     startBtn.textContent = 'Jogar de novo';
+    if (d > 0) lb.offerSave(d);
   }
 
   function loop(ts){
@@ -2046,6 +2201,12 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
   var startBtn = document.getElementById('type-start');
   var timerEl = document.getElementById('type-timer');
   var bestEl = document.getElementById('type-best');
+
+  var lb = window.PortfolioLB.attach({
+    game: 'teste-digitacao', dir: 'desc', unit: ' ppm',
+    listId: 'type-lb-list', rowId: 'type-submit-row',
+    nameId: 'type-name', submitId: 'type-submit', noteId: 'type-saved-note'
+  });
   var resultEl = document.getElementById('type-result');
 
   var BEST_KEY = 'teste-digitacao-best-wpm';
@@ -2106,6 +2267,7 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
     overlay.classList.remove('hidden');
     overlay.querySelector('h4').textContent = 'Resultado: ' + wpm + ' ppm';
     overlay.querySelector('p').textContent = 'Tempo: ' + elapsed.toFixed(1) + 's — recorde: ' + best + ' ppm';
+    lb.offerSave(wpm);
   }
 
   input.addEventListener('input', function(){
@@ -2131,6 +2293,7 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
     input.disabled = false;
     renderTarget('');
     overlay.classList.add('hidden');
+    lb.hideSave();
     input.focus();
   }
 
@@ -2148,6 +2311,12 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
   var startBtn = document.getElementById('puzzle-start');
   var movesEl = document.getElementById('puzzle-moves');
   var bestEl = document.getElementById('puzzle-best');
+
+  var lb = window.PortfolioLB.attach({
+    game: 'quebra-cabeca', dir: 'asc',
+    listId: 'puzzle-lb-list', rowId: 'puzzle-submit-row',
+    nameId: 'puzzle-name', submitId: 'puzzle-submit', noteId: 'puzzle-saved-note'
+  });
 
   board.style.setProperty('--puzzle-img', 'url(data:image/png;base64,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)');
 
@@ -2211,6 +2380,7 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
     overlay.querySelector('h4').textContent = 'Resolvido em ' + moves + ' movimentos!';
     overlay.querySelector('p').textContent = 'Recorde: ' + best + ' movimentos';
     startBtn.textContent = 'Jogar de novo';
+    lb.offerSave(moves);
   }
 
   function shuffle(){
@@ -2234,10 +2404,8 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
     shuffle();
     render();
     overlay.classList.add('hidden');
+    lb.hideSave();
   }
-
-  startBtn.addEventListener('click', startGame);
-  tiles = [0,1,2,3,4,5,6,7,8];
   render();
 })();
 </script>
@@ -2252,6 +2420,12 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
   var startBtn = document.getElementById('pong-start');
   var scoreP = document.getElementById('pong-score-p');
   var scoreC = document.getElementById('pong-score-c');
+
+  var lb = window.PortfolioLB.attach({
+    game: 'pong', dir: 'desc',
+    listId: 'pong-lb-list', rowId: 'pong-submit-row',
+    nameId: 'pong-name', submitId: 'pong-submit', noteId: 'pong-saved-note'
+  });
 
   var accent = '#ff8a3d', accent2 = '#3fc9a8', line = '#2a3341';
   var PW = 10, PH = 70;
@@ -2268,6 +2442,7 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
     keys = {};
     scoreP.textContent = '0';
     scoreC.textContent = '0';
+    lb.hideSave();
     resetBall(Math.random() < 0.5 ? 1 : -1);
   }
 
@@ -2278,6 +2453,7 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
     overlay.querySelector('h4').textContent = winner === 'p' ? 'Você venceu!' : 'CPU venceu';
     overlay.querySelector('p').textContent = 'Placar final: ' + sp + ' x ' + sc;
     startBtn.textContent = 'Jogar de novo';
+    if (sp > 0) lb.offerSave(sp);
   }
 
   function loop(){
@@ -2380,6 +2556,12 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
   var startBtn = document.getElementById('termo-start');
   var triesEl = document.getElementById('termo-tries');
   var bestEl = document.getElementById('termo-best');
+
+  var lb = window.PortfolioLB.attach({
+    game: 'termo', dir: 'asc', unit: '/6',
+    listId: 'termo-lb-list', rowId: 'termo-submit-row',
+    nameId: 'termo-name', submitId: 'termo-submit', noteId: 'termo-saved-note'
+  });
 
   var BEST_KEY = 'termo-vitorias';
   var wins = 0;
@@ -2488,6 +2670,7 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
       try { localStorage.setItem(BEST_KEY, String(wins)); } catch(e) {}
       bestEl.textContent = 'vitórias: ' + wins;
       showEnd('Você acertou! \ud83c\udf89', 'A palavra era ' + word + '.');
+      lb.offerSave(row);
     } else if (row >= 6){
       done = true;
       showEnd('Não foi dessa vez', 'A palavra era ' + word + '.');
@@ -2510,6 +2693,7 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
     buildGrid();
     buildKeyboard();
     overlay.classList.add('hidden');
+    lb.hideSave();
   }
 
   window.addEventListener('keydown', function(e){
@@ -2534,6 +2718,12 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
   var startBtn = document.getElementById('bug-start');
   var scoreEl = document.getElementById('bug-score');
   var bestEl = document.getElementById('bug-best');
+
+  var lb = window.PortfolioLB.attach({
+    game: 'debug-bug', dir: 'desc',
+    listId: 'bug-lb-list', rowId: 'bug-submit-row',
+    nameId: 'bug-name', submitId: 'bug-submit', noteId: 'bug-saved-note'
+  });
 
   var BEST_KEY = 'debug-bug-best';
   var best = 0;
@@ -2598,6 +2788,7 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
     overlay.querySelector('h4').textContent = 'Tempo esgotado — ' + score + ' bugs corrigidos';
     overlay.querySelector('p').textContent = 'Recorde: ' + best;
     startBtn.textContent = 'Jogar de novo';
+    if (score > 0) lb.offerSave(score);
   }
 
   function startGame(){
@@ -2606,6 +2797,7 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
     buildHoles();
     running = true;
     overlay.classList.add('hidden');
+    lb.hideSave();
     scheduleNext();
     countdownTimer = setInterval(function(){
       timeLeft--;
@@ -2626,6 +2818,12 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
   var startBtn = document.getElementById('mine-start');
   var countEl = document.getElementById('mine-count');
   var bestEl = document.getElementById('mine-best');
+
+  var lb = window.PortfolioLB.attach({
+    game: 'campo-minado', dir: 'asc', unit: 'ms',
+    listId: 'mine-lb-list', rowId: 'mine-submit-row',
+    nameId: 'mine-name', submitId: 'mine-submit', noteId: 'mine-saved-note'
+  });
 
   var BEST_KEY = 'campo-minado-best-ms';
   var best = 0;
@@ -2752,6 +2950,7 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
       bestEl.textContent = 'recorde: ' + (best/1000).toFixed(1) + 's';
       overlay.querySelector('h4').textContent = 'Você venceu!';
       overlay.querySelector('p').textContent = 'Tempo: ' + (elapsed/1000).toFixed(1) + 's \u2014 recorde: ' + (best/1000).toFixed(1) + 's';
+      lb.offerSave(Math.round(elapsed));
     } else {
       overlay.querySelector('h4').textContent = 'Bum. Você pisou numa mina';
       overlay.querySelector('p').textContent = 'Tente de novo.';
@@ -2766,6 +2965,7 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
     countEl.textContent = String(MINES);
     build();
     overlay.classList.add('hidden');
+    lb.hideSave();
   }
 
   startBtn.addEventListener('click', startGame);
@@ -2781,6 +2981,12 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
   var startBtn = document.getElementById('c4-start');
   var scoreP = document.getElementById('c4-score-p');
   var scoreC = document.getElementById('c4-score-c');
+
+  var lb = window.PortfolioLB.attach({
+    game: 'lig4', dir: 'desc',
+    listId: 'c4-lb-list', rowId: 'c4-submit-row',
+    nameId: 'c4-name', submitId: 'c4-submit', noteId: 'c4-saved-note'
+  });
 
   var COLS = 7, ROWS = 6;
   var grid, cellEls, sp, sc, running, busy;
@@ -2905,6 +3111,7 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
     overlay.querySelector('h4').textContent = msg;
     overlay.querySelector('p').textContent = 'Placar: você ' + sp + ' x ' + sc + ' cpu';
     startBtn.textContent = 'Próxima rodada';
+    if (sp > 0) lb.offerSave(sp);
   }
 
   function startGame(){
@@ -2914,6 +3121,7 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
     if (sp === undefined) { sp = 0; sc = 0; scoreP.textContent='0'; scoreC.textContent='0'; }
     build();
     overlay.classList.add('hidden');
+    lb.hideSave();
   }
 
   startBtn.addEventListener('click', startGame);
@@ -2931,6 +3139,12 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
   var overlay = document.getElementById('reflex-overlay');
   var startBtn = document.getElementById('reflex-start');
   var bestEl = document.getElementById('reflex-best');
+
+  var lb = window.PortfolioLB.attach({
+    game: 'teste-reflexo', dir: 'asc', unit: 'ms',
+    listId: 'reflex-lb-list', rowId: 'reflex-submit-row',
+    nameId: 'reflex-name', submitId: 'reflex-submit', noteId: 'reflex-saved-note'
+  });
 
   var BEST_KEY = 'teste-reflexo-best-ms';
   var best = 0;
@@ -2980,6 +3194,7 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
       }
       bestEl.textContent = 'recorde: ' + best + 'ms';
       showEnd('Seu tempo: ' + reaction + 'ms', 'Recorde: ' + best + 'ms');
+      lb.offerSave(reaction);
     }
   }
 
@@ -2994,6 +3209,7 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
 
   startBtn.addEventListener('click', function(){
     overlay.classList.add('hidden');
+    lb.hideSave();
     toWaiting();
   });
 })();
