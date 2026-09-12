@@ -212,6 +212,88 @@
   .puzzle-tile:hover{filter:brightness(1.15);}
   .puzzle-tile.empty{background:var(--surface);cursor:default;}
   .puzzle-tile.empty:hover{filter:none;}
+
+  /* TERMO */
+  .termo-area{padding:20px;display:flex;flex-direction:column;align-items:center;gap:18px;}
+  .termo-grid{display:grid;grid-template-rows:repeat(6,1fr);gap:6px;}
+  .termo-row{display:grid;grid-template-columns:repeat(5,40px);gap:6px;}
+  .termo-cell{
+    width:40px;height:40px;border:2px solid var(--line);border-radius:4px;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;color:var(--text);
+    text-transform:uppercase;
+  }
+  .termo-cell.filled{border-color:var(--text-dim);}
+  .termo-cell.correct{background:var(--accent-2);border-color:var(--accent-2);color:#0b1a17;}
+  .termo-cell.present{background:var(--accent);border-color:var(--accent);color:#3a1f0a;}
+  .termo-cell.absent{background:var(--surface-2);border-color:var(--surface-2);color:var(--text-dim);}
+  .termo-keyboard{display:flex;flex-direction:column;gap:6px;}
+  .termo-krow{display:flex;gap:5px;justify-content:center;}
+  .termo-key{
+    min-width:26px;padding:8px 6px;background:var(--surface-2);border:none;border-radius:4px;
+    color:var(--text);font-family:'IBM Plex Mono',monospace;font-size:11px;cursor:pointer;text-transform:uppercase;
+  }
+  .termo-key:hover{background:var(--line);}
+  .termo-key.correct{background:var(--accent-2);color:#0b1a17;}
+  .termo-key.present{background:var(--accent);color:#3a1f0a;}
+  .termo-key.absent{background:#12161d;color:var(--text-dim);}
+  .termo-key.wide{min-width:50px;font-size:10px;}
+
+  /* DEBUG O BUG */
+  .bug-board{
+    display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(3,1fr);gap:10px;
+    padding:20px;height:280px;
+  }
+  .bug-hole{
+    background:var(--surface-2);border-radius:8px;position:relative;overflow:hidden;cursor:pointer;
+  }
+  .bug-hole::before{
+    content:"";position:absolute;inset:30%;border-radius:4px;background:var(--line);
+  }
+  .bug-hole.up::before{
+    background:var(--accent);
+    animation:bug-pop .18s ease-out;
+  }
+  @keyframes bug-pop{from{transform:scale(0.4);opacity:0;}to{transform:scale(1);opacity:1;}}
+
+  /* CAMPO MINADO */
+  .mine-board{
+    display:grid;grid-template-columns:repeat(8,1fr);gap:2px;
+    width:320px;margin:16px auto;background:var(--line);padding:2px;border-radius:6px;
+  }
+  .mine-cell{
+    aspect-ratio:1;background:var(--surface-2);display:flex;align-items:center;justify-content:center;
+    font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;cursor:pointer;user-select:none;
+  }
+  .mine-cell.open{background:#05070c;cursor:default;}
+  .mine-cell.flag{background:var(--surface-2);}
+  .mine-cell.mine{background:var(--accent);}
+  .mine-cell.n1{color:#6bb6ff;} .mine-cell.n2{color:var(--accent-2);} .mine-cell.n3{color:var(--accent);}
+  .mine-cell.n4,.mine-cell.n5,.mine-cell.n6,.mine-cell.n7,.mine-cell.n8{color:#c98bff;}
+
+  /* LIG 4 */
+  .c4-board{
+    display:grid;grid-template-columns:repeat(7,1fr);gap:5px;
+    width:350px;margin:16px auto;background:var(--surface-2);padding:8px;border-radius:8px;
+  }
+  .c4-cell{
+    aspect-ratio:1;border-radius:50%;background:#05070c;cursor:pointer;
+  }
+  .c4-cell.p{background:var(--accent2, var(--accent-2));}
+  .c4-cell.c{background:var(--accent);}
+  .c4-col:hover .c4-cell.empty-hint{background:var(--line);}
+
+  /* TESTE DE REFLEXO */
+  .reflex-area{
+    height:280px;display:flex;align-items:center;justify-content:center;text-align:center;
+    background:var(--surface-2);cursor:pointer;transition:background .1s;
+  }
+  .reflex-area.wait{background:#3a1f0a;}
+  .reflex-area.go{background:var(--accent-2);}
+  .reflex-msg{
+    font-family:'Space Grotesk',sans-serif;font-size:17px;color:var(--text);padding:0 20px;
+  }
+  .reflex-area.go .reflex-msg{color:#0b1a17;font-weight:700;}
   .game-hud{
     position:absolute;top:10px;left:12px;right:12px;display:flex;justify-content:space-between;
     font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-dim);pointer-events:none;
@@ -920,6 +1002,11 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
       <span class="chip">SQL</span>
     </div>
   </div>
+</section>
+
+<section id="entretenimento" class="wrap">
+  <h2 class="section-title">Entretenimento</h2>
+  <p class="section-sub">Zero propósito profissional. Só pra clicar e se divertir um pouco.</p>
 
   <div class="record game-record">
     <div class="game-wrap">
@@ -953,11 +1040,7 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
       </div>
     </div>
   </div>
-</section>
 
-<section id="entretenimento" class="wrap">
-  <h2 class="section-title">Entretenimento</h2>
-  <p class="section-sub">Zero propósito profissional. Só pra clicar e se divertir um pouco.</p>
 
   <div class="record game-record">
     <div class="game-wrap">
@@ -1078,6 +1161,131 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
           <h4>Pong</h4>
           <p>Mova o mouse ou use W/S pra controlar sua raquete<br>primeiro a 7 pontos vence</p>
           <button id="pong-start">Jogar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="record game-record">
+    <div class="game-wrap">
+      <div class="record-head">
+        <div class="titlewrap">
+          <div class="icon-circle"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="4" height="4"/><rect x="9" y="4" width="4" height="4"/><rect x="15" y="4" width="4" height="4"/><rect x="3" y="10" width="4" height="4"/><rect x="9" y="10" width="4" height="4" fill="none" stroke-width="1.5"/></svg></div>
+          <h3>Termo</h3>
+        </div>
+        <span class="record-code mono">easter egg · 6 tentativas</span>
+      </div>
+      <ul class="highlights">
+        <li>Wordle em português, só que com termos de programação</li>
+      </ul>
+      <div class="game-frame">
+        <div class="game-hud"><span>tentativas: <b id="termo-tries">0</b>/6</span><span id="termo-best">vitórias: 0</span></div>
+        <div class="termo-area">
+          <div class="termo-grid" id="termo-grid"></div>
+          <div class="termo-keyboard" id="termo-keyboard"></div>
+        </div>
+        <div class="game-overlay" id="termo-overlay">
+          <h4>Termo</h4>
+          <p>Adivinhe o termo de programação em 6 tentativas.<br>Verde = letra certa no lugar certo. Amarelo = existe, lugar errado.</p>
+          <button id="termo-start">Jogar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="record game-record">
+    <div class="game-wrap">
+      <div class="record-head">
+        <div class="titlewrap">
+          <div class="icon-circle"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M4 12H1M23 12h-3M5.6 5.6l2 2M16.4 16.4l2 2M5.6 18.4l2-2M16.4 7.6l2-2"/><circle cx="12" cy="12" r="4"/></svg></div>
+          <h3>Debug o Bug</h3>
+        </div>
+        <span class="record-code mono">easter egg · reflexo</span>
+      </div>
+      <ul class="highlights">
+        <li>Bugs aparecem em buracos aleatórios — clique antes que sumam</li>
+      </ul>
+      <div class="game-frame">
+        <div class="game-hud"><span>bugs corrigidos: <b id="bug-score">0</b></span><span id="bug-best">recorde: 0</span></div>
+        <div class="bug-board" id="bug-board"></div>
+        <div class="game-overlay" id="bug-overlay">
+          <h4>Debug o Bug</h4>
+          <p>30 segundos. Clique nos bugs assim que aparecerem<br>antes que eles voltem pro código escondido.</p>
+          <button id="bug-start">Jogar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="record game-record">
+    <div class="game-wrap">
+      <div class="record-head">
+        <div class="titlewrap">
+          <div class="icon-circle"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8" cy="8" r="1.3" fill="currentColor" stroke="none"/><circle cx="16" cy="8" r="1.3" fill="currentColor" stroke="none"/><circle cx="8" cy="16" r="1.3" fill="currentColor" stroke="none"/><path d="M13 13l4 4"/></svg></div>
+          <h3>Campo Minado</h3>
+        </div>
+        <span class="record-code mono">easter egg · 8x8, 10 minas</span>
+      </div>
+      <ul class="highlights">
+        <li>O clássico. Clique esquerdo abre, clique direito marca bandeira</li>
+      </ul>
+      <div class="game-frame">
+        <div class="game-hud"><span>minas: <b id="mine-count">10</b></span><span id="mine-best">recorde: —</span></div>
+        <div class="mine-board" id="mine-board"></div>
+        <div class="game-overlay" id="mine-overlay">
+          <h4>Campo Minado</h4>
+          <p>Clique esquerdo pra abrir, clique direito pra marcar bandeira.<br>Abra todas as células sem mina pra vencer.</p>
+          <button id="mine-start">Jogar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="record game-record">
+    <div class="game-wrap">
+      <div class="record-head">
+        <div class="titlewrap">
+          <div class="icon-circle"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.2"/><circle cx="12" cy="6" r="2.2"/><circle cx="6" cy="12" r="2.2" fill="currentColor" stroke="none"/><circle cx="18" cy="18" r="2.2" fill="currentColor" stroke="none"/><circle cx="12" cy="18" r="2.2"/></svg></div>
+          <h3>Lig 4</h3>
+        </div>
+        <span class="record-code mono">easter egg · você vs. cpu</span>
+      </div>
+      <ul class="highlights">
+        <li>Quatro em linha contra o computador</li>
+      </ul>
+      <div class="game-frame">
+        <div class="game-hud"><span>você: <b id="c4-score-p">0</b></span><span>cpu: <b id="c4-score-c">0</b></span></div>
+        <div class="c4-board" id="c4-board"></div>
+        <div class="game-overlay" id="c4-overlay">
+          <h4>Lig 4</h4>
+          <p>Clique numa coluna pra soltar sua peça.<br>Primeiro a formar 4 em linha vence.</p>
+          <button id="c4-start">Jogar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="record game-record">
+    <div class="game-wrap">
+      <div class="record-head">
+        <div class="titlewrap">
+          <div class="icon-circle"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+          <h3>Teste de Reflexo</h3>
+        </div>
+        <span class="record-code mono">easter egg · tempo de reação</span>
+      </div>
+      <ul class="highlights">
+        <li>Clique assim que a tela ficar verde — mede em milissegundos</li>
+      </ul>
+      <div class="game-frame">
+        <div class="game-hud"><span id="reflex-status">aguardando</span><span id="reflex-best">recorde: —</span></div>
+        <div class="reflex-area" id="reflex-area">
+          <div class="reflex-msg" id="reflex-msg">Clique em "Jogar" pra começar</div>
+        </div>
+        <div class="game-overlay" id="reflex-overlay">
+          <h4>Teste de Reflexo</h4>
+          <p>Espere a tela ficar verde e clique o mais rápido possível.<br>Clicar cedo demais é falha.</p>
+          <button id="reflex-start">Jogar</button>
         </div>
       </div>
     </div>
@@ -2160,6 +2368,634 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
   startBtn.addEventListener('click', startGame);
   ctx.fillStyle = '#05070c';
   ctx.fillRect(0,0,W,H);
+})();
+</script>
+
+<script>
+(function(){
+  var grid = document.getElementById('termo-grid');
+  if (!grid) return;
+  var kbEl = document.getElementById('termo-keyboard');
+  var overlay = document.getElementById('termo-overlay');
+  var startBtn = document.getElementById('termo-start');
+  var triesEl = document.getElementById('termo-tries');
+  var bestEl = document.getElementById('termo-best');
+
+  var BEST_KEY = 'termo-vitorias';
+  var wins = 0;
+  try { wins = parseInt(localStorage.getItem(BEST_KEY) || '0', 10) || 0; } catch(e) {}
+  bestEl.textContent = 'vitórias: ' + wins;
+
+  var WORDS = ['ARRAY','CLASS','CONST','DEBUG','ERROR','FETCH','INDEX','LOGIN','MERGE','PROXY','QUERY','STACK','TOKEN','VALUE','CACHE'];
+  var word = '', row = 0, col = 0, guesses = [], done = false;
+  var KROWS = ['QWERTYUIOP','ASDFGHJKL','ZXCVBNM'];
+
+  function buildGrid(){
+    grid.innerHTML = '';
+    for (var r=0;r<6;r++){
+      var rowDiv = document.createElement('div');
+      rowDiv.className = 'termo-row';
+      rowDiv.id = 'termo-row-' + r;
+      for (var c=0;c<5;c++){
+        var cell = document.createElement('div');
+        cell.className = 'termo-cell';
+        cell.id = 'termo-cell-' + r + '-' + c;
+        rowDiv.appendChild(cell);
+      }
+      grid.appendChild(rowDiv);
+    }
+  }
+
+  function buildKeyboard(){
+    kbEl.innerHTML = '';
+    KROWS.forEach(function(rowStr, i){
+      var krow = document.createElement('div');
+      krow.className = 'termo-krow';
+      if (i === 2){
+        var enter = document.createElement('button');
+        enter.className = 'termo-key wide'; enter.textContent = 'enviar'; enter.id = 'termo-key-enter';
+        krow.appendChild(enter);
+      }
+      rowStr.split('').forEach(function(letter){
+        var btn = document.createElement('button');
+        btn.className = 'termo-key';
+        btn.textContent = letter;
+        btn.id = 'termo-key-' + letter;
+        btn.addEventListener('click', function(){ typeLetter(letter); });
+        krow.appendChild(btn);
+      });
+      if (i === 2){
+        var back = document.createElement('button');
+        back.className = 'termo-key wide'; back.textContent = '\u2190'; back.id = 'termo-key-back';
+        back.addEventListener('click', backspace);
+        krow.appendChild(back);
+      }
+      kbEl.appendChild(krow);
+    });
+    document.getElementById('termo-key-enter').addEventListener('click', submitGuess);
+  }
+
+  function typeLetter(l){
+    if (done || col >= 5) return;
+    document.getElementById('termo-cell-'+row+'-'+col).textContent = l;
+    document.getElementById('termo-cell-'+row+'-'+col).classList.add('filled');
+    col++;
+  }
+  function backspace(){
+    if (done || col <= 0) return;
+    col--;
+    var c = document.getElementById('termo-cell-'+row+'-'+col);
+    c.textContent = '';
+    c.classList.remove('filled');
+  }
+
+  function submitGuess(){
+    if (done || col < 5) return;
+    var guess = '';
+    for (var c=0;c<5;c++) guess += document.getElementById('termo-cell-'+row+'-'+c).textContent;
+
+    var wordArr = word.split('');
+    var result = [null,null,null,null,null];
+    var used = [false,false,false,false,false];
+    for (var i=0;i<5;i++){
+      if (guess[i] === wordArr[i]){ result[i]='correct'; used[i]=true; }
+    }
+    for (var i=0;i<5;i++){
+      if (result[i]) continue;
+      var found = false;
+      for (var j=0;j<5;j++){
+        if (!used[j] && guess[i]===wordArr[j]){ used[j]=true; found=true; break; }
+      }
+      result[i] = found ? 'present' : 'absent';
+    }
+    for (var i=0;i<5;i++){
+      var cell = document.getElementById('termo-cell-'+row+'-'+i);
+      cell.classList.add(result[i]);
+      var key = document.getElementById('termo-key-'+guess[i]);
+      if (key && !key.classList.contains('correct')){
+        if (result[i]==='correct') { key.classList.remove('present','absent'); key.classList.add('correct'); }
+        else if (result[i]==='present' && !key.classList.contains('present')) key.classList.add('present');
+        else if (result[i]==='absent') key.classList.add('absent');
+      }
+    }
+
+    row++;
+    triesEl.textContent = String(row);
+
+    if (guess === word){
+      done = true;
+      wins++;
+      try { localStorage.setItem(BEST_KEY, String(wins)); } catch(e) {}
+      bestEl.textContent = 'vitórias: ' + wins;
+      showEnd('Você acertou! \ud83c\udf89', 'A palavra era ' + word + '.');
+    } else if (row >= 6){
+      done = true;
+      showEnd('Não foi dessa vez', 'A palavra era ' + word + '.');
+    } else {
+      col = 0;
+    }
+  }
+
+  function showEnd(title, msg){
+    overlay.classList.remove('hidden');
+    overlay.querySelector('h4').textContent = title;
+    overlay.querySelector('p').textContent = msg;
+    startBtn.textContent = 'Jogar de novo';
+  }
+
+  function startGame(){
+    word = WORDS[Math.floor(Math.random()*WORDS.length)];
+    row = 0; col = 0; done = false;
+    triesEl.textContent = '0';
+    buildGrid();
+    buildKeyboard();
+    overlay.classList.add('hidden');
+  }
+
+  window.addEventListener('keydown', function(e){
+    if (done || !grid.children.length) return;
+    if (overlay && !overlay.classList.contains('hidden')) return;
+    if (e.key === 'Enter') submitGuess();
+    else if (e.key === 'Backspace') backspace();
+    else if (/^[a-zA-Z]$/.test(e.key)) typeLetter(e.key.toUpperCase());
+  });
+
+  startBtn.addEventListener('click', startGame);
+  buildGrid();
+  buildKeyboard();
+})();
+</script>
+
+<script>
+(function(){
+  var board = document.getElementById('bug-board');
+  if (!board) return;
+  var overlay = document.getElementById('bug-overlay');
+  var startBtn = document.getElementById('bug-start');
+  var scoreEl = document.getElementById('bug-score');
+  var bestEl = document.getElementById('bug-best');
+
+  var BEST_KEY = 'debug-bug-best';
+  var best = 0;
+  try { best = parseInt(localStorage.getItem(BEST_KEY) || '0', 10) || 0; } catch(e) {}
+  bestEl.textContent = 'recorde: ' + best;
+
+  var HOLES = 12, holes = [], score = 0, running = false, timeLeft = 30;
+  var spawnTimer = null, countdownTimer = null, activeHole = -1, upTimeout = null;
+
+  function buildHoles(){
+    board.innerHTML = '';
+    holes = [];
+    for (var i=0;i<HOLES;i++){
+      var h = document.createElement('div');
+      h.className = 'bug-hole';
+      h.dataset.idx = i;
+      h.addEventListener('click', function(){ whack(parseInt(this.dataset.idx,10)); });
+      board.appendChild(h);
+      holes.push(h);
+    }
+  }
+
+  function whack(idx){
+    if (!running || idx !== activeHole) return;
+    holes[idx].classList.remove('up');
+    activeHole = -1;
+    if (upTimeout) clearTimeout(upTimeout);
+    score++;
+    scoreEl.textContent = String(score);
+    scheduleNext();
+  }
+
+  function scheduleNext(){
+    if (!running) return;
+    var delay = 400 + Math.random()*600;
+    spawnTimer = setTimeout(function(){
+      if (!running) return;
+      if (activeHole >= 0) holes[activeHole].classList.remove('up');
+      activeHole = Math.floor(Math.random()*HOLES);
+      holes[activeHole].classList.add('up');
+      var stayMs = Math.max(500, 1100 - score*15);
+      upTimeout = setTimeout(function(){
+        if (activeHole >= 0) holes[activeHole].classList.remove('up');
+        activeHole = -1;
+        scheduleNext();
+      }, stayMs);
+    }, delay);
+  }
+
+  function endGame(){
+    running = false;
+    clearTimeout(spawnTimer);
+    clearTimeout(upTimeout);
+    clearInterval(countdownTimer);
+    if (activeHole >= 0) holes[activeHole].classList.remove('up');
+    if (score > best){
+      best = score;
+      try { localStorage.setItem(BEST_KEY, String(best)); } catch(e) {}
+    }
+    bestEl.textContent = 'recorde: ' + best;
+    overlay.classList.remove('hidden');
+    overlay.querySelector('h4').textContent = 'Tempo esgotado — ' + score + ' bugs corrigidos';
+    overlay.querySelector('p').textContent = 'Recorde: ' + best;
+    startBtn.textContent = 'Jogar de novo';
+  }
+
+  function startGame(){
+    score = 0; timeLeft = 30; activeHole = -1;
+    scoreEl.textContent = '0';
+    buildHoles();
+    running = true;
+    overlay.classList.add('hidden');
+    scheduleNext();
+    countdownTimer = setInterval(function(){
+      timeLeft--;
+      if (timeLeft <= 0) endGame();
+    }, 1000);
+  }
+
+  startBtn.addEventListener('click', startGame);
+  buildHoles();
+})();
+</script>
+
+<script>
+(function(){
+  var board = document.getElementById('mine-board');
+  if (!board) return;
+  var overlay = document.getElementById('mine-overlay');
+  var startBtn = document.getElementById('mine-start');
+  var countEl = document.getElementById('mine-count');
+  var bestEl = document.getElementById('mine-best');
+
+  var BEST_KEY = 'campo-minado-best-ms';
+  var best = 0;
+  try { best = parseInt(localStorage.getItem(BEST_KEY) || '0', 10) || 0; } catch(e) {}
+  bestEl.textContent = best ? ('recorde: ' + (best/1000).toFixed(1) + 's') : 'recorde: \u2014';
+
+  var W = 8, H = 8, MINES = 10;
+  var cells, cellEls, firstClick, running, startTime, opened;
+
+  function idx(x,y){ return y*W+x; }
+
+  function neighbors(x,y){
+    var out = [];
+    for (var dx=-1; dx<=1; dx++){
+      for (var dy=-1; dy<=1; dy++){
+        if (dx===0 && dy===0) continue;
+        var nx=x+dx, ny=y+dy;
+        if (nx>=0 && nx<W && ny>=0 && ny<H) out.push({x:nx,y:ny});
+      }
+    }
+    return out;
+  }
+
+  function placeMines(safeX, safeY){
+    var placed = 0;
+    while (placed < MINES){
+      var x = Math.floor(Math.random()*W), y = Math.floor(Math.random()*H);
+      if (Math.abs(x-safeX)<=1 && Math.abs(y-safeY)<=1) continue;
+      var c = cells[idx(x,y)];
+      if (!c.mine){ c.mine = true; placed++; }
+    }
+    for (var y=0;y<H;y++){
+      for (var x=0;x<W;x++){
+        var c = cells[idx(x,y)];
+        if (c.mine) continue;
+        c.n = neighbors(x,y).filter(function(p){ return cells[idx(p.x,p.y)].mine; }).length;
+      }
+    }
+  }
+
+  function build(){
+    board.innerHTML = '';
+    cells = []; cellEls = [];
+    for (var y=0;y<H;y++){
+      for (var x=0;x<W;x++){
+        cells.push({mine:false, n:0, open:false, flag:false});
+        var d = document.createElement('div');
+        d.className = 'mine-cell';
+        d.dataset.x = x; d.dataset.y = y;
+        d.addEventListener('click', function(){ openCell(parseInt(this.dataset.x,10), parseInt(this.dataset.y,10)); });
+        d.addEventListener('contextmenu', function(e){ e.preventDefault(); toggleFlag(parseInt(this.dataset.x,10), parseInt(this.dataset.y,10)); });
+        board.appendChild(d);
+        cellEls.push(d);
+      }
+    }
+  }
+
+  function toggleFlag(x,y){
+    if (!running) return;
+    var c = cells[idx(x,y)];
+    if (c.open) return;
+    c.flag = !c.flag;
+    cellEls[idx(x,y)].classList.toggle('flag', c.flag);
+    cellEls[idx(x,y)].textContent = c.flag ? '\ud83d\udea9' : '';
+  }
+
+  function openCell(x,y){
+    if (!running) return;
+    var c = cells[idx(x,y)];
+    if (c.open || c.flag) return;
+
+    if (firstClick){
+      firstClick = false;
+      placeMines(x,y);
+      startTime = performance.now();
+    }
+
+    if (c.mine){
+      revealAll();
+      endGame(false);
+      return;
+    }
+
+    floodOpen(x,y);
+    checkWin();
+  }
+
+  function floodOpen(x,y){
+    var c = cells[idx(x,y)];
+    if (c.open || c.flag || c.mine) return;
+    c.open = true; opened++;
+    var el = cellEls[idx(x,y)];
+    el.classList.add('open');
+    if (c.n > 0){
+      el.textContent = c.n;
+      el.classList.add('n'+c.n);
+    } else {
+      neighbors(x,y).forEach(function(p){ floodOpen(p.x,p.y); });
+    }
+  }
+
+  function revealAll(){
+    for (var y=0;y<H;y++) for (var x=0;x<W;x++){
+      var c = cells[idx(x,y)];
+      if (c.mine) cellEls[idx(x,y)].classList.add('mine');
+    }
+  }
+
+  function checkWin(){
+    if (opened === W*H - MINES){
+      endGame(true);
+    }
+  }
+
+  function endGame(won){
+    running = false;
+    overlay.classList.remove('hidden');
+    if (won){
+      var elapsed = performance.now() - startTime;
+      if (best === 0 || elapsed < best){
+        best = elapsed;
+        try { localStorage.setItem(BEST_KEY, String(Math.round(best))); } catch(e) {}
+      }
+      bestEl.textContent = 'recorde: ' + (best/1000).toFixed(1) + 's';
+      overlay.querySelector('h4').textContent = 'Você venceu!';
+      overlay.querySelector('p').textContent = 'Tempo: ' + (elapsed/1000).toFixed(1) + 's \u2014 recorde: ' + (best/1000).toFixed(1) + 's';
+    } else {
+      overlay.querySelector('h4').textContent = 'Bum. Você pisou numa mina';
+      overlay.querySelector('p').textContent = 'Tente de novo.';
+    }
+    startBtn.textContent = 'Jogar de novo';
+  }
+
+  function startGame(){
+    firstClick = true;
+    running = true;
+    opened = 0;
+    countEl.textContent = String(MINES);
+    build();
+    overlay.classList.add('hidden');
+  }
+
+  startBtn.addEventListener('click', startGame);
+  build();
+})();
+</script>
+
+<script>
+(function(){
+  var boardEl = document.getElementById('c4-board');
+  if (!boardEl) return;
+  var overlay = document.getElementById('c4-overlay');
+  var startBtn = document.getElementById('c4-start');
+  var scoreP = document.getElementById('c4-score-p');
+  var scoreC = document.getElementById('c4-score-c');
+
+  var COLS = 7, ROWS = 6;
+  var grid, cellEls, sp, sc, running, busy;
+
+  function emptyGrid(){
+    var g = [];
+    for (var c=0;c<COLS;c++){ g.push(new Array(ROWS).fill(null)); }
+    return g;
+  }
+
+  function build(){
+    boardEl.innerHTML = '';
+    cellEls = [];
+    for (var r=0;r<ROWS;r++){
+      cellEls.push([]);
+      for (var c=0;c<COLS;c++){
+        var d = document.createElement('div');
+        d.className = 'c4-cell';
+        d.dataset.col = c;
+        d.addEventListener('click', function(){ playerMove(parseInt(this.dataset.col,10)); });
+        boardEl.appendChild(d);
+        cellEls[r].push(d);
+      }
+    }
+    render();
+  }
+
+  function render(){
+    for (var r=0;r<ROWS;r++){
+      for (var c=0;c<COLS;c++){
+        var v = grid[c][ROWS-1-r];
+        var el = cellEls[r][c];
+        el.className = 'c4-cell' + (v ? ' '+v : '');
+      }
+    }
+  }
+
+  function lowestEmpty(c){
+    for (var r=0;r<ROWS;r++){ if (!grid[c][r]) return r; }
+    return -1;
+  }
+
+  function drop(c, who){
+    var r = lowestEmpty(c);
+    if (r < 0) return null;
+    grid[c][r] = who;
+    return {c:c, r:r};
+  }
+
+  function checkWin(c, r, who){
+    var dirs = [[1,0],[0,1],[1,1],[1,-1]];
+    for (var d=0; d<dirs.length; d++){
+      var dx=dirs[d][0], dy=dirs[d][1], count=1;
+      var x=c+dx, y=r+dy;
+      while (x>=0&&x<COLS&&y>=0&&y<ROWS&&grid[x][y]===who){ count++; x+=dx; y+=dy; }
+      x=c-dx; y=r-dy;
+      while (x>=0&&x<COLS&&y>=0&&y<ROWS&&grid[x][y]===who){ count++; x-=dx; y-=dy; }
+      if (count>=4) return true;
+    }
+    return false;
+  }
+
+  function boardFull(){
+    for (var c=0;c<COLS;c++){ if (lowestEmpty(c) >= 0) return false; }
+    return true;
+  }
+
+  function playerMove(c){
+    if (!running || busy) return;
+    var pos = drop(c, 'p');
+    if (!pos) return;
+    render();
+    if (checkWin(pos.c, pos.r, 'p')){
+      sp++; scoreP.textContent = String(sp);
+      return endRound('Você venceu esta rodada!');
+    }
+    if (boardFull()) return endRound('Empate!');
+    busy = true;
+    setTimeout(cpuMove, 450);
+  }
+
+  function cpuMove(){
+    var c = pickCpuColumn();
+    var pos = drop(c, 'c');
+    render();
+    busy = false;
+    if (!pos) return;
+    if (checkWin(pos.c, pos.r, 'c')){
+      sc++; scoreC.textContent = String(sc);
+      return endRound('CPU venceu esta rodada.');
+    }
+    if (boardFull()) return endRound('Empate!');
+  }
+
+  function pickCpuColumn(){
+    var valid = [];
+    for (var c=0;c<COLS;c++){ if (lowestEmpty(c)>=0) valid.push(c); }
+    // try to win
+    for (var i=0;i<valid.length;i++){
+      var c = valid[i], r = lowestEmpty(c);
+      grid[c][r] = 'c';
+      var win = checkWin(c,r,'c');
+      grid[c][r] = null;
+      if (win) return c;
+    }
+    // block player win
+    for (var i=0;i<valid.length;i++){
+      var c = valid[i], r = lowestEmpty(c);
+      grid[c][r] = 'p';
+      var win = checkWin(c,r,'p');
+      grid[c][r] = null;
+      if (win) return c;
+    }
+    // prefer center columns
+    var order = [3,2,4,1,5,0,6].filter(function(c){ return valid.indexOf(c) !== -1; });
+    return order[0];
+  }
+
+  function endRound(msg){
+    running = false;
+    overlay.classList.remove('hidden');
+    overlay.querySelector('h4').textContent = msg;
+    overlay.querySelector('p').textContent = 'Placar: você ' + sp + ' x ' + sc + ' cpu';
+    startBtn.textContent = 'Próxima rodada';
+  }
+
+  function startGame(){
+    grid = emptyGrid();
+    running = true;
+    busy = false;
+    if (sp === undefined) { sp = 0; sc = 0; scoreP.textContent='0'; scoreC.textContent='0'; }
+    build();
+    overlay.classList.add('hidden');
+  }
+
+  startBtn.addEventListener('click', startGame);
+  grid = emptyGrid();
+  build();
+})();
+</script>
+
+<script>
+(function(){
+  var area = document.getElementById('reflex-area');
+  if (!area) return;
+  var msg = document.getElementById('reflex-msg');
+  var status = document.getElementById('reflex-status');
+  var overlay = document.getElementById('reflex-overlay');
+  var startBtn = document.getElementById('reflex-start');
+  var bestEl = document.getElementById('reflex-best');
+
+  var BEST_KEY = 'teste-reflexo-best-ms';
+  var best = 0;
+  try { best = parseInt(localStorage.getItem(BEST_KEY) || '0', 10) || 0; } catch(e) {}
+  bestEl.textContent = best ? ('recorde: ' + best + 'ms') : 'recorde: \u2014';
+
+  var state = 'idle'; // idle -> waiting -> go -> done
+  var waitTimeout = null, goTime = 0;
+
+  function toWaiting(){
+    state = 'waiting';
+    area.className = 'reflex-area wait';
+    msg.textContent = 'Espere ficar verde...';
+    status.textContent = 'esperando';
+    var delay = 1200 + Math.random()*2500;
+    waitTimeout = setTimeout(toGo, delay);
+  }
+
+  function toGo(){
+    state = 'go';
+    area.className = 'reflex-area go';
+    msg.textContent = 'CLIQUE AGORA!';
+    status.textContent = 'vai!';
+    goTime = performance.now();
+  }
+
+  function handleClick(){
+    if (state === 'idle' || state === 'done') return;
+    if (state === 'waiting'){
+      clearTimeout(waitTimeout);
+      state = 'done';
+      area.className = 'reflex-area';
+      msg.textContent = 'Cedo demais! Clicou antes da hora.';
+      status.textContent = 'falhou';
+      showEnd('Cedo demais!', 'Espere a tela ficar verde da próxima vez.');
+      return;
+    }
+    if (state === 'go'){
+      var reaction = Math.round(performance.now() - goTime);
+      state = 'done';
+      area.className = 'reflex-area';
+      msg.textContent = reaction + 'ms';
+      status.textContent = reaction + 'ms';
+      if (best === 0 || reaction < best){
+        best = reaction;
+        try { localStorage.setItem(BEST_KEY, String(best)); } catch(e) {}
+      }
+      bestEl.textContent = 'recorde: ' + best + 'ms';
+      showEnd('Seu tempo: ' + reaction + 'ms', 'Recorde: ' + best + 'ms');
+    }
+  }
+
+  function showEnd(title, msg2){
+    overlay.classList.remove('hidden');
+    overlay.querySelector('h4').textContent = title;
+    overlay.querySelector('p').textContent = msg2;
+    startBtn.textContent = 'Tentar de novo';
+  }
+
+  area.addEventListener('click', handleClick);
+
+  startBtn.addEventListener('click', function(){
+    overlay.classList.add('hidden');
+    toWaiting();
+  });
 })();
 </script>
 
