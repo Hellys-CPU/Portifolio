@@ -1115,10 +1115,8 @@
 
   /* FALA DE ENCERRAMENTO — o único momento tipográfico grande da página, reservado pro fim da jornada */
   .closing-statement{text-align:center;padding:8px 0 52px;}
-  .closing-orbs{display:flex;align-items:center;justify-content:center;margin-bottom:22px;}
-  .closing-orbs .ai-orb{width:60px;height:60px;position:relative;}
-  .closing-orbs .ai-orb:first-child{z-index:1;}
-  .closing-orbs .ai-orb + .ai-orb{margin-left:-16px;}
+  /* alvo vazio — as orbs de verdade (companion widget) chegam até aqui quando a seção entra em vista */
+  .closing-orbs{height:64px;margin-bottom:22px;}
   .closing-statement h3{
     font-family:'Space Grotesk',sans-serif;font-weight:700;
     font-size:clamp(30px, 5.4vw, 58px);line-height:1.08;letter-spacing:-0.02em;
