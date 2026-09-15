@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — página não encontrada · hellys.os</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{background:#10141a;}
+  body{
+    min-height:100vh;min-height:100dvh;background:#10141a;color:#e8ecf1;
+    font-family:'IBM Plex Mono',monospace;
+    display:flex;align-items:center;justify-content:center;
+    padding:24px;position:relative;overflow:hidden;
+  }
+  .dots{
+    position:absolute;inset:0;pointer-events:none;
+    background-image:radial-gradient(rgba(232,236,241,.10) 1px, transparent 1px);
+    background-size:26px 26px;
+    mask-image:radial-gradient(ellipse 85% 65% at 50% 0%, #000 40%, transparent 92%);
+    -webkit-mask-image:radial-gradient(ellipse 85% 65% at 50% 0%, #000 40%, transparent 92%);
+  }
+  .card{
+    position:relative;z-index:1;width:100%;max-width:560px;
+    border:1px solid #2a3341;border-radius:8px;background:#171d26;
+    box-shadow:0 24px 60px -24px rgba(0,0,0,.6);
+    overflow:hidden;
+  }
+  .chrome{display:flex;gap:6px;padding:10px 14px;background:#141a22;border-bottom:1px solid #2a3341;}
+  .chrome span{width:10px;height:10px;border-radius:50%;background:#2a3341;}
+  .chrome span:nth-child(1){background:#ff8a3d;}
+  .chrome span:nth-child(3){background:#3fc9a8;}
+  .chrome b{margin-left:8px;font-size:11px;color:#8fa0b2;font-weight:500;}
+  .body{padding:32px 28px 30px;}
+  .code{font-size:13px;line-height:1.9;color:#8fa0b2;}
+  .code .prompt{color:#3fc9a8;}
+  .code .path{color:#e8ecf1;}
+  .code .err{color:#ff8a3d;}
+  .big{
+    font-family:'Space Grotesk',sans-serif;font-weight:700;
+    font-size:clamp(52px,12vw,84px);line-height:1;margin:18px 0 6px;
+    letter-spacing:-0.02em;
+  }
+  .big em{font-style:normal;color:#ff8a3d;}
+  h1{
+    font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:18px;
+    margin-bottom:10px;color:#e8ecf1;
+  }
+  p{color:#8fa0b2;font-size:13.5px;line-height:1.6;margin-bottom:22px;max-width:420px;}
+  .actions{display:flex;gap:12px;flex-wrap:wrap;}
+  a.btn{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14px;
+    padding:11px 20px;border-radius:3px;text-decoration:none;
+    transition:transform .2s cubic-bezier(.2,.7,.2,1), box-shadow .2s cubic-bezier(.2,.7,.2,1);
+  }
+  a.btn:hover{transform:translateY(-1px);}
+  .btn-primary{background:#ff8a3d;color:#10141a;}
+  .btn-primary:hover{box-shadow:0 10px 24px -10px rgba(255,138,61,.5);}
+  .btn-ghost{border:1px solid #2a3341;color:#e8ecf1;}
+  .btn-ghost:hover{border-color:#3fc9a8;}
+  .cursor{color:#ff8a3d;animation:blink 1s step-end infinite;}
+  @keyframes blink{ 50%{opacity:0;} }
+  @media (prefers-reduced-motion: reduce){ .cursor{animation:none;} }
+</style>
+</head>
+<body>
+  <div class="dots" aria-hidden="true"></div>
+  <div class="card">
+    <div class="chrome"><span></span><span></span><span></span><b>hellys.os — terminal</b></div>
+    <div class="body">
+      <div class="code">
+        <span class="prompt">$</span> cd <span class="path">/pagina-que-voce-procura</span>
+      </div>
+      <div class="big">4<em>0</em>4<span class="cursor">▍</span></div>
+      <h1>Rota não encontrada</h1>
+      <p>Essa página não existe (ou mudou de endereço). O resto do sistema continua rodando normal — bora voltar pro início.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="index.html">← voltar pro início</a>
+        <a class="btn btn-ghost" href="index.html#contato">falar com o hellys</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
