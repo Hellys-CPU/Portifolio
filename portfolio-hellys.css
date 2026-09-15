@@ -884,7 +884,7 @@
 
   .diag-floaters{position:absolute;inset:0;pointer-events:none;}
   .df{
-    position:absolute;left:var(--x);top:var(--y);max-width:180px;
+    position:absolute;max-width:170px;
     transform:rotate(var(--r));font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.5;
     color:var(--text-dim);opacity:.5;white-space:normal;
     animation:df-float 5s ease-in-out infinite;
@@ -903,22 +903,43 @@
 
   /* ESTRADA — carreta viaja até o CD conforme a rolagem avança (estilo unitedcarriers, sem balsa/containers) */
   .road-strip{
-    position:relative;height:118px;margin:16px 0 18px;border:1px solid var(--line);border-radius:var(--radius);
-    background:var(--surface);overflow:hidden;
+    position:relative;height:168px;margin:18px 0 20px;border:1px solid var(--line);border-radius:var(--radius);
+    background:
+      radial-gradient(220px 140px at 85% 65%, rgba(63,201,168,.08), transparent 70%),
+      var(--surface);
+    overflow:hidden;
   }
-  .road-km{position:absolute;top:12px;left:14px;font-size:11.5px;color:var(--text-dim);z-index:2;}
-  .road-km b, .road-km span{color:var(--accent);font-weight:600;}
+  .road-km{
+    position:absolute;top:16px;left:18px;font-size:12.5px;color:var(--text-dim);z-index:2;
+    display:flex;align-items:baseline;gap:5px;
+  }
+  .road-km b, .road-km span{color:var(--accent);font-weight:700;font-size:15px;}
   .road-line{
-    position:absolute;left:14px;right:80px;bottom:30px;height:2px;
-    background-image:repeating-linear-gradient(90deg, var(--line) 0, var(--line) 14px, transparent 14px, transparent 28px);
+    position:absolute;left:18px;right:110px;bottom:44px;height:2px;
+    background-image:repeating-linear-gradient(90deg, var(--line) 0, var(--line) 16px, transparent 16px, transparent 32px);
   }
   .road-truck{
-    position:absolute;left:14px;bottom:14px;width:56px;height:30px;will-change:transform;
+    position:absolute;left:18px;bottom:22px;width:78px;height:42px;will-change:transform;
   }
-  .road-truck svg{width:100%;height:100%;stroke:var(--accent);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
-  .road-cd{position:absolute;right:16px;bottom:12px;width:44px;display:flex;flex-direction:column;align-items:center;gap:3px;}
-  .road-cd svg{width:32px;height:26px;stroke:var(--accent-2);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
-  .road-cd-label{font-size:10px;color:var(--text-dim);letter-spacing:.06em;}
+  .road-truck::before{
+    content:"";position:absolute;left:-30px;top:50%;width:48px;height:14px;transform:translateY(-50%);
+    background:linear-gradient(90deg, transparent, rgba(255,138,61,.35));border-radius:99px;
+    filter:blur(3px);
+  }
+  .road-truck-glow{
+    position:absolute;inset:-14px;border-radius:50%;
+    background:radial-gradient(circle, rgba(255,138,61,.28), transparent 70%);
+    filter:blur(2px);
+  }
+  .road-truck svg{position:relative;width:100%;height:100%;stroke:var(--accent);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+  .road-cd{position:absolute;right:22px;bottom:18px;width:64px;display:flex;flex-direction:column;align-items:center;gap:5px;}
+  .road-cd-glow{
+    position:absolute;left:50%;top:38%;width:70px;height:70px;transform:translate(-50%,-50%);
+    background:radial-gradient(circle, rgba(63,201,168,.3), transparent 72%);
+    filter:blur(2px);
+  }
+  .road-cd svg{position:relative;width:46px;height:38px;stroke:var(--accent-2);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+  .road-cd-label{position:relative;font-size:10.5px;color:var(--text-dim);letter-spacing:.08em;font-weight:600;}
 
   /* FAIXA DIAGONAL — texto rodando em looping infinito, levemente torto (estilo weevolveit) */
   .skew-marquee{
