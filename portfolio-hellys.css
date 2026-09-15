@@ -858,6 +858,56 @@
     .skew-marquee-track{animation:none;}
   }
 
+  /* MÉTODO — painéis horizontais presos no scroll (estilo weevolveit "5 method", via GSAP ScrollTrigger) */
+  .method-section{position:relative;background:var(--bg);}
+  .method-track{display:block;}
+  .method-panel{
+    width:auto;padding:56px clamp(24px,6vw,72px);border-bottom:1px solid var(--line);
+    display:block;
+  }
+  .method-panel:last-child{border-bottom:none;}
+  .method-num{
+    display:block;font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:48px;
+    color:var(--text-dim);opacity:.45;margin-bottom:6px;
+  }
+  .method-body{position:relative;z-index:1;max-width:640px;}
+  .method-body h3{
+    font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(30px,5vw,52px);
+    line-height:1.05;margin:8px 0 16px;letter-spacing:-0.02em;
+  }
+  .method-body h3 .dot{color:var(--accent);}
+  .method-lede{font-size:16px;color:var(--text-dim);max-width:520px;margin-bottom:18px;}
+  .method-list{display:flex;flex-direction:column;gap:9px;}
+  .method-list li{position:relative;padding-left:20px;color:var(--text-dim);font-size:14px;list-style:none;}
+  .method-list li::before{content:"—";position:absolute;left:0;color:var(--accent-2);}
+  .method-stepper{display:none;}
+
+  /* modo preso — ativado via JS só quando GSAP/ScrollTrigger carregam e há espaço/condição pra animar */
+  .method-section.pinned{overflow:hidden;}
+  .method-section.pinned .method-track{display:flex;width:400%;height:100vh;}
+  .method-section.pinned .method-panel{
+    width:25%;height:100vh;flex-shrink:0;border-bottom:none;
+    display:flex;align-items:center;padding:0 8vw;position:relative;
+  }
+  .method-section.pinned .method-num{
+    position:absolute;left:4vw;top:50%;transform:translateY(-50%);
+    font-size:min(300px, 24vw);line-height:1;color:rgba(255,255,255,.045);
+    margin:0;pointer-events:none;user-select:none;
+  }
+  .method-section.pinned .method-body h3{font-size:clamp(40px,6.5vw,84px);}
+  .method-section.pinned .method-lede{font-size:clamp(16px,1.5vw,19px);}
+  .method-section.pinned .method-stepper{
+    display:flex;align-items:center;gap:10px;position:absolute;left:50%;bottom:44px;
+    transform:translateX(-50%);font-size:11px;color:var(--text-dim);letter-spacing:.09em;z-index:2;
+  }
+  .ms-sep{color:var(--line);}
+  .ms-step{transition:color .3s var(--ease);}
+  .ms-step.is-active{color:var(--accent);}
+
+  @media (prefers-reduced-motion: reduce){
+    .method-section.pinned{overflow:visible;}
+  }
+
   /* SCROLL-SCRUB — palavras acendem conforme a rolagem avança (estilo weevolveit, contínuo e não binário) */
   .scroll-scrub .sw{opacity:.22;transition:opacity .15s linear;}
   .scroll-scrub .sw.lit{opacity:1;}
