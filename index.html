@@ -528,7 +528,7 @@
       <a href="#projetos">Projetos</a>
       <a href="#entretenimento">Entretenimento</a>
       <a href="#skills">Competências</a>
-      <a href="#servicos-pc">Me Contrate</a>
+      <a href="#servicos-pc">Serviços</a>
       <a href="#livro-visitas">Livro de Visitas</a>
     </nav>
     <a href="#contato" class="nav-cta mono">Falar comigo</a>
@@ -1209,7 +1209,7 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
     disponível para novos projetos
     <svg class="hire-toggle-chevron" viewBox="0 0 24 24" width="11" height="11" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
   </button>
-  <h2 class="section-title">Me Contrate</h2>
+  <h2 class="section-title">Serviços</h2>
   <p class="section-sub word-reveal">Do site ao sistema completo — ou só uma força no seu PC. Se envolve tecnologia, provavelmente eu resolvo.</p>
 
   <div id="quick-contact" class="quick-contact" aria-hidden="true">
@@ -1799,14 +1799,17 @@ window.PortfolioLB = (function(){
   var seenBefore = false;
   try { seenBefore = localStorage.getItem(SEEN_KEY) === '1'; } catch(e){}
 
-  var WRONG = 'LELLYS.';
-  var RIGHT = 'HELLYS.';
+  var WRONG = 'LELLYS.OS';
+  var RIGHT = 'HELLYS.OS';
   var i = 0;
   var unionDone = false;
 
   function render(str){
-    if (str.slice(-1) === '.') {
-      return str.slice(0, -1) + '<span style="color:var(--accent)">.</span>';
+    var suffix = '.OS';
+    for (var n = suffix.length; n > 0; n--){
+      if (str.slice(-n) === suffix.slice(0, n)){
+        return str.slice(0, str.length - n) + '<span style="color:var(--accent)">' + str.slice(str.length - n) + '</span>';
+      }
     }
     return str;
   }
@@ -3974,7 +3977,7 @@ window.PortfolioLB = (function(){
     { label: 'Projetos', tag: 'seção', target: '#projetos' },
     { label: 'Entretenimento / jogos', tag: 'seção', target: '#entretenimento' },
     { label: 'Competências', tag: 'seção', target: '#skills' },
-    { label: 'Me Contrate', tag: 'seção', target: '#servicos-pc' },
+    { label: 'Serviços', tag: 'seção', target: '#servicos-pc' },
     { label: 'Livro de Visitas', tag: 'seção', target: '#livro-visitas' },
     { label: 'Contato', tag: 'seção', target: '#contato' },
     { label: 'TRK PCP 2026', tag: 'projeto', target: '#projetos' },
