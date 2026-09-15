@@ -1804,12 +1804,12 @@ window.PortfolioLB = (function(){
         'Ainda tô aqui. Clica em mim de novo se quiser saber mais de algum sistema.'
       ],
       inicio: [
-        'Eu cuido da parte técnica. Bora ver o que ela construiu.',
+        'Eu cuido da parte técnica. Bora ver o que ele construiu.',
         'Enquanto a Aurora te recebe, eu já vou adiantando: aqui embaixo tem código de verdade.'
       ],
       sobre: [
         'Três frentes, um só raciocínio: entender o processo antes de programar.',
-        'Ela não terceiriza o diagnóstico. Isso muda a arquitetura de tudo que vem depois.'
+        'Ele não terceiriza o diagnóstico. Isso muda a arquitetura de tudo que vem depois.'
       ],
       trajetoria: [
         'Cada parada nesse caminho virou uma decisão técnica depois.',
@@ -1817,7 +1817,7 @@ window.PortfolioLB = (function(){
       ],
       diferenciais: [
         'A combinação é o diferencial — sozinha, nenhuma peça resolve.',
-        'Dev que só sabe código builda bonito e errado. Ela builda certo.'
+        'Dev que só sabe código builda bonito e errado. Ele builda certo.'
       ],
       projetos: [
         'Esses sistemas rodam em produção. Não é protótipo de portfólio.',
@@ -1825,7 +1825,7 @@ window.PortfolioLB = (function(){
       ],
       skills: [
         'Do banco de dados à interface — sem depender de ninguém no meio do caminho.',
-        'Full stack de verdade: ela decide o schema e também ajusta o CSS.'
+        'Full stack de verdade: ele decide o schema e também ajusta o CSS.'
       ],
       entretenimento: [
         'Eu rodo local, sem nuvem. Isso aqui também é código, só que pra brincar.',
@@ -1833,7 +1833,7 @@ window.PortfolioLB = (function(){
       ],
       contato: [
         'Se o problema é técnico, fala comigo primeiro.',
-        'Stack incompatível, prazo apertado, sistema legado — é esse tipo de conversa que ela gosta.'
+        'Stack incompatível, prazo apertado, sistema legado — é esse tipo de conversa que ele gosta.'
       ]
     },
     aurora: {
@@ -1846,16 +1846,16 @@ window.PortfolioLB = (function(){
         'Esse portfólio foi feito pra ler com calma — role no seu ritmo, a gente acompanha.'
       ],
       sobre: [
-        'Ela vive o problema antes de resolver. Isso muda tudo no resultado.',
+        'Ele vive o problema antes de resolver. Isso muda tudo no resultado.',
         'Não é só currículo. É quem realmente tá do outro lado do sistema.'
       ],
       trajetoria: [
         'De marketing pra ciência da computação — o caminho faz sentido de perto.',
-        'Ela não trocou de área. Ela somou uma nova.'
+        'Ele não trocou de área. Ele somou uma nova.'
       ],
       diferenciais: [
         'Operação, comunicação e engenharia se cruzando na mesma pessoa.',
-        'Poucas pessoas explicam um sistema técnico pra quem não é técnico. Ela explica.'
+        'Poucas pessoas explicam um sistema técnico pra quem não é técnico. Ele explica.'
       ],
       projetos: [
         'Cada projeto nasceu de uma dor real na operação, não de um tutorial.',
@@ -1863,14 +1863,14 @@ window.PortfolioLB = (function(){
       ],
       skills: [
         'Ferramentas variam. O que não muda é resolver ponta a ponta.',
-        'Ela aprende a ferramenta que o problema pede, não o contrário.'
+        'Ele aprende a ferramenta que o problema pede, não o contrário.'
       ],
       entretenimento: [
         'Zero propósito profissional aqui — só um cantinho pra respirar.',
         'Se você jogar e ganhar, seu nome fica no ranking. Sem pressão.'
       ],
       contato: [
-        'Manda uma mensagem. Ela responde.',
+        'Manda uma mensagem. Ele responde.',
         'Sem formulário chato — é e-mail, WhatsApp ou GitHub, direto.'
       ]
     }
@@ -2050,12 +2050,12 @@ window.PortfolioLB = (function(){
   // ---- tour: cada uma anda pro seu próprio pedaço do hero e explica — em ritmos diferentes, sem se seguirem ----
   var TOURS = {
     atena: [
-      { sel: '.hero .code-body', text: 'isso aqui é código real — o stack dela, não é enfeite de portfólio.' },
-      { sel: '#hero-actions', text: 'clica ali pra ver os sistemas que ela realmente entregou.' }
+      { sel: '.hero .code-body', text: 'isso aqui é código real — o stack dele, não é enfeite de portfólio.' },
+      { sel: '#hero-actions', text: 'clica ali pra ver os sistemas que ele realmente entregou.' }
     ],
     aurora: [
       { sel: '.tag', text: 'esse selo mostra que o sistema tá em produção de verdade, agora.' },
-      { sel: '.hero h1', text: 'esse é o resumo de tudo: ela vê o problema e entrega o sistema, sem parar no diagnóstico.' }
+      { sel: '.hero h1', text: 'esse é o resumo de tudo: ele vê o problema e entrega o sistema, sem parar no diagnóstico.' }
     ]
   };
   var tourState = { atena: { i: -1, timer: null }, aurora: { i: -1, timer: null } };
@@ -2215,11 +2215,13 @@ window.PortfolioLB = (function(){
     if (frac > 1) frac = 1;
 
     if (reduceMotion){
-      progress.style.height = '100%';
+      progress.style.height = routeHeight + 'px';
       signal.classList.remove('active');
     } else {
-      progress.style.height = (frac * 100) + '%';
-      signal.style.top = (frac * routeHeight) + 6 + 'px';
+      // pixels em vez de % — mesma base de cálculo do sinal, sem depender de resolução de % contra altura auto do pai
+      var traveled = frac * routeHeight;
+      progress.style.height = traveled + 'px';
+      signal.style.top = (traveled + 6) + 'px';
       signal.classList.toggle('active', frac > 0.01 && frac < 0.999);
     }
 
