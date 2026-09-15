@@ -837,6 +837,78 @@
     .diff-card.reveal, .stop.reveal, .closing-statement.reveal{transform:none;}
   }
 
+  /* DIAGNÓSTICO — frases-sintoma flutuando + busca fake com typewriter (estilo weevolveit "what's slowing you down") */
+  .diag-section{position:relative;padding:96px 0 72px;overflow:hidden;border-bottom:1px solid var(--line);}
+  .diag-inner{position:relative;max-width:680px;margin:0 auto;text-align:center;padding:0 24px;}
+  .diag-kicker{
+    display:inline-block;border:1px solid var(--line);border-radius:var(--radius);
+    padding:5px 12px;font-size:11.5px;color:var(--text-dim);margin-bottom:20px;
+  }
+  .diag-heading{
+    font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(28px,4.6vw,52px);
+    line-height:1.08;letter-spacing:-0.02em;text-wrap:balance;
+  }
+  .diag-heading em{font-style:normal;color:var(--accent);}
+  .diag-sub{color:var(--text-dim);margin:14px 0 34px;font-size:15px;}
+  .diag-search{
+    display:flex;align-items:center;gap:10px;max-width:520px;margin:0 auto;
+    border:1px solid var(--line);border-radius:999px;padding:14px 10px 14px 22px;
+    background:var(--surface);cursor:pointer;
+    transition:border-color .25s var(--ease), box-shadow .25s var(--ease), transform .25s var(--ease);
+  }
+  .diag-search:hover, .diag-search:focus-visible{
+    border-color:var(--accent-2);box-shadow:0 0 0 1px rgba(63,201,168,.25);transform:translateY(-1px);outline:none;
+  }
+  .diag-search-typed{flex:1;text-align:left;font-size:14px;color:var(--text);white-space:nowrap;overflow:hidden;}
+  .diag-search-cursor{color:var(--accent);animation:diag-blink 1s step-end infinite;}
+  .diag-search-btn{
+    width:34px;height:34px;border-radius:50%;background:var(--accent);color:#10141a;
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .diag-search-btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+  @keyframes diag-blink{ 50%{opacity:0;} }
+  .diag-live{display:inline-flex;align-items:center;gap:8px;margin-top:28px;font-size:11.5px;color:var(--text-dim);}
+  .diag-live-dot{width:6px;height:6px;border-radius:50%;background:#ff5c7a;animation:globe-pulse 1.6s ease-in-out infinite;}
+  .diag-live span, .diag-live b{color:var(--text);font-weight:600;}
+
+  .diag-floaters{position:absolute;inset:0;pointer-events:none;}
+  .df{
+    position:absolute;left:var(--x);top:var(--y);
+    transform:rotate(var(--r));font-family:'IBM Plex Mono',monospace;font-size:12px;
+    color:var(--text-dim);opacity:.5;white-space:nowrap;
+    animation:df-float 5s ease-in-out infinite;
+  }
+  .df b{color:var(--accent-2);font-weight:600;}
+  @keyframes df-float{
+    0%,100%{transform:rotate(var(--r)) translateY(0);}
+    50%{transform:rotate(var(--r)) translateY(-8px);}
+  }
+  @media (max-width:900px){ .diag-floaters{display:none;} }
+  @media (prefers-reduced-motion: reduce){
+    .df{animation:none;}
+    .diag-search-cursor{animation:none;}
+    .diag-live-dot{animation:none;}
+  }
+
+  /* ESTRADA — carreta viaja até o CD conforme a rolagem avança (estilo unitedcarriers, sem balsa/containers) */
+  .road-strip{
+    position:relative;height:118px;margin:16px 0 18px;border:1px solid var(--line);border-radius:var(--radius);
+    background:var(--surface);overflow:hidden;
+  }
+  .road-km{position:absolute;top:12px;left:14px;font-size:11.5px;color:var(--text-dim);z-index:2;}
+  .road-km b, .road-km span{color:var(--accent);font-weight:600;}
+  .road-line{
+    position:absolute;left:14px;right:80px;bottom:30px;height:2px;
+    background-image:repeating-linear-gradient(90deg, var(--line) 0, var(--line) 14px, transparent 14px, transparent 28px);
+  }
+  .road-truck{
+    position:absolute;left:14px;bottom:14px;width:56px;height:30px;will-change:transform;
+  }
+  .road-truck svg{width:100%;height:100%;stroke:var(--accent);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+  .road-cd{position:absolute;right:16px;bottom:12px;width:44px;display:flex;flex-direction:column;align-items:center;gap:3px;}
+  .road-cd svg{width:32px;height:26px;stroke:var(--accent-2);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+  .road-cd-label{font-size:10px;color:var(--text-dim);letter-spacing:.06em;}
+
   /* FAIXA DIAGONAL — texto rodando em looping infinito, levemente torto (estilo weevolveit) */
   .skew-marquee{
     margin:56px 0;overflow:hidden;transform:rotate(-1.4deg);
