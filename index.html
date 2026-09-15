@@ -2142,14 +2142,17 @@ window.PortfolioLB = (function(){
     aurora: 'Chegamos juntas até o fim da página. Valeu por ler tudo isso.'
   };
   function closingTargetPos(name){
-    if (!closingMarker || !closingEl) return null;
-    var r = closingMarker.getBoundingClientRect();
+    if (!closingEl) return null;
+    // referência é o título, não o marcador — garante que elas fiquem acima do texto, nunca em cima dele
+    var heading = closingEl.querySelector('h3') || closingMarker;
+    if (!heading) return null;
+    var r = heading.getBoundingClientRect();
     var s = orbSize();
     var cx = r.left + r.width / 2;
-    var cy = r.top + r.height / 2 - s / 2;
+    var topY = r.top - s - 26;
     var overlap = 18;
     var tx = name === 'atena' ? (cx - s + overlap / 2) : (cx - overlap / 2);
-    return clampToRect(closingEl, tx, cy);
+    return clampToRect(closingEl, tx, topY);
   }
   function enterClosing(){
     if (isClosing || !canRoam || !closingMarker) return;
