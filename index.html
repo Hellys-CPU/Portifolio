@@ -24,6 +24,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="portfolio-hellys.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "270ed254b8274dd790c136ce1fe00280"}'></script><!-- End Cloudflare Web Analytics -->
 </head>
 <body>
@@ -715,6 +717,62 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
     <span>CÓDIGO QUE RESOLVE</span><span class="dot">·</span>
   </div>
 </div>
+
+<section id="metodo" class="method-section">
+  <div class="method-track">
+    <div class="method-panel">
+      <span class="method-num" aria-hidden="true">01</span>
+      <div class="method-body">
+        <span class="tag mono">o método</span>
+        <h3>Diagnóstico<span class="dot">.</span></h3>
+        <p class="method-lede">Não presumo. Entro na operação e vejo onde o processo trava de verdade.</p>
+        <ul class="method-list">
+          <li>cada gargalo mapeado tem uma causa, não um sintoma</li>
+          <li>a fricção diária vira requisito — não a suposição de quem nunca operou</li>
+        </ul>
+      </div>
+    </div>
+    <div class="method-panel">
+      <span class="method-num" aria-hidden="true">02</span>
+      <div class="method-body">
+        <span class="tag mono">o método</span>
+        <h3>Design<span class="dot">.</span></h3>
+        <p class="method-lede">Desenho o sistema pensando em quem vai usar todo dia — não em captura de tela.</p>
+        <ul class="method-list">
+          <li>fluxo pensado pra quem opera, não pra quem só demonstra</li>
+          <li>estrutura de dados antes de qualquer botão bonito</li>
+        </ul>
+      </div>
+    </div>
+    <div class="method-panel">
+      <span class="method-num" aria-hidden="true">03</span>
+      <div class="method-body">
+        <span class="tag mono">o método</span>
+        <h3>Desenvolvimento<span class="dot">.</span></h3>
+        <p class="method-lede">Eu mesmo construo — do banco de dados à interface, ponta a ponta.</p>
+        <ul class="method-list">
+          <li>sem repassar pra outro time perder o contexto no meio do caminho</li>
+          <li>quem decidiu o requisito é quem escreve o código</li>
+        </ul>
+      </div>
+    </div>
+    <div class="method-panel">
+      <span class="method-num" aria-hidden="true">04</span>
+      <div class="method-body">
+        <span class="tag mono">o método</span>
+        <h3>Entrega<span class="dot">.</span></h3>
+        <p class="method-lede">Sistema em produção, sendo usado — não um protótipo bonito parado no Figma.</p>
+        <ul class="method-list">
+          <li>vitória não é o deploy, é o time rodando sem mim do lado</li>
+          <li>zero desculpa. zero legado. zero achismo.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="method-stepper mono" aria-hidden="true">
+    <span class="ms-step is-active">DIAGNÓSTICO</span><span class="ms-sep">—</span><span class="ms-step">DESIGN</span><span class="ms-sep">—</span><span class="ms-step">DEV</span><span class="ms-sep">—</span><span class="ms-step">ENTREGA</span>
+  </div>
+</section>
 
 <section id="projetos" class="wrap">
   <h2 class="section-title">Projetos</h2>
@@ -4040,37 +4098,76 @@ window.PortfolioLB = (function(){
   try {
     var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var el = document.querySelector('.scroll-scrub');
-    if (!el || reduceMotion) return;
-    var words = Array.prototype.slice.call(el.querySelectorAll('.sw'));
+    if (!el) return;
+    var words = el.querySelectorAll('.sw');
     if (!words.length) return;
 
-    var ticking = false;
-    function update(){
-      ticking = false;
-      var r = el.getBoundingClientRect();
-      var vh = window.innerHeight || document.documentElement.clientHeight;
-      // progresso 0→1: começa quando o texto entra por baixo, termina quando alcança ~35% da tela
-      var start = vh * 0.92;
-      var end = vh * 0.35;
-      var progress = (start - r.top) / (start - end);
-      progress = Math.max(0, Math.min(1, progress));
-      var lit = Math.round(progress * words.length);
-      words.forEach(function(w, i){
-        w.classList.toggle('lit', i < lit);
-      });
+    // sem GSAP/ScrollTrigger (CDN bloqueado etc.) ou sem animação: mostra tudo aceso, nunca trava apagado
+    if (reduceMotion || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined'){
+      words.forEach(function(w){ w.style.opacity = 1; });
+      return;
     }
-    function onScroll(){
-      if (!ticking){
-        requestAnimationFrame(update);
-        ticking = true;
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.set(words, { opacity: 0.22 });
+    gsap.to(words, {
+      opacity: 1,
+      stagger: 1 / words.length,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 92%',
+        end: 'top 40%',
+        scrub: 0.4
       }
-    }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
-    update();
+    });
   } catch(e) {
-    document.querySelectorAll('.scroll-scrub .sw').forEach(function(w){ w.classList.add('lit'); });
+    document.querySelectorAll('.scroll-scrub .sw').forEach(function(w){ w.style.opacity = 1; });
   }
+})();
+</script>
+
+<script>
+(function(){
+  // ---- MÉTODO — 4 painéis presos no scroll, deslizando na horizontal (estilo weevolveit "5 method") ----
+  function setup(){
+    try {
+      var section = document.getElementById('metodo');
+      if (!section) return;
+      var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      // sem espaço, sem motion ou sem GSAP/ScrollTrigger: fica no layout empilhado normal (já funciona sem JS nenhum)
+      if (reduceMotion || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' || window.innerWidth < 900) return;
+      gsap.registerPlugin(ScrollTrigger);
+
+      var panels = section.querySelectorAll('.method-panel');
+      var steps = section.querySelectorAll('.ms-step');
+      if (panels.length < 2) return;
+
+      section.classList.add('pinned');
+
+      gsap.to(panels, {
+        xPercent: -100 * (panels.length - 1),
+        ease: 'none',
+        scrollTrigger: {
+          trigger: section,
+          pin: true,
+          scrub: 0.6,
+          start: 'top top',
+          end: function(){ return '+=' + (window.innerWidth * (panels.length - 1)); },
+          invalidateOnRefresh: true,
+          onUpdate: function(self){
+            var idx = Math.round(self.progress * (panels.length - 1));
+            steps.forEach(function(el, i){ el.classList.toggle('is-active', i === idx); });
+          }
+        }
+      });
+    } catch(e) {
+      var s = document.getElementById('metodo');
+      if (s) s.classList.remove('pinned');
+    }
+  }
+  // espera o load — garante que fontes/layout já assentaram e window.innerWidth reflete a tela de verdade
+  if (document.readyState === 'complete') setup();
+  else window.addEventListener('load', setup);
 })();
 </script>
 
