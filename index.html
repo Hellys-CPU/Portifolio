@@ -549,6 +549,14 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
   </div>
 </div>
 
+<section id="presenca" class="wrap globe-section">
+  <div class="globe-badge mono"><span class="globe-dot"></span>online · são paulo</div>
+  <div id="globe-canvas-wrap" class="globe-canvas-wrap" aria-hidden="true">
+    <canvas id="globe-canvas"></canvas>
+  </div>
+</section>
+<script type="module" src="portfolio-hellys-globe.js"></script>
+
 <section id="sobre" class="wrap">
   <h2 class="section-title">Sobre</h2>
   <p class="section-sub">Três frentes que se cruzam: operação, comunicação e engenharia.</p>
@@ -696,6 +704,17 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
     </div>
   </div>
 </section>
+
+<div class="skew-marquee" aria-hidden="true">
+  <div class="skew-marquee-track">
+    <span>SISTEMA EM PRODUÇÃO</span><span class="dot">·</span>
+    <span>PROCESSO SEM GARGALO</span><span class="dot">·</span>
+    <span>CÓDIGO QUE RESOLVE</span><span class="dot">·</span>
+    <span>SISTEMA EM PRODUÇÃO</span><span class="dot">·</span>
+    <span>PROCESSO SEM GARGALO</span><span class="dot">·</span>
+    <span>CÓDIGO QUE RESOLVE</span><span class="dot">·</span>
+  </div>
+</div>
 
 <section id="projetos" class="wrap">
   <h2 class="section-title">Projetos</h2>
@@ -1035,9 +1054,28 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
 </section>
 
 <section id="servicos-pc" class="wrap">
-  <span class="tag mono" style="margin-bottom:14px;">disponível para novos projetos</span>
+  <button type="button" id="hire-toggle" class="tag mono hire-toggle" aria-expanded="false" aria-controls="quick-contact" style="margin-bottom:14px;">
+    disponível para novos projetos
+    <svg class="hire-toggle-chevron" viewBox="0 0 24 24" width="11" height="11" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+  </button>
   <h2 class="section-title">Me Contrate</h2>
-  <p class="section-sub">Do site ao sistema completo — ou só uma força no seu PC. Se envolve tecnologia, provavelmente eu resolvo.</p>
+  <p class="section-sub word-reveal">Do site ao sistema completo — ou só uma força no seu PC. Se envolve tecnologia, provavelmente eu resolvo.</p>
+
+  <div id="quick-contact" class="quick-contact" aria-hidden="true">
+    <div class="quick-contact-inner">
+      <p class="quick-contact-hint mono">fala comigo agora:</p>
+      <div class="quick-contact-links">
+        <a href="https://wa.me/5511994032102" target="_blank" rel="noopener" class="qc-item">
+          <svg viewBox="0 0 24 24"><path d="M4 20l1.4-4.2A8 8 0 1112 20a8 8 0 01-4-1.1L4 20z"/><path d="M9 10c0 2.5 2.5 5 5 5"/></svg>
+          <span>(11) 99403-2102</span>
+        </a>
+        <a href="mailto:guilherme.hellys1@gmail.com" class="qc-item">
+          <svg viewBox="0 0 24 24"><path d="M3 5h18v14H3z"/><path d="M3 6l9 7 9-7"/></svg>
+          <span>guilherme.hellys1@gmail.com</span>
+        </a>
+      </div>
+    </div>
+  </div>
 
   <h4 style="font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;margin-bottom:14px;color:var(--accent-2);">Desenvolvimento sob demanda</h4>
   <div class="diff-grid" style="margin-bottom:36px;">
@@ -1101,7 +1139,7 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
     <div class="diff-card">
       <div class="icon-circle"><svg viewBox="0 0 24 24"><rect x="5" y="7" width="14" height="12" rx="2"/><path d="M9 7V5a3 3 0 016 0v2M9 12h.01M15 12h.01"/></svg></div>
       <h3>Assistente de IA Local</h3>
-      <p>Uma IA rodando no seu próprio computador, sem mandar dado pra nuvem — igual o <a href="#projeto-aurora-atena" class="ref-link">AURORA e o ATENA</a> que eu mesma uso no dia a dia.</p>
+      <p>Uma IA rodando no seu próprio computador, sem mandar dado pra nuvem — igual o <a href="#projeto-aurora-atena" class="ref-link">AURORA e o ATENA</a> que eu mesmo uso no dia a dia.</p>
     </div>
   </div>
 
@@ -1114,7 +1152,7 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
 <section id="contato" class="wrap" style="border-bottom:none;">
   <div class="closing-statement">
     <div class="closing-orbs" id="closing-orbs-target" aria-hidden="true"></div>
-    <h3>Bora construir <em>o próximo sistema</em>?</h3>
+    <h3 class="scroll-scrub"><span class="sw">Bora</span> <span class="sw">construir</span> <em><span class="sw">o</span> <span class="sw">próximo</span> <span class="sw">sistema</span></em><span class="sw">?</span></h3>
   </div>
   <h2 class="section-title">Contato</h2>
   <p class="section-sub">Fale comigo por qualquer um destes canais.</p>
@@ -1602,6 +1640,7 @@ window.PortfolioLB = (function(){
   if (reduceMotion){
     // overlay is display:none via CSS já — só revela os orbs-companheiros direto
     showCompanions();
+    document.body.classList.add('hero-ready');
     return;
   }
 
@@ -1635,6 +1674,7 @@ window.PortfolioLB = (function(){
   function finish(){
     overlay.classList.add('hide');
     showCompanions();
+    document.body.classList.add('hero-ready');
     try { localStorage.setItem(SEEN_KEY, '1'); } catch(e){}
   }
 
@@ -1971,7 +2011,10 @@ window.PortfolioLB = (function(){
     bubble.classList.add('open');
     clearTimeout(bubble._autoCloseTimer);
     if (autoCloseMs){
-      bubble._autoCloseTimer = setTimeout(function(){ bubble.classList.remove('open'); }, autoCloseMs);
+      // autoCloseMs é o tempo de LEITURA depois que a máquina de escrever termina — não do momento em que a fala começa,
+      // senão frases longas fecham antes da pessoa acabar de ler
+      var typingMs = reduceMotion ? 0 : text.length * 42 + 250;
+      bubble._autoCloseTimer = setTimeout(function(){ bubble.classList.remove('open'); }, typingMs + autoCloseMs);
     }
   }
   document.querySelectorAll('.companion').forEach(function(wrap){
@@ -2088,7 +2131,7 @@ window.PortfolioLB = (function(){
     tourState[name].i = -1;
   }
 
-  function anyLoose(){ return isRoaming || isClosing; }
+  function anyLoose(){ return isRoaming || isClosing || isCardDocked; }
   function returnToDock(){
     NAMES.forEach(function(name){
       var dock = dockedPos(name);
@@ -2154,15 +2197,18 @@ window.PortfolioLB = (function(){
     var tx = name === 'atena' ? (cx - s + overlap / 2) : (cx - overlap / 2);
     return clampToRect(closingEl, tx, topY);
   }
+  function updateClosingTargets(){
+    NAMES.forEach(function(name){
+      var pos = closingTargetPos(name);
+      if (pos){ roam[name].tx = pos.x; roam[name].ty = pos.y; ensureRoamLoop(name); }
+    });
+  }
   function enterClosing(){
     if (isClosing || !canRoam || !closingMarker) return;
     isClosing = true;
     root.classList.add('roaming');
     NAMES.forEach(grabCurrentPos);
-    NAMES.forEach(function(name){
-      var pos = closingTargetPos(name);
-      if (pos){ roam[name].tx = pos.x; roam[name].ty = pos.y; ensureRoamLoop(name); }
-    });
+    updateClosingTargets();
     if (!closingGreeted){
       closingGreeted = true;
       setTimeout(function(){ if (isClosing) speak('atena', CLOSING_LINES.atena, 4200); }, 700);
@@ -2173,6 +2219,45 @@ window.PortfolioLB = (function(){
     if (!isClosing) return;
     isClosing = false;
     if (!isRoaming) closeAll(null);
+    returnToDock();
+  }
+
+  // ---- CARD AURORA & ATENA — quando o projeto delas mesmas entra na tela, elas ocupam o lugar do mockup estático ----
+  var cardBox = document.querySelector('#projeto-aurora-atena .ai-orbs');
+  var cardWraps = cardBox ? cardBox.querySelectorAll('.ai-orb-wrap') : null;
+  var isCardDocked = false;
+  var cardGreeted = false;
+  function cardTargetPos(name){
+    if (!cardWraps || cardWraps.length < 2) return null;
+    var wrap = name === 'atena' ? cardWraps[0] : cardWraps[1];
+    var orb = wrap.querySelector('.ai-orb');
+    if (!orb) return null;
+    var r = orb.getBoundingClientRect();
+    return { x: r.left, y: r.top };
+  }
+  function updateCardTargets(){
+    NAMES.forEach(function(name){
+      var pos = cardTargetPos(name);
+      if (pos){ roam[name].tx = pos.x; roam[name].ty = pos.y; ensureRoamLoop(name); }
+    });
+  }
+  function enterCardDock(){
+    if (isCardDocked || !canRoam || !cardBox) return;
+    isCardDocked = true;
+    root.classList.add('roaming');
+    cardBox.classList.add('live-docked');
+    NAMES.forEach(grabCurrentPos);
+    updateCardTargets();
+    if (!cardGreeted){
+      cardGreeted = true;
+      setTimeout(function(){ if (isCardDocked) speak('atena', PROJECT_LINES['projeto-aurora-atena'], 4200); }, 500);
+    }
+  }
+  function exitCardDock(){
+    if (!isCardDocked) return;
+    isCardDocked = false;
+    cardBox.classList.remove('live-docked');
+    if (!isRoaming && !isClosing) closeAll(null);
     returnToDock();
   }
 
@@ -2187,15 +2272,29 @@ window.PortfolioLB = (function(){
         var cRect = closingEl.getBoundingClientRect();
         closingNear = cRect.top < window.innerHeight * 0.55 && cRect.bottom > window.innerHeight * 0.15;
       }
+      var cardNear = false;
+      if (cardBox){
+        var boxRect = cardBox.getBoundingClientRect();
+        cardNear = boxRect.top < window.innerHeight * 0.7 && boxRect.bottom > window.innerHeight * 0.2;
+      }
       if (inHero){
         exitClosing();
+        exitCardDock();
         enterRoaming();
       } else if (closingNear){
         exitRoaming();
+        exitCardDock();
         enterClosing();
+        if (isClosing) updateClosingTargets();
+      } else if (cardNear){
+        exitRoaming();
+        exitClosing();
+        enterCardDock();
+        if (isCardDocked) updateCardTargets();
       } else {
         exitRoaming();
         exitClosing();
+        exitCardDock();
       }
     }
     window.addEventListener('scroll', function(){
@@ -3894,10 +3993,7 @@ window.PortfolioLB = (function(){
 
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(e){
-        if (e.isIntersecting){
-          e.target.classList.add('in');
-          io.unobserve(e.target);
-        }
+        e.target.classList.toggle('in', e.isIntersecting);
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
 
@@ -3906,6 +4002,88 @@ window.PortfolioLB = (function(){
     // qualquer erro inesperado: garante que nada fique escondido
     document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
   }
+})();
+</script>
+
+<script>
+(function(){
+  try {
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var targets = document.querySelectorAll('.word-reveal');
+    if (!targets.length) return;
+
+    // separa por palavra preservando tags inline (ex: <em>) — cada palavra vira uma "janela" que revela seu conteúdo
+    targets.forEach(function(el){
+      var words = el.textContent.trim().split(/\s+/);
+      if (reduceMotion || !words.length){ el.classList.add('in'); return; }
+      el.innerHTML = words.map(function(w, i){
+        return '<span class="wr-word"><span class="wr-word-inner" style="--wr-delay:' + Math.min(i * 35, 400) + 'ms">' + w + '</span></span>' + (i < words.length - 1 ? ' ' : '');
+      }).join('');
+    });
+
+    if (reduceMotion || !('IntersectionObserver' in window)) return;
+
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        e.target.classList.toggle('in', e.isIntersecting);
+      });
+    }, { threshold: 0.4 });
+    targets.forEach(function(el){ io.observe(el); });
+  } catch(e) {
+    document.querySelectorAll('.word-reveal').forEach(function(el){ el.classList.add('in'); });
+  }
+})();
+</script>
+
+<script>
+(function(){
+  try {
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var el = document.querySelector('.scroll-scrub');
+    if (!el || reduceMotion) return;
+    var words = Array.prototype.slice.call(el.querySelectorAll('.sw'));
+    if (!words.length) return;
+
+    var ticking = false;
+    function update(){
+      ticking = false;
+      var r = el.getBoundingClientRect();
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      // progresso 0→1: começa quando o texto entra por baixo, termina quando alcança ~35% da tela
+      var start = vh * 0.92;
+      var end = vh * 0.35;
+      var progress = (start - r.top) / (start - end);
+      progress = Math.max(0, Math.min(1, progress));
+      var lit = Math.round(progress * words.length);
+      words.forEach(function(w, i){
+        w.classList.toggle('lit', i < lit);
+      });
+    }
+    function onScroll(){
+      if (!ticking){
+        requestAnimationFrame(update);
+        ticking = true;
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    update();
+  } catch(e) {
+    document.querySelectorAll('.scroll-scrub .sw').forEach(function(w){ w.classList.add('lit'); });
+  }
+})();
+</script>
+
+<script>
+(function(){
+  var btn = document.getElementById('hire-toggle');
+  var panel = document.getElementById('quick-contact');
+  if (!btn || !panel) return;
+  btn.addEventListener('click', function(){
+    var open = panel.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    panel.setAttribute('aria-hidden', open ? 'false' : 'true');
+  });
 })();
 </script>
 
