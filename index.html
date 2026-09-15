@@ -1113,10 +1113,7 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
 
 <section id="contato" class="wrap" style="border-bottom:none;">
   <div class="closing-statement">
-    <div class="closing-orbs" aria-hidden="true">
-      <div class="ai-orb orb-atena"><div class="orb-eyes"><span></span><span></span></div></div>
-      <div class="ai-orb orb-aurora"><div class="orb-eyes"><span></span><span></span></div></div>
-    </div>
+    <div class="closing-orbs" id="closing-orbs-target" aria-hidden="true"></div>
     <h3>Bora construir <em>o próximo sistema</em>?</h3>
   </div>
   <h2 class="section-title">Contato</h2>
@@ -2022,10 +2019,13 @@ window.PortfolioLB = (function(){
     var yTop = window.innerHeight - 18 - colH;
     return name === 'atena' ? { x: x, y: yTop } : { x: x, y: yTop + 56 };
   }
-  function clampToHero(tx, ty){
+  function clampToRect(sectionEl, tx, ty){
     var s = orbSize();
+    var rect = sectionEl.getBoundingClientRect();
     var minX = 24, maxX = window.innerWidth - s - 24;
-    var minY = 78, maxY = Math.min(window.innerHeight, hero.getBoundingClientRect().bottom) - s - 24;
+    var minY = Math.max(78, rect.top + 10);
+    var maxY = Math.min(window.innerHeight, rect.bottom) - s - 10;
+    if (maxY < minY) maxY = minY;
     return { x: Math.max(minX, Math.min(maxX, tx)), y: Math.max(minY, Math.min(maxY, ty)) };
   }
 
@@ -2064,7 +2064,7 @@ window.PortfolioLB = (function(){
     if (!target) return null;
     var r = target.getBoundingClientRect();
     var s = orbSize();
-    return clampToHero(r.left + r.width / 2 - s / 2, r.top - s - 18);
+    return clampToRect(hero, r.left + r.width / 2 - s / 2, r.top - s - 18);
   }
   function runTourStep(name){
     if (!isRoaming) return;
@@ -2088,18 +2088,37 @@ window.PortfolioLB = (function(){
     tourState[name].i = -1;
   }
 
+  function anyLoose(){ return isRoaming || isClosing; }
+  function returnToDock(){
+    NAMES.forEach(function(name){
+      var dock = dockedPos(name);
+      roam[name].tx = dock.x; roam[name].ty = dock.y;
+      ensureRoamLoop(name);
+    });
+    setTimeout(function(){
+      if (!anyLoose()){
+        root.classList.remove('roaming');
+        NAMES.forEach(function(name){
+          roam[name].active = false;
+          companionEls[name].style.transform = '';
+        });
+      }
+    }, 650);
+  }
+  function grabCurrentPos(name){
+    var el = companionEls[name];
+    var r = el.getBoundingClientRect();
+    roam[name].x = r.left; roam[name].y = r.top;
+    el.style.transform = 'translate(' + roam[name].x.toFixed(1) + 'px,' + roam[name].y.toFixed(1) + 'px)';
+  }
+
   function enterRoaming(){
     if (isRoaming || !canRoam) return;
     isRoaming = true;
     root.classList.add('roaming');
-    NAMES.forEach(function(name){
-      var el = companionEls[name];
-      var r = el.getBoundingClientRect();
-      roam[name].x = r.left; roam[name].y = r.top;
-      el.style.transform = 'translate(' + roam[name].x.toFixed(1) + 'px,' + roam[name].y.toFixed(1) + 'px)';
-    });
-    var start1 = clampToHero(window.innerWidth * 0.36 - orbSize() / 2, 120);
-    var start2 = clampToHero(window.innerWidth * 0.62 - orbSize() / 2, 160);
+    NAMES.forEach(grabCurrentPos);
+    var start1 = clampToRect(hero, window.innerWidth * 0.36 - orbSize() / 2, 120);
+    var start2 = clampToRect(hero, window.innerWidth * 0.62 - orbSize() / 2, 160);
     roam.atena.tx = start1.x; roam.atena.ty = start1.y; ensureRoamLoop('atena');
     roam.aurora.tx = start2.x; roam.aurora.ty = start2.y; ensureRoamLoop('aurora');
     scheduleTour('atena');
@@ -2109,35 +2128,77 @@ window.PortfolioLB = (function(){
     if (!isRoaming) return;
     isRoaming = false;
     stopTour('atena'); stopTour('aurora');
-    closeAll(null);
+    if (!isClosing) closeAll(null);
+    returnToDock();
+  }
+
+  // ---- REUNIÃO FINAL — no fim da página, elas saem do canto e se juntam de novo, igual lá no início ----
+  var closingEl = document.querySelector('.closing-statement');
+  var closingMarker = document.getElementById('closing-orbs-target');
+  var isClosing = false;
+  var closingGreeted = false;
+  var CLOSING_LINES = {
+    atena: 'Ainda por aqui. Bora construir o próximo sistema?',
+    aurora: 'Chegamos juntas até o fim da página. Valeu por ler tudo isso.'
+  };
+  function closingTargetPos(name){
+    if (!closingMarker || !closingEl) return null;
+    var r = closingMarker.getBoundingClientRect();
+    var s = orbSize();
+    var cx = r.left + r.width / 2;
+    var cy = r.top + r.height / 2 - s / 2;
+    var overlap = 18;
+    var tx = name === 'atena' ? (cx - s + overlap / 2) : (cx - overlap / 2);
+    return clampToRect(closingEl, tx, cy);
+  }
+  function enterClosing(){
+    if (isClosing || !canRoam || !closingMarker) return;
+    isClosing = true;
+    root.classList.add('roaming');
+    NAMES.forEach(grabCurrentPos);
     NAMES.forEach(function(name){
-      var dock = dockedPos(name);
-      roam[name].tx = dock.x; roam[name].ty = dock.y;
-      ensureRoamLoop(name);
+      var pos = closingTargetPos(name);
+      if (pos){ roam[name].tx = pos.x; roam[name].ty = pos.y; ensureRoamLoop(name); }
     });
-    setTimeout(function(){
-      if (!isRoaming){
-        root.classList.remove('roaming');
-        NAMES.forEach(function(name){
-          roam[name].active = false;
-          companionEls[name].style.transform = '';
-        });
-      }
-    }, 650);
+    if (!closingGreeted){
+      closingGreeted = true;
+      setTimeout(function(){ if (isClosing) speak('atena', CLOSING_LINES.atena, 4200); }, 700);
+      setTimeout(function(){ if (isClosing) speak('aurora', CLOSING_LINES.aurora, 4200); }, 3300);
+    }
+  }
+  function exitClosing(){
+    if (!isClosing) return;
+    isClosing = false;
+    if (!isRoaming) closeAll(null);
+    returnToDock();
   }
 
   if (canRoam){
     var roamTicking = false;
-    function checkHeroBounds(){
+    function checkZones(){
       roamTicking = false;
       var heroRect = hero.getBoundingClientRect();
       var inHero = heroRect.bottom > window.innerHeight * 0.35;
-      if (inHero) enterRoaming(); else exitRoaming();
+      var closingNear = false;
+      if (closingEl){
+        var cRect = closingEl.getBoundingClientRect();
+        closingNear = cRect.top < window.innerHeight * 0.55 && cRect.bottom > window.innerHeight * 0.15;
+      }
+      if (inHero){
+        exitClosing();
+        enterRoaming();
+      } else if (closingNear){
+        exitRoaming();
+        enterClosing();
+      } else {
+        exitRoaming();
+        exitClosing();
+      }
     }
     window.addEventListener('scroll', function(){
-      if (!roamTicking){ requestAnimationFrame(checkHeroBounds); roamTicking = true; }
+      if (!roamTicking){ requestAnimationFrame(checkZones); roamTicking = true; }
     }, { passive: true });
-    checkHeroBounds();
+    checkZones();
   } else if (!reduceMotion && isFinePointer){
     // sem espaço/condições pra soltar as orbs: mantém o parallax sutil de sempre
     window.addEventListener('mousemove', function(e){
