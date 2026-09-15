@@ -841,8 +841,10 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
       <div class="road-km mono"><span id="road-km-num">0</span> km</div>
       <div class="road-line"></div>
       <div class="road-truck">
+        <div class="road-truck-glow" aria-hidden="true"></div>
         <svg viewBox="0 0 64 34">
           <path d="M1 26V13h27l9 8v5"/>
+          <path d="M8 13v13"/>
           <path d="M37 21h9"/>
           <circle cx="11" cy="27" r="4"/>
           <circle cx="34" cy="27" r="4"/>
@@ -851,6 +853,7 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
         </svg>
       </div>
       <div class="road-cd">
+        <div class="road-cd-glow" aria-hidden="true"></div>
         <svg viewBox="0 0 40 32">
           <path d="M2 30V14L20 4l18 10v16z"/>
           <path d="M2 14h36"/>
@@ -879,7 +882,7 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
     <div class="record-head">
       <div class="titlewrap">
         <div class="icon-circle"><svg viewBox="0 0 24 24"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div>
-        <h3>PRC App</h3>
+        <h3>Rota Certa</h3>
       </div>
       <span class="record-code mono">PWA · produção · cliente externo</span>
     </div>
@@ -1178,12 +1181,12 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
 <section id="diagnostico" class="diag-section hud-grid">
   <div class="hud-dots" aria-hidden="true"></div>
   <div class="diag-floaters" aria-hidden="true">
-    <span class="df" style="--x:2%; --y:14%; --r:-4deg;">minha planilha trava toda hora <b>14</b> ↗</span>
-    <span class="df" style="--x:85%; --y:8%; --r:3deg;">ninguém sabe onde tá o pedido <b>22</b> ↗</span>
-    <span class="df" style="--x:1%; --y:62%; --r:2deg;">ainda calculo isso na mão <b>9</b> ↗</span>
-    <span class="df" style="--x:86%; --y:66%; --r:-3deg;">cada setor usa uma ferramenta diferente <b>13</b> ↗</span>
-    <span class="df" style="--x:4%; --y:86%; --r:1deg;">meu PCP é uma planilha de 40 abas <b>19</b> ↗</span>
-    <span class="df" style="--x:87%; --y:40%; --r:-2deg;">copio dado de um sistema pro outro na mão <b>11</b> ↗</span>
+    <span class="df" style="top:18px; left:16px; --r:-4deg;">minha planilha trava toda hora <b>14</b> ↗</span>
+    <span class="df" style="top:18px; right:16px; --r:3deg;">ninguém sabe onde tá o pedido <b>22</b> ↗</span>
+    <span class="df" style="top:165px; left:16px; --r:2deg;">ainda calculo isso na mão <b>9</b> ↗</span>
+    <span class="df" style="top:165px; right:16px; --r:-3deg;">cada setor usa uma ferramenta diferente <b>13</b> ↗</span>
+    <span class="df" style="top:312px; left:16px; --r:1deg;">meu PCP é uma planilha de 40 abas <b>19</b> ↗</span>
+    <span class="df" style="top:312px; right:16px; --r:-2deg;">copio dado de um sistema pro outro na mão <b>11</b> ↗</span>
   </div>
   <div class="diag-inner">
     <span class="diag-kicker mono">[ o diagnóstico ]</span>
@@ -3975,7 +3978,7 @@ window.PortfolioLB = (function(){
     { label: 'Livro de Visitas', tag: 'seção', target: '#livro-visitas' },
     { label: 'Contato', tag: 'seção', target: '#contato' },
     { label: 'TRK PCP 2026', tag: 'projeto', target: '#projetos' },
-    { label: 'PRC App', tag: 'projeto', target: '#projetos' },
+    { label: 'Rota Certa', tag: 'projeto', target: '#projetos' },
     { label: 'Rota de Entregas', tag: 'jogo', target: 'snake-canvas', arcade: true },
     { label: 'Desvie dos Buracos', tag: 'jogo', target: 'dodge-canvas', arcade: true },
     { label: 'Termo', tag: 'jogo', target: 'termo-grid', arcade: true },
@@ -4273,7 +4276,7 @@ window.PortfolioLB = (function(){
     var MAX_KM = 420;
 
     function roadWidth(){
-      return Math.max(0, strip.clientWidth - 90);
+      return Math.max(0, strip.clientWidth - 192);
     }
 
     if (reduceMotion || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined'){
@@ -4589,4 +4592,3 @@ window.PortfolioLB = (function(){
 
 </body>
 </html>
-
