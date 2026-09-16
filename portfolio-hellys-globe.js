@@ -87,18 +87,31 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.m
       pts.push(x * radius, y * radius, z * radius);
     }
   }
-  var positions = new Float32Array(pts);
+  var targetPositions = new Float32Array(pts);
+
+  // ---- enxame: as bolinhas nascem espalhadas longe do planeta e "assembleam" o globo quando a seção aparece ----
+  var startPositions = new Float32Array(targetPositions.length);
+  for (var sp = 0; sp < targetPositions.length; sp += 3) {
+    var tx = targetPositions[sp], ty = targetPositions[sp + 1], tz = targetPositions[sp + 2];
+    var len = Math.sqrt(tx * tx + ty * ty + tz * tz) || 1;
+    var nx = tx / len, ny = ty / len, nz = tz / len;
+    var scatterDist = radius * (2.4 + Math.random() * 4.2);
+    startPositions[sp]     = nx * scatterDist + (Math.random() - 0.5) * 2.2;
+    startPositions[sp + 1] = ny * scatterDist + (Math.random() - 0.5) * 2.2;
+    startPositions[sp + 2] = nz * scatterDist + (Math.random() - 0.5) * 2.2;
+  }
+  var livePositions = new Float32Array(reduceMotion ? targetPositions : startPositions);
   var dotGeo = new THREE.BufferGeometry();
-  dotGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+  dotGeo.setAttribute('position', new THREE.BufferAttribute(livePositions, 3));
   var dotMat = new THREE.PointsMaterial({
-    color: 0x9fb0c9, size: 0.026, sizeAttenuation: true, transparent: true, opacity: 0.85
+    color: 0x9fb0c9, size: 0.026, sizeAttenuation: true, transparent: true, opacity: reduceMotion ? 0.85 : 0
   });
   group.add(new THREE.Points(dotGeo, dotMat));
 
   // um leve véu de fundo (esfera quase invisível) pra dar volume ao planeta mesmo nas partes sem ponto
   var veil = new THREE.Mesh(
     new THREE.SphereGeometry(radius * 0.985, 32, 32),
-    new THREE.MeshBasicMaterial({ color: 0x0c1018, transparent: true, opacity: 0.55 })
+    new THREE.MeshBasicMaterial({ color: 0x0c1018, transparent: true, opacity: reduceMotion ? 0.55 : 0 })
   );
   group.add(veil);
 
@@ -110,16 +123,14 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.m
     radius * Math.sin(spLatRad),
     radius * Math.cos(spLatRad) * Math.sin(spLonRad)
   );
-  var marker = new THREE.Mesh(
-    new THREE.SphereGeometry(0.045, 12, 12),
-    new THREE.MeshBasicMaterial({ color: 0xff8a3d })
-  );
+  var markerMat = new THREE.MeshBasicMaterial({ color: 0xff8a3d, transparent: true, opacity: reduceMotion ? 1 : 0 });
+  var marker = new THREE.Mesh(new THREE.SphereGeometry(0.045, 12, 12), markerMat);
   marker.position.copy(markerPos);
   group.add(marker);
 
   // halo suave em volta do marcador (glow simples, sem pós-processamento)
   var haloMat = new THREE.SpriteMaterial({
-    map: makeGlowTexture(), color: 0xff8a3d, transparent: true, opacity: 0.55, depthWrite: false
+    map: makeGlowTexture(), color: 0xff8a3d, transparent: true, opacity: reduceMotion ? 0.55 : 0, depthWrite: false
   });
   var halo = new THREE.Sprite(haloMat);
   halo.scale.set(0.5, 0.5, 1);
@@ -196,18 +207,42 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.m
   canvas.addEventListener('pointerleave', function () { if (!isDragging) return; });
 
   var visible = true;
+  var assembleState = reduceMotion ? 'done' : 'pending';
+  var assembleStart = null;
+  var ASSEMBLE_DUR = 2000;
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
       visible = entries[0].isIntersecting;
-    }, { threshold: 0.05 });
+      if (visible && assembleState === 'pending') assembleState = 'running';
+    }, { threshold: 0.2 });
     io.observe(wrap);
+  } else if (assembleState === 'pending') {
+    assembleState = 'running';
   }
 
   renderer.render(scene, camera); // primeiro frame já pintado, sem depender do loop rAF
 
+  function stepAssemble() {
+    if (assembleStart === null) assembleStart = performance.now();
+    var p = Math.min(1, (performance.now() - assembleStart) / ASSEMBLE_DUR);
+    var ease = 1 - Math.pow(1 - p, 3);
+    var arr = dotGeo.attributes.position.array;
+    for (var m = 0; m < arr.length; m++) {
+      arr[m] = startPositions[m] + (targetPositions[m] - startPositions[m]) * ease;
+    }
+    dotGeo.attributes.position.needsUpdate = true;
+    dotMat.opacity = 0.85 * Math.min(1, p * 1.6);
+    var lateEase = Math.max(0, (p - 0.45) / 0.55);
+    markerMat.opacity = lateEase;
+    haloMat.opacity = 0.55 * lateEase;
+    veil.material.opacity = 0.55 * ease;
+    if (p >= 1) assembleState = 'done';
+  }
+
   function animate() {
     requestAnimationFrame(animate);
     if (!visible) return;
+    if (assembleState === 'running') stepAssemble();
     if (isDragging) {
       // rotação já aplicada em dragMove
     } else if (Math.abs(dragVelY) > 0.0002) {

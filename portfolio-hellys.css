@@ -849,16 +849,21 @@
   }
 
   /* DIAGNÓSTICO — frases-sintoma flutuando + busca fake com typewriter (estilo weevolveit "what's slowing you down") */
-  .diag-section{position:relative;padding:96px 0 72px;overflow:hidden;border-bottom:1px solid var(--line);}
-  .diag-inner{position:relative;max-width:680px;margin:0 auto;text-align:center;padding:0 24px;}
+  .diag-section{position:relative;padding:96px 0 72px;overflow:hidden;border-bottom:1px solid var(--line);min-height:640px;display:flex;align-items:center;}
+  .diag-inner{position:relative;max-width:680px;margin:0 auto;text-align:center;padding:0 24px;z-index:2;width:100%;}
   .diag-kicker{
     display:inline-block;border:1px solid var(--line);border-radius:var(--radius);
     padding:5px 12px;font-size:11.5px;color:var(--text-dim);margin-bottom:20px;
   }
+  .diag-heading-wrap{position:relative;}
+  .diag-swarm-canvas{position:absolute;left:0;top:0;pointer-events:none;display:none;z-index:2;}
   .diag-heading{
     font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(28px,4.6vw,52px);
     line-height:1.08;letter-spacing:-0.02em;text-wrap:balance;
+    opacity:1;
   }
+  .diag-heading-wrap.swarming .diag-heading{opacity:0;}
+  .diag-heading-wrap.swarm-done .diag-heading{opacity:1;transition:opacity .6s var(--ease);}
   .diag-heading em{font-style:normal;color:var(--accent);}
   .diag-sub{color:var(--text-dim);margin:14px 0 34px;font-size:15px;}
   .diag-search{
@@ -882,21 +887,21 @@
   .diag-live-dot{width:6px;height:6px;border-radius:50%;background:#ff5c7a;animation:globe-pulse 1.6s ease-in-out infinite;}
   .diag-live span, .diag-live b{color:var(--text);font-weight:600;}
 
-  .diag-floaters{position:absolute;inset:0;pointer-events:none;}
+  .diag-section .diag-floaters{position:absolute;inset:0;pointer-events:none;z-index:1;}
   .df{
-    position:absolute;max-width:170px;
-    transform:rotate(var(--r));font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.5;
-    color:var(--text-dim);opacity:.5;white-space:normal;
-    animation:df-float 5s ease-in-out infinite;
+    position:absolute;max-width:180px;
+    font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.5;
+    color:var(--text-dim);white-space:normal;
+    opacity:0;transform:translateY(8px) rotate(var(--r,0deg));
+    transition:opacity .7s var(--ease), transform .7s var(--ease);
+    will-change:opacity, transform;
   }
+  .df.show{opacity:.55;transform:translateY(0) rotate(var(--r,0deg));}
+  .df.hide{opacity:0;transform:translateY(-8px) rotate(var(--r,0deg));}
   .df b{color:var(--accent-2);font-weight:600;}
-  @keyframes df-float{
-    0%,100%{transform:rotate(var(--r)) translateY(0);}
-    50%{transform:rotate(var(--r)) translateY(-8px);}
-  }
   @media (max-width:1240px){ .diag-floaters{display:none;} }
   @media (prefers-reduced-motion: reduce){
-    .df{animation:none;}
+    .df{transition:none;}
     .diag-search-cursor{animation:none;}
     .diag-live-dot{animation:none;}
   }
@@ -1007,6 +1012,13 @@
   .ms-sep{color:var(--line);}
   .ms-step{transition:color .3s var(--ease);}
   .ms-step.is-active{color:var(--accent);}
+  .ms-dot{
+    position:absolute;left:0;top:100%;margin-top:10px;
+    width:5px;height:5px;border-radius:50%;background:var(--accent);
+    box-shadow:0 0 8px 1px rgba(255,138,61,.55);
+    will-change:transform;
+  }
+  @media (prefers-reduced-motion: reduce){ .ms-dot{display:none;} }
 
   @media (prefers-reduced-motion: reduce){
     .method-section.pinned{overflow:visible;}
