@@ -1,11 +1,38 @@
 // Globo pontilhado 3D — presença remota (inspirado no weevolveit.com), rodando em Three.js puro, sem build.
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
+// versão .min (670 KB, ~166 KB gzip) baixada só depois do load da página — não disputa banda com fontes/GSAP/imagens
+var THREE_URL = 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js';
 
 (function () {
   var wrap = document.getElementById('globe-canvas-wrap');
   var canvas = document.getElementById('globe-canvas');
   if (!wrap || !canvas) return;
 
+  var booted = false;
+  function boot() {
+    if (booted) return;
+    booted = true;
+    import(THREE_URL).then(init).catch(function () {
+      // sem rede/CDN: a seção fica só com o badge "online · são paulo", sem quebrar nada
+    });
+  }
+  function whenNear() {
+    if ('IntersectionObserver' in window) {
+      var io0 = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) { io0.disconnect(); boot(); }
+      }, { rootMargin: '900px 0px' });
+      io0.observe(wrap);
+    } else {
+      boot();
+    }
+  }
+  function afterLoad() {
+    if ('requestIdleCallback' in window) requestIdleCallback(whenNear, { timeout: 2500 });
+    else setTimeout(whenNear, 300);
+  }
+  if (document.readyState === 'complete') afterLoad();
+  else window.addEventListener('load', afterLoad);
+
+  function init(THREE) {
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   var renderer;
@@ -56,7 +83,7 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.m
   function startGlobe(isLand) {
 
   // esfera pontilhada — distribuição de Fibonacci (uniforme), filtrada pra só sobrar terra firme
-  var CANDIDATES = 6500;
+  var CANDIDATES = 9000;
   var pts = [];
   var goldenAngle = Math.PI * (3 - Math.sqrt(5));
   for (var i = 0; i < CANDIDATES; i++) {
@@ -68,7 +95,8 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.m
     var y = yA;
     var z = Math.sin(theta) * rC;
     var latDeg = Math.asin(Math.max(-1, Math.min(1, y))) * 180 / Math.PI;
-    var lonDeg = Math.atan2(z, x) * 180 / Math.PI;
+    // -z: visto de fora, o leste tem que ficar à DIREITA (com atan2(z, x) o mapa saía espelhado)
+    var lonDeg = Math.atan2(-z, x) * 180 / Math.PI;
     if (isLand(lonDeg, latDeg)) {
       pts.push(x * radius, y * radius, z * radius);
     }
@@ -101,13 +129,14 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.m
   );
   group.add(veil);
 
-  // ponto de destaque — São Paulo, mesma fórmula lat/lon usada pra filtrar os pontos acima (fica exatamente sobre a "terra")
-  var spLat = -23.55, spLon = -46.63;
+  // ponto de destaque — centro do ESTADO de São Paulo (a capital fica a poucos km da costa e, com pontos tão espaçados,
+  // o marcador parecia flutuar sobre o mar). Mesma fórmula lat/lon usada pra filtrar os pontos acima.
+  var spLat = -22.4, spLon = -48.6;
   var spLatRad = spLat * Math.PI / 180, spLonRad = spLon * Math.PI / 180;
   var markerPos = new THREE.Vector3(
     radius * Math.cos(spLatRad) * Math.cos(spLonRad),
     radius * Math.sin(spLatRad),
-    radius * Math.cos(spLatRad) * Math.sin(spLonRad)
+    -radius * Math.cos(spLatRad) * Math.sin(spLonRad)
   );
   var markerMat = new THREE.MeshBasicMaterial({ color: 0xff8a3d, transparent: true, opacity: reduceMotion ? 1 : 0 });
   var marker = new THREE.Mesh(new THREE.SphereGeometry(0.045, 12, 12), markerMat);
@@ -136,6 +165,7 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.m
   }
 
   group.rotation.x = 0.15;
+  group.rotation.y = -(Math.PI / 2 + spLonRad); // já abre com o Brasil de frente pra câmera
 
   function computeSize() {
     var s = wrap.clientWidth;
@@ -243,5 +273,6 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.m
     renderer.render(scene, camera);
   }
   animate();
+  }
   }
 })();

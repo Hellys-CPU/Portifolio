@@ -1,8 +1,9 @@
 {
+  "id": "./",
   "name": "Hellys — Processos, Operação e Sistemas",
   "short_name": "Hellys",
   "description": "Analista de Processos Operacionais e desenvolvedor. Sistemas de operação e logística, do banco de dados à interface.",
-  "start_url": "index.html",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "background_color": "#10141a",
