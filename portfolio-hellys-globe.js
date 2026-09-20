@@ -25,49 +25,35 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.m
 
   var radius = 1.5;
 
-  // ---- máscara de continentes — silhueta simplificada dos continentes num canvas equiretangular ----
-  // (sem depender de nenhum asset externo: um punhado de polígonos aproximados já basta pro efeito de "bolinhas só na terra")
-  function buildLandMask() {
-    var W = 360, H = 180;
-    var c = document.createElement('canvas');
-    c.width = W; c.height = H;
-    var ctx = c.getContext('2d');
-    ctx.fillStyle = '#000';
-    ctx.fillRect(0, 0, W, H);
-    ctx.fillStyle = '#fff';
-    function toXY(lon, lat) { return [(lon + 180) / 360 * W, (90 - lat) / 180 * H]; }
-    function poly(points) {
-      ctx.beginPath();
-      points.forEach(function (p, i) {
-        var xy = toXY(p[0], p[1]);
-        if (i === 0) ctx.moveTo(xy[0], xy[1]); else ctx.lineTo(xy[0], xy[1]);
-      });
-      ctx.closePath();
-      ctx.fill();
+  // ---- máscara de continentes — bitmap real derivado de coordenadas geográficas públicas
+  // (Natural Earth / world.geojson), não é mais polígono desenhado à mão — export em preto/branco 720x360 ----
+  var MASK_B64 = "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";
+
+  var maskImg = new Image();
+  maskImg.onload = function () {
+    var mc = document.createElement('canvas');
+    mc.width = maskImg.width; mc.height = maskImg.height;
+    var mctx = mc.getContext('2d');
+    mctx.drawImage(maskImg, 0, 0);
+    var mask = mctx.getImageData(0, 0, mc.width, mc.height);
+    var maskW = mask.width, maskH = mask.height;
+    function isLand(lonDeg, latDeg) {
+      var u = Math.floor((lonDeg + 180) / 360 * maskW);
+      var v = Math.floor((90 - latDeg) / 180 * maskH);
+      u = Math.max(0, Math.min(maskW - 1, u));
+      v = Math.max(0, Math.min(maskH - 1, v));
+      return mask.data[(v * maskW + u) * 4] > 128;
     }
-    // américa do sul
-    poly([[-81, 9], [-77, 4], [-70, -18], [-71, -30], [-73, -42], [-68, -54], [-65, -55], [-58, -52], [-48, -25], [-35, -8], [-50, 5], [-60, 10], [-70, 11]]);
-    // américa do norte
-    poly([[-165, 68], [-140, 60], [-125, 49], [-117, 32], [-105, 20], [-97, 16], [-90, 14], [-80, 9], [-75, 20], [-66, 45], [-70, 50], [-80, 62], [-95, 68], [-130, 70]]);
-    // áfrica
-    poly([[-17, 15], [-17, 5], [9, 4], [12, -5], [13, -18], [18, -34], [32, -28], [40, -15], [51, 12], [43, 15], [35, 31], [10, 37], [-6, 35]]);
-    // europa
-    poly([[-9, 43], [-9, 52], [5, 60], [25, 60], [40, 65], [40, 45], [28, 41], [15, 38], [-5, 36]]);
-    // ásia
-    poly([[40, 45], [55, 40], [70, 38], [78, 30], [80, 8], [92, 22], [100, 10], [105, -6], [120, 5], [135, 35], [145, 45], [140, 55], [160, 65], [100, 72], [60, 68], [45, 55]]);
-    // austrália
-    poly([[113, -22], [122, -18], [130, -12], [142, -11], [153, -27], [150, -37], [140, -38], [129, -32], [115, -34]]);
-    return ctx.getImageData(0, 0, W, H);
-  }
-  var mask = buildLandMask();
-  var maskW = mask.width, maskH = mask.height;
-  function isLand(lonDeg, latDeg) {
-    var u = Math.floor((lonDeg + 180) / 360 * maskW);
-    var v = Math.floor((90 - latDeg) / 180 * maskH);
-    u = Math.max(0, Math.min(maskW - 1, u));
-    v = Math.max(0, Math.min(maskH - 1, v));
-    return mask.data[(v * maskW + u) * 4] > 128;
-  }
+
+    startGlobe(isLand);
+  };
+  maskImg.onerror = function () {
+    // se a imagem falhar por algum motivo, cai pra um "sempre true" — globo fica solido, mas nao quebra a pagina
+    startGlobe(function () { return true; });
+  };
+  maskImg.src = "data:image/png;base64," + MASK_B64;
+
+  function startGlobe(isLand) {
 
   // esfera pontilhada — distribuição de Fibonacci (uniforme), filtrada pra só sobrar terra firme
   var CANDIDATES = 6500;
@@ -257,4 +243,5 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.m
     renderer.render(scene, camera);
   }
   animate();
+  }
 })();
