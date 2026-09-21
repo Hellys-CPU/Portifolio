@@ -77,7 +77,7 @@
 <div id="os-bar" class="mono" aria-hidden="true">
   <span class="os-bar-brand">⌘ hellys<span class="os-bar-ext">.</span></span>
   <span class="os-bar-procs"><span class="os-dot"></span>atena.exe · aurora.exe — rodando</span>
-  <span class="os-bar-clock" id="os-clock">00:00</span>
+  <span class="os-bar-right"><span class="os-bar-term" id="os-term-open" data-cursor="terminal">` terminal</span><span class="os-bar-clock" id="os-clock">00:00</span></span>
 </div>
 
 <div id="route-bar" aria-hidden="true"><div id="route-bar-fill"></div></div>
@@ -523,16 +523,23 @@
       <a href="#diferenciais">Diferenciais</a>
       <a href="#projetos">Projetos</a>
       <a href="#podcast">Podcast</a>
-      <a href="#entretenimento">Entretenimento</a>
+      <a href="#entretenimento">Arcade</a>
       <a href="#skills">Competências</a>
+      <a href="#laboratorio">Laboratório</a>
       <a href="#servicos-pc">Serviços</a>
-      <a href="#livro-visitas">Livro de Visitas</a>
+      <a href="#livro-visitas">Visitas</a>
     </nav>
     <a href="#contato" class="nav-cta mono">Falar comigo</a>
   </div>
 </header>
 
 <main id="conteudo" tabindex="-1">
+<div class="cv-head">
+  <p class="cv-name">Hellys<i>.</i></p>
+  <p class="cv-role">Analista de Processos Operacionais · Desenvolvimento de sistemas</p>
+  <p class="cv-contact">guilherme.hellys1@gmail.com · (11) 99403-2102 · github.com/Hellys-CPU · hellys.dev.br · São Paulo, SP</p>
+  <p class="cv-summary">Técnico em Marketing e cursando Ciência da Computação. Trabalho de frente com a operação — e não fico só no diagnóstico: eu mesmo desenho, desenvolvo e coloco o sistema em produção, do banco de dados à interface, inclusive para cliente externo.</p>
+</div>
 <section id="inicio" class="hero wrap hud-grid" style="border-bottom:none;padding-bottom:0;">
   <div class="hud-dots" aria-hidden="true"></div>
   <div id="scroll-cue" class="mono" aria-hidden="true">role pra explorar<svg viewBox="0 0 24 24"><path d="M12 4v16M6 14l6 6 6-6"/></svg></div>
@@ -622,7 +629,7 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
 
 <section id="trajetoria" class="wrap">
   <h2 class="section-title">Trajetória</h2>
-  <p class="section-sub">O caminho até aqui, em ordem.</p>
+  <p class="section-sub">O caminho até aqui, em ordem. Auxiliar, assistente e analista: três cargos na mesma empresa.</p>
   <div class="route" id="route">
     <div class="route-progress" id="route-progress" aria-hidden="true"></div>
     <div class="route-signal" id="route-signal" aria-hidden="true"></div>
@@ -632,7 +639,17 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
       <p>Base em comunicação, análise de público e estruturação de informação — hoje aplicada em relatórios e comunicação interna da operação.</p>
     </div>
     <div class="stop">
-      <div class="when mono">carreira</div>
+      <div class="when mono">carreira · desde 03/2025</div>
+      <div class="titlewrap"><div class="icon-circle"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0114 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div><h3>Auxiliar de Transporte</h3></div>
+      <p>Rastreamento de veículos em nível Brasil: contato com bases de diferentes estados, reporte de trânsito nos percursos e de ocorrências como veículo quebrado.</p>
+    </div>
+    <div class="stop">
+      <div class="when mono">carreira · mesma empresa</div>
+      <div class="titlewrap"><div class="icon-circle"><svg viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg></div><h3>Assistente de Transporte</h3></div>
+      <p>Passo seguinte na mesma operação de transporte, sem trocar de empresa.</p>
+    </div>
+    <div class="stop">
+      <div class="when mono">carreira · mesma empresa · hoje</div>
       <div class="titlewrap"><div class="icon-circle"><svg viewBox="0 0 24 24"><path d="M9 3h6v4H9z"/><path d="M4 7h16v13H4z"/><path d="M4 12h16"/></svg></div><h3>Analista de Processos Operacionais</h3></div>
       <p>Atuação direta na operação, planejando, controlando e resolvendo gargalos do dia a dia. A partir dessa vivência, início do desenvolvimento de ferramentas próprias.</p>
     </div>
@@ -968,7 +985,7 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
     <div class="pod-stage">
       <div class="pod-head">
         <span class="pod-badge mono"><i aria-hidden="true"></i>voz gerada por IA</span>
-        <span class="pod-no mono" id="pod-no">EP 01 / 03</span>
+        <span class="pod-no mono" id="pod-no">EP 01 / 04</span>
       </div>
       <h3 class="pod-title" id="pod-title">Harvard ou as Trincheiras do Código</h3>
       <div class="pod-tags" id="pod-tags"><span class="pod-tag mono">formação</span><span class="pod-tag mono">prática</span></div>
@@ -997,21 +1014,27 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
           <span class="pod-n mono">01</span><span class="pod-eq" aria-hidden="true"><i></i><i></i><i></i></span>
           <span class="pod-item-txt"><span class="pod-item-title">Harvard ou as Trincheiras do Código</span><span class="pod-item-meta mono">20:16 · formação · prática</span></span>
         </button>
-        <a class="pod-dl mono" href="audio/harvard-ou-as-trincheiras-do-codigo.m4a" download aria-label="Baixar o episódio 1 (9,9 MB)" title="Baixar · 9,9 MB" data-cursor="baixar">↓</a>
+        <a class="pod-dl mono" href="audio/harvard-ou-as-trincheiras-do-codigo.m4a" download aria-label="Baixar o episódio 1 (7,5 MB)" title="Baixar · 7,5 MB" data-cursor="baixar">↓</a>
       </li>
       <li class="pod-item" data-src="audio/testes-de-algoritmos-nao-medem-competencia-real.m4a" data-title="Testes de algoritmos não medem competência real" data-dur="1084.9" data-tags="algoritmos,carreira" data-peaks="49,63,34,14,49,38,28,43,24,28,30,39,25,32,67,59,18,51,40,39,29,14,14,15,49,35,32,39,22,26,60,52,54,76,59,22,90,24,53,39,100,49,44,20,71,77,87,100,100,100,84,63,43,56,56,16,31,42,77,56,78,85,66,34,14,23,75,99,57,62,85,74,93,75,47,55,16,14,24,63,48,65,78,73,71,49,39,16,54,34,54,51,19,37,47,41,40,39,39,41,65,72,56,52,81,56,60,70,60,48,47,77,70,45,41,40,44,34,48,49">
         <button type="button" class="pod-item-btn" data-cursor="ouvir">
           <span class="pod-n mono">02</span><span class="pod-eq" aria-hidden="true"><i></i><i></i><i></i></span>
           <span class="pod-item-txt"><span class="pod-item-title">Testes de algoritmos não medem competência real</span><span class="pod-item-meta mono">18:04 · algoritmos · carreira</span></span>
         </button>
-        <a class="pod-dl mono" href="audio/testes-de-algoritmos-nao-medem-competencia-real.m4a" download aria-label="Baixar o episódio 2 (8,9 MB)" title="Baixar · 8,9 MB" data-cursor="baixar">↓</a>
+        <a class="pod-dl mono" href="audio/testes-de-algoritmos-nao-medem-competencia-real.m4a" download aria-label="Baixar o episódio 2 (6,7 MB)" title="Baixar · 6,7 MB" data-cursor="baixar">↓</a>
       </li>
       <li class="pod-item" data-src="audio/arquitetura-web-do-html-ao-deploy.m4a" data-title="Arquitetura Web: do HTML ao Deploy" data-dur="1008.7" data-tags="web,HTML,deploy" data-peaks="64,78,36,95,77,88,95,66,66,89,94,91,73,73,50,100,34,19,14,46,100,36,40,76,39,33,58,47,84,63,92,45,44,69,72,56,52,42,92,53,45,33,43,53,35,61,14,40,49,40,62,14,28,39,82,31,60,85,74,72,41,50,72,46,57,60,71,42,73,36,55,78,95,100,46,44,42,30,74,100,44,56,41,46,58,52,35,53,38,27,32,34,82,22,31,42,35,28,37,31,14,37,36,32,58,44,34,70,14,38,60,43,22,29,54,73,14,59,32,48">
         <button type="button" class="pod-item-btn" data-cursor="ouvir">
           <span class="pod-n mono">03</span><span class="pod-eq" aria-hidden="true"><i></i><i></i><i></i></span>
           <span class="pod-item-txt"><span class="pod-item-title">Arquitetura Web: do HTML ao Deploy</span><span class="pod-item-meta mono">16:48 · web · HTML · deploy</span></span>
         </button>
-        <a class="pod-dl mono" href="audio/arquitetura-web-do-html-ao-deploy.m4a" download aria-label="Baixar o episódio 3 (8,2 MB)" title="Baixar · 8,2 MB" data-cursor="baixar">↓</a>
+        <a class="pod-dl mono" href="audio/arquitetura-web-do-html-ao-deploy.m4a" download aria-label="Baixar o episódio 3 (6,2 MB)" title="Baixar · 6,2 MB" data-cursor="baixar">↓</a>
+      <li class="pod-item" data-src="audio/react-ou-html-puro-para-iniciantes.m4a" data-title="React ou HTML puro para iniciantes" data-dur="937.4" data-tags="React,HTML,iniciantes" data-peaks="53,39,35,64,26,53,69,52,49,47,50,47,18,38,30,14,30,30,38,77,55,14,71,63,64,56,61,41,41,14,16,50,46,34,61,39,33,15,82,54,68,88,53,14,80,55,77,100,100,90,24,32,77,56,68,54,85,63,72,35,76,65,61,56,74,100,94,100,59,84,84,82,83,87,66,78,39,81,93,67,67,51,81,70,41,44,50,61,56,73,68,38,52,57,59,62,27,30,41,56,58,42,59,91,67,42,43,75,67,86,77,60,65,82,43,14,45,69,89,33">
+        <button type="button" class="pod-item-btn" data-cursor="ouvir">
+          <span class="pod-n mono">04</span><span class="pod-eq" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="pod-item-txt"><span class="pod-item-title">React ou HTML puro para iniciantes</span><span class="pod-item-meta mono">15:37 · React · HTML · iniciantes</span></span>
+        </button>
+        <a class="pod-dl mono" href="audio/react-ou-html-puro-para-iniciantes.m4a" download aria-label="Baixar o episódio 4 (5,8 MB)" title="Baixar · 5,8 MB" data-cursor="baixar">↓</a>
       </li>
     </ol>
   </div>
@@ -1104,6 +1127,153 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
         <span class="chip">Estruturação de dados p/ liderança</span>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="laboratorio" class="wrap">
+  <h2 class="section-title">Laboratório</h2>
+  <p class="section-sub">Onde o processo trava? Escolha um ramo — ou monte o seu — mexa nos números e veja o gargalo aparecer. É a mesma conta que uso pra diagnosticar operação de verdade, seja armazém, atendimento, clínica, fábrica, banco ou cozinha.</p>
+
+  <div class="lab" id="lab">
+    <div class="lab-main">
+      <div class="lab-row">
+        <span class="lab-row-l mono">ramo</span>
+        <div class="lab-inds" role="group" aria-label="Escolha o ramo da empresa">
+          <button type="button" class="lab-ind mono" data-ind="logistica" aria-pressed="true">Logística</button>
+          <button type="button" class="lab-ind mono" data-ind="atendimento" aria-pressed="false">Atendimento</button>
+          <button type="button" class="lab-ind mono" data-ind="saude" aria-pressed="false">Saúde</button>
+          <button type="button" class="lab-ind mono" data-ind="industria" aria-pressed="false">Indústria</button>
+          <button type="button" class="lab-ind mono" data-ind="credito" aria-pressed="false">Crédito</button>
+          <button type="button" class="lab-ind mono" data-ind="restaurante" aria-pressed="false">Restaurante</button>
+          <button type="button" class="lab-ind lab-ind-custom mono" data-ind="custom" aria-pressed="false">✎ Meu processo</button>
+        </div>
+      </div>
+      <div class="lab-top">
+        <div class="lab-presets" role="group" aria-label="Cenários prontos">
+          <button type="button" class="lab-chip mono" data-preset="pico">Pico de demanda</button>
+          <button type="button" class="lab-chip mono" data-preset="tranquilo">Dia tranquilo</button>
+          <button type="button" class="lab-chip mono" data-preset="errado">Reforço no lugar errado</button>
+          <button type="button" class="lab-chip mono" data-preset="balanceado">Balanceado</button>
+        </div>
+        <div class="lab-tools">
+          <button type="button" class="lab-tool" id="lab-play" aria-label="Pausar a simulação" data-cursor="pausar">
+            <svg class="ic-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="5" width="3.8" height="14" rx="1" fill="currentColor"/><rect x="13.7" y="5" width="3.8" height="14" rx="1" fill="currentColor"/></svg>
+            <svg class="ic-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z" fill="currentColor"/></svg>
+          </button>
+          <button type="button" class="lab-tool mono" id="lab-speed" aria-label="Velocidade da simulação: 1×">1×</button>
+          <button type="button" class="lab-tool" id="lab-reset" aria-label="Reiniciar a simulação" data-cursor="reiniciar">↺</button>
+        </div>
+      </div>
+
+      <div class="lab-stage" id="lab-stage">
+        <canvas id="lab-canvas" role="img" aria-label="Simulação de um processo com etapas em sequência. Cada ponto é um item (pedido, chamado, paciente…); onde a fila cresce está o gargalo."></canvas>
+        <div class="lab-ctrls" id="lab-ctrls"></div>
+      </div>
+
+      <div class="lab-demand">
+        <label class="mono" for="lab-demand">Demanda</label>
+        <input type="range" id="lab-demand" min="10" max="70" step="2" value="44">
+        <output class="mono" id="lab-demand-out" for="lab-demand">44 pedidos/h</output>
+      </div>
+
+      <div class="lab-editor" id="lab-editor" hidden>
+        <p class="lab-ed-head mono">monte o seu processo · de 2 a 6 etapas em sequência</p>
+        <div class="lab-ed-meta">
+          <label class="mono">o que passa por ele<input type="text" id="lab-ed-sing" value="item" maxlength="14" autocomplete="off"></label>
+          <label class="mono">no plural<input type="text" id="lab-ed-plur" value="itens" maxlength="16" autocomplete="off"></label>
+          <label class="mono">quem trabalha<input type="text" id="lab-ed-who" value="pessoas" maxlength="16" autocomplete="off"></label>
+          <label class="mono">tempos em
+            <select id="lab-ed-unit"><option value="min">minutos</option><option value="h">horas</option><option value="dia">dias</option></select>
+          </label>
+        </div>
+        <div class="lab-ed-rows" id="lab-ed-rows"></div>
+        <button type="button" class="lab-chip mono" id="lab-ed-add">+ etapa</button>
+        <p class="lab-note mono">Nada sai do seu navegador. Coloque quanto tempo <em>uma pessoa</em> leva em cada etapa, por item.</p>
+      </div>
+
+      <p class="lab-note mono" id="lab-note">Tempos por etapa são ilustrativos. Capacidade = pessoas × período ÷ tempo.</p>
+      <noscript><p class="lab-note mono">Ative o JavaScript pra rodar a simulação.</p></noscript>
+    </div>
+
+    <aside class="lab-side" aria-label="Resultado da simulação">
+      <div class="lab-kpis">
+        <div class="lab-kpi"><span class="k mono">demanda</span><span class="v" id="lab-k-dem">44/h</span></div>
+        <div class="lab-kpi" id="lab-kpi-cap"><span class="k mono">capacidade do processo</span><span class="v" id="lab-k-cap">33/h</span></div>
+        <div class="lab-kpi"><span class="k mono">saída real</span><span class="v" id="lab-k-out">—</span></div>
+        <div class="lab-kpi"><span class="k mono">tempo médio</span><span class="v" id="lab-k-cyc">—</span></div>
+        <div class="lab-kpi lab-kpi-wide"><span class="k mono" id="lab-k-wip-l">pedidos em andamento</span><span class="v" id="lab-k-wip">—</span></div>
+      </div>
+
+      <div class="lab-tabs" role="tablist" aria-label="Ferramentas do laboratório">
+        <button type="button" role="tab" class="lab-tab mono" id="lab-tab-diag" data-tab="diag" aria-controls="lab-pn-diag" aria-selected="true">Diagnóstico</button>
+        <button type="button" role="tab" class="lab-tab mono" id="lab-tab-auto" data-tab="auto" aria-controls="lab-pn-auto" aria-selected="false" tabindex="-1">Automatizar</button>
+        <button type="button" role="tab" class="lab-tab mono" id="lab-tab-custo" data-tab="custo" aria-controls="lab-pn-custo" aria-selected="false" tabindex="-1">Custo</button>
+        <button type="button" role="tab" class="lab-tab mono" id="lab-tab-comp" data-tab="comp" aria-controls="lab-pn-comp" aria-selected="false" tabindex="-1">Antes × Depois</button>
+        <button type="button" role="tab" class="lab-tab mono" id="lab-tab-curva" data-tab="curva" aria-controls="lab-pn-curva" aria-selected="false" tabindex="-1">Curva</button>
+      </div>
+
+      <div class="lab-panel" id="lab-pn-diag" role="tabpanel" aria-labelledby="lab-tab-diag">
+        <div class="lab-verdict" id="lab-verdict" aria-live="polite">
+          <h3 id="lab-v-title">…</h3>
+          <p id="lab-v-body"></p>
+          <p class="lab-v-fix" id="lab-v-fix"></p>
+        </div>
+      </div>
+
+      <div class="lab-panel" id="lab-pn-auto" role="tabpanel" aria-labelledby="lab-tab-auto" hidden>
+        <div class="lab-box">
+          <h3 id="lab-au-title">E se automatizar?</h3>
+          <p id="lab-au-txt">Em vez de contratar, reduza o tempo da etapa que trava — por automação ou mudança de método.</p>
+          <div class="lab-au-btns" role="group" aria-label="Redução de tempo na etapa gargalo">
+            <button type="button" class="lab-chip mono" data-au="0.8">−20%</button>
+            <button type="button" class="lab-chip mono" data-au="0.6">−40%</button>
+            <button type="button" class="lab-chip mono" data-au="0.4">−60%</button>
+            <button type="button" class="lab-chip mono" data-au="1">desfazer tudo</button>
+          </div>
+          <p class="lab-v-fix" id="lab-au-res"></p>
+        </div>
+      </div>
+
+      <div class="lab-panel" id="lab-pn-custo" role="tabpanel" aria-labelledby="lab-tab-custo" hidden>
+        <div class="lab-box">
+          <h3>Quanto custa esse gargalo?</h3>
+          <div class="lab-cost-in">
+            <label class="mono">valor de cada <span id="lab-c-item">pedido</span> (R$)<input type="number" id="lab-c-val" value="80" min="0" step="any" inputmode="decimal"></label>
+            <label class="mono">custo de cada pessoa por hora (R$)<input type="number" id="lab-c-hr" value="35" min="0" step="any" inputmode="decimal"></label>
+          </div>
+          <div class="lab-cost-out" id="lab-cost-out" aria-live="polite"></div>
+          <p class="lab-note mono">Valores de exemplo — troque pelos seus. Conta simples, só com o que você digitou (mês = 22 dias de 8 h).</p>
+        </div>
+      </div>
+
+      <div class="lab-panel" id="lab-pn-comp" role="tabpanel" aria-labelledby="lab-tab-comp" hidden>
+        <div class="lab-box">
+          <h3>Antes × Depois</h3>
+          <p id="lab-cmp-hint">Fixe o cenário atual como “antes”, depois mude pessoas, tempos ou demanda e compare os dois.</p>
+          <div class="lab-au-btns">
+            <button type="button" class="lab-chip mono" id="lab-cmp-fix">Fixar o cenário atual como ANTES</button>
+            <button type="button" class="lab-chip mono" id="lab-cmp-clear" hidden>limpar</button>
+          </div>
+          <div class="lab-cmp-wrap" id="lab-cmp-wrap" hidden>
+            <table class="lab-cmp mono" id="lab-cmp"></table>
+            <p class="lab-note mono">Comparação por simulação longa (várias rodadas), não pelos pontos que estão na tela.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lab-panel" id="lab-pn-curva" role="tabpanel" aria-labelledby="lab-tab-curva" hidden>
+        <div class="lab-box">
+          <h3>Por que 100% de uso é armadilha</h3>
+          <canvas id="lab-curve" role="img" aria-label="Gráfico: tempo de espera em função da ocupação da etapa gargalo. A espera dispara perto de 100%."></canvas>
+          <p id="lab-curve-txt"></p>
+        </div>
+      </div>
+
+      <div class="lab-cta">
+        <a class="lab-btn lab-btn-main" id="lab-cta-mail" href="mailto:guilherme.hellys1@gmail.com" data-cursor="e-mail">Mandar este cenário →</a>
+        <a class="lab-btn" href="#diagnostico">Olhar a minha operação</a>
+      </div>
+    </aside>
   </div>
 </section>
 
@@ -1274,11 +1444,39 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
       <div class="v"><a href="https://github.com/Hellys-CPU" target="_blank" rel="noopener">github.com/Hellys-CPU</a></div>
     </div>
   </div>
+  <div class="cv-cta">
+    <button type="button" class="cv-btn mono" id="cv-print" data-cursor="baixar">↓ Baixar currículo em PDF</button>
+    <span class="cv-hint mono">abre a impressão do navegador → “Salvar como PDF”</span>
+  </div>
 </section>
 
 </main>
 
-<footer>hellys · desenvolvimento de sistemas · são paulo</footer>
+<footer>hellys · desenvolvimento de sistemas · são paulo · <button type="button" class="foot-term" id="term-open" data-cursor="abrir">terminal <kbd>`</kbd></button></footer>
+
+<div id="term" class="tmn" role="dialog" aria-label="Terminal do portfólio" aria-hidden="true" inert>
+  <div class="tmn-bar mono">
+    <span class="tmn-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+    <span class="tmn-title">visitante@hellys: ~</span>
+    <button type="button" class="tmn-x mono" id="term-close" aria-label="Fechar o terminal">esc</button>
+  </div>
+  <div class="tmn-out mono" id="term-out" role="log" aria-live="polite"></div>
+  <div class="tmn-quick mono" id="term-quick">
+    <button type="button" data-run="help">help</button>
+    <button type="button" data-run="sobre">sobre</button>
+    <button type="button" data-run="projetos">projetos</button>
+    <button type="button" data-run="podcast">podcast</button>
+    <button type="button" data-run="simular">simular</button>
+    <button type="button" data-run="github">github</button>
+    <button type="button" data-run="contato">contato</button>
+  </div>
+  <form class="tmn-in mono" id="term-form" autocomplete="off">
+    <label class="tmn-ps" for="term-input">visitante@hellys:~$</label>
+    <input id="term-input" type="text" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" enterkeyhint="send">
+  </form>
+</div>
+
+
 
 <a href="#inicio" id="back-to-top" aria-label="Voltar ao topo">
   <svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
@@ -2165,7 +2363,7 @@ window.PortfolioLB = (function(){
 
   var THEME = {
     sobre: 'personal', trajetoria: 'personal', diferenciais: 'personal',
-    projetos: 'tech', skills: 'tech', podcast: 'personal', contato: 'personal'
+    projetos: 'tech', skills: 'tech', podcast: 'personal', laboratorio: 'tech', contato: 'personal'
   };
 
   var LINES = {
@@ -2193,6 +2391,11 @@ window.PortfolioLB = (function(){
       projetos: [
         'Esses sistemas rodam em produção. Não é protótipo de portfólio.',
         'Clica em qualquer card — cada um tem stack, contexto e o problema real por trás.'
+      ],
+      laboratorio: [
+        'Aumenta a demanda e olha onde os pontos empilham. É ali que o processo trava.',
+        'Contratar gente fora do gargalo não muda a saída. Testa: preset "Reforço no lugar errado".',
+        'Não é logística? Clica em "Meu processo" e monta o seu: etapas, tempos e unidade.'
       ],
       podcast: [
         'Episódios sobre código, gerados por IA. Dá pra ouvir aqui mesmo, sem instalar nada.',
@@ -2236,6 +2439,11 @@ window.PortfolioLB = (function(){
         'Cada projeto nasceu de uma dor real na operação, não de um tutorial.',
         'Tem projeto de cliente externo aqui — não é só uso interno.'
       ],
+      laboratorio: [
+        'É a conta que ele faz na operação de verdade: capacidade = pessoas × tempo. Simples e muda tudo.',
+        'Se gostar do cenário, dá pra mandar ele direto por e-mail — já vai preenchido.',
+        'Na aba Custo, ele põe os seus valores e vê quanto o gargalo custa por mês.'
+      ],
       podcast: [
         'As vozes dos episódios são geradas por IA — por isso o selo em cada player.',
         'Dá pra ouvir de fone, mudar a velocidade ou baixar o arquivo pra ouvir depois.'
@@ -2260,7 +2468,7 @@ window.PortfolioLB = (function(){
     return Array.isArray(bank) ? bank[Math.floor(Math.random() * bank.length)] : bank;
   }
 
-  var SECTION_IDS = ['inicio','sobre','trajetoria','diferenciais','projetos','podcast','skills','entretenimento','contato'];
+  var SECTION_IDS = ['inicio','sobre','trajetoria','diferenciais','projetos','podcast','skills','laboratorio','entretenimento','contato'];
   var sections = {};
   SECTION_IDS.forEach(function(id){
     var s = document.getElementById(id);
@@ -4156,6 +4364,7 @@ window.PortfolioLB = (function(){
     { label: 'Podcast (ouvir episódios)', tag: 'seção', target: '#podcast' },
     { label: 'Entretenimento / jogos', tag: 'seção', target: '#entretenimento' },
     { label: 'Competências', tag: 'seção', target: '#skills' },
+    { label: 'Laboratório (simulador de gargalo)', tag: 'seção', target: '#laboratorio' },
     { label: 'Serviços', tag: 'seção', target: '#servicos-pc' },
     { label: 'Livro de Visitas', tag: 'seção', target: '#livro-visitas' },
     { label: 'Contato', tag: 'seção', target: '#contato' },
@@ -4168,6 +4377,8 @@ window.PortfolioLB = (function(){
     { label: 'Pong', tag: 'jogo', target: 'pong-canvas', arcade: true },
     { label: 'E-mail', tag: 'contato', target: 'mailto:guilherme.hellys1@gmail.com', external: true },
     { label: 'GitHub', tag: 'contato', target: 'https://github.com/Hellys-CPU', external: true },
+    { label: 'Baixar currículo (PDF)', tag: 'ação', run: function(){ if (window.printCV) window.printCV(); } },
+    { label: 'Abrir terminal', tag: 'ação', run: function(){ if (window.openTerminal) window.openTerminal(); } },
     { label: 'Voltar ao topo', tag: 'ação', target: '#inicio' }
   ];
 
@@ -4197,7 +4408,9 @@ window.PortfolioLB = (function(){
 
   function go(cmd){
     close();
-    if (cmd.external){
+    if (cmd.run){
+      cmd.run();
+    } else if (cmd.external){
       window.open(cmd.target, '_blank', 'noopener');
     } else if (cmd.arcade){
       if (window.openArcade) window.openArcade(cmd.target);
@@ -4306,7 +4519,7 @@ window.PortfolioLB = (function(){
 (function(){
   try {
     var items = document.querySelectorAll(
-      '.record, .diff-card, .stop, .contact-item, .skill-group, .guestbook-form, .arcade-teaser, .closing-statement, .pod-stage, .pod-item'
+      '.record, .diff-card, .stop, .contact-item, .skill-group, .guestbook-form, .arcade-teaser, .closing-statement, .pod-stage, .pod-item, .lab-main, .lab-side'
     );
     if (!items.length) return;
 
@@ -4749,7 +4962,7 @@ window.PortfolioLB = (function(){
         ['ninguém sabe quanto tempo cada pedido leva de ponta a ponta', 21]
       ];
       var active = [];
-      var MAX_ACTIVE = 6;
+      function maxActive(){ return window.innerWidth >= 1240 ? 6 : 4; }   // janelas menores têm menos espaço livre
       var PAD = 16;
 
       function overlaps(a, b){
@@ -4765,7 +4978,7 @@ window.PortfolioLB = (function(){
       }
 
       function trySpawn(){
-        if (active.length >= MAX_ACTIVE) return;
+        if (active.length >= maxActive()) return;
         var fw = field.clientWidth, fh = field.clientHeight;
         if (fw < 260 || fh < 260) return;
 
@@ -4816,7 +5029,7 @@ window.PortfolioLB = (function(){
       // só gera bolhas com a seção na tela e a aba visível — antes o intervalo rodava (e media layout) o site inteiro
       var swarmVisible = false;
       function burst(){
-        for (var s = 0; s < MAX_ACTIVE; s++){ setTimeout(trySpawn, s * 450); }
+        for (var s = 0; s < maxActive(); s++){ setTimeout(trySpawn, s * 450); }
       }
       function gatedSpawn(){
         if (swarmVisible && !document.hidden) trySpawn();
@@ -4990,6 +5203,1139 @@ window.PortfolioLB = (function(){
       headingIO.observe(headingWrap);
     }
   } catch(e) {}
+})();
+</script>
+
+<script>
+(function(){
+  // ---- LABORATÓRIO — simulador de gargalo: itens entram, passam por etapas e a fila cresce onde o processo trava.
+  //      Vale pra qualquer ramo: 6 modelos prontos + "Meu processo" (etapas, tempos e unidade livres).
+  //      Ferramentas ao lado: diagnóstico, automatizar, custo, antes × depois e curva de espera. Tudo roda no navegador. ----
+  var root = document.getElementById('lab');
+  var cv = document.getElementById('lab-canvas');
+  if (!root || !cv || !cv.getContext) return;
+  var ctx = cv.getContext('2d');
+  var stageEl = document.getElementById('lab-stage');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // unidade de tempo → período de referência (P), rótulo da taxa, horas de trabalho por período (hpp) e períodos por mês
+  var UN = {
+    min: { P: 60, per: 'h',   tu: 'min',  hpp: 1,  month: 176 },
+    h:   { P: 8,  per: 'dia', tu: 'h',    hpp: 8,  month: 22 },
+    dia: { P: 5,  per: 'sem', tu: 'dias', hpp: 40, month: 4.33 }
+  };
+  // etapas: [nome, nome curto (celular), tempo por item] · dem: [mín, máx, passo] · pre: cenário → [demanda, pessoas por etapa]
+  var RAMOS = {
+    logistica: { label: 'Logística', sing: 'pedido', plur: 'pedidos', who: 'operadores',
+      stages: [['Recebimento', 'Receb.', 4], ['Separação', 'Separ.', 9], ['Conferência', 'Conf.', 6], ['Expedição', 'Exped.', 5]], dem: [10, 70, 2],
+      pre: { pico: [44, [4, 5, 5, 4]], tranquilo: [28, [3, 5, 4, 3]], errado: [44, [5, 5, 6, 5]], balanceado: [44, [4, 8, 6, 5]] } },
+    atendimento: { label: 'Atendimento', sing: 'chamado', plur: 'chamados', who: 'atendentes',
+      stages: [['Triagem', 'Triag.', 3], ['Atendimento N1', 'N1', 8], ['Especialista N2', 'N2', 14], ['Fechamento', 'Fecha.', 4]], dem: [6, 34, 1],
+      pre: { pico: [20, [2, 4, 4, 2]], tranquilo: [14, [2, 4, 4, 2]], errado: [20, [3, 6, 4, 4]], balanceado: [20, [2, 4, 6, 2]] } },
+    saude: { label: 'Saúde', sing: 'paciente', plur: 'pacientes', who: 'profissionais',
+      stages: [['Recepção', 'Recep.', 4], ['Triagem', 'Triag.', 6], ['Consulta', 'Consul.', 15], ['Exames e alta', 'Alta', 8]], dem: [6, 32, 1],
+      pre: { pico: [19, [2, 3, 4, 4]], tranquilo: [13, [2, 3, 4, 4]], errado: [19, [3, 5, 4, 6]], balanceado: [19, [2, 3, 6, 4]] } },
+    industria: { label: 'Indústria', sing: 'lote', plur: 'lotes', who: 'operadores',
+      stages: [['Corte', 'Corte', 6], ['Montagem', 'Mont.', 12], ['Inspeção', 'Insp.', 5], ['Embalagem', 'Emb.', 4]], dem: [7, 39, 1],
+      pre: { pico: [23, [3, 4, 3, 2]], tranquilo: [16, [3, 4, 3, 2]], errado: [23, [4, 4, 4, 4]], balanceado: [23, [3, 6, 3, 2]] } },
+    credito: { label: 'Crédito', sing: 'proposta', plur: 'propostas', who: 'analistas',
+      stages: [['Cadastro', 'Cadas.', 5], ['Análise', 'Anál.', 16], ['Aprovação', 'Aprov.', 7], ['Liberação', 'Liber.', 4]], dem: [5, 31, 1],
+      pre: { pico: [18, [2, 4, 3, 2]], tranquilo: [12, [2, 4, 3, 2]], errado: [18, [3, 4, 4, 4]], balanceado: [18, [2, 6, 3, 2]] } },
+    restaurante: { label: 'Restaurante', sing: 'pedido', plur: 'pedidos', who: 'pessoas',
+      stages: [['Recepção', 'Recep.', 2], ['Cozinha', 'Coz.', 10], ['Montagem', 'Mont.', 4], ['Entrega', 'Entr.', 6]], dem: [8, 48, 1],
+      pre: { pico: [28, [2, 4, 3, 4]], tranquilo: [19, [2, 4, 3, 4]], errado: [28, [3, 4, 4, 6]], balanceado: [28, [2, 6, 3, 4]] } }
+  };
+  // "Meu processo": o visitante edita tudo isso (nada sai do navegador)
+  var CUSTOM = { sing: 'item', plur: 'itens', who: 'pessoas', unit: 'min',
+    stages: [{ name: 'Entrada', t: 5 }, { name: 'Preparo', t: 12 }, { name: 'Revisão', t: 6 }, { name: 'Entrega', t: 4 }] };
+  var MAXOPS = 8, MAXSTAGES = 6, SPEEDS = [1, 2, 4];
+  var ORANGE = '#ff8a3d', TEAL = '#3fc9a8', DIM = '#8b97a8';
+
+  var ramo = 'logistica', ent = null, unit = 'min', U = UN.min, P = 60;
+  var STAGES = [], mult = [], PRESETS = {}, ops = [], demand = 44;
+  var speedIdx = 0, running = !reduce;
+  var W = 0, H = 0, L = null, sim = null, curTab = 'diag';
+  var inView = false, raf = 0, last = 0, lastUi = 0, pausedAt = 0, sig = '', warmed = false, snap = null, cmpSig = '', autoIdx = -1;
+
+  // ---------- utilidades ----------
+  function fmt(n){ return n >= 10 ? String(Math.round(n)) : (Math.round(n * 10) / 10).toString().replace('.', ','); }
+  function fmtD(n){ return n % 1 ? (Math.round(n * 10) / 10).toString().replace('.', ',') : String(n); }
+  function expo(rate){ return -Math.log(1 - Math.random()) / rate; }
+  function erlang(mean){ return -(mean / 2) * (Math.log(1 - Math.random()) + Math.log(1 - Math.random())); }   // Erlang-2: média certa, variação realista
+  function setText(el, s){ if (el.textContent !== s) el.textContent = s; }
+  function cap1(s){ return s.charAt(0).toUpperCase() + s.slice(1); }
+  function per(){ return '/' + U.per; }
+  function T(i){ return STAGES[i].t * (mult[i] || 1); }                       // tempo efetivo (com automação)
+  function baseAvg(){ var s = 0; for (var i = 0; i < STAGES.length; i++) s += STAGES[i].t; return s / STAGES.length; }
+  function fmtT(v){
+    if (unit === 'min') return (v < 10 && v % 1 ? String(Math.round(v * 10) / 10).replace('.', ',') : String(Math.round(v))) + ' min';
+    var r = Math.round(v * 10) / 10;
+    return String(r).replace('.', ',') + (unit === 'h' ? ' h' : (r === 1 ? ' dia' : ' dias'));
+  }
+  function clock(t){
+    if (unit === 'min'){ var m = Math.floor(t), h = Math.floor(m / 60); m = m % 60; return 't+' + (h < 10 ? '0' : '') + h + ':' + (m < 10 ? '0' : '') + m; }
+    if (unit === 'h') return 't+' + Math.floor(t / 8) + 'd ' + Math.floor(t % 8) + 'h';
+    return 't+' + Math.floor(t / 5) + ' sem ' + Math.floor(t % 5) + 'd';
+  }
+  function money(v){ try { return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 }).format(v); } catch(e){ return 'R$ ' + Math.round(v); } }
+  function num(el){ var v = parseFloat(String(el.value).replace(',', '.')); return isFinite(v) && v >= 0 ? v : 0; }
+  function shortName(s){ return s.length > 7 ? s.slice(0, 6) + '.' : s; }
+
+  // ---------- motor (visual) ----------
+  function newSim(){
+    sim = { t: 0, next: expo(demand / P), items: [], exits: [], cyc: [],
+      stages: STAGES.map(function(_, i){
+        var sg = { q: [], servers: [], util: 0 };
+        for (var k = 0; k < ops[i]; k++) sg.servers.push({ item: null, retire: false });
+        return sg;
+      }) };
+  }
+  function spawn(t){
+    var it = { born: t, st: 'q', enq: t, ready: 0, x: -14, y: NaN, tx: 0, ty: 0, a: 1, vis: true };
+    sim.items.push(it); sim.stages[0].q.push(it);
+  }
+  function finish(it, t){
+    it.st = 'x';
+    sim.exits.push(t); sim.cyc.push(t - it.born);
+    if (sim.cyc.length > 30) sim.cyc.shift();
+    while (sim.exits.length && sim.exits[0] < t - (2 * P + 10)) sim.exits.shift();
+  }
+  function advance(dt){
+    sim.t += dt;
+    var t = sim.t, tau = baseAvg() * 4;
+    while (sim.next <= t){ spawn(sim.next); sim.next += expo(demand / P); }
+    for (var s = STAGES.length - 1; s >= 0; s--){
+      var sg = sim.stages[s], k;
+      for (k = sg.servers.length - 1; k >= 0; k--){
+        var sv = sg.servers[k];
+        if (sv.item && sv.item.ready <= t){
+          var it = sv.item; sv.item = null;
+          if (s < STAGES.length - 1){ it.st = 'q'; it.enq = t; sim.stages[s + 1].q.push(it); }
+          else finish(it, t);
+        }
+        if (sv.retire && !sv.item) sg.servers.splice(k, 1);
+      }
+      while (sg.q.length){
+        var free = null;
+        for (k = 0; k < sg.servers.length; k++){ if (!sg.servers[k].item && !sg.servers[k].retire){ free = sg.servers[k]; break; } }
+        if (!free) break;
+        var nx = sg.q.shift();
+        nx.st = 's'; free.item = nx; nx.ready = t + erlang(T(s));
+      }
+      var busy = 0, act = 0;
+      for (k = 0; k < sg.servers.length; k++){ if (sg.servers[k].item) busy++; if (!sg.servers[k].retire) act++; }
+      sg.util += ((act ? Math.min(1, busy / act) : 0) - sg.util) * (1 - Math.exp(-dt / tau));
+    }
+  }
+  function setOps(i, n){
+    n = Math.max(1, Math.min(MAXOPS, n)); ops[i] = n;
+    var sg = sim.stages[i], k, v, act = 0;
+    for (k = 0; k < sg.servers.length; k++) if (!sg.servers[k].retire) act++;
+    if (n > act){
+      var need = n - act;
+      for (k = 0; k < sg.servers.length && need > 0; k++){ if (sg.servers[k].retire){ sg.servers[k].retire = false; need--; } }
+      while (need-- > 0) sg.servers.push({ item: null, retire: false });
+    } else {
+      var drop = act - n;
+      for (k = sg.servers.length - 1; k >= 0 && drop > 0; k--){ v = sg.servers[k]; if (!v.retire && !v.item){ sg.servers.splice(k, 1); drop--; } }
+      for (k = sg.servers.length - 1; k >= 0 && drop > 0; k--){ v = sg.servers[k]; if (!v.retire){ v.retire = true; drop--; } }   // ocupado: termina o item e sai
+    }
+  }
+  function analyze(){
+    var caps = ops.map(function(n, i){ return n * P / T(i); });
+    var lineCap = Math.min.apply(null, caps);
+    return { caps: caps, lineCap: lineCap, b: caps.indexOf(lineCap), over: demand > lineCap * 1.005 };
+  }
+  function measured(){
+    if (!sim || sim.t < P * 0.25) return null;
+    var win = Math.min(2 * P, sim.t), cut = sim.t - win, n = 0;
+    for (var i = sim.exits.length - 1; i >= 0 && sim.exits[i] >= cut; i--) n++;
+    return n / (win / P);
+  }
+
+  // ---------- simulação "de bastidor" (sem desenho) pra comparar cenários ----------
+  function headless(cfg, periods, reps){
+    var n = cfg.T.length, avg = 0, i, k, r;
+    for (i = 0; i < n; i++) avg += cfg.T[i];
+    avg /= n;
+    var dt = Math.max(avg / 12, cfg.P / 600), agg = { thr: 0, cyc: 0, q: 0 };
+    for (r = 0; r < reps; r++){
+      var t = 0, end = periods * cfg.P, warmEnd = end * 0.3, next = expo(cfg.demand / cfg.P), st = [], ex = 0, cs = 0;
+      for (i = 0; i < n; i++){ var g = { q: [], sv: [] }; for (k = 0; k < cfg.ops[i]; k++) g.sv.push({ b: -1, r: 0 }); st.push(g); }
+      while (t < end){
+        t += dt;
+        while (next <= t){ st[0].q.push(next); next += expo(cfg.demand / cfg.P); }
+        for (var s = n - 1; s >= 0; s--){
+          var gs = st[s];
+          for (k = 0; k < gs.sv.length; k++){
+            var v = gs.sv[k];
+            if (v.b >= 0 && v.r <= t){
+              var born = v.b; v.b = -1;
+              if (s < n - 1) st[s + 1].q.push(born);
+              else if (t > warmEnd){ ex++; cs += t - born; }
+            }
+          }
+          for (k = 0; k < gs.sv.length; k++){
+            var w = gs.sv[k];
+            if (w.b < 0 && gs.q.length){ w.b = gs.q.shift(); w.r = t + erlang(cfg.T[s]); }
+          }
+        }
+      }
+      var qs = 0;
+      for (i = 0; i < n; i++) qs += st[i].q.length;
+      agg.thr += ex / ((end - warmEnd) / cfg.P); agg.cyc += ex ? cs / ex : 0; agg.q += qs;
+    }
+    agg.thr /= reps; agg.cyc /= reps; agg.q /= reps;
+    return agg;
+  }
+
+  // ---------- cenários automáticos pro "Meu processo" (mesma regra dos modelos prontos) ----------
+  function autoPresets(ts){
+    var n = ts.length, b = 0, i;
+    for (i = 1; i < n; i++) if (ts[i] > ts[b]) b = i;
+    var obs = [4, 5, 6, 3], found = null;
+    for (var oi = 0; oi < obs.length && !found; oi++){
+      var ob = obs[oi], cb = ob * P / ts[b], stp = cb < 8 ? 0.5 : 1;
+      for (var D = Math.ceil(cb * 1.15 / stp) * stp; D <= cb * 1.45 && !found; D += stp){
+        var o = ts.map(function(t, j){ return j === b ? ob : Math.max(1, Math.ceil(1.28 * D * t / P)); });
+        if (o.some(function(x){ return x > MAXOPS; })) continue;
+        var obal = Math.ceil(D * ts[b] / P / 0.86);
+        if (obal > MAXOPS) continue;
+        found = { ob: ob, D: D, ops: o, stp: stp, cb: cb };
+      }
+    }
+    if (!found){
+      var cb2 = 3 * P / ts[b], stp2 = cb2 < 8 ? 0.5 : 1, D2 = Math.max(stp2, Math.round(cb2 * 1.3 / stp2) * stp2);
+      found = { ob: 3, D: D2, stp: stp2, cb: cb2, ops: ts.map(function(t, j){ return j === b ? 3 : Math.min(MAXOPS, Math.max(1, Math.ceil(1.28 * D2 * t / P))); }) };
+    }
+    var line = found.ob * P / ts[b];
+    var opsE = found.ops.map(function(x, j){ return j === b ? x : Math.min(MAXOPS, x + (j % 2 ? 2 : 1)); });
+    var opsB = found.ops.slice(); opsB[b] = Math.min(MAXOPS, Math.ceil(found.D * ts[b] / P / 0.86));
+    var Dt = Math.max(found.stp, Math.floor(0.82 * line / found.stp) * found.stp);
+    var p = { pico: { demand: found.D, ops: found.ops }, tranquilo: { demand: Dt, ops: found.ops }, errado: { demand: found.D, ops: opsE }, balanceado: { demand: found.D, ops: opsB } };
+    p._dem = [Math.max(found.stp, Math.round(found.D * 0.3 / found.stp) * found.stp), Math.max(Math.round(found.D * 1.7 / found.stp) * found.stp, found.D + found.stp), found.stp];
+    return p;
+  }
+
+  // ---------- diagnóstico em texto ----------
+  function listaOu(a){ return a.length > 1 ? a.slice(0, -1).join(', ') + ' ou ' + a[a.length - 1] : a[0]; }
+  function verdict(A){
+    var b = A.b, nm = STAGES[b].name, mn = T(b), o = ops[b], PL = ent.plur, R = per();
+    var pct = Math.round(demand / A.lineCap * 100), i, out = { ok: !A.over, title: '', body: '', fix: '' };
+    if (A.over){
+      var need = Math.ceil(demand * mn / P - 1e-9), add = Math.max(1, need - o);
+      var after = A.caps.slice(); after[b] = need * P / mn;
+      var lim2 = Math.min.apply(null, after), b2 = after.indexOf(lim2);
+      out.title = 'Gargalo: ' + nm;
+      out.body = 'Entram ' + fmtD(demand) + ' ' + PL + R + ', mas ' + nm + ' só dá conta de ' + fmt(A.lineCap) + R + ' (' + o + ' × ' + fmt(P / mn) + R + ' cada). A fila cresce cerca de ' + fmt(demand - A.lineCap) + ' ' + PL + ' por ' + (unit === 'min' ? 'hora' : unit === 'h' ? 'dia' : 'semana') + '.';
+      var extra = [];
+      for (i = 0; i < STAGES.length; i++) if (i !== b && A.caps[i] > demand * 1.25) extra.push(STAGES[i].name);
+      if (extra.length) out.body += ' Reforçar ' + listaOu(extra) + ' não muda a saída: o processo anda na velocidade da etapa mais lenta.';
+      if (need > MAXOPS) out.fix = 'Nem ' + MAXOPS + ' pessoas em ' + nm + ' fecham essa demanda: aí o problema é o tempo do processo, não o tamanho da equipe. Veja a aba Automatizar.';
+      else out.fix = 'Com +' + add + ' em ' + nm + ' (' + need + ' no total) ela passa a ' + fmt(need * P / mn) + R + '.' + (lim2 < demand * 0.995 ? ' Só que aí o gargalo migra pra ' + STAGES[b2].name + ' (' + fmt(lim2) + R + ').' : ' Depois disso nada mais trava nessa demanda.');
+    } else if (pct > 90){
+      var more = A.caps.slice(); more[b] = (o + 1) * P / mn;
+      out.title = 'No limite: ' + nm;
+      out.body = nm + ' trabalha a ' + pct + '% da capacidade (' + fmtD(demand) + ' de ' + fmt(A.lineCap) + R + '). Funciona, mas sem folga: qualquer pico vira fila.';
+      out.fix = o < MAXOPS ? ('Mais uma pessoa em ' + nm + ' leva o processo a ' + fmt(Math.min.apply(null, more)) + R + '.') : '';
+    } else {
+      out.title = 'Processo sob controle';
+      out.body = 'A etapa mais apertada é ' + nm + ' (' + pct + '% de uso). Dá pra absorver picos de até ' + fmt(A.lineCap) + ' ' + PL + R + '.';
+      var best = -1, surplus = 0;
+      for (i = 0; i < STAGES.length; i++){
+        var c1 = (ops[i] - 1) * P / T(i);
+        if (ops[i] > 1 && c1 >= demand * 1.12 && A.caps[i] - demand > surplus){ surplus = A.caps[i] - demand; best = i; }
+      }
+      if (best >= 0) out.fix = 'Dá pra realocar 1 pessoa de ' + STAGES[best].name + ': a etapa ainda fecha ' + fmt((ops[best] - 1) * P / T(best)) + R + '.';
+    }
+    return out;
+  }
+
+  // ---------- layout ----------
+  function layout(){
+    var w = stageEl.clientWidth;
+    if (!w) return;
+    var n = STAGES.length, dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = w; H = Math.round(Math.max(270, Math.min(340, w * 0.4)));
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    cv.style.height = H + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var colW = (W - 32) / n;
+    L = { mL: 16, colW: colW, top: 52, bot: H - 62, n: n };
+    L.qW = colW * 0.52; L.bw = colW - L.qW - 6;
+    L.d = Math.max(2.4, Math.min(5.5, colW / 18)); L.p = L.d * 2.1;
+    L.nq = Math.max(2, Math.floor((L.qW - 6) / L.p));
+    L.rows = Math.max(3, Math.floor((L.bot - L.top) / L.p) - 1);      // sobra uma linha no topo pro contador "+N"
+    L.cap = L.nq * L.rows;
+    L.qBase = L.bot - L.p / 2;
+    L.sz = Math.max(7, Math.min(18, L.bw * 0.34));
+  }
+  function colX(i){ return L.mL + i * L.colW; }
+  function qSlot(i, j){ return { x: colX(i) + L.qW - (j % L.nq + 0.5) * L.p, y: L.qBase - Math.floor(j / L.nq) * L.p }; }
+  function srvPos(i, k, n){
+    var bx = colX(i) + L.qW + 3, cols = n > 1 ? 2 : 1, rows = Math.ceil(n / cols);
+    var rp = Math.min(L.sz * 2, (L.bot - L.top - 24) / Math.max(rows, 1));
+    var c = k % cols, r = Math.floor(k / cols);
+    return { x: bx + L.bw / 2 + (cols === 1 ? 0 : (c - 0.5) * L.sz * 1.7), y: (L.top + L.bot) / 2 + (r - (rows - 1) / 2) * rp };
+  }
+
+  // ---------- movimento ----------
+  function targets(){
+    sim.stages.forEach(function(sg, i){
+      sg.q.forEach(function(it, j){ var p = qSlot(i, j); it.tx = p.x; it.ty = p.y; it.vis = j < L.cap; });
+      var n = sg.servers.length;
+      sg.servers.forEach(function(sv, k){ if (sv.item){ var p = srvPos(i, k, n); sv.item.tx = p.x; sv.item.ty = p.y; sv.item.vis = true; } });
+    });
+    sim.items.forEach(function(it){ if (it.st === 'x'){ it.tx = W + 30; } });
+  }
+  function ease(dtR, snapNow){
+    var e = snapNow ? 1 : 1 - Math.exp(-dtR * 9);
+    for (var i = sim.items.length - 1; i >= 0; i--){
+      var it = sim.items[i];
+      if (isNaN(it.y)) it.y = it.ty + (Math.random() - 0.5) * 36;
+      it.x += (it.tx - it.x) * e; it.y += (it.ty - it.y) * e;
+      if (it.st === 'x'){
+        it.a -= dtR * 1.4;
+        if (snapNow || it.a <= 0.02 || it.x > W + 8) sim.items.splice(i, 1);
+      }
+    }
+  }
+  function warm(units){
+    var s = baseAvg() / 15;
+    for (var t = 0; t < units; t += s) advance(s);
+    if (L){ targets(); ease(0, true); }
+  }
+  function warmDefault(){ return baseAvg() * 7.5; }
+
+  // ---------- desenho ----------
+  var HEAT = (function(){
+    var a = [200, 214, 232], b = [255, 138, 61], out = [];
+    for (var k = 0; k <= 4; k++){
+      var f = k / 4;
+      out.push('rgb(' + Math.round(a[0] + (b[0] - a[0]) * f) + ',' + Math.round(a[1] + (b[1] - a[1]) * f) + ',' + Math.round(a[2] + (b[2] - a[2]) * f) + ')');
+    }
+    return out;
+  })();
+  function txt(s, x, y, color, align, font){
+    ctx.fillStyle = color; ctx.textAlign = align || 'left';
+    ctx.font = font || '11px "IBM Plex Mono", monospace';
+    ctx.fillText(s, x, y);
+  }
+  function rr(x, y, w, h, r){ ctx.beginPath(); if (ctx.roundRect) ctx.roundRect(x, y, w, h, r); else ctx.rect(x, y, w, h); }
+  function draw(now){
+    if (!L || !sim || L.n !== STAGES.length || sim.stages.length !== STAGES.length) return;
+    var A = analyze(), m = measured(), TAU = Math.PI * 2, i, j, k, nar = L.colW < 128, R = per();   // colunas estreitas (celular): rótulos compactos
+    ctx.clearRect(0, 0, W, H);
+    ctx.textBaseline = 'alphabetic';
+    txt('ENTRADA ' + fmtD(demand) + R, L.mL, 18, DIM, 'left');
+    txt(clock(sim.t), W / 2, 18, DIM, 'center');
+    txt('SAÍDA ' + (m == null ? '—' : fmt(m) + R), W - L.mL, 18, TEAL, 'right');
+
+    for (i = 0; i < STAGES.length; i++){
+      var sg = sim.stages[i], x0 = colX(i), bx = x0 + L.qW + 3, bw = L.bw, bh = L.bot - L.top;
+      var isB = A.over && A.b === i;
+      var maxc = Math.floor((L.colW - 8) / 6.7), label = STAGES[i].name;                 // o título se ajusta à largura real da coluna
+      if (label.length > maxc) label = STAGES[i].short;
+      if (label.length > maxc) label = label.slice(0, Math.max(2, maxc - 1)) + '.';
+      txt(label, x0 + 2, 40, isB ? ORANGE : DIM, 'left', '600 11px "IBM Plex Mono", monospace');
+      ctx.save();
+      rr(bx, L.top, bw, bh, 6);
+      ctx.fillStyle = isB ? 'rgba(255,138,61,.06)' : 'rgba(63,201,168,.04)'; ctx.fill();
+      if (isB){ ctx.shadowColor = ORANGE; ctx.shadowBlur = 8 + 6 * Math.sin(now / 320); }
+      ctx.lineWidth = isB ? 1.6 : 1; ctx.strokeStyle = isB ? ORANGE : 'rgba(63,201,168,.34)'; ctx.stroke();
+      ctx.restore();
+      var n = sg.servers.length;
+      for (k = 0; k < n; k++){
+        var sv = sg.servers[k], p = srvPos(i, k, n);
+        ctx.globalAlpha = sv.retire ? 0.35 : 1;
+        rr(p.x - L.sz / 2, p.y - L.sz / 2, L.sz, L.sz, 3);
+        ctx.fillStyle = sv.item ? 'rgba(63,201,168,.16)' : 'rgba(255,255,255,.03)'; ctx.fill();
+        ctx.lineWidth = 1; ctx.strokeStyle = sv.item ? 'rgba(63,201,168,.85)' : 'rgba(139,151,168,.4)'; ctx.stroke();
+        ctx.globalAlpha = 1;
+      }
+      var by = L.bot + 10;
+      rr(bx, by, bw, 4, 2); ctx.fillStyle = 'rgba(255,255,255,.07)'; ctx.fill();
+      if (sg.util > 0.01){ rr(bx, by, Math.max(4, bw * sg.util), 4, 2); ctx.fillStyle = sg.util > 0.92 ? ORANGE : TEAL; ctx.fill(); }
+      txt((nar ? '' : 'uso ') + Math.round(sg.util * 100) + '%', bx + bw, L.bot + 32, sg.util > 0.92 ? ORANGE : DIM, 'right', '10.5px "IBM Plex Mono", monospace');
+      txt(fmt(A.caps[i]) + R, bx + bw, L.bot + 47, isB ? ORANGE : DIM, 'right', '10.5px "IBM Plex Mono", monospace');
+      var ql = sg.q.length;
+      txt((nar ? '' : 'fila ') + ql, x0 + 2, L.bot + 32, ql > 12 ? ORANGE : DIM, 'left', '10.5px "IBM Plex Mono", monospace');
+      if (ql > L.cap) txt('+' + (ql - L.cap), x0 + L.qW / 2, L.top + 8, ORANGE, 'center', '10.5px "IBM Plex Mono", monospace');
+      if (i < STAGES.length - 1) txt('›', x0 + L.colW - 1, (L.top + L.bot) / 2, 'rgba(139,151,168,.45)', 'center', '14px "IBM Plex Mono", monospace');
+    }
+
+    // itens (pontos): claros esperando, ficam laranja quanto mais esperam; teal em atendimento
+    var heat = baseAvg() * 2, buckets = [[], [], [], [], [], []];      // 0-4 fila (calor) · 5 atendimento
+    for (i = 0; i < sim.items.length; i++){
+      var it = sim.items[i];
+      if (!it.vis && it.st !== 'x') continue;
+      if (it.st === 's') buckets[5].push(it);
+      else if (it.st === 'q') buckets[Math.min(4, Math.floor((sim.t - it.enq) / heat))].push(it);
+      else buckets[0].push(it);
+    }
+    var Rr = L.d;
+    for (j = 0; j < 6; j++){
+      var list = buckets[j];
+      if (!list.length) continue;
+      ctx.fillStyle = j === 5 ? TEAL : HEAT[j];
+      ctx.globalAlpha = 1;
+      ctx.beginPath();
+      for (k = 0; k < list.length; k++){ var d = list[k]; ctx.moveTo(d.x + Rr / 2, d.y); ctx.arc(d.x, d.y, Rr / 2, 0, TAU); }
+      ctx.fill();
+    }
+  }
+
+  // ---------- referências da interface ----------
+  function $(id){ return document.getElementById(id); }
+  var kDem = $('lab-k-dem'), kCap = $('lab-k-cap'), kOut = $('lab-k-out'), kCyc = $('lab-k-cyc'), kWip = $('lab-k-wip'), kWipL = $('lab-k-wip-l'), kCapBox = $('lab-kpi-cap');
+  var vTitle = $('lab-v-title'), vBody = $('lab-v-body'), vFix = $('lab-v-fix');
+  var mail = $('lab-cta-mail'), demandIn = $('lab-demand'), demandOut = $('lab-demand-out');
+  var btnPlay = $('lab-play'), btnSpeed = $('lab-speed'), btnReset = $('lab-reset');
+  var ctrlsEl = $('lab-ctrls'), noteEl = $('lab-note'), editor = $('lab-editor');
+  var chips = [].slice.call(root.querySelectorAll('.lab-chip[data-preset]')), inds = [].slice.call(root.querySelectorAll('.lab-ind'));
+  var stepUI = [];
+
+  // ---------- controles de pessoas por etapa ----------
+  function buildCtrls(){
+    ctrlsEl.textContent = '';
+    ctrlsEl.style.setProperty('--n', String(STAGES.length));
+    stepUI = [];
+    STAGES.forEach(function(sg, i){
+      var d = document.createElement('div');
+      d.className = 'lab-sc';
+      var nm = document.createElement('span'); nm.className = 'lab-sc-name mono';
+      var l = document.createElement('span'); l.className = 'l'; l.textContent = sg.name;
+      var s = document.createElement('span'); s.className = 's'; s.textContent = sg.short;
+      nm.appendChild(l); nm.appendChild(s);
+      var st = document.createElement('div'); st.className = 'lab-step';
+      var bm = document.createElement('button'); bm.type = 'button'; bm.textContent = '−'; bm.setAttribute('aria-label', 'Menos uma pessoa em ' + sg.name);
+      var out = document.createElement('output'); out.setAttribute('aria-live', 'off'); out.textContent = String(ops[i]);
+      var bp = document.createElement('button'); bp.type = 'button'; bp.textContent = '+'; bp.setAttribute('aria-label', 'Mais uma pessoa em ' + sg.name);
+      st.appendChild(bm); st.appendChild(out); st.appendChild(bp);
+      var meta = document.createElement('span'); meta.className = 'lab-sc-meta mono';
+      d.appendChild(nm); d.appendChild(st); d.appendChild(meta);
+      ctrlsEl.appendChild(d);
+      bm.addEventListener('click', function(){ manual(); setOps(i, ops[i] - 1); refresh(true); });
+      bp.addEventListener('click', function(){ manual(); setOps(i, ops[i] + 1); refresh(true); });
+      stepUI.push({ out: out, minus: bm, plus: bp, meta: meta });
+    });
+  }
+  function manual(){ chips.forEach(function(c){ c.classList.remove('is-on'); }); }
+
+  // ---------- abas: automatizar · custo · antes × depois · curva ----------
+  function renderAuto(){
+    var A = analyze(), anyM = mult.some(function(x){ return x !== 1; });
+    var ai = anyM ? (autoIdx >= 0 && mult[autoIdx] !== 1 ? autoIdx : mult.findIndex(function(x){ return x !== 1; })) : A.b;
+    setText($('lab-au-title'), 'Automatizar: ' + STAGES[ai].name);
+    var txtA;
+    if (!anyM){
+      txtA = STAGES[A.b].name + ' é a etapa que trava (' + fmtT(STAGES[A.b].t) + ' por ' + ent.sing + '). Reduzir esse tempo — por automação ou mudança de método — tem o mesmo efeito de contratar, sem custo de equipe. Teste:';
+    } else {
+      var lines = [];
+      mult.forEach(function(x, i){ if (x !== 1) lines.push(STAGES[i].name + ' ' + fmtT(STAGES[i].t) + ' → ' + fmtT(T(i))); });
+      txtA = 'Tempos ajustados: ' + lines.join(' · ') + '.';
+    }
+    setText($('lab-au-txt'), txtA);
+    var res = '';
+    if (anyM){
+      var before = ops[ai] * P / STAGES[ai].t, now = ops[ai] * P / T(ai), eq = ops[ai] / mult[ai] - ops[ai];
+      res = STAGES[ai].name + ': capacidade de ' + fmt(before) + per() + ' → ' + fmt(now) + per() + ' (equivale a +' + fmt(eq) + ' ' + ent.who + ', sem contratar). ';
+      res += A.over ? ('O gargalo agora é ' + STAGES[A.b].name + ' (' + fmt(A.lineCap) + per() + ').') : ('Agora o processo dá conta da demanda; a etapa mais apertada é ' + STAGES[A.b].name + ' (' + fmt(A.lineCap) + per() + ').');
+    }
+    setText($('lab-au-res'), res);
+  }
+  function metricsOf(cfg, sims){
+    var n = cfg.T.length, caps = cfg.ops.map(function(o, i){ return o * cfg.P / cfg.T[i]; }), line = Math.min.apply(null, caps), team = 0, i;
+    for (i = 0; i < n; i++) team += cfg.ops[i];
+    var u = UN[cfg.unit], val = num($('lab-c-val')), hr = num($('lab-c-hr'));
+    var h = sims ? headless(cfg, 40, 3) : null;
+    return { line: line, thr: h ? h.thr : null, cyc: h ? h.cyc : null, q: h ? h.q : null, team: team,
+      teamCost: team * u.hpp * hr * u.month, pile: Math.max(0, cfg.demand - line) * u.month * val, hr: hr, val: val };
+  }
+  function renderCost(){
+    setText($('lab-c-item'), ent.sing);
+    var out = $('lab-cost-out'), A = analyze(), val = num($('lab-c-val')), hr = num($('lab-c-hr'));
+    var thr = Math.min(demand, A.lineCap), idle = 0, team = 0, i;
+    for (i = 0; i < ops.length; i++){ team += ops[i]; idle += ops[i] * (1 - thr / A.caps[i]); }
+    var mo = U.month, hpp = U.hpp;
+    var rows = [['Equipe (custo por mês)', money(team * hpp * hr * mo), ''], ['Tempo de equipe sem trabalho', money(idle * hpp * hr * mo), 'gente esperando o gargalo liberar']];
+    if (A.over){
+      var pile = (demand - A.lineCap) * mo;
+      rows.push([cap1(ent.plur) + ' que não saem por mês', fmt(pile), 'acumulam na fila']);
+      rows.push(['Valor parado em fila por mês', money(pile * val), 'demanda acima da capacidade']);
+      var b = A.b, need = Math.ceil(demand * T(b) / P - 1e-9), add = Math.max(1, need - ops[b]);
+      if (need <= MAXOPS){
+        var after = A.caps.slice(); after[b] = need * P / T(b);
+        var gain = (Math.min(demand, Math.min.apply(null, after)) - A.lineCap) * mo * val, cost = add * hpp * hr * mo;
+        rows.push(['Corrigir: +' + add + ' em ' + STAGES[b].name, (gain - cost >= 0 ? '+' : '−') + money(Math.abs(gain - cost)), 'saldo por mês (rende ' + money(gain) + ', custa ' + money(cost) + ')']);
+      }
+    } else {
+      rows.push(['Fila crescendo', 'não', 'a demanda cabe na capacidade']);
+    }
+    out.textContent = '';
+    rows.forEach(function(r){
+      var d = document.createElement('div'); d.className = 'lab-crow';
+      var k = document.createElement('span'); k.className = 'k'; k.textContent = r[0];
+      var v = document.createElement('span'); v.className = 'v'; v.textContent = r[1];
+      d.appendChild(k); d.appendChild(v);
+      if (r[2]){ var s = document.createElement('span'); s.className = 's mono'; s.textContent = r[2]; d.appendChild(s); }
+      out.appendChild(d);
+    });
+  }
+  function cfgNow(){
+    return { key: ramo, unit: unit, P: P, n: STAGES.length, T: STAGES.map(function(s, i){ return T(i); }), ops: ops.slice(), demand: demand };
+  }
+  function snapValid(){ return snap && snap.key === ramo && snap.n === STAGES.length && snap.unit === unit; }
+  function renderCompare(){
+    var wrap = $('lab-cmp-wrap'), tbl = $('lab-cmp'), clr = $('lab-cmp-clear'), fix = $('lab-cmp-fix'), hint = $('lab-cmp-hint');
+    if (!snapValid()){
+      snap = null; wrap.hidden = true; clr.hidden = true; cmpSig = '';
+      setText(hint, 'Fixe o cenário atual como “antes”, depois mude pessoas, tempos ou demanda e compare os dois.');
+      setText(fix, 'Fixar o cenário atual como ANTES');
+      return;
+    }
+    var now = cfgNow(), s = JSON.stringify([now, num($('lab-c-val')), num($('lab-c-hr'))]);
+    clr.hidden = false; wrap.hidden = false;
+    setText(hint, '“Antes” está fixado. Mude pessoas, tempos ou demanda e veja a diferença.');
+    setText(fix, 'Refixar o “antes” com o cenário atual');
+    if (s === cmpSig) return;
+    cmpSig = s;
+    var a = snap.m, b = metricsOf(now, true), R = per();
+    var rows = [
+      ['Capacidade', a.line, b.line, function(v){ return fmt(v) + R; }, 1],
+      ['Saída real', a.thr, b.thr, function(v){ return fmt(v) + R; }, 1],
+      ['Tempo médio', a.cyc, b.cyc, function(v){ return fmtT(v); }, -1],
+      ['Fila no fim', a.q, b.q, function(v){ return String(Math.round(v)); }, -1],
+      ['Pessoas', a.team, b.team, function(v){ return String(v); }, 0]
+    ];
+    if (b.hr > 0 || a.hr > 0) rows.push(['Equipe/mês', a.teamCost, b.teamCost, money, -1]);
+    if (b.val > 0 || a.val > 0) rows.push(['Parado em fila/mês', a.pile, b.pile, money, -1]);
+    tbl.textContent = '';
+    var hd = document.createElement('tr');
+    ['', 'antes', 'agora', 'Δ'].forEach(function(t){ var th = document.createElement('th'); th.textContent = t; hd.appendChild(th); });
+    tbl.appendChild(hd);
+    rows.forEach(function(r){
+      var tr = document.createElement('tr'), diff = r[2] - r[1], rel = r[1] ? diff / Math.abs(r[1]) : (diff ? 1 : 0), cls = Math.abs(rel) < 0.03 || r[4] === 0 ? '' : ((diff * r[4]) > 0 ? 'ok' : 'bad');
+      var c0 = document.createElement('td'); c0.textContent = r[0];
+      var c1 = document.createElement('td'); c1.textContent = r[3](r[1]);
+      var c2 = document.createElement('td'); c2.textContent = r[3](r[2]);
+      var c3 = document.createElement('td'); c3.className = cls;
+      c3.textContent = Math.abs(rel) < 0.03 ? '=' : (diff > 0 ? '+' : '−') + (r[0] === 'Pessoas' ? Math.abs(diff) : Math.round(Math.abs(rel) * 100) + '%');
+      [c0, c1, c2, c3].forEach(function(td){ tr.appendChild(td); });
+      tbl.appendChild(tr);
+    });
+  }
+  function fixSnap(){
+    var c = cfgNow();
+    snap = { key: c.key, unit: c.unit, n: c.n, m: metricsOf(c, true) };
+    cmpSig = ''; renderCompare();
+  }
+  // Erlang C: probabilidade de esperar numa etapa com c pessoas e carga a (em erlangs)
+  function erlangC(c, a){
+    var rho = a / c;
+    if (rho >= 1) return 1;
+    var sum = 0, term = 1, k;
+    for (k = 0; k < c; k++){ if (k > 0) term *= a / k; sum += term; }
+    var top = (term * a / c) / (1 - rho);
+    return top / (sum + top);
+  }
+  function waitRatio(c, rho){ return 0.75 * erlangC(c, rho * c) / (c * (1 - rho)); }   // 0,75: nossos tempos de serviço variam menos que o exponencial
+  function renderCurve(){
+    var cvs = $('lab-curve'), w = cvs.clientWidth;
+    if (!w) return;
+    var h = 176, dpr = Math.min(window.devicePixelRatio || 1, 2), g = cvs.getContext('2d');
+    cvs.width = Math.round(w * dpr); cvs.height = Math.round(h * dpr); cvs.style.height = h + 'px';
+    g.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var A = analyze(), b = A.b, c = ops[b], rho = demand / A.caps[b];
+    var ml = 38, mr = 10, mt = 12, mb = 26, pw = w - ml - mr, ph = h - mt - mb, YMAX = 10;
+    function X(r){ return ml + r * pw; }
+    function Y(v){ return mt + ph - Math.min(v, YMAX) / YMAX * ph; }
+    g.clearRect(0, 0, w, h);
+    g.fillStyle = 'rgba(255,138,61,.07)'; g.fillRect(X(0.85), mt, X(1) - X(0.85), ph);
+    g.strokeStyle = 'rgba(139,151,168,.25)'; g.lineWidth = 1; g.font = '10px "IBM Plex Mono", monospace'; g.fillStyle = DIM; g.textAlign = 'right';
+    [0, 2, 4, 6, 8, 10].forEach(function(v){ g.beginPath(); g.moveTo(ml, Y(v)); g.lineTo(ml + pw, Y(v)); g.stroke(); g.fillText(v + '×', ml - 6, Y(v) + 3); });
+    g.textAlign = 'center';
+    [0, 0.5, 0.85, 1].forEach(function(r){ g.fillText(Math.round(r * 100) + '%', X(r), h - 8); });
+    var p, i, first = true;
+    g.lineWidth = 2;
+    for (p = 0; p < 2; p++){
+      g.beginPath(); first = true;
+      for (i = 0; i <= 200; i++){
+        var r = 0.02 + i / 200 * 0.975, ok = p === 0 ? r <= 0.85 : r >= 0.85;
+        if (!ok) continue;
+        var y = Y(waitRatio(c, r));
+        if (first){ g.moveTo(X(r), y); first = false; } else g.lineTo(X(r), y);
+      }
+      g.strokeStyle = p === 0 ? TEAL : ORANGE; g.stroke();
+    }
+    var rr2 = Math.min(rho, 0.995), wv = waitRatio(c, rr2), mx = X(rr2), my = Y(wv);
+    g.strokeStyle = 'rgba(232,236,241,.5)'; g.setLineDash([3, 3]); g.beginPath(); g.moveTo(mx, mt); g.lineTo(mx, mt + ph); g.stroke(); g.setLineDash([]);
+    g.fillStyle = rho > 0.85 ? ORANGE : TEAL; g.beginPath(); g.arc(mx, my, 4.5, 0, Math.PI * 2); g.fill();
+    g.fillStyle = '#e8ecf1'; g.textAlign = mx > w - 90 ? 'right' : 'left'; g.font = '600 10.5px "IBM Plex Mono", monospace';
+    g.fillText('você: ' + Math.round(rho * 100) + '%', mx + (mx > w - 90 ? -8 : 8), Math.max(mt + 10, my - 8));
+    var t;
+    if (rho >= 1) t = STAGES[b].name + ' está a ' + Math.round(rho * 100) + '% — acima de 100% a espera não estabiliza: a fila só cresce. Nenhuma velocidade de trabalho resolve; só capacidade ou tempo menor.';
+    else t = STAGES[b].name + ' (' + c + ' ' + (c === 1 ? 'pessoa' : 'pessoas') + ') está a ' + Math.round(rho * 100) + '% de ocupação: em média o ' + ent.sing + ' espera cerca de ' + fmtT(wv * T(b)) + ' na fila antes de ser atendido (' + (Math.round(wv * 10) / 10).toString().replace('.', ',') + '× o tempo de trabalho). ' + (rho > 0.85 ? 'Zona de perigo: pequenos picos viram fila longa.' : 'Ainda longe da zona de perigo (acima de ~85%).');
+    setText($('lab-curve-txt'), t);
+  }
+  function renderTab(){
+    if (curTab === 'auto') renderAuto();
+    else if (curTab === 'custo') renderCost();
+    else if (curTab === 'comp') renderCompare();
+    else if (curTab === 'curva') renderCurve();
+  }
+  var tabs = [].slice.call(root.querySelectorAll('.lab-tab'));
+  function selectTab(name, focus){
+    curTab = name;
+    tabs.forEach(function(t){
+      var on = t.getAttribute('data-tab') === name;
+      t.setAttribute('aria-selected', on ? 'true' : 'false'); t.tabIndex = on ? 0 : -1;
+      $(t.getAttribute('aria-controls')).hidden = !on;
+      if (on && focus) t.focus();
+    });
+    renderTab();
+  }
+  tabs.forEach(function(t, i){
+    t.addEventListener('click', function(){ selectTab(t.getAttribute('data-tab'), false); });
+    t.addEventListener('keydown', function(e){
+      var j = e.key === 'ArrowRight' ? (i + 1) % tabs.length : e.key === 'ArrowLeft' ? (i + tabs.length - 1) % tabs.length : e.key === 'Home' ? 0 : e.key === 'End' ? tabs.length - 1 : -1;
+      if (j < 0) return;
+      e.preventDefault(); selectTab(tabs[j].getAttribute('data-tab'), true);
+    });
+  });
+  [].forEach.call(root.querySelectorAll('.lab-au-btns [data-au]'), function(b){
+    b.addEventListener('click', function(){
+      var f = parseFloat(b.getAttribute('data-au'));
+      if (f === 1){ mult = STAGES.map(function(){ return 1; }); autoIdx = -1; }
+      else { autoIdx = analyze().b; mult[autoIdx] = f; }
+      manual(); refresh(true);
+    });
+  });
+  $('lab-cmp-fix').addEventListener('click', fixSnap);
+  $('lab-cmp-clear').addEventListener('click', function(){ snap = null; cmpSig = ''; renderCompare(); });
+  ['lab-c-val', 'lab-c-hr'].forEach(function(id){ $(id).addEventListener('input', function(){ if (curTab === 'custo') renderCost(); else if (curTab === 'comp') renderCompare(); }); });
+
+  // ---------- atualização geral ----------
+  function refresh(force){
+    var A = analyze(), R = per();
+    stepUI.forEach(function(s, i){
+      setText(s.out, String(ops[i])); s.minus.disabled = ops[i] <= 1; s.plus.disabled = ops[i] >= MAXOPS;
+      setText(s.meta, (mult[i] && mult[i] !== 1 ? fmtT(STAGES[i].t) + ' → ' : '') + fmtT(T(i)) + '/' + ent.sing);
+    });
+    setText(demandOut, fmtD(demand) + ' ' + ent.plur + R);
+    demandIn.value = String(demand);
+    setText(kDem, fmtD(demand) + R);
+    setText(kCap, fmt(A.lineCap) + R);
+    kCapBox.classList.toggle('is-bad', A.over); kCapBox.classList.toggle('is-ok', !A.over);
+    var s = ramo + '|' + demand + '|' + ops.join(',') + '|' + mult.join(',') + '|' + STAGES.map(function(g){ return g.name + g.t; }).join(',') + '|' + unit;
+    if (force || s !== sig){
+      sig = s;
+      var v = verdict(A);
+      setText(vTitle, v.title); setText(vBody, v.body); setText(vFix, v.fix);
+      root.setAttribute('data-ok', v.ok ? '1' : '0');
+      var body = 'Oi, Hellys! Rodei um cenário no simulador do seu portfólio:\n- Ramo: ' + ent.label + '\n- Demanda: ' + fmtD(demand) + ' ' + ent.plur + R + '\n- ' + cap1(ent.who) + ': ' +
+        STAGES.map(function(g, i){ return g.name + ' ' + ops[i] + ' (' + fmtT(T(i)) + ')'; }).join(' · ') + '\n- Resultado: ' + v.title + ' (capacidade ' + fmt(A.lineCap) + R + ')\n\nQuero conversar sobre um processo real: ';
+      mail.setAttribute('href', 'mailto:guilherme.hellys1@gmail.com?subject=' + encodeURIComponent('Cenário do simulador de gargalo') + '&body=' + encodeURIComponent(body));
+      renderTab();
+    }
+    root.setAttribute('data-run', running ? '1' : '0');
+  }
+  function liveKpis(){
+    var m = measured(), c = 0, i;
+    for (i = 0; i < sim.cyc.length; i++) c += sim.cyc[i];
+    setText(kOut, m == null ? '—' : fmt(m) + per());
+    setText(kCyc, sim.cyc.length ? fmtT(c / sim.cyc.length) : '—');
+    var wip = 0;
+    for (i = 0; i < sim.stages.length; i++){ wip += sim.stages[i].q.length; sim.stages[i].servers.forEach(function(v){ if (v.item) wip++; }); }
+    setText(kWip, String(wip));
+  }
+  function applyPreset(name){
+    var p = PRESETS[name]; if (!p) return;
+    demand = p.demand; ops = p.ops.slice(); mult = STAGES.map(function(){ return 1; }); autoIdx = -1;
+    chips.forEach(function(c){ c.classList.toggle('is-on', c.getAttribute('data-preset') === name); });
+    newSim(); if (L){ warm(warmDefault()); warmed = true; }
+    refresh(true); liveKpis(); wake();
+  }
+
+  // ---------- ramo (modelos prontos e "Meu processo") ----------
+  function customDef(){
+    return { label: 'Meu processo', sing: CUSTOM.sing, plur: CUSTOM.plur, who: CUSTOM.who, unit: CUSTOM.unit,
+      stages: CUSTOM.stages.map(function(s){ return [s.name, shortName(s.name), s.t]; }) };
+  }
+  function setRamo(key, opt){
+    opt = opt || {};
+    var r = key === 'custom' ? customDef() : RAMOS[key]; if (!r) return;
+    var same = !!opt.keep && ramo === key && STAGES.length === r.stages.length && unit === (r.unit || 'min');
+    ramo = key; ent = { label: r.label, sing: r.sing, plur: r.plur, who: r.who };
+    unit = r.unit || 'min'; U = UN[unit]; P = U.P;
+    STAGES = r.stages.map(function(a){ return { name: a[0], short: a[1], t: a[2] }; });
+    if (L && L.n !== STAGES.length) layout();                      // nº de etapas mudou: refaz as colunas do canvas
+    if (!same) mult = STAGES.map(function(){ return 1; });
+    var dem;
+    if (r.pre){
+      PRESETS = {};
+      Object.keys(r.pre).forEach(function(k){ PRESETS[k] = { demand: r.pre[k][0], ops: r.pre[k][1] }; });
+      dem = r.dem;
+    } else {
+      PRESETS = autoPresets(STAGES.map(function(s){ return s.t; }));
+      dem = PRESETS._dem;
+    }
+    demandIn.min = String(dem[0]); demandIn.max = String(dem[1]); demandIn.step = String(dem[2]);
+    inds.forEach(function(c){ var on = c.getAttribute('data-ind') === key; c.classList.toggle('is-on', on); c.setAttribute('aria-pressed', on ? 'true' : 'false'); });
+    editor.hidden = key !== 'custom';
+    setText(noteEl, key === 'custom'
+      ? 'Capacidade de cada etapa = pessoas × ' + P + ' ' + U.tu + ' ÷ tempo por ' + r.sing + ' (' + (unit === 'min' ? 'uma hora' : unit === 'h' ? 'um dia de 8 h' : 'uma semana de 5 dias') + ').'
+      : 'Tempos por etapa são ilustrativos (' + STAGES.map(function(s){ return s.t; }).join(' · ') + ' min por ' + r.sing + '). Capacidade = ' + r.who + ' × 60 ÷ tempo.');
+    setText(kWipL, r.plur + ' em andamento');
+    if (!same){
+      snap = null; cmpSig = '';
+      demand = PRESETS.pico.demand; ops = PRESETS.pico.ops.slice();
+      buildCtrls();
+      if (key === 'custom') buildEditor();
+      applyPreset('pico');
+    } else {
+      demand = Math.min(dem[1], Math.max(dem[0], demand));
+      while (ops.length < STAGES.length) ops.push(3);
+      buildCtrls(); refresh(true);
+    }
+  }
+  inds.forEach(function(c){ c.addEventListener('click', function(){ setRamo(c.getAttribute('data-ind')); }); });
+  chips.forEach(function(c){ c.addEventListener('click', function(){ applyPreset(c.getAttribute('data-preset')); }); });
+
+  // ---------- editor do "Meu processo" ----------
+  var edRows = $('lab-ed-rows'), edAdd = $('lab-ed-add'), edTimer = 0;
+  function scheduleCustom(structural){
+    clearTimeout(edTimer);
+    edTimer = setTimeout(function(){ if (ramo === 'custom') setRamo('custom', { keep: !structural }); }, structural ? 0 : 380);
+  }
+  function buildEditor(){
+    edRows.textContent = '';
+    CUSTOM.stages.forEach(function(s, i){
+      var row = document.createElement('div'); row.className = 'lab-ed-row';
+      var n = document.createElement('span'); n.className = 'n mono'; n.textContent = String(i + 1);
+      var nm = document.createElement('input'); nm.type = 'text'; nm.value = s.name; nm.maxLength = 18; nm.setAttribute('aria-label', 'Nome da etapa ' + (i + 1)); nm.autocomplete = 'off';
+      var tm = document.createElement('input'); tm.type = 'number'; tm.value = String(s.t); tm.min = '0.1'; tm.step = 'any'; tm.setAttribute('aria-label', 'Tempo por item na etapa ' + (i + 1)); tm.inputMode = 'decimal';
+      var u = document.createElement('span'); u.className = 'u mono'; u.textContent = UN[CUSTOM.unit].tu;
+      var rm = document.createElement('button'); rm.type = 'button'; rm.textContent = '×'; rm.setAttribute('aria-label', 'Remover a etapa ' + (i + 1)); rm.disabled = CUSTOM.stages.length <= 2;
+      row.appendChild(n); row.appendChild(nm); row.appendChild(tm); row.appendChild(u); row.appendChild(rm);
+      edRows.appendChild(row);
+      nm.addEventListener('input', function(){ s.name = nm.value.trim() || ('Etapa ' + (i + 1)); scheduleCustom(false); });
+      tm.addEventListener('input', function(){ var v = parseFloat(String(tm.value).replace(',', '.')); if (isFinite(v) && v > 0){ s.t = v; scheduleCustom(false); } });
+      rm.addEventListener('click', function(){ if (CUSTOM.stages.length > 2){ CUSTOM.stages.splice(i, 1); buildEditor(); scheduleCustom(true); } });
+    });
+    edAdd.disabled = CUSTOM.stages.length >= MAXSTAGES;
+  }
+  edAdd.addEventListener('click', function(){
+    if (CUSTOM.stages.length >= MAXSTAGES) return;
+    CUSTOM.stages.push({ name: 'Etapa ' + (CUSTOM.stages.length + 1), t: 6 });
+    buildEditor(); scheduleCustom(true);
+  });
+  [['lab-ed-sing', 'sing', 14], ['lab-ed-plur', 'plur', 16], ['lab-ed-who', 'who', 16]].forEach(function(f){
+    $(f[0]).addEventListener('input', function(){ var v = this.value.trim().slice(0, f[2]); CUSTOM[f[1]] = v || CUSTOM[f[1]]; scheduleCustom(false); });
+  });
+  $('lab-ed-unit').addEventListener('change', function(){ CUSTOM.unit = this.value; buildEditor(); scheduleCustom(true); });
+
+  // ---------- controles gerais ----------
+  demandIn.addEventListener('input', function(){ demand = parseFloat(demandIn.value) || demand; manual(); refresh(true); });
+  btnPlay.addEventListener('click', function(){
+    running = !running;
+    btnPlay.setAttribute('aria-label', running ? 'Pausar a simulação' : 'Continuar a simulação');
+    btnPlay.setAttribute('data-cursor', running ? 'pausar' : 'continuar');
+    if (!running) pausedAt = performance.now();
+    refresh(false); wake();
+  });
+  btnSpeed.addEventListener('click', function(){
+    speedIdx = (speedIdx + 1) % SPEEDS.length;
+    var l = SPEEDS[speedIdx] + '×';
+    btnSpeed.textContent = l; btnSpeed.setAttribute('aria-label', 'Velocidade da simulação: ' + l);
+  });
+  btnReset.addEventListener('click', function(){ newSim(); if (L) warm(warmDefault() / 2); refresh(true); liveKpis(); wake(); });
+
+  // ---------- laço (só roda na tela, com a aba visível) ----------
+  function frame(now){
+    raf = 0;
+    if (!inView || document.hidden || !L) return;
+    var dtR = Math.min(0.05, ((now - last) / 1000) || 0.016);
+    last = now;
+    if (running){
+      var dtS = dtR * baseAvg() * SPEEDS[speedIdx], step = baseAvg() / 15;      // 1× = um item cruza uma etapa média em ~1 s
+      while (dtS > 0){ var st = Math.min(step, dtS); advance(st); dtS -= st; }
+    }
+    targets(); ease(dtR, false); draw(now);
+    if (now - lastUi > 250){ lastUi = now; liveKpis(); }
+    if (running || now - pausedAt < 1200) raf = requestAnimationFrame(frame);
+  }
+  function wake(){
+    if (raf || !inView || document.hidden || !L) return;
+    last = performance.now();
+    raf = requestAnimationFrame(frame);
+  }
+
+  // ---------- início ----------
+  function ensureWarm(){ if (!warmed && L){ warm(warmDefault()); warmed = true; } }
+  function boot(){
+    layout();
+    if (!L) return;
+    ensureWarm();
+    targets(); ease(0, true); draw(performance.now());
+    refresh(true); liveKpis();
+  }
+  setRamo('logistica');
+  if ('ResizeObserver' in window) new ResizeObserver(function(){ layout(); if (L){ ensureWarm(); targets(); ease(0, true); draw(performance.now()); refresh(true); liveKpis(); if (curTab === 'curva') renderCurve(); } }).observe(stageEl);
+  else window.addEventListener('resize', boot);
+  boot();
+  if (window.IntersectionObserver){
+    new IntersectionObserver(function(es){ inView = es[0].isIntersecting; if (inView) wake(); }, { rootMargin: '60px' }).observe(root);
+  } else { inView = true; wake(); }
+  document.addEventListener('visibilitychange', wake);
+})();
+</script>
+
+<script>
+(function(){
+  // ---- TERMINAL — gaveta com comandos (tecla `), lê o conteúdo do próprio site. Tudo aqui é opcional: remover este bloco não afeta o resto. ----
+  var box = document.getElementById('term');
+  if (!box) return;
+  var out = document.getElementById('term-out'), form = document.getElementById('term-form'), input = document.getElementById('term-input');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hist = [], hpos = 0, opener = null, busy = false, born = Date.now();
+
+  // ---------- saída ----------
+  function norm(s){ return (s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').trim(); }
+  function pad(s, n){ s = String(s); while (s.length < n) s += ' '; return s; }
+  function put(node){ out.appendChild(node); out.scrollTop = out.scrollHeight; return node; }
+  function line(text, cls){ var d = document.createElement('div'); d.className = 'tl' + (cls ? ' ' + cls : ''); d.textContent = text; return put(d); }
+  function rich(parts, cls){
+    var d = document.createElement('div'); d.className = 'tl' + (cls ? ' ' + cls : '');
+    parts.forEach(function(p){
+      if (typeof p === 'string'){ d.appendChild(document.createTextNode(p)); return; }
+      var el;
+      if (p.href){ el = document.createElement('a'); el.href = p.href; if (p.ext){ el.target = '_blank'; el.rel = 'noopener'; } }
+      else if (p.cmd){ el = document.createElement('button'); el.type = 'button'; el.className = 'tl-cmd'; el.addEventListener('click', function(){ exec(p.cmd); input.focus({ preventScroll: true }); }); }
+      else el = document.createElement('span');
+      if (p.cls) el.className = (el.className ? el.className + ' ' : '') + p.cls;
+      el.textContent = p.t; d.appendChild(el);
+    });
+    return put(d);
+  }
+  function row(k, v){ rich([{ t: pad(k, 12), cls: 'tl-k' }, v]); }
+
+  // ---------- navegação ----------
+  var SECTIONS = {
+    inicio: '#inicio', topo: '#inicio', sobre: '#sobre', trajetoria: '#trajetoria', diferenciais: '#diferenciais', metodo: '#metodo',
+    projetos: '#projetos', podcast: '#podcast', skills: '#skills', competencias: '#skills', laboratorio: '#laboratorio', lab: '#laboratorio',
+    arcade: '#entretenimento', jogos: '#entretenimento', entretenimento: '#entretenimento', visitas: '#livro-visitas',
+    diagnostico: '#diagnostico', servicos: '#servicos-pc', contato: '#contato'
+  };
+  function go(sel){
+    var el = document.querySelector(sel);
+    if (!el) return false;
+    el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    return true;
+  }
+
+  // ---------- comandos ----------
+  var C = {};
+  C.help = function(){
+    line('comandos:', 'tl-dim');
+    [['sobre', 'quem eu sou'], ['projetos', 'os sistemas que construí'], ['abrir <alvo>', 'vai pra uma seção ou projeto (abrir lab · abrir 2)'],
+     ['skills', 'competências por área'], ['podcast', 'episódios · play <n> · pause'], ['simular [ramo]', 'simulador de gargalo (ex.: simular saude errado · simular meu)'],
+     ['github', 'repositórios públicos, ao vivo'], ['contato', 'e-mail, whatsapp e github'], ['neofetch', 'resumo do sistema'], ['curriculo', 'baixa o currículo em PDF'],
+     ['ls', 'seções do site'], ['clear · exit', 'limpa · fecha']].forEach(function(r){
+      var clickable = r[0].indexOf(' ') === -1;
+      if (clickable) rich([{ t: r[0], cmd: r[0] }, pad('', 20 - r[0].length), { t: r[1], cls: 'tl-dim' }]);
+      else rich([{ t: pad(r[0], 20), cls: 'tl-k' }, { t: r[1], cls: 'tl-dim' }]);
+    });
+    line('↑ ↓ repetem comandos · Tab completa · Esc fecha', 'tl-dim');
+  };
+  C.sobre = function(){
+    line('Analista de Processos Operacionais, com formação técnica em Marketing e cursando Ciência da Computação. Trabalho de frente com a operação — e não fico só no diagnóstico: eu mesmo desenho, desenvolvo e coloco o sistema em produção, inclusive para cliente externo.');
+    rich([{ t: 'mais: ', cls: 'tl-dim' }, { t: 'abrir trajetoria', cmd: 'abrir trajetoria' }, ' · ', { t: 'skills', cmd: 'skills' }]);
+  };
+  C.projetos = function(){
+    var recs = [].slice.call(document.querySelectorAll('#projetos .record'));
+    if (!recs.length){ line('nenhum projeto encontrado.', 'tl-err'); return; }
+    recs.forEach(function(r, i){
+      var h = r.querySelector('h3');
+      rich([{ t: '[' + (i + 1) + '] ', cls: 'tl-dim' }, { t: h ? h.textContent.trim() : r.id, cmd: 'abrir ' + (i + 1) }]);
+    });
+    line('clique num nome (ou digite abrir <nº>) pra ir até o projeto.', 'tl-dim');
+  };
+  C.abrir = function(args){
+    var a = norm(args.join(' '));
+    if (!a){ line('uso: abrir <seção | nº do projeto>. veja ls e projetos.', 'tl-dim'); return; }
+    if (/^\d+$/.test(a)){
+      var recs = document.querySelectorAll('#projetos .record'), r = recs[parseInt(a, 10) - 1];
+      if (!r){ line('projeto ' + a + ' não existe (1–' + recs.length + ').', 'tl-err'); return; }
+      r.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+      line('→ ' + (r.querySelector('h3') || r).textContent.trim(), 'tl-ok');
+      return;
+    }
+    var sel = SECTIONS[a];
+    if (sel && go(sel)) line('→ ' + a, 'tl-ok');
+    else rich(['não achei "' + a + '". tente ', { t: 'ls', cmd: 'ls' }], 'tl-err');
+  };
+  C.ls = function(){ line(['sobre', 'trajetoria', 'metodo', 'projetos', 'podcast', 'laboratorio', 'arcade', 'skills', 'visitas', 'diagnostico', 'servicos', 'contato'].map(function(s){ return s + '/'; }).join('  ')); };
+  C.skills = function(){
+    var groups = document.querySelectorAll('#skills .skill-group');
+    if (!groups.length){ line('sem dados de competências.', 'tl-err'); return; }
+    var w = 0;
+    [].forEach.call(groups, function(g){ var h = g.querySelector('h3'); w = Math.max(w, h ? h.textContent.trim().length : 0); });
+    [].forEach.call(groups, function(g){
+      var h = g.querySelector('h3'), chips = [].map.call(g.querySelectorAll('.chip'), function(c){ return c.textContent.trim(); });
+      rich([{ t: pad(h ? h.textContent.trim() : '', w + 2), cls: 'tl-k' }, chips.join(' · ')]);
+    });
+  };
+  C.podcast = function(){
+    var eps = document.querySelectorAll('.pod-item');
+    if (!eps.length){ line('sem episódios.', 'tl-err'); return; }
+    [].forEach.call(eps, function(li, i){
+      var meta = li.querySelector('.pod-item-meta');
+      rich([{ t: '[' + (i + 1) + '] ', cls: 'tl-dim' }, { t: li.getAttribute('data-title'), cmd: 'play ' + (i + 1) }, { t: '  ' + (meta ? meta.textContent.split('·')[0].trim() : ''), cls: 'tl-dim' }]);
+    });
+    line('vozes geradas por IA. play <nº> toca aqui mesmo · pause pausa.', 'tl-dim');
+  };
+  C.play = function(args){
+    var n = parseInt(args[0], 10) || 1, btns = document.querySelectorAll('.pod-item-btn'), pod = document.getElementById('pod');
+    if (!btns.length){ line('player indisponível.', 'tl-err'); return; }
+    if (n < 1 || n > btns.length){ line('episódio ' + n + ' não existe (1–' + btns.length + ').', 'tl-err'); return; }
+    var same = btns[n - 1].parentNode.classList.contains('is-active');
+    if (same && pod && pod.getAttribute('data-state') === 'playing'){ line('esse já está tocando.', 'tl-dim'); return; }
+    btns[n - 1].click();
+    line('▶ ' + btns[n - 1].parentNode.getAttribute('data-title'), 'tl-ok');
+  };
+  C.pause = function(){
+    var pod = document.getElementById('pod'), b = document.getElementById('pod-play');
+    if (pod && b && (pod.getAttribute('data-state') === 'playing' || pod.getAttribute('data-state') === 'loading')){ b.click(); line('⏸ pausado', 'tl-ok'); }
+    else line('nada tocando.', 'tl-dim');
+  };
+  C.simular = function(args){
+    var RAMOS = { logistica: 'logistica', armazem: 'logistica', atendimento: 'atendimento', sac: 'atendimento', suporte: 'atendimento', saude: 'saude', clinica: 'saude',
+      industria: 'industria', fabrica: 'industria', credito: 'credito', banco: 'credito', financeira: 'credito', restaurante: 'restaurante', cozinha: 'restaurante', delivery: 'restaurante', meu: 'custom', custom: 'custom', processo: 'custom' };
+    var CEN = { pico: 'pico', tranquilo: 'tranquilo', errado: 'errado', erro: 'errado', balanceado: 'balanceado' };
+    var ind = '', cen = '';
+    args.forEach(function(a){ a = norm(a); if (RAMOS[a]) ind = RAMOS[a]; else if (CEN[a]) cen = CEN[a]; });
+    var bi = ind && document.querySelector('.lab-ind[data-ind="' + ind + '"]');
+    if (bi) bi.click();
+    var bc = cen && document.querySelector('.lab-chip[data-preset="' + cen + '"]');
+    if (bc) bc.click();
+    if (go('#laboratorio')){
+      if (bi || bc) line('→ laboratório' + (ind ? ' · ramo ' + ind : '') + (cen ? ' · cenário ' + cen : ''), 'tl-ok');
+      else line('→ laboratório · ramos: logistica atendimento saude industria credito restaurante meu · cenários: pico tranquilo errado balanceado', 'tl-ok');
+    } else line('laboratório não encontrado.', 'tl-err');
+  };
+  C.contato = function(){
+    row('e-mail', { t: 'guilherme.hellys1@gmail.com', href: 'mailto:guilherme.hellys1@gmail.com' });
+    row('whatsapp', { t: '(11) 99403-2102', href: 'https://wa.me/5511994032102', ext: true });
+    row('github', { t: 'github.com/Hellys-CPU', href: 'https://github.com/Hellys-CPU', ext: true });
+  };
+  function ago(iso){
+    var d = Math.floor((Date.now() - new Date(iso).getTime()) / 864e5);
+    if (d <= 0) return 'hoje';
+    if (d === 1) return 'ontem';
+    if (d < 30) return 'há ' + d + ' dias';
+    var m = Math.floor(d / 30);
+    return 'há ' + m + (m === 1 ? ' mês' : ' meses');
+  }
+  C.github = function(){
+    var KEY = 'aa-gh-cache', cached = null;
+    try { cached = JSON.parse(sessionStorage.getItem(KEY) || 'null'); } catch(e){}
+    function show(list){
+      row('conta', { t: 'github.com/Hellys-CPU', href: 'https://github.com/Hellys-CPU', ext: true });
+      list.slice(0, 6).forEach(function(r){
+        rich([{ t: pad(r.name, 24), cls: 'tl-k' }, pad(r.language || '-', 11), { t: ago(r.pushed_at), cls: 'tl-dim' }]);
+      });
+      line(list.length + ' repositórios públicos · dados ao vivo de api.github.com', 'tl-dim');
+    }
+    if (cached && Date.now() - cached.t < 10 * 60 * 1000){ show(cached.list); return; }
+    line('consultando api.github.com …', 'tl-dim');
+    busy = true;
+    fetch('https://api.github.com/users/Hellys-CPU/repos?per_page=100&sort=pushed').then(function(r){
+      if (!r.ok) throw new Error(r.status);
+      return r.json();
+    }).then(function(all){
+      var list = all.filter(function(r){ return !r.fork; }).map(function(r){ return { name: r.name, language: r.language, pushed_at: r.pushed_at }; });
+      try { sessionStorage.setItem(KEY, JSON.stringify({ t: Date.now(), list: list })); } catch(e){}
+      show(list);
+    }).catch(function(){ line('não consegui falar com o GitHub agora (limite de requisições ou sem rede).', 'tl-err'); })
+      .then(function(){ busy = false; });
+  };
+  C.neofetch = function(){
+    var up = Math.max(1, Math.round((Date.now() - born) / 1000)), dev = document.querySelectorAll('#skill-dev .chip');
+    var stack = [].slice.call(dev, 0, 6).map(function(c){ return c.textContent.trim(); }).join(' · ');
+    line('⌘ hellys.', 'tl-hl');
+    row('site', 'hellys.dev.br');
+    row('hospedagem', 'GitHub Pages + Cloudflare');
+    row('foco', 'operações & PCP → sistemas em produção');
+    if (stack) row('stack', stack);
+    row('podcast', document.querySelectorAll('.pod-item').length + ' episódios (voz de IA)');
+    row('arcade', '11 jogos escondidos');
+    row('local', 'São Paulo');
+    row('sessão', up + 's · tela ' + window.innerWidth + '×' + window.innerHeight);
+  };
+  C.curriculo = function(){
+    if (!window.printCV){ line('currículo indisponível.', 'tl-err'); return; }
+    line('abrindo a impressão — escolha “Salvar como PDF”.', 'tl-ok');
+    setTimeout(window.printCV, reduce ? 0 : 300);
+  };
+  C.clear = function(){ out.textContent = ''; };
+  C.exit = function(){ close(); };
+  C.echo = function(args){ line(args.join(' ')); };
+  C.date = function(){ line(new Date().toLocaleString('pt-BR')); };
+  C.whoami = function(){ rich(['visitante — e eu? ', { t: 'sobre', cmd: 'sobre' }]); };
+  C.history = function(){ hist.forEach(function(h, i){ line(pad(i + 1, 4) + h, 'tl-dim'); }); };
+  C.festa = function(){ party(); line('✦ modo festa', 'tl-ok'); };
+  C.sudo = function(args, raw){
+    var rest = norm(args.join(' '));
+    if (!rest){ line('uso: sudo <comando>', 'tl-dim'); return; }
+    if (/^rm\s+-rf\s+\/?\*?$/.test(rest)){ line('boa tentativa. aqui é tudo estático — o pior que dá pra fazer é fechar a aba.', 'tl-err'); return; }
+    if (/^(contratar|hire)(\s+hellys)?$/.test(rest)){
+      busy = true;
+      line('[sudo] senha para visitante: ********', 'tl-dim');
+      setTimeout(function(){ line('autenticando… ok', 'tl-dim'); }, reduce ? 0 : 650);
+      setTimeout(function(){ line('permissão concedida ✓ abrindo contato', 'tl-ok'); }, reduce ? 0 : 1250);
+      setTimeout(function(){ go('#contato'); busy = false; }, reduce ? 0 : 1800);
+      return;
+    }
+    rich(['sudo: ', { t: args[0], cls: 'tl-err' }, ': comando não encontrado']);
+  };
+  var ALIAS = { cv: 'curriculo', pdf: 'curriculo', curriculum: 'curriculo', cd: 'abrir', open: 'abrir', projects: 'projetos', lab: 'simular', laboratorio: 'simular', contact: 'contato', quem: 'whoami', '?': 'help', ajuda: 'help', cls: 'clear', quit: 'exit', fechar: 'exit' };
+
+  function exec(raw){
+    var s = (raw || '').trim();
+    if (!s || busy) return;
+    rich([{ t: 'visitante@hellys:~$ ', cls: 'tl-ps' }, s]);
+    if (hist[hist.length - 1] !== s) hist.push(s);
+    hpos = hist.length;
+    var parts = s.split(/\s+/), name = norm(parts[0]), args = parts.slice(1);
+    if (name === 'cat'){ name = args[0] && norm(args[0]).replace(/\.\w+$/, '') === 'sobre' ? 'sobre' : 'cat'; if (name === 'cat'){ line('cat: só sei ler "sobre" por aqui.', 'tl-err'); return; } }
+    name = ALIAS[name] || name;
+    var fn = C.hasOwnProperty(name) ? C[name] : null;
+    if (!fn){ rich(['comando não encontrado: ', { t: parts[0], cls: 'tl-err' }, ' — tente ', { t: 'help', cmd: 'help' }]); return; }
+    try { fn(args, s); } catch(e){ line('erro ao executar: ' + name, 'tl-err'); }
+  }
+
+  // ---------- abrir / fechar ----------
+  function motd(){
+    line('hellys-sh 1.0 — terminal do portfólio', 'tl-ok');
+    rich(['digite ', { t: 'help', cmd: 'help' }, ' pra ver os comandos · Esc fecha · a tecla ` (ou a que fica à esquerda do 1) abre de qualquer lugar'], 'tl-dim');
+  }
+  function open(){
+    if (box.classList.contains('open')){ input.focus({ preventScroll: true }); return; }
+    opener = document.activeElement;
+    box.removeAttribute('inert'); box.setAttribute('aria-hidden', 'false');
+    box.classList.add('open');
+    if (!out.childNodes.length) motd();
+    setTimeout(function(){ input.focus({ preventScroll: true }); }, reduce ? 0 : 140);
+  }
+  function close(){
+    if (!box.classList.contains('open')) return;
+    box.classList.remove('open'); box.setAttribute('aria-hidden', 'true'); box.setAttribute('inert', '');
+    if (opener && opener.focus && document.contains(opener)){ try { opener.focus({ preventScroll: true }); } catch(e){} }
+  }
+  window.openTerminal = open;
+  window.closeTerminal = close;
+
+  document.getElementById('term-close').addEventListener('click', close);
+  [].forEach.call(document.querySelectorAll('#term-quick button'), function(b){ b.addEventListener('click', function(){ exec(b.getAttribute('data-run')); input.focus({ preventScroll: true }); }); });
+  [].forEach.call(document.querySelectorAll('#term-open, #os-term-open'), function(b){ b.addEventListener('click', function(){ box.classList.contains('open') ? close() : open(); }); });
+  out.addEventListener('click', function(e){ if (!window.getSelection().toString() && !e.target.closest('a,button')) input.focus({ preventScroll: true }); });
+
+  form.addEventListener('submit', function(e){ e.preventDefault(); var v = input.value; input.value = ''; exec(v); });
+  input.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowUp'){ e.preventDefault(); if (hpos > 0){ hpos--; input.value = hist[hpos] || ''; } }
+    else if (e.key === 'ArrowDown'){ e.preventDefault(); if (hpos < hist.length - 1){ hpos++; input.value = hist[hpos]; } else { hpos = hist.length; input.value = ''; } }
+    else if (e.key === 'Tab'){
+      e.preventDefault();
+      var v = norm(input.value);
+      if (!v || /\s/.test(v)) return;
+      var names = Object.keys(C).filter(function(n){ return n.indexOf(v) === 0; });
+      if (names.length === 1) input.value = names[0] + ' ';
+      else if (names.length > 1) line(names.join('  '), 'tl-dim');
+    }
+  });
+
+  // atalhos globais: ` abre/fecha · Esc fecha · Konami dispara o modo festa
+  var KONAMI = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'], kpos = 0;
+  function typing(t){ return t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)); }
+  document.addEventListener('keydown', function(e){
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    if (e.key === 'Escape' && box.classList.contains('open')){
+      var cm = document.getElementById('cmdk-overlay');
+      if (!cm || cm.classList.contains('hidden')){ close(); return; }
+    }
+    if (e.key === '`' || e.code === 'Backquote'){
+      if (e.target === input && input.value === ''){ e.preventDefault(); close(); return; }
+      if (typing(e.target)) return;
+      e.preventDefault(); box.classList.contains('open') ? close() : open(); return;
+    }
+    if (typing(e.target)){ kpos = 0; return; }
+    var k = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+    kpos = (k === KONAMI[kpos]) ? kpos + 1 : (k === KONAMI[0] ? 1 : 0);
+    if (kpos === KONAMI.length){ kpos = 0; party(); }
+  });
+
+  // ---------- modo festa: as duas orbs soltam um cardume de pontos ----------
+  function party(){
+    var toast = document.createElement('div');
+    toast.textContent = '✦ modo festa desbloqueado';
+    toast.style.cssText = 'position:fixed;top:44px;left:50%;transform:translateX(-50%);z-index:10450;padding:7px 14px;border:1px solid rgba(63,201,168,.5);border-radius:999px;background:rgba(9,12,17,.92);color:#3fc9a8;font:12px "IBM Plex Mono",monospace;pointer-events:none;';
+    toast.setAttribute('role', 'status');
+    document.body.appendChild(toast);
+    setTimeout(function(){ toast.remove(); }, 2600);
+    if (reduce) return;
+    var cv = document.createElement('canvas');
+    cv.setAttribute('aria-hidden', 'true');
+    cv.style.cssText = 'position:fixed;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:10400;';
+    document.body.appendChild(cv);
+    var w = window.innerWidth, h = window.innerHeight, dpr = Math.min(window.devicePixelRatio || 1, 2);
+    cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr);
+    var c = cv.getContext('2d'); c.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var srcs = [].map.call(document.querySelectorAll('.companion .ai-orb'), function(o){
+      var r = o.getBoundingClientRect();
+      return { x: r.left + r.width / 2, y: r.top + r.height / 2, col: /aurora/i.test(o.className) ? '#3fc9a8' : '#ff8a3d' };
+    });
+    if (!srcs.length) srcs = [{ x: w / 2, y: h - 30, col: '#ff8a3d' }, { x: w / 2, y: h - 30, col: '#3fc9a8' }];
+    var ps = [];
+    srcs.forEach(function(s){
+      for (var i = 0; i < 110; i++){
+        var a = Math.random() * Math.PI * 2, sp = 2 + Math.random() * 7;
+        ps.push({ x: s.x, y: s.y, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp - 2.5, r: 1 + Math.random() * 2, col: Math.random() < 0.18 ? '#e8ecf1' : s.col, life: 1 });
+      }
+    });
+    var t0 = performance.now(), last = t0;
+    (function step(now){
+      var dt = Math.min(0.05, (now - last) / 1000) * 60; last = now;
+      c.clearRect(0, 0, w, h);
+      var alive = 0;
+      ps.forEach(function(p){
+        p.vy += 0.09 * dt; p.vx *= Math.pow(0.992, dt); p.x += p.vx * dt; p.y += p.vy * dt; p.life -= 0.0085 * dt;
+        if (p.life <= 0) return;
+        alive++;
+        c.globalAlpha = Math.max(0, p.life); c.fillStyle = p.col; c.fillRect(p.x - p.r, p.y - p.r, p.r * 2, p.r * 2);
+      });
+      c.globalAlpha = 1;
+      if (alive && now - t0 < 4200) requestAnimationFrame(step); else cv.remove();
+    })(t0);
+  }
+})();
+</script>
+
+<script>
+(function(){
+  // ---- CURRÍCULO — a impressão do site vira um currículo (CSS @media print). O botão, o Ctrl+K e o terminal chamam window.printCV ----
+  var old = '';
+  function restore(){ if (old){ document.title = old; old = ''; } }
+  function printCV(){
+    old = document.title;
+    document.title = 'Currículo — Hellys';                 // vira o nome sugerido do arquivo PDF
+    window.addEventListener('afterprint', restore, { once: true });
+    setTimeout(restore, 30000);
+    try { window.print(); } catch(e){ restore(); }
+  }
+  window.printCV = printCV;
+  var btn = document.getElementById('cv-print');
+  if (btn) btn.addEventListener('click', printCV);
 })();
 </script>
 
