@@ -2183,7 +2183,7 @@ window.PortfolioLB = (function(){
   // ---- quadro a quadro ----
   function frame(now){
     raf = requestAnimationFrame(frame);
-    var dt = Math.min(0.05, (now - last) / 1000);
+    var dt = (now - last) / 1000; dt = dt > 0 ? Math.min(0.05, dt) : 0.016;   // rAF pode vir antes do performance.now() gravado
     last = now;
     var s = dt * 60, t = (now - t0) / 1000;
 
@@ -4711,7 +4711,7 @@ window.PortfolioLB = (function(){
         function frame(now){
           raf = 0;
           if (!active || document.hidden) return;
-          var dt = Math.min(0.05, ((now - last) / 1000) || 0.016);
+          var dt = (now - last) / 1000; dt = dt > 0 ? Math.min(0.05, dt) : 0.016;
           last = now; tSec += dt;
 
           var p = tw.progress();                                  // já suavizado pelo scrub — acompanha os painéis
@@ -5955,7 +5955,7 @@ window.PortfolioLB = (function(){
   function frame(now){
     raf = 0;
     if (!inView || document.hidden || !L) return;
-    var dtR = Math.min(0.05, ((now - last) / 1000) || 0.016);
+    var dtR = (now - last) / 1000; dtR = dtR > 0 ? Math.min(0.05, dtR) : 0.016;
     last = now;
     if (running){
       var dtS = dtR * baseAvg() * SPEEDS[speedIdx], step = baseAvg() / 15;      // 1× = um item cruza uma etapa média em ~1 s
@@ -6305,7 +6305,7 @@ window.PortfolioLB = (function(){
     });
     var t0 = performance.now(), last = t0;
     (function step(now){
-      var dt = Math.min(0.05, (now - last) / 1000) * 60; last = now;
+      var dt = (now - last) / 1000; dt = (dt > 0 ? Math.min(0.05, dt) : 0) * 60; last = now;
       c.clearRect(0, 0, w, h);
       var alive = 0;
       ps.forEach(function(p){
@@ -6962,7 +6962,7 @@ window.PortfolioLB = (function(){
     }
 
     function frame(now){
-      var dt = Math.min(0.05, (now - last) / 1000) || 0.016;
+      var dt = (now - last) / 1000; dt = dt > 0 ? Math.min(0.05, dt) : 0.016;
       last = now;
       var s = dt * 60, i, p;
       // parado há um tempo: a órbita desacelera até congelar (aí o loop pode dormir)
@@ -7134,6 +7134,7 @@ window.PortfolioLB = (function(){
       d = dots[i];
       var y = d.gy - offY + d.oy;
       if (y < -8 || y > H + 8) continue;
+      if (!(d.boost >= 0)) d.boost = 0;                     // nunca negativo nem NaN: senão o índice do balde sai da lista
       lv = Math.min(LEVELS - 1, Math.floor(d.boost * LEVELS));
       buckets[(d.boost > 0.42 ? LEVELS : 0) + lv].push(d);
     }
@@ -7165,7 +7166,11 @@ window.PortfolioLB = (function(){
   }
 
   function frame(now){
-    var dt = Math.min(0.05, (now - last) / 1000) || 0.016;
+    // o carimbo do rAF é o início do quadro e pode vir ANTES do performance.now() gravado no wake();
+    // um dt negativo invertia a suavização e deixava o brilho dos pontos abaixo de zero
+    var dt = (now - last) / 1000;
+    if (!(dt > 0)) dt = 0.016;
+    dt = Math.min(0.05, dt);
     last = now;
     var s = dt * 60, i, j, d, n = dots.length, energy = 0;
 
@@ -7193,7 +7198,7 @@ window.PortfolioLB = (function(){
         }
       }
       for (j = 0; j < ripples.length; j++){
-        var rp = ripples[j], age = (now - rp.t) / 1000;
+        var rp = ripples[j], age = Math.max(0, (now - rp.t) / 1000);   // o clique pode ser registrado depois do início do quadro
         var rx = d.gx - rp.x, ry = restY - rp.y, rd = Math.sqrt(rx * rx + ry * ry) || 1;
         var gap = Math.abs(rd - age * 620);
         if (gap < 74){
