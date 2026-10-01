@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sites-modelo da hellys. — cinco ramos, cinco sites que funcionam</title>
+<meta name="description" content="Cinco sites de demonstração feitos pela hellys., cada um com a cara do próprio ramo e uma ferramenta que faz o trabalho do negócio: transportadora, oficina, fisioterapia, hamburgueria e contabilidade.">
+<meta name="theme-color" content="#10141a">
+<link rel="canonical" href="https://hellys.dev.br/modelos/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="hellys.">
+<meta property="og:url" content="https://hellys.dev.br/modelos/">
+<meta property="og:title" content="Sites-modelo da hellys. — cinco ramos, cinco sites que funcionam">
+<meta property="og:description" content="Transportadora, oficina, fisioterapia, hamburgueria e contabilidade. Abra, mexa e veja funcionando.">
+<meta property="og:image" content="https://hellys.dev.br/modelos/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Os cinco sites-modelo da hellys. lado a lado">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#10141a; --surface:#171d26; --surface-2:#1e2631; --line:#2a3341;
+  --text:#e8ecf1; --text-dim:#9aabbd; --accent:#ff8a3d; --accent-2:#3fc9a8;
+  --wrap:1220px; --pad:clamp(18px,4.5vw,64px); --ease:cubic-bezier(.16,1,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--text);font:400 17px/1.6 'IBM Plex Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--accent);color:var(--bg)}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--accent-2);outline-offset:4px;border-radius:4px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+.mono{font-family:'IBM Plex Mono',monospace}
+.ico{width:1.05em;height:1.05em;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+
+.top{border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px}
+.logo{display:inline-flex;align-items:center;border-radius:4px}
+.logo svg{height:20px;width:auto;display:block}
+.top nav{display:flex;gap:22px;align-items:center;font-size:15px;color:var(--text-dim)}
+.top nav a:hover{color:var(--text)}
+
+.head{padding-top:clamp(44px,7vw,92px);padding-bottom:clamp(30px,4vw,48px)}
+.head h1{font:700 clamp(2.4rem,5.6vw,4.6rem)/1.02 'Space Grotesk',sans-serif;letter-spacing:-.03em;max-width:15ch;text-wrap:balance}
+.head h1 em{font-style:normal;color:var(--accent)}
+.head p{color:var(--text-dim);font-size:clamp(17px,1.5vw,19.5px);max-width:58ch;margin-top:20px}
+.head p b{color:var(--text);font-weight:600}
+
+.grid{list-style:none;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(16px,2.2vw,26px);padding-bottom:clamp(50px,7vw,90px)}
+.grid li{grid-column:span 2}
+.grid li:nth-child(4),.grid li:nth-child(5){grid-column:span 3}
+.site{display:grid;grid-template-rows:auto 1fr;height:100%;background:var(--surface);border:1px solid var(--line);border-radius:8px;overflow:hidden;transition:border-color .25s var(--ease),transform .35s var(--ease)}
+.shot{display:block;overflow:hidden;border-bottom:1px solid var(--line);background:var(--surface-2)}
+.shot img{display:block;width:100%;height:auto;aspect-ratio:1200/630;object-fit:cover;object-position:top;transition:transform .6s var(--ease)}
+.body{display:grid;grid-template-rows:auto auto 1fr auto;gap:6px;padding:18px 20px 20px}
+.ramo{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-2)}
+.site h2{font:600 22px/1.15 'Space Grotesk',sans-serif;letter-spacing:-.01em}
+.site p{color:var(--text-dim);font-size:15.5px;line-height:1.5}
+.go{display:inline-flex;align-items:center;gap:8px;margin-top:10px;font-size:13px;color:var(--text)}
+.go .ico{transition:transform .3s var(--ease)}
+.site:hover{border-color:rgba(255,138,61,.6);transform:translateY(-3px)}
+.site:hover .shot img{transform:scale(1.035)}
+.site:hover .go{color:var(--accent)}
+.site:hover .go .ico{transform:translate(2px,-2px)}
+.site:focus-visible{outline:2px solid var(--accent-2);outline-offset:4px}
+@media (max-width:980px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.grid li,.grid li:nth-child(4),.grid li:nth-child(5){grid-column:span 1}.grid li:nth-child(5){grid-column:1/-1}}
+@media (max-width:620px){.grid{grid-template-columns:1fr}.grid li:nth-child(5){grid-column:auto}.top nav .hide-sm{display:none}}
+@media (prefers-reduced-motion:reduce){.site,.shot img,.go .ico{transition:none}.site:hover{transform:none}.site:hover .shot img{transform:none}}
+
+.cta{border-top:1px solid var(--line);background:var(--surface)}
+.cta .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px 40px;align-items:center;padding-top:clamp(40px,6vw,72px);padding-bottom:clamp(40px,6vw,72px)}
+.cta h2{font:700 clamp(1.9rem,3.6vw,2.9rem)/1.05 'Space Grotesk',sans-serif;letter-spacing:-.02em;max-width:20ch}
+.cta p{color:var(--text-dim);margin-top:12px;max-width:52ch}
+.acts{display:flex;flex-direction:column;gap:12px;align-items:stretch}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 20px;border-radius:4px;font:600 16px/1 'IBM Plex Sans',sans-serif;background:var(--accent);color:var(--bg);transition:background-color .2s}
+.btn:hover{background:#ffa463}
+.btn-line{background:transparent;color:var(--text);box-shadow:inset 0 0 0 1px var(--line)}
+.btn-line:hover{background:var(--surface-2)}
+@media (max-width:760px){.cta .wrap{grid-template-columns:1fr}}
+.foot{padding:26px 0 34px;color:var(--text-dim);font-size:13.5px}
+.foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="../" aria-label="hellys. (ir para o portfólio)">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4532.21 943.33" aria-hidden="true" focusable="false"><g transform="translate(368.53 141.33) scale(0.86)"><path fill="#ff8a3d" d="M-82.13 -164.33L-428.52 350L-82.13 864.33L-9.87 815.67L-323.48 350L-9.87 -115.67ZM665.87 -115.67L979.48 350L665.87 815.67L738.13 864.33L1084.52 350L738.13 -164.33Z"/><path fill="#e8ecf1" d="M198 700L66 700L66 0L198 0L198 289L458 289L458 0L590 0L590 700L458 700L458 409L198 409L198 700Z"/></g><g transform="translate(1531.21 743.33) scale(1)"><path fill="#e8ecf1" d="M196 0L70 0L70-700L196-700L196-435L214-435Q222-451 239-467Q256-483 284.50-493.50Q313-504 357-504L357-504Q415-504 458.50-477.50Q502-451 526-404.50Q550-358 550-296L550-296L550 0L424 0L424-286Q424-342 396.50-370Q369-398 318-398L318-398Q260-398 228-359.50Q196-321 196-252L196-252L196 0ZM894 14L894 14Q820 14 763.50-17.50Q707-49 675.50-106.50Q644-164 644-242L644-242L644-254Q644-332 675-389.50Q706-447 762-478.50Q818-510 892-510L892-510Q965-510 1019-477.50Q1073-445 1103-387.50Q1133-330 1133-254L1133-254L1133-211L772-211Q774-160 810-128Q846-96 898-96L898-96Q951-96 976-119Q1001-142 1014-170L1014-170L1117-116Q1103-90 1076.50-59.50Q1050-29 1006-7.50Q962 14 894 14ZM773-305L773-305L1005-305Q1001-348 970.50-374Q940-400 891-400L891-400Q840-400 810-374Q780-348 773-305ZM1353 0L1227 0L1227-700L1353-700L1353 0ZM1601 0L1475 0L1475-700L1601-700L1601 0ZM2089 200L1777 200L1777 90L2047 90Q2075 90 2075 60L2075 60L2075-65L2057-65Q2049-48 2032-31Q2015-14 1986-3Q1957 8 1912 8L1912 8Q1854 8 1810.50-18.50Q1767-45 1743-92Q1719-139 1719-200L1719-200L1719-496L1845-496L1845-210Q1845-154 1872.50-126Q1900-98 1951-98L1951-98Q2009-98 2041-136.50Q2073-175 2073-244L2073-244L2073-496L2199-496L2199 88Q2199 139 2169 169.50Q2139 200 2089 200L2089 200ZM2527 14L2527 14Q2430 14 2368-28Q2306-70 2293-148L2293-148L2409-178Q2416-143 2432.50-123Q2449-103 2473.50-94.50Q2498-86 2527-86L2527-86Q2571-86 2592-101.50Q2613-117 2613-140L2613-140Q2613-163 2593-175.50Q2573-188 2529-196L2529-196L2501-201Q2449-211 2406-228.50Q2363-246 2337-277Q2311-308 2311-357L2311-357Q2311-431 2365-470.50Q2419-510 2507-510L2507-510Q2590-510 2645-473Q2700-436 2717-376L2717-376L2600-340Q2592-378 2567.50-394Q2543-410 2507-410L2507-410Q2471-410 2452-397.50Q2433-385 2433-363L2433-363Q2433-339 2453-327.50Q2473-316 2507-310L2507-310L2535-305Q2591-295 2636.50-278.50Q2682-262 2708.50-231.50Q2735-201 2735-149L2735-149Q2735-71 2678.50-28.50Q2622 14 2527 14Z"/><path fill="#ff8a3d" d="M2907 14L2907 14Q2866 14 2838.50-12.50Q2811-39 2811-81L2811-81Q2811-123 2838.50-149.50Q2866-176 2907-176L2907-176Q2947-176 2974-149.50Q3001-123 3001-81L3001-81Q3001-39 2974-12.50Q2947 14 2907 14Z"/></g></svg>
+    </a>
+    <nav aria-label="Atalhos">
+      <a class="hide-sm" href="../#projetos">Projetos</a>
+      <a href="#contato">Quero um assim</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="head wrap" aria-labelledby="h1">
+    <h1 id="h1">Cinco ramos, cinco sites <em>que funcionam</em>.</h1>
+    <p>Sites de demonstração feitos pela hellys. Cada um tem a cara do próprio ramo e <b>uma ferramenta que faz o trabalho do negócio</b>: cotar, agendar, medir, montar o pedido, avisar o vencimento. Abra, mexa, teste no celular. As marcas são fictícias.</p>
+  </section>
+
+  <ul class="grid wrap" aria-label="Sites-modelo">
+    <li><a class="site" href="transportadora/" target="_blank" rel="noopener" aria-label="Prumo Cargas, site-modelo para transportadoras (abre em nova aba)">
+      <span class="shot"><img src="transportadora/og.jpg" alt="" width="1200" height="630" decoding="async"></span>
+      <span class="body"><span class="ramo mono">Transportadora</span><h2>Prumo Cargas</h2><p>A etiqueta de carga vira o site: cotação em 3 campos e rastreio que mostra a carga andando.</p><span class="go mono">abrir o site <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span></span>
+    </a></li>
+    <li><a class="site" href="oficina/" target="_blank" rel="noopener" aria-label="Auto Mecânica Pinhão, site-modelo para oficinas mecânicas (abre em nova aba)">
+      <span class="shot"><img src="oficina/og.jpg" alt="" width="1200" height="630" decoding="async"></span>
+      <span class="body"><span class="ramo mono">Oficina mecânica</span><h2>Auto Mecânica Pinhão</h2><p>Letreiro pintado à mão: o cliente diz o que o carro está fazendo, marca a avaliação e acompanha pela placa.</p><span class="go mono">abrir o site <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span></span>
+    </a></li>
+    <li><a class="site" href="fisioterapia/" target="_blank" rel="noopener" aria-label="Arco Fisioterapia, site-modelo para clínicas de fisioterapia (abre em nova aba)">
+      <span class="shot"><img src="fisioterapia/og.jpg" alt="" width="1200" height="630" decoding="async"></span>
+      <span class="body"><span class="ramo mono">Clínica de fisioterapia</span><h2>Arco Fisioterapia</h2><p>Um goniômetro na tela: a pessoa mede até onde consegue mover e já pede a avaliação.</p><span class="go mono">abrir o site <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span></span>
+    </a></li>
+    <li><a class="site" href="hamburgueria/" target="_blank" rel="noopener" aria-label="Bigorna Smash Burger, site-modelo para hamburguerias (abre em nova aba)">
+      <span class="shot"><img src="hamburgueria/og.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></span>
+      <span class="body"><span class="ramo mono">Hamburgueria</span><h2>Bigorna Smash Burger</h2><p>Desenho animado de 1930 com mascote própria: monte o lanche camada por camada e o pedido sai pronto pro WhatsApp.</p><span class="go mono">abrir o site <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span></span>
+    </a></li>
+    <li><a class="site" href="contabilidade/" target="_blank" rel="noopener" aria-label="Dia Útil Contabilidade, site-modelo para escritórios contábeis (abre em nova aba)">
+      <span class="shot"><img src="contabilidade/og.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></span>
+      <span class="body"><span class="ramo mono">Contabilidade</span><h2>Dia Útil Contabilidade</h2><p>A folhinha de parede com a data de hoje: escolha o tipo da empresa e veja o que vence no mês.</p><span class="go mono">abrir o site <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span></span>
+    </a></li>
+  </ul>
+
+  <section class="cta" id="contato" aria-labelledby="cta-h">
+    <div class="wrap">
+      <div>
+        <h2 id="cta-h">Quer um desses com a cara do seu negócio?</h2>
+        <p>Seu ramo não está aqui? O site nasce do jeito que o seu negócio funciona: a gente conversa sobre o seu dia a dia e eu te mostro o que dá pra fazer.</p>
+      </div>
+      <div class="acts">
+        <a class="btn" href="https://wa.me/5511994032102?text=Oi%2C%20vi%20os%20sites-modelo%20da%20hellys%20e%20quero%20um%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener">Chamar no WhatsApp <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-line" href="../">Ver o portfólio</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap"><span>hellys. · sistemas e sites sob medida</span><span>As empresas dos modelos são fictícias.</span></div>
+</footer>
+</body>
+</html>
