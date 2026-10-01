@@ -1164,6 +1164,27 @@
   .pcv-cta-sub{margin-top:2px;font-size:11.5px;color:var(--text-dim);}
 
   /* fora da tela ou modo "reduzir movimento": tudo pausado / estático */
+  /* SITES-MODELO — miniaturas que abrem cada site em nova aba */
+  .models-grid{list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;margin:4px 0 18px;}
+  .model{display:grid;gap:4px;text-decoration:none;color:inherit;}
+  .m-shot{display:block;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--surface-2);margin-bottom:6px;transition:border-color .25s var(--ease);}
+  .m-shot img{display:block;width:100%;height:auto;aspect-ratio:1200/630;object-fit:cover;transition:transform .5s var(--ease);}
+  .m-ramo{font-size:11px;color:var(--text-dim);letter-spacing:.04em;}
+  .m-name{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;line-height:1.2;}
+  .m-what{font-size:13px;color:var(--text-dim);line-height:1.45;}
+  .m-go{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;color:var(--accent-2);margin-top:4px;}
+  .m-ico{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+  .model:hover .m-shot,.model:focus-visible .m-shot{border-color:var(--accent);}
+  .model:hover .m-shot img{transform:scale(1.04);}
+  .model:hover .m-go{color:var(--accent);}
+  .model:focus-visible{outline:1px solid var(--accent-2);outline-offset:4px;border-radius:6px;}
+  @media (max-width:1100px){.models-grid{grid-template-columns:repeat(3,minmax(0,1fr));}}
+  @media (max-width:720px){.models-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;}}
+  @media (max-width:420px){.models-grid{grid-template-columns:1fr;}}
+  @media (prefers-reduced-motion:reduce){.m-shot img{transition:none;}.model:hover .m-shot img{transform:none;}}
+  .pcv-pg{animation:pcv-pg 4.2s ease-in-out infinite;}
+  @keyframes pcv-pg{ 0%,100%{transform:translateY(0);} 30%{transform:translateY(-8px);} 60%{transform:translateY(0);} }
+  .pc-static .pcv-pg{animation:none;}
   .pc-off *{animation-play-state:paused !important;}
   .pc-static .pcv-kb, .pc-static .pcv-stop, .pc-static .pcv-dr, .pc-static .pcv-file, .pc-static .pcv-ping, .pc-static .pcv-food,
   .pc-static .pcv-type, .pc-static .pcv-draw, .pc-static .pcv-eta, .pc-static .pcv-bar, .pc-static .pcv-line, .pc-static .pcv-sn{animation:none;}

@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="pt-BR" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dia Útil Contabilidade — modelo de site para escritórios · hellys.</title>
+<meta name="description" content="Projeto autoral da hellys.: site-modelo para escritórios de contabilidade, com folhinha de vencimentos por tipo de empresa e contato direto. A Dia Útil Contabilidade é fictícia.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0a6f60">
+<meta property="og:title" content="Dia Útil Contabilidade — modelo de site para escritórios de contabilidade">
+<meta property="og:description" content="A folhinha que mostra o que vence no mês para MEI, Simples e Lucro Presumido. Projeto autoral da hellys. (empresa fictícia).">
+<!--hellys:meta-->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="hellys.">
+<meta property="og:url" content="https://hellys.dev.br/modelos/contabilidade/">
+<meta property="og:image" content="https://hellys.dev.br/modelos/contabilidade/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Folhinha de parede de arrancar com o dia de hoje e os vencimentos do mês da Dia Útil Contabilidade.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://hellys.dev.br/modelos/contabilidade/">
+<!--/hellys:meta-->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b7d6b'/%3E%3Crect x='6' y='5' width='20' height='23' rx='2' fill='%23fffef8'/%3E%3Crect x='6' y='5' width='20' height='6' fill='%23d42a20'/%3E%3Cpath d='M13 24V15l-2 1M17 24l4-9h-4' fill='none' stroke='%231a1a1a' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!--hellys:css-->
+<style id="hl-layer">
+.hl-bar{position:relative;z-index:60;background:#10141a;color:#e8ecf1;font:500 13.5px/1.3 var(--hl-font,system-ui,sans-serif)}
+.hl-bar-in{max-width:var(--hl-wrap,1200px);margin:0 auto;padding:6px var(--hl-pad,clamp(16px,4.2vw,48px));display:flex;align-items:center;gap:14px;min-height:42px}
+.hl-logo-link{display:inline-flex;align-items:center;border-radius:3px;flex:0 0 auto}
+.hl-logo{height:16px;width:auto;display:block}
+.hl-bar p{flex:1 1 auto;color:#b9c4d1;margin:0}
+.hl-bar p b{color:#e8ecf1;font-weight:700}
+.hl-more{color:#e8ecf1;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(232,236,241,.4);white-space:nowrap}
+.hl-more:hover{text-decoration-color:#ff8a3d}
+.hl-cta{display:inline-flex;align-items:center;gap:8px;background:#ff8a3d;color:#10141a;font-weight:700;text-decoration:none;padding:7px 12px;border-radius:4px;white-space:nowrap;line-height:1.2}
+.hl-cta:hover{background:#ffa463}
+.hl-ico{width:1.1em;height:1.1em;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.hl-bar :focus-visible,.hl-made :focus-visible,.hl-toast :focus-visible{outline:2px solid #ff8a3d;outline-offset:2px}
+@media (max-width:860px){.hl-long,.hl-bar .hl-more{display:none}}
+@media (max-width:600px){.hl-mid,.hl-of{display:none}.hl-bar-in{gap:10px}.hl-bar p{font-size:12.5px}.hl-logo{height:13px}.hl-cta{padding:6px 9px;font-size:12.5px}.hl-bar .hl-cta .hl-ico{display:none}}
+.hl-made{background:#10141a;color:#e8ecf1;border-radius:8px;padding:clamp(22px,4vw,34px);display:grid;grid-template-columns:1fr auto;gap:18px 28px;align-items:center;font:400 15.5px/1.55 var(--hl-font,system-ui,sans-serif);text-align:left;letter-spacing:normal;text-transform:none}
+.hl-made p{color:#b9c4d1;max-width:62ch;margin:0}
+.hl-made p b{color:#e8ecf1}
+.hl-made .hl-logo{height:22px;margin-bottom:12px}
+.hl-made-acts{display:flex;flex-direction:column;gap:12px;align-items:stretch}
+.hl-made .hl-cta{justify-content:center;padding:11px 16px;font-size:15px}
+.hl-made .hl-more{text-align:center;font-size:14.5px}
+@media (max-width:760px){.hl-made{grid-template-columns:1fr}}
+.hl-toast{position:fixed;left:50%;bottom:18px;z-index:2000;width:min(560px,calc(100vw - 24px));transform:translate(-50%,160%);visibility:hidden;transition:transform .5s cubic-bezier(.16,1,.3,1),visibility 0s .5s;background:#10141a;color:#e8ecf1;border-radius:8px;padding:16px 18px;box-shadow:0 24px 40px -18px rgba(0,0,0,.6);display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start;font:400 15px/1.5 var(--hl-font,system-ui,sans-serif);text-align:left;letter-spacing:normal;text-transform:none}
+.hl-toast.show{transform:translate(-50%,0);visibility:visible;transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.hl-toast p{color:#c7d0db;margin:0}
+.hl-toast p b{color:#e8ecf1}
+.hl-toast a{color:#ff8a3d;font-weight:700;white-space:nowrap}
+.hl-toast a .hl-ico{display:inline;vertical-align:-.2em}
+.hl-toast button{background:none;border:0;color:#9aa6b4;cursor:pointer;padding:4px;display:grid}
+.hl-toast button .hl-ico{width:22px;height:22px}
+@media (prefers-reduced-motion:reduce){.hl-toast,.hl-toast.show{transition:none}}
+</style>
+<!--/hellys:css-->
+<style>
+:root{
+  --board:#0a6f60; --board-dk:#075a4e; --board-dkr:#06483e; --board-ink:#eefcf8; --board-dim:#c8ece3;
+  --sheet:#fffef8; --sheet-2:#f3f0e6; --edge:#dcd7c8; --print:#1a1a1a; --print-2:#55524a; --red:#d42a20; --violet:#5b3fb8;
+  --wrap:1220px; --pad:clamp(16px,4.2vw,48px); --ease:cubic-bezier(.16,1,.3,1);
+  --f-big:"League Gothic","Oswald",Impact,sans-serif; --f-print:"Libre Caslon Text",Georgia,serif; --f-sans:"Work Sans",system-ui,sans-serif;
+  --hl-font:"Work Sans",system-ui,sans-serif; --hl-wrap:1220px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{font:400 17px/1.55 var(--f-sans);color:var(--board-ink);background:var(--board);overflow-x:hidden}
+::selection{background:var(--sheet);color:var(--board-dkr)}
+a{color:inherit}
+svg{display:block}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--sheet);outline-offset:3px;border-radius:4px}
+.sheetish :focus-visible,.sheet :focus-visible{outline-color:var(--violet)}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+[hidden]{display:none!important}
+.ico{width:1.15em;height:1.15em;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.big{font-family:var(--f-big);font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:.9}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;cursor:pointer;text-decoration:none;font:600 16.5px/1 var(--f-sans);padding:16px 22px;border-radius:6px;background:var(--sheet);color:var(--board-dkr);transition:transform .25s var(--ease),background-color .2s}
+.btn:hover{background:#fff;transform:translateY(-2px)}
+.btn-line{background:transparent;color:var(--board-ink);box-shadow:inset 0 0 0 2px var(--board-ink)}
+.btn-line:hover{background:rgba(255,255,255,.1)}
+.btn-ink{background:var(--print);color:var(--sheet)}
+.btn-ink:hover{background:#000}
+.btn[disabled]{opacity:.45;cursor:not-allowed;transform:none}
+
+/* ---------- navegação ---------- */
+.nav{position:sticky;top:0;z-index:50;background:var(--board);border-bottom:1px solid rgba(233,251,246,.22)}
+.nav .wrap{display:flex;align-items:center;gap:24px;min-height:64px}
+.brand{display:inline-flex;align-items:baseline;gap:10px;text-decoration:none}
+.brand b{font:400 32px/1 var(--f-big);text-transform:uppercase;letter-spacing:.02em}
+.brand span{font:italic 400 14px/1 var(--f-print);color:var(--board-dim)}
+.nav-links{display:flex;gap:22px;margin-left:auto;list-style:none}
+.nav-links a{font-weight:500;font-size:15.5px;text-decoration:none;color:var(--board-dim)}
+.nav-links a:hover{color:var(--board-ink)}
+.nav .btn{padding:11px 16px;font-size:15px;display:inline-block;white-space:nowrap}
+@media (max-width:960px){.nav-links{display:none}.nav .btn{margin-left:auto}}
+@media (max-width:600px){.nav .btn .long{display:none}}
+
+/* ---------- primeira dobra: o cartão de cortesia com a folhinha ---------- */
+.hero{padding:clamp(28px,4vw,54px) 0 clamp(50px,6vw,84px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);grid-template-areas:"head pad" "acts pad";column-gap:clamp(24px,5vw,80px);align-items:center}
+.h-head{grid-area:head;align-self:end}.h-acts{grid-area:acts;align-self:start}.padwrap{grid-area:pad}
+.hero h1{font:400 clamp(4rem,8.6vw,7.6rem)/.86 var(--f-big);text-transform:uppercase;letter-spacing:.005em;max-width:9ch}
+.hero .lede{font-size:clamp(17px,1.4vw,19.5px);color:var(--board-dim);max-width:42ch;margin:20px 0 24px}
+.hero .lede b{color:var(--board-ink);font-weight:600}
+.acts{display:flex;flex-wrap:wrap;gap:12px}
+.small-print{margin-top:22px;font:italic 400 14px/1.4 var(--f-print);color:var(--board-dim);max-width:46ch}
+
+/* o bloco de folhas */
+.padwrap{justify-self:center;width:min(440px,100%)}
+.pad-top{position:relative;background:var(--board-dkr);color:var(--board-ink);border-radius:6px 6px 0 0;padding:12px 16px 10px;display:flex;justify-content:space-between;align-items:baseline;font:400 22px/1 var(--f-big);letter-spacing:.04em;text-transform:uppercase}
+.pad-top small{font:italic 400 12.5px/1 var(--f-print);text-transform:none;letter-spacing:0;color:var(--board-dim)}
+.pad-top i{position:absolute;bottom:-5px;width:24px;height:7px;border-radius:2px;background:#c3cbcf;border:1.5px solid #6f7a80}
+.pad-top i:nth-of-type(1){left:28%}.pad-top i:nth-of-type(2){right:28%}
+.pad{position:relative;height:clamp(440px,52vw,520px);perspective:1200px}
+.pad::after{content:"";position:absolute;left:3px;right:3px;bottom:-12px;height:12px;border-radius:0 0 4px 4px;background:repeating-linear-gradient(var(--sheet) 0 1.5px,var(--edge) 1.5px 3px);box-shadow:0 16px 26px -14px rgba(0,0,0,.45)}
+.sheet{position:absolute;inset:0;background:var(--sheet);color:var(--print);display:grid;grid-template-rows:auto 1fr auto;border-top:2px dashed var(--edge);transform-origin:50% 0;touch-action:pan-x;cursor:grab;user-select:none;-webkit-user-select:none}
+.sheet.under{cursor:default}
+.s-band{display:flex;justify-content:space-between;align-items:baseline;padding:12px 18px 8px;border-bottom:1.5px solid var(--print);font:400 34px/1 var(--f-big);text-transform:uppercase;letter-spacing:.02em}
+.s-band span:last-child{color:var(--print-2)}
+.s-mid{display:grid;place-items:center;align-content:center;text-align:center;padding:6px 16px;position:relative}
+.s-day{font:400 clamp(190px,24vw,250px)/.8 var(--f-big);letter-spacing:-.01em}
+.s-dow{font:400 38px/1 var(--f-big);text-transform:uppercase;letter-spacing:.06em;margin-top:6px}
+.s-hol{font:italic 400 15px/1.2 var(--f-print);color:var(--red);margin-top:6px;min-height:1.2em}
+.red .s-day,.red .s-dow{color:var(--red)}
+.s-due{margin:0 16px;border-top:1px solid var(--edge);padding:10px 2px;font-size:15px;line-height:1.35;min-height:62px;display:flex;align-items:center}
+.s-due b{font-weight:700}
+.s-due .now{display:inline-block;background:var(--red);color:#fff;font:400 18px/1 var(--f-big);letter-spacing:.06em;padding:4px 8px 3px;border-radius:2px;margin-right:6px;vertical-align:1px}
+.s-foot{display:grid;grid-template-columns:1fr auto;gap:6px 14px;align-items:end;padding:10px 18px 14px;border-top:1px solid var(--edge);font:400 13px/1.35 var(--f-print);color:var(--print-2)}
+.s-foot em{font-style:italic;color:var(--print);font-size:14px}
+.s-moon{display:flex;align-items:center;gap:6px;white-space:nowrap}
+.s-moon svg{width:18px;height:18px}
+.pad-ctl{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;margin-top:26px}
+.pad-ctl .btn{padding:12px 16px;font-size:15px}
+.pad-hint{font:italic 400 14px/1.3 var(--f-print);color:var(--board-dim);text-align:center;margin-top:10px}
+@media (max-width:960px){.hero-grid{grid-template-columns:minmax(0,1fr);grid-template-areas:"head" "pad" "acts";row-gap:22px}.hero h1{max-width:none}.padwrap{margin-top:6px}}
+@media (max-width:420px){.s-band{font-size:28px}.s-dow{font-size:32px}}
+
+/* ---------- seção: folhinha do mês ---------- */
+.sec{padding:clamp(60px,8vw,108px) 0}
+.sec-h{font:400 clamp(3rem,6vw,5.4rem)/.88 var(--f-big);text-transform:uppercase;letter-spacing:.005em;max-width:16ch}
+.sec-sub{color:var(--board-dim);font-size:clamp(17px,1.4vw,19px);max-width:56ch;margin-top:14px}
+.types{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.types button{border:0;cursor:pointer;background:transparent;box-shadow:inset 0 0 0 1.5px rgba(233,251,246,.6);color:var(--board-ink);border-radius:999px;padding:11px 16px;font:600 15.5px/1 var(--f-sans)}
+.types button:hover{background:rgba(255,255,255,.08)}
+.types button[aria-pressed="true"]{background:var(--sheet);color:var(--board-dkr);box-shadow:none}
+.month{margin-top:clamp(24px,3vw,36px);display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(18px,3vw,36px);align-items:start}
+.sheetish{background:var(--sheet);color:var(--print);border-radius:4px;box-shadow:0 18px 30px -22px rgba(0,0,0,.55)}
+.m-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 16px 12px;border-bottom:1.5px solid var(--print)}
+.m-head h3{font:400 40px/1 var(--f-big);text-transform:uppercase;letter-spacing:.03em}
+.m-head h3 span{color:var(--print-2)}
+.m-nav{display:flex;gap:6px}
+.m-nav button{width:40px;height:40px;border:0;border-radius:50%;cursor:pointer;background:var(--sheet-2);display:grid;place-items:center}
+.m-nav button:hover{background:var(--edge)}
+.grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));padding:8px 10px 14px}
+.grid .dw{font:400 18px/1 var(--f-big);letter-spacing:.08em;text-align:center;padding:6px 0 8px;color:var(--print-2)}
+.grid .dw:first-child{color:var(--red)}
+.cell{position:relative;min-height:74px;border-top:1px solid var(--edge);padding:5px 5px 6px;display:flex;flex-direction:column;gap:3px}
+.cell .n{font:400 30px/1 var(--f-big)}
+.cell.red .n{color:var(--red)}
+.cell.out .n{color:#c9c4b4}
+.cell .hn{font:italic 400 10.5px/1.15 var(--f-print);color:var(--red)}
+.cell .ob{font:600 10.5px/1.15 var(--f-sans);letter-spacing:.02em;background:var(--print);color:var(--sheet);border-radius:2px;padding:2px 4px;align-self:flex-start;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cell.today::before{content:"";position:absolute;left:2px;top:1px;width:40px;height:38px;border:2px solid var(--red);border-radius:50% 46% 52% 48%;transform:rotate(-8deg)}
+.cell .stamp{position:absolute;right:3px;bottom:4px;font:400 13px/1 var(--f-big);letter-spacing:.08em;color:var(--violet);border:1.5px solid var(--violet);border-radius:3px;padding:2px 3px 1px;transform:rotate(-12deg);opacity:.85}
+.list{padding:0}
+.list h3{font:400 28px/1 var(--f-big);text-transform:uppercase;letter-spacing:.04em;padding:16px 18px 12px;border-bottom:1.5px solid var(--print)}
+.rows{list-style:none}
+.rows li{display:grid;grid-template-columns:62px 1fr auto;gap:12px;align-items:start;padding:14px 18px;border-bottom:1px solid var(--edge)}
+.rows li:last-child{border-bottom:0}
+.rows .d{font:400 34px/.9 var(--f-big)}
+.rows .d small{display:block;font:400 14px/1 var(--f-big);letter-spacing:.08em;color:var(--print-2);margin-top:3px}
+.rows .t b{display:block;font-weight:700;font-size:16px}
+.rows .t span{display:block;font-size:14.5px;color:var(--print-2);margin-top:2px}
+.rows .t i{display:block;font:italic 400 13px/1.3 var(--f-print);color:var(--red);margin-top:4px}
+.st{font:400 15px/1 var(--f-big);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;padding:4px 6px 3px;border-radius:2px}
+.st.pago{color:var(--violet);box-shadow:inset 0 0 0 1.5px var(--violet);transform:rotate(-6deg)}
+.st.hoje{background:var(--red);color:#fff}
+.st.prox{color:var(--print-2);box-shadow:inset 0 0 0 1px var(--edge)}
+.rows .empty{display:block;padding:18px;color:var(--print-2)}
+.season{margin:0 18px 16px;padding:12px 14px;background:var(--sheet-2);border-radius:3px;font-size:14.5px}
+.note{margin-top:16px;font:italic 400 14px/1.45 var(--f-print);color:var(--board-dim);max-width:70ch}
+@media (max-width:980px){.month{grid-template-columns:1fr}}
+@media (max-width:560px){.cell{min-height:58px;padding:3px 2px}.cell .n{font-size:24px}.cell .ob{font-size:9px;padding:1px 2px}.cell .hn{display:none}.cell .stamp{font-size:10px;right:1px}.cell.today::before{width:32px;height:30px}.grid{padding:6px 4px 10px}.rows li{grid-template-columns:52px 1fr;}.rows .st{grid-column:2;justify-self:start}}
+
+/* ---------- serviços: o verso da folhinha ---------- */
+.verso{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(24px,5vw,72px);align-items:start}
+.svc{list-style:none;counter-reset:s}
+.svc li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:6px 28px;padding:20px 0;border-top:1px solid rgba(233,251,246,.3);align-items:baseline}
+.svc li:last-child{border-bottom:1px solid rgba(233,251,246,.3)}
+.svc h3{font:400 clamp(30px,3.2vw,40px)/.95 var(--f-big);text-transform:uppercase;letter-spacing:.01em}
+.svc p{color:var(--board-dim)}
+@media (max-width:860px){.verso{grid-template-columns:1fr}.svc li{grid-template-columns:1fr}}
+
+/* troca de contador: folhas arrancadas em fila */
+.swap{background:var(--board-dk)}
+.torn{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;list-style:none;margin-top:clamp(26px,4vw,44px);counter-reset:t}
+.torn li{counter-increment:t;background:var(--sheet);color:var(--print);border-top:2px dashed var(--edge);padding:16px 18px 20px;position:relative;box-shadow:0 18px 28px -22px rgba(0,0,0,.6)}
+.torn li:nth-child(odd){transform:rotate(-1.2deg)}.torn li:nth-child(even){transform:rotate(1deg) translateY(8px)}
+.torn li::before{content:counter(t);display:block;font:400 92px/.8 var(--f-big);margin-bottom:10px}
+.torn h3{font-weight:700;font-size:17px;margin-bottom:6px}
+.torn p{font-size:15px;color:var(--print-2)}
+@media (max-width:900px){.torn{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.torn{grid-template-columns:1fr}}
+
+.final{text-align:center}
+.final h2{font:400 clamp(3.4rem,8vw,7rem)/.86 var(--f-big);text-transform:uppercase;max-width:14ch;margin:0 auto}
+.final p{color:var(--board-dim);max-width:46ch;margin:18px auto 26px;font-size:18px}
+.contact{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:clamp(40px,5vw,64px);text-align:left;border-top:1.5px solid var(--board-ink)}
+.contact > div{padding:20px 22px 0 0}
+.contact > div + div{padding-left:22px;border-left:1px solid rgba(233,251,246,.3)}
+.contact h3{font:400 20px/1 var(--f-big);letter-spacing:.08em;text-transform:uppercase;color:var(--board-dim);margin-bottom:8px}
+@media (max-width:760px){.contact{grid-template-columns:1fr}.contact > div + div{padding-left:0;border-left:0;border-top:1px solid rgba(233,251,246,.3);margin-top:18px}}
+
+.foot{background:var(--board-dkr);padding:44px 0 36px}
+.foot-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:26px;margin-bottom:34px}
+.foot h3{font:400 18px/1 var(--f-big);letter-spacing:.1em;text-transform:uppercase;color:var(--board-dim);margin-bottom:12px}
+.foot ul{list-style:none;display:grid;gap:6px}
+.foot-note{color:var(--board-dim);margin-top:12px;max-width:34ch;font:italic 400 15px/1.45 var(--f-print)}
+@media (max-width:760px){.foot-grid{grid-template-columns:1fr}}
+
+.skip{position:fixed;right:18px;bottom:18px;z-index:130;display:none}
+html.intro .skip{display:inline-flex}
+html.intro .nav,html.intro .hl-bar{visibility:hidden}
+.flying{position:absolute;inset:0;z-index:5;pointer-events:none}
+</style>
+</head>
+<body>
+<!--hellys:hbar-->
+<div class="hl-bar" role="note" aria-label="Aviso: este site é um modelo">
+  <div class="hl-bar-in">
+    <a class="hl-logo-link" href="https://hellys.dev.br/" aria-label="hellys. (ir para o portfólio)"><svg xmlns="http://www.w3.org/2000/svg" class="hl-logo" aria-hidden="true" focusable="false" viewBox="0 0 4532.21 943.33"><g transform="translate(368.53 141.33) scale(0.86)"><path fill="#ff8a3d" d="M-82.13 -164.33L-428.52 350L-82.13 864.33L-9.87 815.67L-323.48 350L-9.87 -115.67ZM665.87 -115.67L979.48 350L665.87 815.67L738.13 864.33L1084.52 350L738.13 -164.33Z"/><path fill="#e8ecf1" d="M198 700L66 700L66 0L198 0L198 289L458 289L458 0L590 0L590 700L458 700L458 409L198 409L198 700Z"/></g><g transform="translate(1531.21 743.33) scale(1)"><path fill="#e8ecf1" d="M196 0L70 0L70-700L196-700L196-435L214-435Q222-451 239-467Q256-483 284.50-493.50Q313-504 357-504L357-504Q415-504 458.50-477.50Q502-451 526-404.50Q550-358 550-296L550-296L550 0L424 0L424-286Q424-342 396.50-370Q369-398 318-398L318-398Q260-398 228-359.50Q196-321 196-252L196-252L196 0ZM894 14L894 14Q820 14 763.50-17.50Q707-49 675.50-106.50Q644-164 644-242L644-242L644-254Q644-332 675-389.50Q706-447 762-478.50Q818-510 892-510L892-510Q965-510 1019-477.50Q1073-445 1103-387.50Q1133-330 1133-254L1133-254L1133-211L772-211Q774-160 810-128Q846-96 898-96L898-96Q951-96 976-119Q1001-142 1014-170L1014-170L1117-116Q1103-90 1076.50-59.50Q1050-29 1006-7.50Q962 14 894 14ZM773-305L773-305L1005-305Q1001-348 970.50-374Q940-400 891-400L891-400Q840-400 810-374Q780-348 773-305ZM1353 0L1227 0L1227-700L1353-700L1353 0ZM1601 0L1475 0L1475-700L1601-700L1601 0ZM2089 200L1777 200L1777 90L2047 90Q2075 90 2075 60L2075 60L2075-65L2057-65Q2049-48 2032-31Q2015-14 1986-3Q1957 8 1912 8L1912 8Q1854 8 1810.50-18.50Q1767-45 1743-92Q1719-139 1719-200L1719-200L1719-496L1845-496L1845-210Q1845-154 1872.50-126Q1900-98 1951-98L1951-98Q2009-98 2041-136.50Q2073-175 2073-244L2073-244L2073-496L2199-496L2199 88Q2199 139 2169 169.50Q2139 200 2089 200L2089 200ZM2527 14L2527 14Q2430 14 2368-28Q2306-70 2293-148L2293-148L2409-178Q2416-143 2432.50-123Q2449-103 2473.50-94.50Q2498-86 2527-86L2527-86Q2571-86 2592-101.50Q2613-117 2613-140L2613-140Q2613-163 2593-175.50Q2573-188 2529-196L2529-196L2501-201Q2449-211 2406-228.50Q2363-246 2337-277Q2311-308 2311-357L2311-357Q2311-431 2365-470.50Q2419-510 2507-510L2507-510Q2590-510 2645-473Q2700-436 2717-376L2717-376L2600-340Q2592-378 2567.50-394Q2543-410 2507-410L2507-410Q2471-410 2452-397.50Q2433-385 2433-363L2433-363Q2433-339 2453-327.50Q2473-316 2507-310L2507-310L2535-305Q2591-295 2636.50-278.50Q2682-262 2708.50-231.50Q2735-201 2735-149L2735-149Q2735-71 2678.50-28.50Q2622 14 2527 14Z"/><path fill="#ff8a3d" d="M2907 14L2907 14Q2866 14 2838.50-12.50Q2811-39 2811-81L2811-81Q2811-123 2838.50-149.50Q2866-176 2907-176L2907-176Q2947-176 2974-149.50Q3001-123 3001-81L3001-81Q3001-39 2974-12.50Q2947 14 2907 14Z"/></g></svg></a>
+    <p><b>Projeto autoral<span class="hl-of"> da hellys.</span></b><span class="hl-mid"> Modelo de site para escritórios contábeis.</span><span class="hl-long"> A Dia Útil Contabilidade é fictícia.</span></p>
+    <a class="hl-more" href="https://hellys.dev.br/#projeto-modelos">Outros modelos</a>
+    <a class="hl-cta" href="https://wa.me/5511994032102?text=Oi%2C%20vi%20o%20modelo%20de%20site%20para%20escrit%C3%B3rios%20cont%C3%A1beis%20no%20portf%C3%B3lio%20da%20hellys%20e%20quero%20um%20assim." target="_blank" rel="noopener">Quero um site assim <svg class="hl-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</div>
+<!--/hellys:hbar-->
+
+<header class="nav" id="topo">
+  <div class="wrap">
+    <a class="brand" href="#topo" aria-label="Dia Útil Contabilidade, início"><b>Dia Útil</b><span>contabilidade</span></a>
+    <ul class="nav-links">
+      <li><a href="#vencimentos">Vencimentos</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#trocar">Trocar de contador</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+    <a class="btn" href="#contato" data-demo="No site real, este botão abre o WhatsApp do escritório.">Falar<span class="long"> com um contador</span></a>
+  </div>
+</header>
+
+<main>
+<section class="hero" aria-labelledby="h1">
+  <div class="wrap hero-grid">
+    <div class="h-head">
+      <h1 id="h1">Seus prazos em dia, sem susto.</h1>
+      <p class="lede">MEI, Simples Nacional, Lucro Presumido e folha de pagamento. <b>A gente avisa antes de vencer e manda a guia pronta no seu WhatsApp.</b></p>
+    </div>
+    <div class="padwrap" aria-label="Folhinha do dia">
+      <div class="pad-top" aria-hidden="true">Cortesia Dia Útil<small>(11) 0000-0000</small><i></i><i></i></div>
+      <div class="pad" id="pad" aria-live="polite"></div>
+      <div class="pad-ctl">
+        <button class="btn" type="button" id="tear">Arrancar a folha</button>
+        <button class="btn btn-line" type="button" id="today" hidden>Voltar pra hoje</button>
+      </div>
+      <p class="pad-hint">Arraste a folha pra baixo ou toque em arrancar para ver os próximos dias.</p>
+    </div>
+    <div class="h-acts">
+      <div class="acts">
+        <a class="btn" href="#contato" data-demo="No site real, este botão abre o WhatsApp do escritório com a sua dúvida escrita.">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 18.8L4 20z"/></svg>
+          Falar com um contador</a>
+        <a class="btn btn-line" href="#vencimentos">Ver meus vencimentos</a>
+      </div>
+      <p class="small-print">Prazos de referência para demonstração. O contador confirma o seu caso, porque feriados e mudanças na lei mexem nas datas.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="vencimentos" aria-labelledby="v-h" style="padding-top:clamp(30px,4vw,56px)">
+  <div class="wrap">
+    <h2 class="sec-h" id="v-h">O que vence no seu mês</h2>
+    <p class="sec-sub">Escolha o tipo da sua empresa. A folhinha marca as datas e diz o que a gente faz em cada uma.</p>
+    <div class="types" role="group" aria-label="Tipo de empresa" id="types"></div>
+    <div class="month">
+      <div class="sheetish" id="cal"></div>
+      <div class="sheetish list"><h3 id="list-h">Vencimentos</h3><div id="season"></div><ol class="rows" id="rows"></ol></div>
+    </div>
+    <p class="note">Calendário de referência: DAS e INSS no dia 20, FGTS Digital no dia 20, salário até o 5º dia útil (contando o sábado), PIS e Cofins no dia 25. Quando a data cai em fim de semana ou feriado o prazo muda, e o escritório confere caso a caso. Os carimbos de PAGO são ilustrativos.</p>
+  </div>
+</section>
+
+<section class="sec" id="servicos" aria-labelledby="s-h" style="padding-top:0">
+  <div class="wrap verso">
+    <div>
+      <h2 class="sec-h" id="s-h">O que a gente cuida</h2>
+      <p class="sec-sub">Atendimento por WhatsApp com o mesmo contador, que conhece o seu negócio pelo nome.</p>
+    </div>
+    <ul class="svc">
+      <li><h3>Abrir empresa</h3><p>Escolha do tipo e do regime, CNPJ, inscrições e alvará, sem você ir a repartição nenhuma.</p></li>
+      <li><h3>MEI</h3><p>Guia todo mês no WhatsApp, declaração anual e aviso quando o faturamento chegar perto do limite.</p></li>
+      <li><h3>Simples e Presumido</h3><p>Impostos calculados, guias no prazo e a conta de qual regime sai mais barato para você.</p></li>
+      <li><h3>Folha de pagamento</h3><p>Salários, férias, 13º, admissão e rescisão, com holerite enviado para cada funcionário.</p></li>
+      <li><h3>Imposto de Renda</h3><p>Declaração da pessoa física e carnê-leão para quem recebe de pessoa física ou do exterior.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec swap" id="trocar" aria-labelledby="t-h">
+  <div class="wrap">
+    <h2 class="sec-h" id="t-h">Trocar de contador é simples</h2>
+    <p class="sec-sub">Você não precisa ligar para o contador antigo nem juntar papel. A troca acontece assim:</p>
+    <ol class="torn">
+      <li><h3>Você chama no WhatsApp</h3><p>Conta o tipo da empresa e o que incomoda hoje. Respondemos no mesmo dia útil.</p></li>
+      <li><h3>A gente pede os documentos</h3><p>Fazemos o contato com o escritório atual e recebemos os arquivos da sua empresa.</p></li>
+      <li><h3>Conferimos as pendências</h3><p>Olhamos guias, declarações e certidões e te mostramos o que está em dia e o que não está.</p></li>
+      <li><h3>As guias passam a chegar</h3><p>A partir do mês combinado, cada vencimento chega antes, pronto para pagar.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec final" id="contato" aria-labelledby="f-h">
+  <div class="wrap">
+    <h2 id="f-h">Próximo vencimento sem susto?</h2>
+    <p>Mande o tipo da sua empresa e a cidade. Um contador responde com o que precisa para começar.</p>
+    <a class="btn" href="#contato" data-demo="No site real, este botão abre o WhatsApp do escritório com a mensagem pronta.">
+      <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 18.8L4 20z"/></svg>
+      Falar com um contador</a>
+    <div class="contact">
+      <div><h3>Endereço</h3><p>Rua Exemplo, 321, sala 4 · Centro<br>São Paulo/SP · fictício</p></div>
+      <div><h3>Horário</h3><p>Segunda a sexta, 8h às 18h<br>WhatsApp também no horário comercial</p></div>
+      <div><h3>Contato</h3><p>(11) 0000-0000<br>oi@diautil.exemplo</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><a class="brand" href="#topo"><b>Dia Útil</b><span>contabilidade</span></a><p class="foot-note">Contabilidade para MEI e pequenas empresas, com prazo lembrado antes de vencer.</p></div>
+      <div><h3>Contato</h3><ul><li>(11) 0000-0000</li><li>oi@diautil.exemplo</li><li>Rua Exemplo, 321 · São Paulo/SP</li></ul></div>
+      <div><h3>Atalhos</h3><ul><li><a href="#vencimentos">Vencimentos do mês</a></li><li><a href="#servicos">Serviços</a></li><li><a href="#trocar">Trocar de contador</a></li></ul></div>
+    </div>
+<!--hellys:made-->
+<div class="hl-made">
+  <div>
+    <svg xmlns="http://www.w3.org/2000/svg" class="hl-logo" aria-hidden="true" focusable="false" viewBox="0 0 4532.21 943.33"><g transform="translate(368.53 141.33) scale(0.86)"><path fill="#ff8a3d" d="M-82.13 -164.33L-428.52 350L-82.13 864.33L-9.87 815.67L-323.48 350L-9.87 -115.67ZM665.87 -115.67L979.48 350L665.87 815.67L738.13 864.33L1084.52 350L738.13 -164.33Z"/><path fill="#e8ecf1" d="M198 700L66 700L66 0L198 0L198 289L458 289L458 0L590 0L590 700L458 700L458 409L198 409L198 700Z"/></g><g transform="translate(1531.21 743.33) scale(1)"><path fill="#e8ecf1" d="M196 0L70 0L70-700L196-700L196-435L214-435Q222-451 239-467Q256-483 284.50-493.50Q313-504 357-504L357-504Q415-504 458.50-477.50Q502-451 526-404.50Q550-358 550-296L550-296L550 0L424 0L424-286Q424-342 396.50-370Q369-398 318-398L318-398Q260-398 228-359.50Q196-321 196-252L196-252L196 0ZM894 14L894 14Q820 14 763.50-17.50Q707-49 675.50-106.50Q644-164 644-242L644-242L644-254Q644-332 675-389.50Q706-447 762-478.50Q818-510 892-510L892-510Q965-510 1019-477.50Q1073-445 1103-387.50Q1133-330 1133-254L1133-254L1133-211L772-211Q774-160 810-128Q846-96 898-96L898-96Q951-96 976-119Q1001-142 1014-170L1014-170L1117-116Q1103-90 1076.50-59.50Q1050-29 1006-7.50Q962 14 894 14ZM773-305L773-305L1005-305Q1001-348 970.50-374Q940-400 891-400L891-400Q840-400 810-374Q780-348 773-305ZM1353 0L1227 0L1227-700L1353-700L1353 0ZM1601 0L1475 0L1475-700L1601-700L1601 0ZM2089 200L1777 200L1777 90L2047 90Q2075 90 2075 60L2075 60L2075-65L2057-65Q2049-48 2032-31Q2015-14 1986-3Q1957 8 1912 8L1912 8Q1854 8 1810.50-18.50Q1767-45 1743-92Q1719-139 1719-200L1719-200L1719-496L1845-496L1845-210Q1845-154 1872.50-126Q1900-98 1951-98L1951-98Q2009-98 2041-136.50Q2073-175 2073-244L2073-244L2073-496L2199-496L2199 88Q2199 139 2169 169.50Q2139 200 2089 200L2089 200ZM2527 14L2527 14Q2430 14 2368-28Q2306-70 2293-148L2293-148L2409-178Q2416-143 2432.50-123Q2449-103 2473.50-94.50Q2498-86 2527-86L2527-86Q2571-86 2592-101.50Q2613-117 2613-140L2613-140Q2613-163 2593-175.50Q2573-188 2529-196L2529-196L2501-201Q2449-211 2406-228.50Q2363-246 2337-277Q2311-308 2311-357L2311-357Q2311-431 2365-470.50Q2419-510 2507-510L2507-510Q2590-510 2645-473Q2700-436 2717-376L2717-376L2600-340Q2592-378 2567.50-394Q2543-410 2507-410L2507-410Q2471-410 2452-397.50Q2433-385 2433-363L2433-363Q2433-339 2453-327.50Q2473-316 2507-310L2507-310L2535-305Q2591-295 2636.50-278.50Q2682-262 2708.50-231.50Q2735-201 2735-149L2735-149Q2735-71 2678.50-28.50Q2622 14 2527 14Z"/><path fill="#ff8a3d" d="M2907 14L2907 14Q2866 14 2838.50-12.50Q2811-39 2811-81L2811-81Q2811-123 2838.50-149.50Q2866-176 2907-176L2907-176Q2947-176 2974-149.50Q3001-123 3001-81L3001-81Q3001-39 2974-12.50Q2947 14 2907 14Z"/></g></svg>
+    <p><b>Este site é um projeto autoral da hellys.</b> A Dia Útil Contabilidade não existe: nome, números, endereço e telefone são fictícios. Quer o site do seu escritório assim, com calendário de vencimentos funcionando de verdade?</p>
+  </div>
+  <div class="hl-made-acts">
+    <a class="hl-cta" href="https://wa.me/5511994032102?text=Oi%2C%20vi%20o%20modelo%20de%20site%20para%20escrit%C3%B3rios%20cont%C3%A1beis%20no%20portf%C3%B3lio%20da%20hellys%20e%20quero%20um%20assim." target="_blank" rel="noopener">Falar com a hellys <svg class="hl-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a class="hl-more" href="https://hellys.dev.br/#projeto-modelos">Ver os outros modelos</a>
+  </div>
+</div>
+<!--/hellys:made-->
+  </div>
+</footer>
+
+<button class="btn btn-ink skip" type="button" id="skip-intro">Pular abertura</button>
+<!--hellys:toast-->
+<div class="hl-toast" id="hl-toast" role="status" aria-live="polite">
+  <p><b>Isto é um modelo.</b> <span data-hl-msg>No site real, este botão abre o WhatsApp do escritório já com a sua dúvida escrita.</span> <a href="https://wa.me/5511994032102?text=Oi%2C%20vi%20o%20modelo%20de%20site%20para%20escrit%C3%B3rios%20cont%C3%A1beis%20no%20portf%C3%B3lio%20da%20hellys%20e%20quero%20um%20assim." target="_blank" rel="noopener">Quero um site assim <svg class="hl-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+  <button type="button" id="hl-toast-x" aria-label="Fechar aviso"><svg class="hl-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+</div>
+<script>
+(function(){
+  var t = document.getElementById('hl-toast'); if (!t) return;
+  var msg = t.querySelector('[data-hl-msg]'), def = msg.innerHTML, tm;
+  window.hellysNote = function(text){ msg.innerHTML = text || def; t.classList.add('show'); clearTimeout(tm); tm = setTimeout(function(){ t.classList.remove('show'); }, 9000); };
+  document.addEventListener('click', function(e){
+    var b = e.target.closest && e.target.closest('[data-demo]');
+    if (b){ e.preventDefault(); window.hellysNote(b.getAttribute('data-demo')); }
+  });
+  document.getElementById('hl-toast-x').addEventListener('click', function(){ t.classList.remove('show'); });
+})();
+</script>
+<!--/hellys:toast-->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  var root = document.documentElement; root.classList.remove('no-js');
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasG = typeof window.gsap !== 'undefined';
+  function $(id){ return document.getElementById(id); }
+  var store = { get: function(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }, set: function(k, v){ try { localStorage.setItem(k, v); } catch(e){} } };
+
+  var MES = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
+  var DOW = ['domingo', 'segunda-feira', 'terça-feira', 'quarta-feira', 'quinta-feira', 'sexta-feira', 'sábado'];
+  var DW = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'];
+  function day0(d){ var x = new Date(d); x.setHours(12, 0, 0, 0); return x; }
+  function add(d, n){ var x = new Date(d); x.setDate(x.getDate() + n); return x; }
+  function key(d){ return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(); }
+  var TODAY = day0(new Date());
+
+  // ---------- feriados nacionais (fixos + Paixão de Cristo pela Páscoa) ----------
+  function easter(y){ var a = y % 19, b = Math.floor(y / 100), c = y % 100, d = Math.floor(b / 4), e = b % 4, f = Math.floor((b + 8) / 25), g = Math.floor((b - f + 1) / 3), h = (19 * a + b - d - g + 15) % 30, i = Math.floor(c / 4), k = c % 4, l = (32 + 2 * e + 2 * i - h - k) % 7, m = Math.floor((a + 11 * h + 22 * l) / 451), mo = Math.floor((h + l - 7 * m + 114) / 31), da = ((h + l - 7 * m + 114) % 31) + 1; return new Date(y, mo - 1, da, 12); }
+  var HCACHE = {};
+  function holidays(y){
+    if (HCACHE[y]) return HCACHE[y];
+    var h = {}, F = [[1, 1, 'Confraternização Universal'], [4, 21, 'Tiradentes'], [5, 1, 'Dia do Trabalho'], [9, 7, 'Independência'], [10, 12, 'Nossa Senhora Aparecida'], [11, 2, 'Finados'], [11, 15, 'Proclamação da República'], [11, 20, 'Consciência Negra'], [12, 25, 'Natal']];
+    F.forEach(function(x){ h[y + '-' + x[0] + '-' + x[1]] = x[2]; });
+    h[key(add(easter(y), -2))] = 'Paixão de Cristo';
+    return (HCACHE[y] = h);
+  }
+  function holiday(d){ return holidays(d.getFullYear())[key(d)] || ''; }
+  function isBiz(d){ var w = d.getDay(); return w !== 0 && w !== 6 && !holiday(d); }
+  function nthBizWithSat(y, m, n){ var d = new Date(y, m, 1, 12), c = 0; while (true){ if (d.getDay() !== 0 && !holiday(d)){ c++; if (c === n) return d; } d = add(d, 1); } }
+  function lastBiz(y, m){ var d = new Date(y, m + 1, 0, 12); while (!isBiz(d)) d = add(d, -1); return d; }
+  function bizBetween(a, b){ var n = 0, d = add(a, 1); while (d <= b){ if (isBiz(d)) n++; d = add(d, 1); } return n; }
+
+  // ---------- obrigações de referência por tipo de empresa ----------
+  var TYPES = { mei: 'MEI', simples: 'Simples Nacional', presumido: 'Lucro Presumido', pf: 'Pessoa física (IR)' };
+  function obl(type, y, m){
+    var o = [], d20 = new Date(y, m, 20, 12);
+    function put(d, t, w){ o.push({ d: d, t: t, w: w }); }
+    if (type === 'mei'){
+      put(d20, 'DAS do MEI', 'Guia do mês no seu WhatsApp três dias antes.');
+      if (m === 4) put(new Date(y, 4, 31, 12), 'Declaração anual do MEI (DASN-SIMEI)', 'A gente preenche com o faturamento do ano anterior.');
+    }
+    if (type === 'simples' || type === 'presumido'){
+      put(nthBizWithSat(y, m, 5), 'Salários do mês', 'Folha calculada e holerites enviados antes do pagamento.');
+      put(d20, 'INSS e FGTS da folha', 'Guias da DCTFWeb e do FGTS Digital prontas para pagar.');
+      if (m === 10) put(new Date(y, 10, 30, 12), '13º salário: 1ª parcela', 'Valores calculados por funcionário.');
+      if (m === 11) put(new Date(y, 11, 20, 12), '13º salário: 2ª parcela', 'Com os descontos já calculados.');
+    }
+    if (type === 'simples'){
+      put(d20, 'DAS do Simples Nacional', 'Imposto do mês calculado sobre o seu faturamento.');
+      if (m === 2) put(new Date(y, 2, 31, 12), 'DEFIS (declaração anual do Simples)', 'Entregue pelo escritório.');
+    }
+    if (type === 'presumido'){
+      put(new Date(y, m, 25, 12), 'PIS e Cofins', 'Calculados sobre o faturamento do mês anterior.');
+      if (m === 0 || m === 3 || m === 6 || m === 9) put(lastBiz(y, m), 'IRPJ e CSLL do trimestre', 'Imposto do trimestre anterior, com opção de parcelar em três.');
+    }
+    if (type === 'pf'){
+      put(lastBiz(y, m), 'Carnê-leão do mês anterior', 'Para quem recebe de pessoa física ou do exterior.');
+    }
+    return o.sort(function(a, b){ return a.d - b.d; });
+  }
+  function nextDue(type, from){
+    for (var i = 0; i < 4; i++){
+      var y = from.getFullYear(), m = from.getMonth() + i; y += Math.floor(m / 12); m = m % 12;
+      var l = obl(type, y, m).filter(function(x){ return x.d >= from; });
+      if (l.length) return l[0];
+    }
+    return null;
+  }
+  function dd(d){ return d.getDate() + '/' + String(d.getMonth() + 1).padStart(2, '0'); }
+
+  // ---------- lua e pensamento do dia ----------
+  function moon(d){
+    var age = ((d.getTime() - Date.UTC(2000, 0, 6, 18, 14)) / 864e5) % 29.530588853; if (age < 0) age += 29.530588853;
+    var n = age < 1.85 || age > 27.68 ? 'Lua nova' : age < 12.91 ? 'Lua crescente' : age < 16.61 ? 'Lua cheia' : 'Lua minguante';
+    var lit = (1 - Math.cos(age / 29.530588853 * 2 * Math.PI)) / 2, waxing = age < 14.77, rx = Math.abs(1 - 2 * lit) * 7;
+    var path = 'M9 2a7 7 0 0 ' + (waxing ? 1 : 0) + ' 0 14a' + rx.toFixed(2) + ' 7 0 0 ' + (lit > .5 ? (waxing ? 1 : 0) : (waxing ? 0 : 1)) + ' 0-14z';
+    return { n: n, svg: '<svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7" fill="#e8e3d4" stroke="#1a1a1a" stroke-width="1"/><path d="' + path + '" fill="#1a1a1a"/></svg>' };
+  }
+  var P = ['Nota fiscal guardada é dor de cabeça evitada.', 'Prazo lembrado na véspera é multa que não vem.', 'Quem separa a conta da empresa da conta de casa dorme melhor.', 'Imposto não some só porque ninguém olhou pra ele.', 'Pró-labore combinado é briga de sócio evitada.', 'Recibo de hoje é argumento de amanhã.', 'Dúvida pequena tirada cedo não vira problema grande.', 'Planilha em dia vale mais que memória boa.', 'Regime de imposto bom é o calculado, não o chutado.', 'Salário pago no prazo deixa a cabeça de todo mundo no trabalho.', 'Fim de mês tranquilo começa no dia primeiro.', 'Empresa organizada pede crédito com mais calma.'];
+  function doy(d){ return Math.round((d - new Date(d.getFullYear(), 0, 1, 12)) / 864e5) + 1; }
+
+  // ---------- estado ----------
+  var st = { type: 'mei', off: 0, mOff: 0 };
+  try { var sv = JSON.parse(store.get('diautil') || 'null'); if (sv && TYPES[sv.type]){ st.type = sv.type; st.off = Math.max(0, Math.min(60, sv.off | 0)); } } catch(e){}
+  function save(){ store.set('diautil', JSON.stringify({ type: st.type, off: st.off })); }
+
+  // ---------- a folha do dia ----------
+  function sheetHTML(d){
+    var hol = holiday(d), red = d.getDay() === 0 || !!hol, mo = moon(d), y = d.getFullYear();
+    var todayDue = obl(st.type, y, d.getMonth()).filter(function(x){ return key(x.d) === key(d); });
+    var due;
+    if (todayDue.length) due = '<span class="now">Vence hoje</span>' + todayDue.map(function(x){ return '<b>' + x.t + '</b>'; }).join(' · ');
+    else {
+      var nx = nextDue(st.type, add(d, 1));
+      if (nx){ var n = bizBetween(d, nx.d); due = 'Faltam <b>' + n + ' dia' + (n === 1 ? '' : 's') + ' út' + (n === 1 ? 'il' : 'eis') + '</b> para: ' + nx.t + ' (' + dd(nx.d) + ')'; }
+      else due = 'Nada vence nos próximos meses para este tipo.';
+    }
+    var total = (new Date(y, 11, 31, 12) - new Date(y, 0, 1, 12)) / 864e5 + 1, n = doy(d);
+    return '<div class="s-band"><span>' + MES[d.getMonth()] + '</span><span>' + y + '</span></div>' +
+      '<div class="s-mid' + (red ? ' red' : '') + '"><div><div class="s-day">' + d.getDate() + '</div><div class="s-dow">' + DOW[d.getDay()] + '</div><div class="s-hol">' + (hol || (d.getDay() === 0 ? 'Domingo' : (d.getDay() === 6 ? 'Sábado' : ''))) + '</div></div></div>' +
+      '<div><p class="s-due"><span>' + due + '</span></p><div class="s-foot"><em>“' + P[n % P.length] + '”</em><span class="s-moon">' + mo.svg + mo.n + '</span><span>' + n + 'º dia do ano · faltam ' + (total - n) + '</span></div></div>';
+  }
+  var pad = $('pad');
+  function renderPad(){
+    var d = add(TODAY, st.off);
+    pad.innerHTML = '<div class="sheet under" aria-hidden="true">' + sheetHTML(add(d, 1)) + '</div><div class="sheet" id="top" tabindex="0" aria-label="Folha de ' + d.getDate() + ' de ' + MES[d.getMonth()] + '. Arraste para baixo para arrancar.">' + sheetHTML(d) + '</div>';
+    $('today').hidden = st.off === 0;
+    bindDrag();
+  }
+  var flyTw = null;
+  function tear(){
+    if (flyTw) flyTw.progress(1);
+    if (st.off >= 60) return;
+    var top = $('top');
+    if (!hasG || reduce){ st.off++; save(); renderPad(); return; }
+    var fly = top.cloneNode(true); fly.removeAttribute('id'); fly.classList.add('flying'); fly.setAttribute('aria-hidden', 'true');
+    st.off++; save(); renderPad(); pad.appendChild(fly);
+    flyTw = gsap.to(fly, { rotation: -9 - Math.random() * 6, y: 260, x: -40, opacity: 0, duration: .55, ease: 'power2.in', transformOrigin: '18% 0%', onComplete: function(){ fly.remove(); flyTw = null; } });
+  }
+  function bindDrag(){
+    var top = $('top'), y0 = null, dy = 0;
+    top.addEventListener('pointerdown', function(e){ y0 = e.clientY; dy = 0; top.setPointerCapture(e.pointerId); });
+    top.addEventListener('pointermove', function(e){ if (y0 === null) return; dy = Math.max(0, e.clientY - y0); top.style.transform = 'rotate(' + (-dy / 30) + 'deg) translateY(' + dy * .35 + 'px)'; });
+    function up(){ if (y0 === null) return; y0 = null; if (dy > 70) tear(); else top.style.transform = ''; }
+    top.addEventListener('pointerup', up); top.addEventListener('pointercancel', up);
+    top.addEventListener('keydown', function(e){ if (e.key === 'ArrowDown' || e.key === 'Enter'){ e.preventDefault(); tear(); var t = $('top'); if (t) t.focus(); } });
+  }
+  $('tear').addEventListener('click', tear);
+  $('today').addEventListener('click', function(){ st.off = 0; save(); renderPad(); $('tear').focus(); });
+
+  // ---------- folhinha do mês + linhas de vencimento ----------
+  function renderTypes(){ $('types').innerHTML = Object.keys(TYPES).map(function(k){ return '<button type="button" data-t="' + k + '" aria-pressed="' + (k === st.type) + '">' + TYPES[k] + '</button>'; }).join(''); }
+  function renderMonth(){
+    var base = new Date(TODAY.getFullYear(), TODAY.getMonth() + st.mOff, 1, 12), y = base.getFullYear(), m = base.getMonth();
+    var list = obl(st.type, y, m), byDay = {};
+    list.forEach(function(x){ (byDay[key(x.d)] = byDay[key(x.d)] || []).push(x); });
+    var short = function(t){ return t.replace(' do Simples Nacional', ' Simples').replace('Declaração anual do MEI (DASN-SIMEI)', 'DASN-SIMEI').replace('DEFIS (declaração anual do Simples)', 'DEFIS').replace('INSS e FGTS da folha', 'INSS · FGTS').replace('Salários do mês', 'Salários').replace('13º salário: ', '13º ').replace('IRPJ e CSLL do trimestre', 'IRPJ · CSLL'); };
+    var s = '<div class="m-head"><h3>' + MES[m] + ' <span>' + y + '</span></h3><div class="m-nav"><button type="button" id="m-prev" aria-label="Mês anterior"><svg class="ico" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button><button type="button" id="m-next" aria-label="Próximo mês"><svg class="ico" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button></div></div><div class="grid" aria-hidden="true">';
+    s += DW.map(function(w){ return '<div class="dw" aria-hidden="true">' + w + '</div>'; }).join('');
+    var first = new Date(y, m, 1, 12), start = add(first, -first.getDay());
+    for (var i = 0; i < 42; i++){
+      var d = add(start, i), inM = d.getMonth() === m;
+      if (i >= 35 && !inM && d.getDay() === 0) break;
+      var hol = holiday(d), cls = 'cell' + (inM ? '' : ' out') + ((d.getDay() === 0 || hol) && inM ? ' red' : '') + (key(d) === key(TODAY) ? ' today' : '');
+      var obs = inM ? (byDay[key(d)] || []) : [];
+      s += '<div class="' + cls + '"><span class="n">' + d.getDate() + '</span>' + (inM && hol ? '<span class="hn">' + hol + '</span>' : '') + obs.map(function(x){ return '<span class="ob" title="' + x.t + '">' + short(x.t) + '</span>'; }).join('') + (obs.length && d < TODAY ? '<span class="stamp">Pago</span>' : '') + '</div>';
+    }
+    s += '</div>';
+    $('cal').innerHTML = s;
+    $('list-h').textContent = 'Vencimentos de ' + MES[m];
+    $('season').innerHTML = st.type === 'pf' && m >= 2 && m <= 4 ? '<p class="season"><b>Temporada do Imposto de Renda.</b> A Receita divulga as datas de cada ano; a gente avisa, junta os documentos e entrega.</p>' : '';
+    $('rows').innerHTML = list.length ? list.map(function(x){
+      var stt = key(x.d) === key(TODAY) ? '<span class="st hoje">Vence hoje</span>' : x.d < TODAY ? '<span class="st pago">Pago</span>' : '<span class="st prox">' + (function(n){ return n === 0 ? 'Próximo' : 'Em ' + n + ' dia' + (n === 1 ? '' : 's') + ' út' + (n === 1 ? 'il' : 'eis'); })(bizBetween(TODAY, x.d)) + '</span>';
+      var wk = !isBiz(x.d) && x.t.indexOf('Salários') < 0 ? '<i>Cai em ' + (holiday(x.d) ? 'feriado' : 'fim de semana') + ': o prazo muda e a gente confere.</i>' : '';
+      return '<li><span class="d">' + x.d.getDate() + '<small>' + DOW[x.d.getDay()].slice(0, 3) + '</small></span><span class="t"><b>' + x.t + '</b><span>' + x.w + '</span>' + wk + '</span>' + stt + '</li>';
+    }).join('') : '<li><span class="empty">Nada vence em ' + MES[m] + ' para este tipo.</span></li>';
+    $('m-prev').disabled = st.mOff <= -2; $('m-next').disabled = st.mOff >= 11;
+  }
+  $('types').addEventListener('click', function(e){ var b = e.target.closest('[data-t]'); if (!b) return; st.type = b.dataset.t; save(); renderTypes(); renderMonth(); renderPad(); var nb = $('types').querySelector('[data-t="' + st.type + '"]'); if (nb) nb.focus(); });
+  $('cal').addEventListener('click', function(e){
+    if (e.target.closest('#m-prev') && st.mOff > -2){ st.mOff--; renderMonth(); $('m-prev').focus(); }
+    if (e.target.closest('#m-next') && st.mOff < 11){ st.mOff++; renderMonth(); $('m-next').focus(); }
+  });
+  renderTypes(); renderMonth(); renderPad();
+
+  // ---------- abertura: o bloco folheia até hoje ----------
+  if (!hasG || reduce) return;
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.utils.toArray('.sec-h, .month, .svc li, .torn li').forEach(function(el){ gsap.from(el, { y: 26, opacity: 0, duration: .8, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 88%', once: true } }); });
+  var played = false; try { played = sessionStorage.getItem('diautil-intro') && !/[?&]intro=1/.test(location.search); } catch(e){}
+  if (played) return;
+  root.classList.add('intro');
+  var keepOff = st.off, guard, n = 7, i = 0;
+  st.off = -n; renderPad();
+  var tl = gsap.timeline({ paused: true, onComplete: done });
+  function done(){ clearTimeout(guard); st.off = keepOff; renderPad(); root.classList.remove('intro'); try { sessionStorage.setItem('diautil-intro', '1'); } catch(e){} gsap.set(['.h-head > *', '.h-acts', '.padwrap'], { clearProps: 'all' }); }
+  tl.fromTo('.padwrap', { y: -30, opacity: 0 }, { y: 0, opacity: 1, duration: .5, ease: 'expo.out' }, 0);
+  for (var k = 0; k < n; k++){
+    tl.add(function(){
+      var top = $('top'); if (!top) return;
+      var fly = top.cloneNode(true); fly.removeAttribute('id'); fly.classList.add('flying');
+      st.off++; renderPad(); pad.appendChild(fly);
+      gsap.to(fly, { rotation: -8 - Math.random() * 8, y: 240, x: -30, opacity: 0, duration: .42, ease: 'power2.in', transformOrigin: '18% 0%', onComplete: function(){ fly.remove(); } });
+    }, .45 + k * (k < n - 2 ? .14 : .22));
+  }
+  tl.fromTo('.h-head > *', { y: 18, opacity: 0 }, { y: 0, opacity: 1, duration: .5, stagger: .07, ease: 'expo.out' }, .3)
+    .fromTo('.h-acts', { y: 18, opacity: 0 }, { y: 0, opacity: 1, duration: .5, ease: 'expo.out' }, 1.2)
+    .add(function(){ root.classList.remove('intro'); }, 1.9)
+    .from('.nav, .hl-bar', { y: -16, autoAlpha: 0, duration: .45 }, 1.9);
+  var skip = function(){ if (tl.progress() < 1) tl.progress(1); };
+  $('skip-intro').addEventListener('click', skip);
+  addEventListener('keydown', skip, { once: true });
+  addEventListener('wheel', skip, { once: true, passive: true });
+  addEventListener('touchstart', skip, { once: true, passive: true });
+  var arm = function(){ clearTimeout(guard); if (document.visibilityState === 'visible' && tl.progress() < 1) guard = setTimeout(skip, 5200); };
+  document.addEventListener('visibilitychange', arm); arm();
+  tl.play();
+})();
+</script>
+</body>
+</html>

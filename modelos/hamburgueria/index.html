@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="pt-BR" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bigorna Smash Burger — modelo de site para hamburguerias · hellys.</title>
+<meta name="description" content="Projeto autoral da hellys.: site-modelo para hamburguerias, com mascote animada, montador de lanche e pedido direto no WhatsApp. A Bigorna Smash Burger é fictícia.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#15120f">
+<meta property="og:title" content="Bigorna Smash Burger — modelo de site para hamburguerias">
+<meta property="og:description" content="Monte o smash camada por camada e mande o pedido pronto no WhatsApp. Projeto autoral da hellys. (empresa fictícia).">
+<!--hellys:meta-->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="hellys.">
+<meta property="og:url" content="https://hellys.dev.br/modelos/hamburgueria/">
+<meta property="og:image" content="https://hellys.dev.br/modelos/hamburgueria/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Cartão de título em estilo desenho animado antigo com a mascote Bigorna e o nome Bigorna Smash Burger.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://hellys.dev.br/modelos/hamburgueria/">
+<!--/hellys:meta-->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%2315120f'/%3E%3Cpath d='M7 13h18v4H21q-2 1-2 3v2h3v3H10v-3h3v-2q0-2-2-3H7z' fill='%23fbf8f1'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Titan+One&display=swap" rel="stylesheet">
+<!--hellys:css-->
+<style id="hl-layer">
+.hl-bar{position:relative;z-index:60;background:#10141a;color:#e8ecf1;font:500 13.5px/1.3 var(--hl-font,system-ui,sans-serif)}
+.hl-bar-in{max-width:var(--hl-wrap,1200px);margin:0 auto;padding:6px var(--hl-pad,clamp(16px,4.2vw,48px));display:flex;align-items:center;gap:14px;min-height:42px}
+.hl-logo-link{display:inline-flex;align-items:center;border-radius:3px;flex:0 0 auto}
+.hl-logo{height:16px;width:auto;display:block}
+.hl-bar p{flex:1 1 auto;color:#b9c4d1;margin:0}
+.hl-bar p b{color:#e8ecf1;font-weight:700}
+.hl-more{color:#e8ecf1;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(232,236,241,.4);white-space:nowrap}
+.hl-more:hover{text-decoration-color:#ff8a3d}
+.hl-cta{display:inline-flex;align-items:center;gap:8px;background:#ff8a3d;color:#10141a;font-weight:700;text-decoration:none;padding:7px 12px;border-radius:4px;white-space:nowrap;line-height:1.2}
+.hl-cta:hover{background:#ffa463}
+.hl-ico{width:1.1em;height:1.1em;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.hl-bar :focus-visible,.hl-made :focus-visible,.hl-toast :focus-visible{outline:2px solid #ff8a3d;outline-offset:2px}
+@media (max-width:860px){.hl-long,.hl-bar .hl-more{display:none}}
+@media (max-width:600px){.hl-mid,.hl-of{display:none}.hl-bar-in{gap:10px}.hl-bar p{font-size:12.5px}.hl-logo{height:13px}.hl-cta{padding:6px 9px;font-size:12.5px}.hl-bar .hl-cta .hl-ico{display:none}}
+.hl-made{background:#10141a;color:#e8ecf1;border-radius:8px;padding:clamp(22px,4vw,34px);display:grid;grid-template-columns:1fr auto;gap:18px 28px;align-items:center;font:400 15.5px/1.55 var(--hl-font,system-ui,sans-serif);text-align:left;letter-spacing:normal;text-transform:none}
+.hl-made p{color:#b9c4d1;max-width:62ch;margin:0}
+.hl-made p b{color:#e8ecf1}
+.hl-made .hl-logo{height:22px;margin-bottom:12px}
+.hl-made-acts{display:flex;flex-direction:column;gap:12px;align-items:stretch}
+.hl-made .hl-cta{justify-content:center;padding:11px 16px;font-size:15px}
+.hl-made .hl-more{text-align:center;font-size:14.5px}
+@media (max-width:760px){.hl-made{grid-template-columns:1fr}}
+.hl-toast{position:fixed;left:50%;bottom:18px;z-index:2000;width:min(560px,calc(100vw - 24px));transform:translate(-50%,160%);visibility:hidden;transition:transform .5s cubic-bezier(.16,1,.3,1),visibility 0s .5s;background:#10141a;color:#e8ecf1;border-radius:8px;padding:16px 18px;box-shadow:0 24px 40px -18px rgba(0,0,0,.6);display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start;font:400 15px/1.5 var(--hl-font,system-ui,sans-serif);text-align:left;letter-spacing:normal;text-transform:none}
+.hl-toast.show{transform:translate(-50%,0);visibility:visible;transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.hl-toast p{color:#c7d0db;margin:0}
+.hl-toast p b{color:#e8ecf1}
+.hl-toast a{color:#ff8a3d;font-weight:700;white-space:nowrap}
+.hl-toast a .hl-ico{display:inline;vertical-align:-.2em}
+.hl-toast button{background:none;border:0;color:#9aa6b4;cursor:pointer;padding:4px;display:grid}
+.hl-toast button .hl-ico{width:22px;height:22px}
+@media (prefers-reduced-motion:reduce){.hl-toast,.hl-toast.show{transition:none}}
+</style>
+<!--/hellys:css-->
+<style>
+:root{
+  --ink:#15120f; --paper:#fbf8f1; --wash:#cfc9bd; --wash-2:#bdb6a8; --wash-3:#e2ddd2;
+  --ketchup:#d92c1b; --ketchup-dk:#b52112; --cheddar:#f4b223;
+  --beat:.6s; --cycle:2.4s; --wrap:1220px; --pad:clamp(16px,4.2vw,48px); --ease:cubic-bezier(.16,1,.3,1);
+  --f-title:"Titan One","Fredoka",system-ui,sans-serif; --f-sans:"Fredoka",system-ui,sans-serif;
+  --hl-font:"Fredoka",system-ui,sans-serif; --hl-wrap:1220px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{font:500 17.5px/1.5 var(--f-sans);color:var(--ink);background:var(--wash);overflow-x:hidden}
+::selection{background:var(--cheddar);color:var(--ink)}
+a{color:inherit}
+svg{display:block}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--cheddar);outline-offset:3px;border-radius:8px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+.ico{width:1.2em;height:1.2em;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.title{font-family:var(--f-title);font-weight:400;letter-spacing:.01em;text-transform:uppercase;line-height:.95}
+
+/* ---------- botões de borracha: amassam ao apertar ---------- */
+.bt{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;cursor:pointer;text-decoration:none;font:400 19px/1 var(--f-title);text-transform:uppercase;letter-spacing:.02em;padding:16px 26px 15px;border-radius:999px;background:var(--ketchup);color:var(--paper);box-shadow:inset 0 0 0 3.5px var(--ink);transition:transform .15s,box-shadow .15s,background-color .2s}
+.bt:hover{background:var(--ketchup-dk)}
+.bt:active,.bt.squash{animation:squash .32s steps(4) both}
+@keyframes squash{0%{transform:scale(1,1)}25%{transform:scale(1.1,.86) translateY(4px)}50%{transform:scale(.95,1.06)}75%{transform:scale(1.03,.97)}100%{transform:scale(1,1)}}
+.bt-paper{background:var(--paper);color:var(--ink)}
+.bt-paper:hover{background:#fff}
+.bt[disabled]{opacity:.5;cursor:not-allowed}
+@media (prefers-reduced-motion:reduce){.bt:active,.bt.squash{animation:none}}
+
+/* ---------- navegação ---------- */
+.nav{position:sticky;top:0;z-index:50;background:var(--ink);color:var(--paper)}
+.nav .wrap{display:flex;align-items:center;gap:22px;min-height:66px}
+.brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font:400 22px/1 var(--f-title);text-transform:uppercase}
+.brand svg{width:40px;height:30px}
+.nav-links{display:flex;gap:24px;margin-left:auto;list-style:none}
+.nav-links a{font-weight:600;text-decoration:none;font-size:17px}
+.nav-links a:hover{color:var(--cheddar)}
+.nav .bt{padding:11px 18px 10px;font-size:16px;box-shadow:inset 0 0 0 3px var(--paper)}
+@media (max-width:900px){.nav-links{display:none}.nav .bt{margin-left:auto}}
+
+/* ---------- abertura em íris ---------- */
+.stage{background:var(--ink);color:var(--paper);padding:clamp(18px,2.6vw,34px) 0 clamp(34px,4vw,54px);overflow:hidden}
+.oval{position:relative;margin:0 auto;width:min(930px,94vw);aspect-ratio:16/8.6;border-radius:50%;background:var(--paper);box-shadow:inset 0 0 0 6px var(--ink),inset 0 0 0 13px var(--paper),inset 0 0 0 17px var(--ink);display:grid;place-items:center;overflow:hidden}
+.oval svg.scene{width:94%;height:auto}
+.scene .t-arc{font:400 104px var(--f-title);fill:var(--paper);stroke:var(--ink);stroke-width:7px;paint-order:stroke;stroke-linejoin:round;letter-spacing:6px}
+.scene .t-arc-sh{font:400 104px var(--f-title);fill:var(--ink);letter-spacing:6px}
+.scene .t-ribbon{font:400 30px var(--f-title);fill:var(--paper);letter-spacing:3px;text-anchor:middle}
+.tagline{text-align:center;margin-top:clamp(16px,2vw,22px)}
+.tagline h1{font:400 clamp(28px,3.6vw,46px)/1.05 var(--f-title);text-transform:none;max-width:22ch;margin:0 auto;text-wrap:balance}
+.tagline p{color:#cfc8ba;margin:8px auto 18px;max-width:64ch}
+.tagline .acts{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.tagline .bt-paper{box-shadow:inset 0 0 0 3.5px var(--paper)}
+@media (max-width:700px){.oval{aspect-ratio:10/10.4}.oval svg.scene{width:122%;max-width:none}}
+
+/* cena: personagem e chapa (traço único, juntas redondas) */
+.ink{fill:var(--ink)}
+.paper{fill:var(--paper)}
+.line{fill:none;stroke:var(--ink);stroke-width:10;stroke-linecap:round;stroke-linejoin:round}
+.glove{fill:var(--paper);stroke:var(--ink);stroke-width:4}
+.glove-l{fill:none;stroke:var(--ink);stroke-width:3;stroke-linecap:round}
+.fb{transform-box:fill-box}
+.burst,.puff{opacity:0}
+.arm-r{transform-origin:200px 50px;transform:rotate(-38deg)}
+@media (prefers-reduced-motion:no-preference){
+  .bob{animation:bob var(--beat) cubic-bezier(.5,0,.5,1) infinite;transform-origin:50% 100%}
+  .arm-r{animation:slam var(--cycle) infinite;transform-origin:200px 50px}
+  .patty{animation:smash var(--cycle) infinite;transform-origin:50% 100%}
+  .burst{animation:burst var(--cycle) infinite;transform-origin:50% 50%}
+  .puff{animation:puff var(--cycle) infinite;transform-origin:50% 50%}
+  .puff.p2{animation-delay:.12s}.puff.p3{animation-delay:.24s}
+  .wave{animation:wave calc(var(--beat) * 2) ease-in-out infinite alternate;transform-origin:70px 60px}
+  .eyes{animation:blink 4.8s infinite;transform-origin:50% 50%}
+}
+@keyframes bob{0%{transform:translateY(0) scale(1,1)}40%{transform:translateY(-7px) scale(.98,1.03)}80%{transform:translateY(0) scale(1.04,.95)}100%{transform:translateY(0) scale(1,1)}}
+@keyframes slam{0%,40%{transform:rotate(-38deg)}46%{transform:rotate(-44deg)}50%{transform:rotate(0)}62%{transform:rotate(0)}80%,100%{transform:rotate(-38deg)}}
+@keyframes smash{0%,49%{transform:scale(1,1)}50%{transform:scale(1.7,.34)}90%{transform:scale(1.7,.34)}93%{transform:scale(.8,1.25)}96%{transform:scale(1.08,.92)}100%{transform:scale(1,1)}}
+@keyframes burst{0%,49%{transform:scale(0);opacity:0}51%{transform:scale(1.15);opacity:1}56%{transform:scale(1);opacity:1}66%{transform:scale(1);opacity:1}70%,100%{transform:scale(0);opacity:0}}
+@keyframes puff{0%,52%{transform:translateY(0) scale(.2);opacity:0}58%{opacity:1}86%{transform:translateY(-46px) scale(1.1);opacity:.9}92%,100%{transform:translateY(-58px) scale(1.2);opacity:0}}
+@keyframes wave{from{transform:rotate(-12deg)}to{transform:rotate(14deg)}}
+@keyframes blink{0%,93%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+
+/* ---------- seções com íris ---------- */
+.sec{padding:clamp(60px,8vw,108px) 0}
+.sec-h{font:400 clamp(36px,5.2vw,68px)/.95 var(--f-title);text-transform:uppercase;text-wrap:balance}
+.sec-sub{max-width:52ch;margin-top:14px;font-size:clamp(17px,1.4vw,19.5px)}
+.iris{clip-path:circle(150% at 50% 50%)}
+
+/* montador */
+.build{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(24px,4vw,60px);align-items:start;margin-top:clamp(26px,4vw,44px)}
+.choose{display:grid;gap:22px}
+.grp h3{font:400 20px/1 var(--f-title);text-transform:uppercase;margin-bottom:10px;display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.grp h3 small{font:500 14px/1 var(--f-sans);text-transform:none;color:#4a433a}
+.opts{display:flex;flex-wrap:wrap;gap:10px}
+.op{border:0;cursor:pointer;background:var(--paper);border-radius:999px;box-shadow:inset 0 0 0 3px var(--ink);padding:11px 16px;font:600 16px/1 var(--f-sans);transition:background-color .15s}
+.op:hover{background:#fff}
+.op[aria-pressed="true"]{background:var(--cheddar);box-shadow:inset 0 0 0 4px var(--ink)}
+.op:active{animation:squash .32s steps(4) both}
+@media (prefers-reduced-motion:reduce){.op:active{animation:none}}
+.plate{position:sticky;top:86px;background:var(--paper);border-radius:28px;box-shadow:inset 0 0 0 4px var(--ink),inset 0 0 0 9px var(--paper),inset 0 0 0 11px var(--ink);padding:22px 22px 24px}
+.plate svg{width:100%;height:auto;max-height:380px}
+.order{border-top:3px dashed var(--ink);margin-top:10px;padding-top:14px;display:grid;gap:12px}
+.order h3{font:400 22px/1 var(--f-title);text-transform:uppercase}
+.order p{font-size:16px}
+.order-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.qty{display:inline-flex;align-items:center;gap:6px;background:var(--wash-3);border-radius:999px;padding:4px;box-shadow:inset 0 0 0 3px var(--ink)}
+.qty button{width:38px;height:38px;border-radius:50%;border:0;background:var(--paper);cursor:pointer;font:400 22px/1 var(--f-title);box-shadow:inset 0 0 0 3px var(--ink)}
+.qty output{min-width:2ch;text-align:center;font:400 22px/1 var(--f-title)}
+.seg{display:inline-flex;background:var(--wash-3);border-radius:999px;padding:4px;box-shadow:inset 0 0 0 3px var(--ink)}
+.seg button{border:0;cursor:pointer;background:none;border-radius:999px;padding:9px 14px;font:600 15.5px/1 var(--f-sans)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.obs{width:100%;height:48px;border:0;border-radius:14px;box-shadow:inset 0 0 0 3px var(--ink);background:#fff;padding:0 14px;font:500 16.5px var(--f-sans);color:var(--ink)}
+.obs::placeholder{color:#6d6458}
+.obs:focus{outline:3px solid var(--cheddar);outline-offset:2px}
+.msg{white-space:pre-line;background:var(--wash-3);border-radius:14px;padding:12px 14px;font-size:15px;line-height:1.45}
+@media (max-width:920px){.build{grid-template-columns:1fr}.plate{display:contents}.viz{order:-1;position:sticky;top:66px;z-index:5;background:var(--paper);border-radius:22px;box-shadow:inset 0 0 0 4px var(--ink);padding:10px 14px}.viz svg{max-height:190px;margin:0 auto}.order{order:2;background:var(--paper);border-radius:22px;box-shadow:inset 0 0 0 4px var(--ink);padding:18px;margin-top:0;border-top:0}}
+
+/* cardápio em cartões ovais */
+.menu-sec{background:var(--ink);color:var(--paper)}
+.menu-sec .sec-sub{color:#cfc8ba}
+.menu{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.4vw,30px);margin-top:clamp(28px,4vw,48px);list-style:none}
+.card{position:relative;background:var(--paper);color:var(--ink);border-radius:50%;aspect-ratio:1/1.08;display:grid;place-items:center;text-align:center;padding:16% 13%;box-shadow:inset 0 0 0 5px var(--ink),inset 0 0 0 11px var(--paper),inset 0 0 0 14px var(--ink)}
+.card h3{font:400 clamp(26px,2.6vw,36px)/.95 var(--f-title);text-transform:uppercase}
+.card .sub{font:600 13px/1 var(--f-sans);letter-spacing:.14em;text-transform:uppercase;margin:8px 0 10px;color:#5a5247}
+.card p{font-size:15.5px;line-height:1.4}
+.card .bt{margin-top:14px;padding:11px 18px 10px;font-size:15px}
+.card .orn{display:block;width:54px;height:10px;margin:0 auto 12px;background:radial-gradient(circle,var(--ink) 0 4px,transparent 4.5px) center/14px 10px no-repeat,linear-gradient(var(--ink),var(--ink)) left center/18px 3px no-repeat,linear-gradient(var(--ink),var(--ink)) right center/18px 3px no-repeat}
+@media (max-width:980px){.menu{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.menu{grid-template-columns:1fr}.card{aspect-ratio:auto;border-radius:48% / 40%;padding:62px 34px 56px}}
+.sides{margin-top:clamp(28px,4vw,44px);display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:center;font:400 20px/1.2 var(--f-title);text-transform:uppercase;color:var(--paper)}
+.sides span{display:inline-flex;align-items:center;gap:10px}
+.sides span+span::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--cheddar)}
+
+/* como chega */
+.how{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,3vw,40px);margin-top:clamp(28px,4vw,46px);list-style:none}
+.how li{text-align:center}
+.how .ring{width:min(210px,70%);aspect-ratio:1;margin:0 auto 16px;border-radius:50%;background:var(--paper);box-shadow:inset 0 0 0 5px var(--ink),inset 0 0 0 11px var(--paper),inset 0 0 0 14px var(--ink);display:grid;place-items:center}
+.how .ring svg{width:52%;height:52%}
+.how h3{font:400 24px/1 var(--f-title);text-transform:uppercase;margin-bottom:6px}
+.how p{max-width:30ch;margin:0 auto}
+.info{margin-top:clamp(36px,5vw,60px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.info > div{background:var(--paper);border-radius:22px;box-shadow:inset 0 0 0 3.5px var(--ink);padding:20px 22px}
+.info h4{font:400 18px/1 var(--f-title);text-transform:uppercase;margin-bottom:8px}
+@media (max-width:820px){.how,.info{grid-template-columns:1fr}}
+
+/* fim */
+.end{background:var(--ink);color:var(--paper);text-align:center;padding:clamp(60px,8vw,110px) 0}
+.end .disc{width:min(360px,74vw);aspect-ratio:1;margin:0 auto 26px;border-radius:50%;background:var(--paper);display:grid;place-items:center;box-shadow:0 0 0 8px var(--ink),0 0 0 12px var(--paper)}
+.end .disc svg{width:78%}
+.end h2{font:400 clamp(40px,7vw,92px)/.9 var(--f-title);text-transform:uppercase}
+.end p{color:#cfc8ba;max-width:42ch;margin:14px auto 24px}
+
+.foot{background:var(--wash);padding:44px 0 36px;border-top:4px solid var(--ink)}
+.foot-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:26px;margin-bottom:34px}
+.foot h3{font:400 16px/1 var(--f-title);text-transform:uppercase;margin-bottom:12px}
+.foot ul{list-style:none;display:grid;gap:6px}
+.foot .brand{color:var(--ink)}
+.foot-note{margin-top:12px;max-width:34ch}
+@media (max-width:760px){.foot-grid{grid-template-columns:1fr}}
+
+.skip{position:fixed;right:18px;bottom:18px;z-index:130;display:none}
+html.intro .skip{display:inline-flex}
+html.intro .nav,html.intro .hl-bar{visibility:hidden}
+</style>
+</head>
+<body>
+<!--hellys:hbar-->
+<div class="hl-bar" role="note" aria-label="Aviso: este site é um modelo">
+  <div class="hl-bar-in">
+    <a class="hl-logo-link" href="https://hellys.dev.br/" aria-label="hellys. (ir para o portfólio)"><svg xmlns="http://www.w3.org/2000/svg" class="hl-logo" aria-hidden="true" focusable="false" viewBox="0 0 4532.21 943.33"><g transform="translate(368.53 141.33) scale(0.86)"><path fill="#ff8a3d" d="M-82.13 -164.33L-428.52 350L-82.13 864.33L-9.87 815.67L-323.48 350L-9.87 -115.67ZM665.87 -115.67L979.48 350L665.87 815.67L738.13 864.33L1084.52 350L738.13 -164.33Z"/><path fill="#e8ecf1" d="M198 700L66 700L66 0L198 0L198 289L458 289L458 0L590 0L590 700L458 700L458 409L198 409L198 700Z"/></g><g transform="translate(1531.21 743.33) scale(1)"><path fill="#e8ecf1" d="M196 0L70 0L70-700L196-700L196-435L214-435Q222-451 239-467Q256-483 284.50-493.50Q313-504 357-504L357-504Q415-504 458.50-477.50Q502-451 526-404.50Q550-358 550-296L550-296L550 0L424 0L424-286Q424-342 396.50-370Q369-398 318-398L318-398Q260-398 228-359.50Q196-321 196-252L196-252L196 0ZM894 14L894 14Q820 14 763.50-17.50Q707-49 675.50-106.50Q644-164 644-242L644-242L644-254Q644-332 675-389.50Q706-447 762-478.50Q818-510 892-510L892-510Q965-510 1019-477.50Q1073-445 1103-387.50Q1133-330 1133-254L1133-254L1133-211L772-211Q774-160 810-128Q846-96 898-96L898-96Q951-96 976-119Q1001-142 1014-170L1014-170L1117-116Q1103-90 1076.50-59.50Q1050-29 1006-7.50Q962 14 894 14ZM773-305L773-305L1005-305Q1001-348 970.50-374Q940-400 891-400L891-400Q840-400 810-374Q780-348 773-305ZM1353 0L1227 0L1227-700L1353-700L1353 0ZM1601 0L1475 0L1475-700L1601-700L1601 0ZM2089 200L1777 200L1777 90L2047 90Q2075 90 2075 60L2075 60L2075-65L2057-65Q2049-48 2032-31Q2015-14 1986-3Q1957 8 1912 8L1912 8Q1854 8 1810.50-18.50Q1767-45 1743-92Q1719-139 1719-200L1719-200L1719-496L1845-496L1845-210Q1845-154 1872.50-126Q1900-98 1951-98L1951-98Q2009-98 2041-136.50Q2073-175 2073-244L2073-244L2073-496L2199-496L2199 88Q2199 139 2169 169.50Q2139 200 2089 200L2089 200ZM2527 14L2527 14Q2430 14 2368-28Q2306-70 2293-148L2293-148L2409-178Q2416-143 2432.50-123Q2449-103 2473.50-94.50Q2498-86 2527-86L2527-86Q2571-86 2592-101.50Q2613-117 2613-140L2613-140Q2613-163 2593-175.50Q2573-188 2529-196L2529-196L2501-201Q2449-211 2406-228.50Q2363-246 2337-277Q2311-308 2311-357L2311-357Q2311-431 2365-470.50Q2419-510 2507-510L2507-510Q2590-510 2645-473Q2700-436 2717-376L2717-376L2600-340Q2592-378 2567.50-394Q2543-410 2507-410L2507-410Q2471-410 2452-397.50Q2433-385 2433-363L2433-363Q2433-339 2453-327.50Q2473-316 2507-310L2507-310L2535-305Q2591-295 2636.50-278.50Q2682-262 2708.50-231.50Q2735-201 2735-149L2735-149Q2735-71 2678.50-28.50Q2622 14 2527 14Z"/><path fill="#ff8a3d" d="M2907 14L2907 14Q2866 14 2838.50-12.50Q2811-39 2811-81L2811-81Q2811-123 2838.50-149.50Q2866-176 2907-176L2907-176Q2947-176 2974-149.50Q3001-123 3001-81L3001-81Q3001-39 2974-12.50Q2947 14 2907 14Z"/></g></svg></a>
+    <p><b>Projeto autoral<span class="hl-of"> da hellys.</span></b><span class="hl-mid"> Modelo de site para hamburguerias.</span><span class="hl-long"> A Bigorna Smash Burger é fictícia.</span></p>
+    <a class="hl-more" href="https://hellys.dev.br/#projeto-modelos">Outros modelos</a>
+    <a class="hl-cta" href="https://wa.me/5511994032102?text=Oi%2C%20vi%20o%20modelo%20de%20site%20para%20hamburguerias%20no%20portf%C3%B3lio%20da%20hellys%20e%20quero%20um%20assim." target="_blank" rel="noopener">Quero um site assim <svg class="hl-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</div>
+<!--/hellys:hbar-->
+
+<header class="nav" id="topo">
+  <div class="wrap">
+    <a class="brand" href="#topo" aria-label="Bigorna Smash Burger, início">
+      <svg viewBox="0 0 40 30" aria-hidden="true"><path d="M9 4h27v12h-6q-4 2-4 6v3h7v4H11v-4h7v-3q0-4-4-6h-3Q4 15 1 9q5-1 8-3z" fill="#fbf8f1"/></svg>
+      Bigorna
+    </a>
+    <ul class="nav-links">
+      <li><a href="#montar">Montar</a></li>
+      <li><a href="#cardapio">Cardápio</a></li>
+      <li><a href="#entrega">Entrega</a></li>
+    </ul>
+    <a class="bt" href="#montar">Pedir</a>
+  </div>
+</header>
+
+<main>
+<section class="stage" id="abertura" aria-labelledby="h1">
+  <div class="oval" id="oval">
+    <svg class="scene" id="scene" viewBox="0 0 1000 560" aria-hidden="true" focusable="false">
+      <defs><path id="arc" d="M170 200 Q500 0 830 200"/></defs>
+      <text class="t-arc-sh" transform="translate(7 8)"><textPath href="#arc" startOffset="50%" text-anchor="middle">BIGORNA</textPath></text>
+      <text class="t-arc"><textPath href="#arc" startOffset="50%" text-anchor="middle" id="t-arc">BIGORNA</textPath></text>
+      <g id="ribbon">
+        <path class="ink" d="M300 200h400l-22 26 22 26H300l22-26z"/>
+        <path class="ink" d="M262 212h48v40h-48l14-20zM738 212h-48v40h48l-14-20z"/>
+        <text class="t-ribbon" x="500" y="237">SMASH BURGER</text>
+      </g>
+      <g transform="translate(240 292) scale(1.17)">
+        <!-- chapa -->
+        <rect class="ink" x="232" y="167" width="160" height="16" rx="3"/>
+        <rect class="ink" x="244" y="183" width="10" height="24"/><rect class="ink" x="370" y="183" width="10" height="24"/>
+        <g class="puff p1 fb"><circle class="paper" cx="296" cy="122" r="9" stroke="#15120f" stroke-width="3.5"/></g>
+        <g class="puff p2 fb"><circle class="paper" cx="322" cy="116" r="11" stroke="#15120f" stroke-width="3.5"/></g>
+        <g class="puff p3 fb"><circle class="paper" cx="346" cy="124" r="8" stroke="#15120f" stroke-width="3.5"/></g>
+        <g class="patty fb"><ellipse class="ink" cx="318" cy="152" rx="20" ry="15"/><path d="M306 146q8-6 16-3" fill="none" stroke="#fbf8f1" stroke-width="3" stroke-linecap="round"/></g>
+        <g class="burst fb">
+          <path class="paper" stroke="#15120f" stroke-width="4" stroke-linejoin="round" d="M318 58l12 26 26-14-8 28 30 2-24 18 22 18-30 2 6 28-24-16-10 28-12-27-26 16 6-29-30-1 23-18-21-19 30-2-7-28 26 15z"/>
+          <text x="318" y="128" text-anchor="middle" style="font:400 21px var(--f-title)" fill="#15120f">SMASH!</text>
+        </g>
+        <!-- a Bigorna -->
+        <g class="bob fb">
+          <path class="line" d="M96 150C96 170 86 180 84 192M146 150C146 170 156 180 160 192"/>
+          <ellipse class="ink" cx="74" cy="196" rx="20" ry="10"/><ellipse class="ink" cx="170" cy="196" rx="20" ry="10"/>
+          <path d="M64 192q8-4 16-2M160 192q8-4 16-2" fill="none" stroke="#fbf8f1" stroke-width="2.6" stroke-linecap="round"/>
+          <g class="wave">
+            <path class="line" d="M70 60C42 66 24 46 14 18"/>
+            <g transform="translate(12 12)"><circle class="glove" r="14"/><path class="glove-l" d="M-6-8v8M0-10v9M6-8v8"/><rect class="glove" x="-11" y="10" width="22" height="9" rx="4"/></g>
+          </g>
+          <path class="ink" d="M40 10H198Q206 10 206 18V64Q206 72 198 72H172Q156 80 156 100V118H182Q192 118 192 128V150H44V128Q44 118 54 118H80V100Q80 80 64 72H40Q10 64-26 34Q-30 30-24 28Q8 24 40 14Z"/>
+          <path d="M54 22H124" stroke="#fbf8f1" stroke-width="4.5" stroke-linecap="round"/>
+          <path d="M60 136H100" stroke="#fbf8f1" stroke-width="3.5" stroke-linecap="round"/>
+          <g class="eyes fb">
+            <ellipse class="paper" cx="124" cy="38" rx="14" ry="19"/><ellipse class="paper" cx="160" cy="38" rx="14" ry="19"/>
+            <ellipse class="ink" cx="129" cy="42" rx="7" ry="11"/><ellipse class="ink" cx="165" cy="42" rx="7" ry="11"/>
+            <path class="paper" d="M129 42l2-11 5 5zM165 42l2-11 5 5z"/>
+          </g>
+          <path class="paper" d="M104 86Q128 112 152 86Q128 100 104 86Z"/>
+          <g class="arm-r">
+            <path class="line" d="M200 50C232 58 252 80 258 105"/>
+            <path d="M262 110L290 128" stroke="#15120f" stroke-width="8" stroke-linecap="round"/>
+            <rect class="paper" x="278" y="127" width="62" height="9" rx="2" stroke="#15120f" stroke-width="4"/>
+            <g transform="translate(258 106)"><circle class="glove" r="14"/><path class="glove-l" d="M-6-8v8M0-10v9M6-8v8"/></g>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <div class="tagline wrap">
+    <h1 id="h1">Smash na chapa, do jeito que você montar.</h1>
+    <p>Carne prensada na hora e queijo derretendo. Você monta, o pedido chega pronto no WhatsApp.</p>
+    <div class="acts">
+      <a class="bt" href="#montar">Montar meu smash</a>
+      <a class="bt bt-paper" href="#cardapio">Ver cardápio</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="montar" aria-labelledby="mt-h">
+  <div class="wrap iris">
+    <h2 class="sec-h" id="mt-h">Monte seu smash</h2>
+    <p class="sec-sub">Escolha de cima pra baixo. Cada camada cai no prato na hora, e o pedido se escreve sozinho.</p>
+    <div class="build">
+      <div class="choose" id="choose"></div>
+      <div class="plate" aria-live="polite">
+        <div class="viz"><svg viewBox="0 92 320 290" id="stack" role="img" aria-label="Seu lanche montado"></svg></div>
+        <div class="order">
+          <h3>Seu pedido</h3>
+          <p id="order-txt"></p>
+          <div class="order-row">
+            <div class="qty" role="group" aria-label="Quantidade"><button type="button" id="q-" aria-label="Menos um">−</button><output id="q" aria-live="polite">1</output><button type="button" id="q+" aria-label="Mais um">+</button></div>
+            <div class="seg" role="group" aria-label="Como receber"><button type="button" data-rec="Entrega" aria-pressed="true">Entrega</button><button type="button" data-rec="Retirada" aria-pressed="false">Retirada</button></div>
+          </div>
+          <label class="sr" for="obs" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Observação</label>
+          <input class="obs" id="obs" placeholder="Observação (ex.: sem cebola)" autocomplete="off">
+          <button class="bt" type="button" id="send" data-demo="No site real, este botão abre o WhatsApp da hamburgueria já com o pedido montado.">Mandar pedido no WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec menu-sec" id="cardapio" aria-labelledby="cd-h">
+  <div class="wrap iris">
+    <h2 class="sec-h" id="cd-h">Cardápio da chapa</h2>
+    <p class="sec-sub">Todo lanche sai no pão selado na manteiga. Toque em “Montar este” para levar pro montador e mudar o que quiser.</p>
+    <ul class="menu" id="menu"></ul>
+    <p class="sides"><span>Batata palito</span><span>Batata rústica</span><span>Anéis de cebola</span><span>Milk-shake</span></p>
+  </div>
+</section>
+
+<section class="sec" id="entrega" aria-labelledby="en-h">
+  <div class="wrap iris">
+    <h2 class="sec-h" id="en-h">Do WhatsApp pra sua mesa</h2>
+    <ol class="how">
+      <li><div class="ring"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="13" y="4" width="22" height="40" rx="5" fill="none" stroke="#15120f" stroke-width="4"/><path d="M20 38h8" stroke="#15120f" stroke-width="4" stroke-linecap="round"/><path d="M18 14h12M18 20h8" stroke="#15120f" stroke-width="3.5" stroke-linecap="round"/></svg></div><h3>Você pede</h3><p>O pedido vai escrito, sem erro de anotação e sem fila no aplicativo.</p></li>
+      <li><div class="ring"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="4" y="28" width="40" height="7" rx="2" fill="#15120f"/><path d="M9 35v8M39 35v8" stroke="#15120f" stroke-width="4" stroke-linecap="round"/><ellipse cx="24" cy="25" rx="11" ry="4" fill="#15120f"/><path d="M17 16q2-4 0-8M24 16q2-4 0-8M31 16q2-4 0-8" fill="none" stroke="#15120f" stroke-width="3.5" stroke-linecap="round"/></svg></div><h3>Sai da chapa</h3><p>A carne só vai pra chapa quando o pedido chega. Nada fica esperando pronto.</p></li>
+      <li><div class="ring"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="12" cy="36" r="7" fill="none" stroke="#15120f" stroke-width="4"/><circle cx="37" cy="36" r="7" fill="none" stroke="#15120f" stroke-width="4"/><path d="M12 36h11l6-14h-9M29 22l8 14M33 14h8" fill="none" stroke="#15120f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><rect x="4" y="17" width="13" height="11" rx="2" fill="#15120f"/></svg></div><h3>Chega quente</h3><p>Embalagem que segura o calor e não amassa o lanche no caminho.</p></li>
+    </ol>
+    <div class="info">
+      <div><h4>Horário</h4><p>Terça a domingo<br>18h às 23h30</p></div>
+      <div><h4>Entrega</h4><p>No bairro e arredores. Retirada no balcão com o pedido já pago.</p></div>
+      <div><h4>Endereço</h4><p>Rua Exemplo, 789 · Vila Modelo<br>São Paulo/SP · fictício</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="end" aria-labelledby="end-h">
+  <div class="wrap">
+    <div class="disc" aria-hidden="true">
+      <svg viewBox="-40 0 300 240"><g class="bob fb">
+        <path class="ink" d="M40 30H198Q206 30 206 38V84Q206 92 198 92H172Q156 100 156 120V138H182Q192 138 192 148V170H44V148Q44 138 54 138H80V120Q80 100 64 92H40Q10 84-26 54Q-30 50-24 48Q8 44 40 34Z"/>
+        <g class="eyes fb"><ellipse class="paper" cx="124" cy="58" rx="14" ry="19"/><ellipse class="paper" cx="160" cy="58" rx="14" ry="19"/><ellipse class="ink" cx="122" cy="62" rx="7" ry="11"/><ellipse class="ink" cx="158" cy="62" rx="7" ry="11"/><path class="paper" d="M122 62l2-11 5 5zM158 62l2-11 5 5z"/></g>
+        <path class="paper" d="M100 104Q128 134 156 104Q128 120 100 104Z"/>
+        <g class="wave" style="transform-origin:200px 70px"><path class="line" d="M200 70C226 60 236 34 238 10"/><g transform="translate(238 8)"><circle class="glove" r="14"/><path class="glove-l" d="M-6-8v8M0-10v9M6-8v8"/></g></g>
+      </g></svg>
+    </div>
+    <h2 id="end-h">Bateu a fome?</h2>
+    <p>A chapa já está quente. Monte o seu ou peça um do cardápio direto no WhatsApp.</p>
+    <a class="bt" href="#montar">Montar meu smash</a>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><a class="brand" href="#topo"><svg viewBox="0 0 40 30" aria-hidden="true"><path d="M9 4h27v12h-6q-4 2-4 6v3h7v4H11v-4h7v-3q0-4-4-6h-3Q4 15 1 9q5-1 8-3z" fill="#15120f"/></svg>Bigorna</a><p class="foot-note">Smash burger na chapa, pedido direto no WhatsApp.</p></div>
+      <div><h3>Contato</h3><ul><li>(11) 0000-0000</li><li>oi@bigorna.exemplo</li><li>Rua Exemplo, 789 · São Paulo/SP</li></ul></div>
+      <div><h3>Atalhos</h3><ul><li><a href="#montar">Montar meu smash</a></li><li><a href="#cardapio">Cardápio</a></li><li><a href="#entrega">Entrega e horário</a></li></ul></div>
+    </div>
+<!--hellys:made-->
+<div class="hl-made">
+  <div>
+    <svg xmlns="http://www.w3.org/2000/svg" class="hl-logo" aria-hidden="true" focusable="false" viewBox="0 0 4532.21 943.33"><g transform="translate(368.53 141.33) scale(0.86)"><path fill="#ff8a3d" d="M-82.13 -164.33L-428.52 350L-82.13 864.33L-9.87 815.67L-323.48 350L-9.87 -115.67ZM665.87 -115.67L979.48 350L665.87 815.67L738.13 864.33L1084.52 350L738.13 -164.33Z"/><path fill="#e8ecf1" d="M198 700L66 700L66 0L198 0L198 289L458 289L458 0L590 0L590 700L458 700L458 409L198 409L198 700Z"/></g><g transform="translate(1531.21 743.33) scale(1)"><path fill="#e8ecf1" d="M196 0L70 0L70-700L196-700L196-435L214-435Q222-451 239-467Q256-483 284.50-493.50Q313-504 357-504L357-504Q415-504 458.50-477.50Q502-451 526-404.50Q550-358 550-296L550-296L550 0L424 0L424-286Q424-342 396.50-370Q369-398 318-398L318-398Q260-398 228-359.50Q196-321 196-252L196-252L196 0ZM894 14L894 14Q820 14 763.50-17.50Q707-49 675.50-106.50Q644-164 644-242L644-242L644-254Q644-332 675-389.50Q706-447 762-478.50Q818-510 892-510L892-510Q965-510 1019-477.50Q1073-445 1103-387.50Q1133-330 1133-254L1133-254L1133-211L772-211Q774-160 810-128Q846-96 898-96L898-96Q951-96 976-119Q1001-142 1014-170L1014-170L1117-116Q1103-90 1076.50-59.50Q1050-29 1006-7.50Q962 14 894 14ZM773-305L773-305L1005-305Q1001-348 970.50-374Q940-400 891-400L891-400Q840-400 810-374Q780-348 773-305ZM1353 0L1227 0L1227-700L1353-700L1353 0ZM1601 0L1475 0L1475-700L1601-700L1601 0ZM2089 200L1777 200L1777 90L2047 90Q2075 90 2075 60L2075 60L2075-65L2057-65Q2049-48 2032-31Q2015-14 1986-3Q1957 8 1912 8L1912 8Q1854 8 1810.50-18.50Q1767-45 1743-92Q1719-139 1719-200L1719-200L1719-496L1845-496L1845-210Q1845-154 1872.50-126Q1900-98 1951-98L1951-98Q2009-98 2041-136.50Q2073-175 2073-244L2073-244L2073-496L2199-496L2199 88Q2199 139 2169 169.50Q2139 200 2089 200L2089 200ZM2527 14L2527 14Q2430 14 2368-28Q2306-70 2293-148L2293-148L2409-178Q2416-143 2432.50-123Q2449-103 2473.50-94.50Q2498-86 2527-86L2527-86Q2571-86 2592-101.50Q2613-117 2613-140L2613-140Q2613-163 2593-175.50Q2573-188 2529-196L2529-196L2501-201Q2449-211 2406-228.50Q2363-246 2337-277Q2311-308 2311-357L2311-357Q2311-431 2365-470.50Q2419-510 2507-510L2507-510Q2590-510 2645-473Q2700-436 2717-376L2717-376L2600-340Q2592-378 2567.50-394Q2543-410 2507-410L2507-410Q2471-410 2452-397.50Q2433-385 2433-363L2433-363Q2433-339 2453-327.50Q2473-316 2507-310L2507-310L2535-305Q2591-295 2636.50-278.50Q2682-262 2708.50-231.50Q2735-201 2735-149L2735-149Q2735-71 2678.50-28.50Q2622 14 2527 14Z"/><path fill="#ff8a3d" d="M2907 14L2907 14Q2866 14 2838.50-12.50Q2811-39 2811-81L2811-81Q2811-123 2838.50-149.50Q2866-176 2907-176L2907-176Q2947-176 2974-149.50Q3001-123 3001-81L3001-81Q3001-39 2974-12.50Q2947 14 2907 14Z"/></g></svg>
+    <p><b>Este site é um projeto autoral da hellys.</b> A Bigorna Smash Burger não existe: nome, números, endereço e telefone são fictícios. Quer o site da sua hamburgueria assim, com pedido montado direto no WhatsApp funcionando de verdade?</p>
+  </div>
+  <div class="hl-made-acts">
+    <a class="hl-cta" href="https://wa.me/5511994032102?text=Oi%2C%20vi%20o%20modelo%20de%20site%20para%20hamburguerias%20no%20portf%C3%B3lio%20da%20hellys%20e%20quero%20um%20assim." target="_blank" rel="noopener">Falar com a hellys <svg class="hl-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a class="hl-more" href="https://hellys.dev.br/#projeto-modelos">Ver os outros modelos</a>
+  </div>
+</div>
+<!--/hellys:made-->
+  </div>
+</footer>
+
+<button class="bt bt-paper skip" type="button" id="skip-intro">Pular abertura</button>
+<!--hellys:toast-->
+<div class="hl-toast" id="hl-toast" role="status" aria-live="polite">
+  <p><b>Isto é um modelo.</b> <span data-hl-msg>No site real, este botão abre o WhatsApp da hamburgueria já com o pedido montado.</span> <a href="https://wa.me/5511994032102?text=Oi%2C%20vi%20o%20modelo%20de%20site%20para%20hamburguerias%20no%20portf%C3%B3lio%20da%20hellys%20e%20quero%20um%20assim." target="_blank" rel="noopener">Quero um site assim <svg class="hl-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+  <button type="button" id="hl-toast-x" aria-label="Fechar aviso"><svg class="hl-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+</div>
+<script>
+(function(){
+  var t = document.getElementById('hl-toast'); if (!t) return;
+  var msg = t.querySelector('[data-hl-msg]'), def = msg.innerHTML, tm;
+  window.hellysNote = function(text){ msg.innerHTML = text || def; t.classList.add('show'); clearTimeout(tm); tm = setTimeout(function(){ t.classList.remove('show'); }, 9000); };
+  document.addEventListener('click', function(e){
+    var b = e.target.closest && e.target.closest('[data-demo]');
+    if (b){ e.preventDefault(); window.hellysNote(b.getAttribute('data-demo')); }
+  });
+  document.getElementById('hl-toast-x').addEventListener('click', function(){ t.classList.remove('show'); });
+})();
+</script>
+<!--/hellys:toast-->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  var root = document.documentElement; root.classList.remove('no-js');
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasG = typeof window.gsap !== 'undefined';
+  function $(id){ return document.getElementById(id); }
+  function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]; }); }
+
+  // ---------- opções do montador ----------
+  var G = [
+    { k: 'pao', t: 'Pão', one: true, o: [['brioche', 'Brioche'], ['batata', 'Pão de batata'], ['australiano', 'Australiano']] },
+    { k: 'molho', t: 'Molho', one: true, o: [['casa', 'Molho da casa'], ['barbecue', 'Barbecue'], ['verde', 'Maionese verde'], ['sem', 'Sem molho']] },
+    { k: 'extras', t: 'Extras', sub: 'quantos quiser', o: [['bacon', 'Bacon'], ['cebola', 'Cebola caramelizada'], ['picles', 'Picles'], ['ovo', 'Ovo'], ['jalapeno', 'Jalapeño']] },
+    { k: 'queijo', t: 'Queijo', one: true, o: [['cheddar', 'Cheddar'], ['prato', 'Prato'], ['sem', 'Sem queijo']] },
+    { k: 'carne', t: 'Carne smash', one: true, sub: '90 g cada', o: [['1', 'Uma'], ['2', 'Duas'], ['3', 'Três']] }
+  ];
+  var st = { pao: 'brioche', molho: 'casa', extras: ['cebola'], queijo: 'cheddar', carne: '2', qty: 1, rec: 'Entrega' };
+  function label(k, v){ var g = G.filter(function(x){ return x.k === k; })[0]; var o = g.o.filter(function(x){ return x[0] === v; })[0]; return o ? o[1] : v; }
+
+  function renderChoose(){
+    $('choose').innerHTML = G.map(function(g){
+      return '<div class="grp"><h3>' + g.t + (g.sub ? '<small>' + g.sub + '</small>' : '') + '</h3><div class="opts" role="group" aria-label="' + g.t + '">' + g.o.map(function(o){
+        var on = g.one ? st[g.k] === o[0] : st[g.k].indexOf(o[0]) > -1;
+        return '<button class="op" type="button" data-k="' + g.k + '" data-v="' + o[0] + '" aria-pressed="' + on + '">' + o[1] + '</button>';
+      }).join('') + '</div></div>';
+    }).join('');
+  }
+  $('choose').addEventListener('click', function(e){
+    var b = e.target.closest('[data-k]'); if (!b) return;
+    var g = G.filter(function(x){ return x.k === b.dataset.k; })[0], v = b.dataset.v, added = null;
+    if (g.one){ if (st[g.k] === v) return; st[g.k] = v; added = g.k; }
+    else { var i = st.extras.indexOf(v); if (i > -1) st.extras.splice(i, 1); else { st.extras.push(v); added = 'x-' + v; } }
+    renderChoose(); drawStack(added); writeOrder();
+    var nb = $('choose').querySelector('[data-k="' + b.dataset.k + '"][data-v="' + v + '"]'); if (nb) nb.focus({ preventScroll: true });
+  });
+
+  // ---------- a pilha desenhada: lida de cima pra baixo, como a gravidade ----------
+  var S = 'stroke="#15120f" stroke-width="4" stroke-linejoin="round"';
+  var L = {
+    paoBase: function(w){ return { h: 30, d: '<rect x="' + (160 - w / 2) + '" y="0" width="' + w + '" height="28" rx="13" fill="#fbf8f1" ' + S + '/>' }; },
+    carne: function(){ return { h: 22, d: '<path d="M54 4q106-10 212 0q6 9 0 16q-106 8-212 0q-6-7 0-16z" fill="#15120f"/><path d="M72 9q30-4 60-2" stroke="#fbf8f1" stroke-width="3" fill="none" stroke-linecap="round"/>' }; },
+    cheddar: function(){ return { h: 9, d: '<path d="M66 2h188v6l-10 0-6 14-7-14h-46l-5 10-6-10h-60l-7 16-7-16h-34z" fill="#f4b223" ' + S + '/>' }; },
+    prato: function(){ return { h: 9, d: '<path d="M66 2h188v6l-12 0-5 10-6-10h-80l-6 12-6-12h-58l-5 9-5-9h-5z" fill="#fff3d1" ' + S + '/>' }; },
+    bacon: function(){ return { h: 12, d: '<path d="M64 6q16-9 32 0t32 0 32 0 32 0 32 0 32 0v6q-16-9-32 0t-32 0-32 0-32 0-32 0-32 0z" fill="#fbf8f1" ' + S + '/><path d="M70 8q14-6 28 0t28 0 28 0 28 0 28 0 28 0" fill="none" stroke="#15120f" stroke-width="2.2"/>' }; },
+    cebola: function(){ return { h: 10, d: '<path d="M70 6q10-8 20 0t20 0 20 0 20 0 20 0 20 0 20 0 20 0 20 0" fill="none" stroke="#15120f" stroke-width="4" stroke-linecap="round"/><path d="M80 9q10-6 20 0t20 0 20 0 20 0 20 0 20 0 20 0 20 0" fill="none" stroke="#8b8172" stroke-width="3" stroke-linecap="round"/>' }; },
+    picles: function(){ var s = ''; [92, 136, 182, 226].forEach(function(x){ s += '<ellipse cx="' + x + '" cy="5" rx="17" ry="6" fill="#fbf8f1" ' + S + '/><ellipse cx="' + x + '" cy="5" rx="8" ry="2.6" fill="none" stroke="#15120f" stroke-width="2"/>'; }); return { h: 11, d: s }; },
+    ovo: function(){ return { h: 16, d: '<path d="M70 10q10-12 40-9 30-6 60 0 34-4 72 2 12 6 2 12-60 6-120 4-46 2-54-9z" fill="#fff" ' + S + '/><ellipse cx="172" cy="7" rx="20" ry="7" fill="#f4b223" ' + S + '/>' }; },
+    jalapeno: function(){ var s = ''; [96, 140, 184, 228].forEach(function(x){ s += '<ellipse cx="' + x + '" cy="5" rx="13" ry="5" fill="#cfc9bd" ' + S + '/><circle cx="' + (x - 3) + '" cy="5" r="1.6" fill="#15120f"/><circle cx="' + (x + 4) + '" cy="4" r="1.6" fill="#15120f"/>'; }); return { h: 10, d: s }; },
+    molho: function(v){ var c = v === 'barbecue' ? '#5a4a3a' : (v === 'verde' ? '#9fae8b' : '#e9d3a8'); return { h: 8, d: '<path d="M62 2h196v4h-14l-4 9-4-9h-70l-4 7-4-7h-50l-4 10-4-10h-34z" fill="' + c + '" ' + S + '/>' }; },
+    paoTopo: function(v){ var seeds = ''; if (v !== 'batata') [[110, -42], [140, -50], [170, -52], [200, -48], [228, -38], [126, -28], [186, -32], [154, -36]].forEach(function(p){ seeds += '<ellipse cx="' + p[0] + '" cy="' + (p[1] + 70) + '" rx="4.5" ry="2.4" fill="#15120f" transform="rotate(-20 ' + p[0] + ' ' + (p[1] + 70) + ')"/>'; });
+      var fill = v === 'australiano' ? '#5a4a3a' : '#fbf8f1'; if (v === 'australiano') seeds = seeds.replace(/#15120f/g, '#fbf8f1');
+      return { h: 74, d: '<path d="M54 72q-6-62 106-70 112 8 106 70z" fill="' + fill + '" ' + S + '/><path d="M86 30q20-16 46-18" fill="none" stroke="' + (v === 'australiano' ? '#cfc9bd' : '#15120f') + '" stroke-width="3" stroke-linecap="round" opacity=".6"/>' + seeds }; }
+  };
+  function layers(){
+    var out = [], n = +st.carne;
+    out.push({ id: 'pao', g: L.paoBase(206) });
+    for (var i = 0; i < n; i++){ out.push({ id: 'carne', g: L.carne() }); if (st.queijo !== 'sem') out.push({ id: 'queijo', g: L[st.queijo]() }); }
+    ['bacon', 'ovo', 'cebola', 'picles', 'jalapeno'].forEach(function(x){ if (st.extras.indexOf(x) > -1) out.push({ id: 'x-' + x, g: L[x]() }); });
+    if (st.molho !== 'sem') out.push({ id: 'molho', g: L.molho(st.molho) });
+    out.push({ id: 'pao', g: L.paoTopo(st.pao) });
+    return out;
+  }
+  function drawStack(added){
+    var ls = layers(), y = 370, html = '<ellipse cx="160" cy="372" rx="138" ry="8" fill="#cfc9bd"/>';
+    ls.forEach(function(l, i){ y -= l.g.h; html += '<g class="ly" data-id="' + l.id + '" data-i="' + i + '" transform="translate(0 ' + y + ')"><g class="in">' + l.g.d + '</g></g>'; });
+    $('stack').innerHTML = html;
+    if (added && hasG && !reduce){
+      var hits = $('stack').querySelectorAll('[data-id="' + added + '"]');
+      var el = hits[hits.length - 1]; if (added === 'carne' || added === 'pao') el = null;
+      var targets = el ? [el] : (added === 'carne' ? Array.prototype.slice.call($('stack').querySelectorAll('[data-id="carne"],[data-id="queijo"]')) : [$('stack').querySelector('.ly:last-child')]);
+      targets.forEach(function(t){ gsap.fromTo(t.querySelector('.in'), { y: -140, opacity: 0 }, { y: 0, opacity: 1, duration: .45, ease: 'bounce.out' }); });
+    }
+  }
+
+  // ---------- pedido escrito ----------
+  function itemText(){
+    var n = { '1': '1 carne', '2': '2 carnes', '3': '3 carnes' }[st.carne];
+    var parts = [label('pao', st.pao).toLowerCase(), n + ' smash'];
+    if (st.queijo !== 'sem') parts.push(label('queijo', st.queijo).toLowerCase());
+    st.extras.forEach(function(x){ parts.push(label('extras', x).toLowerCase()); });
+    if (st.molho !== 'sem') parts.push(label('molho', st.molho).toLowerCase());
+    return parts.join(', ');
+  }
+  function writeOrder(){
+    $('order-txt').textContent = st.qty + 'x Smash montado: ' + itemText() + '.';
+    $('q').textContent = st.qty;
+  }
+  $('q-').addEventListener('click', function(){ if (st.qty > 1){ st.qty--; writeOrder(); } });
+  $('q+').addEventListener('click', function(){ if (st.qty < 9){ st.qty++; writeOrder(); } });
+  document.querySelector('.seg').addEventListener('click', function(e){ var b = e.target.closest('[data-rec]'); if (!b) return; st.rec = b.dataset.rec; this.querySelectorAll('[data-rec]').forEach(function(x){ x.setAttribute('aria-pressed', x === b); }); });
+  $('send').addEventListener('click', function(){
+    var obs = $('obs').value.trim();
+    var txt = 'Olá! Quero pedir:\n' + st.qty + 'x Smash montado: ' + itemText() + (obs ? '\nObs.: ' + obs : '') + '\n' + st.rec;
+    window.hellysNote && setTimeout(function(){ window.hellysNote('No site real, isto abre o WhatsApp da hamburgueria com a mensagem: <em>“' + esc(txt).replace(/\n/g, ' · ') + '”</em>'); }, 0);
+  });
+
+  // ---------- cardápio ----------
+  var M = [
+    { n: 'O Bigorna', s: 'a da casa', d: 'Duas carnes smash, cheddar duplo, cebola caramelizada e molho da casa no brioche.', set: { pao: 'brioche', carne: '2', queijo: 'cheddar', extras: ['cebola'], molho: 'casa' } },
+    { n: 'Martelinho', s: 'pra começar', d: 'Uma carne smash, cheddar e picles no pão de batata.', set: { pao: 'batata', carne: '1', queijo: 'cheddar', extras: ['picles'], molho: 'sem' } },
+    { n: 'Marreta', s: 'o mais pesado', d: 'Três carnes smash, cheddar, bacon e barbecue no australiano.', set: { pao: 'australiano', carne: '3', queijo: 'cheddar', extras: ['bacon'], molho: 'barbecue' } },
+    { n: 'Faísca', s: 'com pimenta', d: 'Duas carnes smash, queijo prato, jalapeño e maionese verde.', set: { pao: 'brioche', carne: '2', queijo: 'prato', extras: ['jalapeno'], molho: 'verde' } },
+    { n: 'Ferradura', s: 'com ovo', d: 'Duas carnes smash, cheddar, bacon e ovo no brioche.', set: { pao: 'brioche', carne: '2', queijo: 'cheddar', extras: ['bacon', 'ovo'], molho: 'casa' } },
+    { n: 'Forja', s: 'leve', d: 'Uma carne smash, queijo prato, picles e cebola no pão de batata, sem molho.', set: { pao: 'batata', carne: '1', queijo: 'prato', extras: ['picles', 'cebola'], molho: 'sem' } }
+  ];
+  $('menu').innerHTML = M.map(function(m, i){
+    return '<li class="card"><div><span class="orn" aria-hidden="true"></span><h3>' + m.n + '</h3><p class="sub">' + m.s + '</p><p>' + m.d + '</p><button class="bt" type="button" data-m="' + i + '">Montar este</button></div></li>';
+  }).join('');
+  $('menu').addEventListener('click', function(e){
+    var b = e.target.closest('[data-m]'); if (!b) return;
+    var s = M[+b.dataset.m].set;
+    st.pao = s.pao; st.carne = s.carne; st.queijo = s.queijo; st.extras = s.extras.slice(); st.molho = s.molho;
+    renderChoose(); drawStack(null); writeOrder();
+    $('montar').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    if (hasG && !reduce) setTimeout(function(){ gsap.fromTo('#stack .ly > .in', { y: -160, opacity: 0 }, { y: 0, opacity: 1, duration: .5, ease: 'bounce.out', stagger: .08 }); }, 450);
+  });
+
+  // botões amassam também no toque por teclado
+  document.addEventListener('keydown', function(e){ if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('bt')){ e.target.classList.remove('squash'); void e.target.offsetWidth; e.target.classList.add('squash'); } });
+
+  renderChoose(); drawStack(null); writeOrder();
+
+  if (!hasG || reduce) return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  // ---------- cada cena abre em íris ----------
+  gsap.utils.toArray('.iris').forEach(function(el){
+    gsap.fromTo(el, { clipPath: 'circle(0% at 50% 30%)' }, { clipPath: 'circle(150% at 50% 30%)', duration: 1.1, ease: 'power2.in', scrollTrigger: { trigger: el, start: 'top 82%', once: true } });
+  });
+
+  // ---------- abertura: a íris abre no cartão de título ----------
+  var played = false; try { played = sessionStorage.getItem('bigorna-intro') && !/[?&]intro=1/.test(location.search); } catch(e){}
+  if (played) return;
+  root.classList.add('intro');
+  var guard;
+  var tl = gsap.timeline({ paused: true, onComplete: done });
+  function done(){ clearTimeout(guard); root.classList.remove('intro'); try { sessionStorage.setItem('bigorna-intro', '1'); } catch(e){} gsap.set(['#oval', '#t-arc', '#ribbon', '.tagline > *'], { clearProps: 'all' }); }
+  tl.fromTo('#oval', { clipPath: 'circle(0% at 50% 50%)' }, { clipPath: 'circle(75% at 50% 50%)', duration: .9, ease: 'power2.in' }, 0)
+    .fromTo('#scene text.t-arc, #scene text.t-arc-sh', { scale: 0, transformOrigin: '50% 100%' }, { scale: 1, duration: .6, ease: 'back.out(2.4)' }, .7)
+    .fromTo('#ribbon', { scaleX: 0, transformOrigin: '50% 50%' }, { scaleX: 1, duration: .45, ease: 'back.out(2)' }, 1.1)
+    .fromTo('.tagline > *', { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: .45, stagger: .1, ease: 'back.out(1.8)' }, 1.4)
+    .add(function(){ root.classList.remove('intro'); }, 1.9)
+    .from('.nav, .hl-bar', { y: -16, autoAlpha: 0, duration: .4 }, 1.9);
+  var skip = function(){ if (tl.progress() < 1) tl.progress(1); };
+  $('skip-intro').addEventListener('click', skip);
+  addEventListener('keydown', skip, { once: true });
+  addEventListener('wheel', skip, { once: true, passive: true });
+  addEventListener('touchstart', skip, { once: true, passive: true });
+  var arm = function(){ clearTimeout(guard); if (document.visibilityState === 'visible' && tl.progress() < 1) guard = setTimeout(skip, 5200); };
+  document.addEventListener('visibilitychange', arm); arm();
+  tl.play();
+})();
+</script>
+</body>
+</html>

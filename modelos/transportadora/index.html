@@ -1,0 +1,838 @@
+<!doctype html>
+<html lang="pt-BR" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prumo Cargas — modelo de site para transportadoras · hellys.</title>
+<meta name="description" content="Modelo de site para transportadoras feito pela hellys.: cotação em 3 campos, rastreio ao vivo e WhatsApp. A Prumo Cargas é uma empresa fictícia.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#c79c6b">
+<meta property="og:title" content="Prumo Cargas — modelo de site para transportadoras">
+<meta property="og:description" content="Cotação em 3 campos, rastreio ao vivo e WhatsApp. Modelo feito pela hellys. (empresa fictícia).">
+<!--hellys:meta-->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="hellys.">
+<meta property="og:url" content="https://hellys.dev.br/modelos/transportadora/">
+<meta property="og:image" content="https://hellys.dev.br/modelos/transportadora/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Etiqueta de carga da Prumo Cargas com o título Sua carga no prumo.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://hellys.dev.br/modelos/transportadora/">
+<!--/hellys:meta-->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23c79c6b'/%3E%3Crect x='6' y='8' width='20' height='16' rx='2' fill='%23fbfaf5'/%3E%3Crect x='9' y='12' width='14' height='2' fill='%23141414'/%3E%3Crect x='9' y='17' width='3' height='4' fill='%23141414'/%3E%3Crect x='13' y='17' width='1.5' height='4' fill='%23141414'/%3E%3Crect x='16' y='17' width='3' height='4' fill='%23141414'/%3E%3Crect x='20' y='17' width='1.5' height='4' fill='%23141414'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Big+Shoulders+Stencil:opsz,wght@10..72,700..900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<!--hellys:css-->
+<style id="hl-layer">
+.hl-bar{position:relative;z-index:60;background:#10141a;color:#e8ecf1;font:500 13.5px/1.3 var(--hl-font,system-ui,sans-serif)}
+.hl-bar-in{max-width:var(--hl-wrap,1200px);margin:0 auto;padding:6px var(--hl-pad,clamp(16px,4.2vw,48px));display:flex;align-items:center;gap:14px;min-height:42px}
+.hl-logo-link{display:inline-flex;align-items:center;border-radius:3px;flex:0 0 auto}
+.hl-logo{height:16px;width:auto;display:block}
+.hl-bar p{flex:1 1 auto;color:#b9c4d1;margin:0}
+.hl-bar p b{color:#e8ecf1;font-weight:700}
+.hl-more{color:#e8ecf1;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(232,236,241,.4);white-space:nowrap}
+.hl-more:hover{text-decoration-color:#ff8a3d}
+.hl-cta{display:inline-flex;align-items:center;gap:8px;background:#ff8a3d;color:#10141a;font-weight:700;text-decoration:none;padding:7px 12px;border-radius:4px;white-space:nowrap;line-height:1.2}
+.hl-cta:hover{background:#ffa463}
+.hl-ico{width:1.1em;height:1.1em;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.hl-bar :focus-visible,.hl-made :focus-visible,.hl-toast :focus-visible{outline:2px solid #ff8a3d;outline-offset:2px}
+@media (max-width:860px){.hl-long,.hl-bar .hl-more{display:none}}
+@media (max-width:600px){.hl-mid,.hl-of{display:none}.hl-bar-in{gap:10px}.hl-bar p{font-size:12.5px}.hl-logo{height:13px}.hl-cta{padding:6px 9px;font-size:12.5px}.hl-bar .hl-cta .hl-ico{display:none}}
+.hl-made{background:#10141a;color:#e8ecf1;border-radius:8px;padding:clamp(22px,4vw,34px);display:grid;grid-template-columns:1fr auto;gap:18px 28px;align-items:center;font:400 15.5px/1.55 var(--hl-font,system-ui,sans-serif);text-align:left;letter-spacing:normal;text-transform:none}
+.hl-made p{color:#b9c4d1;max-width:62ch;margin:0}
+.hl-made p b{color:#e8ecf1}
+.hl-made .hl-logo{height:22px;margin-bottom:12px}
+.hl-made-acts{display:flex;flex-direction:column;gap:12px;align-items:stretch}
+.hl-made .hl-cta{justify-content:center;padding:11px 16px;font-size:15px}
+.hl-made .hl-more{text-align:center;font-size:14.5px}
+@media (max-width:760px){.hl-made{grid-template-columns:1fr}}
+.hl-toast{position:fixed;left:50%;bottom:18px;z-index:2000;width:min(560px,calc(100vw - 24px));transform:translate(-50%,160%);visibility:hidden;transition:transform .5s cubic-bezier(.16,1,.3,1),visibility 0s .5s;background:#10141a;color:#e8ecf1;border-radius:8px;padding:16px 18px;box-shadow:0 24px 40px -18px rgba(0,0,0,.6);display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start;font:400 15px/1.5 var(--hl-font,system-ui,sans-serif);text-align:left;letter-spacing:normal;text-transform:none}
+.hl-toast.show{transform:translate(-50%,0);visibility:visible;transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.hl-toast p{color:#c7d0db;margin:0}
+.hl-toast p b{color:#e8ecf1}
+.hl-toast a{color:#ff8a3d;font-weight:700;white-space:nowrap}
+.hl-toast a .hl-ico{display:inline;vertical-align:-.2em}
+.hl-toast button{background:none;border:0;color:#9aa6b4;cursor:pointer;padding:4px;display:grid}
+.hl-toast button .hl-ico{width:22px;height:22px}
+@media (prefers-reduced-motion:reduce){.hl-toast,.hl-toast.show{transition:none}}
+</style>
+<!--/hellys:css-->
+<style>
+:root{
+  --kraft:#c79c6b; --kraft-lt:#d8b386; --kraft-dk:#a87c4b; --kraft-ink:#3d2f20; --kraft-ink-2:#5a4530;
+  --paper:#fbfaf5; --paper-2:#f1eee4; --ink:#141414; --ink-2:#55524a; --rule:1.5px;
+  --signal:#ff4a1c; --signal-dk:#e23c10; --stamp-red:#b8262a; --stamp-blue:#1d4699; --stamp-green:#1f7a4d;
+  --tape:rgba(232,214,176,.62); --graphite:#10141a; --nevoa:#e8ecf1; --hl:#ff8a3d;
+  --wrap:1200px; --pad:clamp(16px,4.2vw,48px);
+  --ease:cubic-bezier(.16,1,.3,1);
+  --f-sans:"Archivo",system-ui,sans-serif; --f-stencil:"Big Shoulders Stencil","Archivo",sans-serif; --f-mono:"JetBrains Mono",ui-monospace,monospace;
+  --hl-font:"Archivo",system-ui,sans-serif; --hl-wrap:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{font:400 17px/1.55 var(--f-sans);color:var(--ink);background:var(--kraft);overflow-x:hidden;
+  /* papelão ondulado: as caneluras verticais e a variação de tom do kraft */
+  background-image:
+    radial-gradient(120% 80% at 50% 0%,rgba(255,236,200,.22),transparent 60%),
+    repeating-linear-gradient(90deg,rgba(80,50,20,.045) 0 1px,transparent 1px 7px,rgba(255,240,210,.05) 7px 8px,transparent 8px 13px);
+  caret-color:var(--signal)}
+::selection{background:var(--signal);color:var(--ink)}
+:focus-visible{outline:2.5px solid var(--ink);outline-offset:3px;border-radius:3px}
+html{scrollbar-color:var(--kraft-dk) var(--kraft-lt)}
+::-webkit-scrollbar{width:12px;height:12px}::-webkit-scrollbar-track{background:var(--kraft-lt)}::-webkit-scrollbar-thumb{background:var(--kraft-dk);border:3px solid var(--kraft-lt);border-radius:8px}
+a{color:inherit;text-underline-offset:.2em;text-decoration-thickness:1.5px}
+img,svg{display:block}
+button,input,select{font:inherit;color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:12px;top:-60px;z-index:200;background:var(--ink);color:var(--paper);padding:10px 14px;border-radius:4px;font-weight:700}
+.skip:focus{top:12px}
+.mono{font-family:var(--f-mono)}
+.ico{width:1.15em;height:1.15em;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+
+/* ---------- faixa da hellys. (camada do modelo) ---------- */
+
+/* ---------- navegação da Prumo ---------- */
+.nav{position:sticky;top:0;z-index:50;background:rgba(199,156,107,.86);backdrop-filter:saturate(1.2) blur(8px);-webkit-backdrop-filter:saturate(1.2) blur(8px);border-bottom:1px solid rgba(61,47,32,.18)}
+.nav .wrap{display:flex;align-items:center;gap:24px;height:64px}
+.brand{display:flex;align-items:baseline;gap:8px;text-decoration:none;color:var(--ink)}
+.brand b{font:900 30px/1 var(--f-stencil);letter-spacing:.02em}
+.brand span{font:700 11px/1 var(--f-mono);letter-spacing:.14em;color:var(--kraft-ink)}
+.nav ul{display:flex;gap:22px;list-style:none;margin-left:auto}
+.nav ul a{text-decoration:none;font-weight:600;font-size:15px;color:var(--kraft-ink)}
+.nav ul a:hover{color:var(--ink);text-decoration:underline}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;cursor:pointer;text-decoration:none;font:800 16px/1 var(--f-sans);font-stretch:85%;letter-spacing:.01em;text-transform:uppercase;padding:15px 20px;border-radius:4px;transition:transform .25s var(--ease),box-shadow .25s var(--ease),background-color .2s}
+.btn-go{--z:8px;border-radius:0;padding-left:28px;padding-right:28px;color:var(--ink);transform:rotate(-1.4deg);
+  background:linear-gradient(100deg,transparent 0 28%,rgba(255,255,255,.26) 40%,transparent 54%),var(--signal);
+  -webkit-mask:conic-gradient(from 45deg at left,#0000,#000 1deg 89deg,#0000 90deg) 0 0/51% var(--z) repeat-y,conic-gradient(from -135deg at right,#0000,#000 1deg 89deg,#0000 90deg) 100% 0/51% var(--z) repeat-y;
+  mask:conic-gradient(from 45deg at left,#0000,#000 1deg 89deg,#0000 90deg) 0 0/51% var(--z) repeat-y,conic-gradient(from -135deg at right,#0000,#000 1deg 89deg,#0000 90deg) 100% 0/51% var(--z) repeat-y}
+.btn-go:hover{background:linear-gradient(100deg,transparent 0 28%,rgba(255,255,255,.3) 40%,transparent 54%),#ff6236;transform:rotate(0) translateY(-2px)}
+.btn-go:active{transform:rotate(0) translateY(0)}
+.btn-go[disabled]{transform:none}
+.nav .btn-go,.step .btn-go{transform:none}
+.btn-line{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 var(--rule) var(--ink)}
+.btn-line:hover{background:rgba(20,20,20,.06)}
+.btn[disabled]{opacity:.38;cursor:not-allowed;transform:none;box-shadow:none}
+.nav .btn{padding:11px 14px;font-size:14px}
+@media (max-width:860px){.nav ul{display:none}.nav .btn{margin-left:auto}}
+
+/* ---------- abertura: a impressora térmica ---------- */
+.printer{position:fixed;left:50%;top:18px;z-index:120;width:min(520px,86vw);transform:translateX(-50%);pointer-events:none;opacity:0}
+.printer-body{height:54px;border-radius:14px 14px 10px 10px;background:linear-gradient(#262626,#141414);box-shadow:0 18px 30px -16px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.08);display:flex;align-items:center;justify-content:space-between;padding:0 18px;color:#9a968c;font:500 11px var(--f-mono);letter-spacing:.12em}
+.printer-body i{width:8px;height:8px;border-radius:50%;background:#33d17a;box-shadow:0 0 10px #33d17a}
+.printer-slot{height:8px;margin:0 22px;border-radius:0 0 6px 6px;background:#050505}
+.intro-skip{position:fixed;right:18px;bottom:18px;z-index:130;display:none}
+html.intro .intro-skip{display:inline-flex}
+
+/* ---------- herói: a caixa e a etiqueta ---------- */
+.hero{position:relative;overflow:hidden;padding:clamp(28px,6vh,72px) 0 clamp(56px,9vh,110px)}
+.hero::before{content:"";position:absolute;left:0;right:0;top:0;height:clamp(18px,3vh,30px);background:linear-gradient(var(--kraft-dk),rgba(168,124,75,0));opacity:.55}
+.box-mark{position:absolute;font:900 clamp(18px,2.2vw,30px)/1 var(--f-stencil);letter-spacing:.08em;color:var(--kraft-ink);opacity:.72;mix-blend-mode:multiply;display:flex;align-items:center;gap:10px;user-select:none}
+.box-mark.up{right:clamp(6px,1.4vw,22px);top:50%;writing-mode:vertical-rl;transform:translateY(-50%) rotate(180deg);font-size:clamp(16px,1.6vw,24px)}
+.box-mark.up svg{transform:rotate(90deg)}
+.box-mark.fragil{left:calc(var(--pad) - 6px);bottom:clamp(18px,4vh,40px);color:#7f171b;transform:rotate(-4deg);font-size:clamp(28px,4vw,54px);opacity:.62}
+.box-mark svg{width:1.3em;height:1.3em;stroke:currentColor;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:1100px){.box-mark.up{display:none}}
+
+.label{position:relative;background:var(--paper);color:var(--ink);border-radius:5px;box-shadow:0 2px 0 rgba(0,0,0,.05),0 28px 50px -26px rgba(70,40,10,.75),0 10px 18px -12px rgba(70,40,10,.4);transform:rotate(-1.1deg);transform-origin:50% 0}
+.hero .label{max-width:1000px;margin:0 auto}
+.tape{position:absolute;width:150px;height:34px;background:var(--tape);box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 2px 6px -3px rgba(60,35,10,.35);backdrop-filter:blur(.5px);z-index:2}
+.tape::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.28) 46%,transparent 60%)}
+.tape.tl{left:-40px;top:16px;transform:rotate(-38deg)}
+.tape.br{right:-48px;bottom:-14px;transform:rotate(-38deg)}
+.lb-row{border-top:var(--rule) solid var(--ink)}
+.lb-row:first-child{border-top:0}
+.lb-top{display:grid;grid-template-columns:1fr auto;align-items:stretch}
+.lb-top .who{padding:16px 22px;display:flex;flex-direction:column;justify-content:center;gap:6px}
+.lb-top .who b{font:900 clamp(30px,4vw,46px)/.9 var(--f-stencil);letter-spacing:.03em}
+.lb-top .who span{font:500 11.5px/1.3 var(--f-mono);letter-spacing:.12em;color:var(--ink-2)}
+.sort{background:var(--ink);color:var(--paper);display:flex;flex-direction:column;justify-content:center;align-items:flex-end;padding:12px 22px;min-width:150px}
+.sort small{font:500 11.5px var(--f-mono);letter-spacing:.12em;opacity:.78}
+.sort strong{font:900 clamp(34px,4.6vw,56px)/.95 var(--f-sans);font-stretch:70%;letter-spacing:-.01em}
+.lb-head{padding:18px 22px 22px;overflow:hidden;container-type:inline-size}
+.lb-head h1{font:900 clamp(3.25rem,10.2vw,8.6rem)/.84 var(--f-sans);font-size:11.95cqi;font-stretch:66%;letter-spacing:-.025em;text-transform:uppercase;white-space:nowrap}
+.lb-head h1 span{display:inline}.lb-head h1 span+span{margin-left:.24em}
+@media (max-width:860px){.lb-head h1{font-size:24.5cqi}.lb-head h1 span{display:block}.lb-head h1 span+span{margin-left:0}}
+.lb-head h1 .o{color:#e2390b}
+.lb-head p{margin-top:14px;max-width:46ch;font-size:clamp(16px,1.6vw,19px);color:#2c2a25}
+.lb-fields{display:grid;grid-template-columns:repeat(3,1fr)}
+.fld{padding:12px 22px 14px;border-left:var(--rule) solid var(--ink)}
+.fld:first-child{border-left:0}
+.fld small{display:block;font:500 11.5px/1.2 var(--f-mono);letter-spacing:.12em;color:var(--ink-2);margin-bottom:6px;text-transform:uppercase}
+.fld b{font:800 clamp(16px,1.7vw,20px)/1.2 var(--f-sans);font-stretch:85%}
+.lb-foot{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;padding:16px 22px 20px}
+.bars{display:flex;flex-direction:column;gap:6px}
+.bars svg{height:58px;width:auto}
+.bars span{font:700 12.5px var(--f-mono);letter-spacing:.2em}
+.picto{display:flex;gap:10px;justify-content:center}
+.picto svg{width:40px;height:40px;stroke:var(--ink);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;border:var(--rule) solid var(--ink);padding:5px;border-radius:2px}
+.ctas{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+.foot-note{font:500 12.5px var(--f-mono);color:var(--kraft-ink);text-align:right;max-width:1000px;margin:18px auto 0;letter-spacing:.04em}
+@media (max-width:860px){.foot-note{text-align:center}}
+@media (max-width:860px){
+  .lb-fields{grid-template-columns:1fr}.fld{border-left:0;border-top:var(--rule) solid var(--ink)}.fld:first-child{border-top:0}
+  .lb-foot{grid-template-columns:1fr;justify-items:start}.picto{justify-content:flex-start}.ctas{justify-content:stretch;width:100%}.ctas .btn{flex:1 1 auto}
+  .label{transform:rotate(-.6deg)}.tape{width:96px;height:26px}.tape.tl{left:-34px;top:-6px}.tape.br{right:-30px;bottom:6px}
+  .foot-note{margin-top:26px}.hero{padding-bottom:84px}.sec{padding:64px 0}
+}
+@media (max-width:520px){.sort{min-width:0;padding:10px 14px}.lb-top .who,.lb-head,.fld,.lb-foot{padding-left:16px;padding-right:16px}}
+
+/* ---------- seções ---------- */
+section{position:relative}
+.sec{padding:clamp(72px,11vh,130px) 0}
+.sec-h{font:900 clamp(2.4rem,6.2vw,4.9rem)/.9 var(--f-sans);font-stretch:68%;letter-spacing:-.02em;text-transform:uppercase;max-width:14ch;text-wrap:balance}
+.sec-p{margin-top:16px;max-width:52ch;font-size:clamp(16px,1.5vw,18.5px);color:var(--kraft-ink)}
+.paper-sec{background:var(--paper-2);background-image:none}
+
+/* cotação */
+.quote{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:start;margin-top:40px}
+.steps{list-style:none;display:grid;gap:12px}
+.step{background:rgba(251,250,245,.55);border:var(--rule) solid rgba(20,20,20,.18);border-radius:6px;padding:18px 20px;transition:background .3s,border-color .3s,opacity .3s}
+.step[aria-current="step"]{background:var(--paper);border-color:var(--ink)}
+.step.locked{opacity:.45}
+.step.done{background:rgba(251,250,245,.4)}
+.step-h{display:flex;align-items:baseline;gap:12px}
+.step-h i{font:700 13px var(--f-mono);font-style:normal;color:var(--kraft-ink)}
+.step-h label{font:800 22px/1.15 var(--f-sans);font-stretch:80%}
+.step-h output{margin-left:auto;font:600 14px var(--f-mono);color:var(--stamp-green)}
+.step .row{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.field{flex:1 1 180px;height:52px;border:var(--rule) solid var(--ink);border-radius:4px;background:var(--paper);padding:0 14px;font-size:17px}
+.field:focus{outline:2.5px solid var(--signal);outline-offset:1px}
+.field[aria-invalid="true"]{border-color:var(--stamp-red)}
+.hint{margin-top:8px;font-size:14px;color:#4a3d2e}
+.hint.err{color:var(--stamp-red);font-weight:600}
+.step .row .btn{height:52px}
+.step:not([aria-current="step"]) .row,.step:not([aria-current="step"]) .hint{display:none}
+.step.done{cursor:pointer}
+.out{position:sticky;top:96px}
+.mini-printer{height:26px;border-radius:10px 10px 6px 6px;background:linear-gradient(#262626,#141414);margin:0 18px;position:relative;z-index:2}
+.mini-printer::after{content:"";position:absolute;left:14px;right:14px;bottom:-5px;height:6px;background:#050505;border-radius:0 0 4px 4px}
+.qlabel{margin:0 30px;transform:none;overflow:hidden}
+.qlabel .lb-top .who b{font-size:26px}
+.qlabel .sort strong{font-size:30px}
+.qgrid{display:grid;grid-template-columns:1fr 1fr}
+.qgrid .fld:nth-child(odd){border-left:0}
+.qgrid .fld{border-top:var(--rule) solid var(--ink)}
+.qgrid .fld:nth-child(-n+2){border-top:0}
+.qgrid .fld b{font-size:18px}
+.qempty{padding:36px 22px;text-align:center;color:var(--ink-2);font-size:15px}
+.qres{display:none}
+.qlabel.has .qres{display:block}.qlabel.has .qempty{display:none}
+.qprazo{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 22px}
+.qprazo strong{font:900 44px/.9 var(--f-sans);font-stretch:66%}
+.qprazo small{display:block;font:500 11.5px var(--f-mono);letter-spacing:.14em;color:var(--ink-2)}
+.stamp{display:inline-block;font:800 15px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;border:2.5px solid currentColor;border-radius:6px;padding:7px 10px;transform:rotate(-7deg);opacity:.88;mix-blend-mode:multiply}
+.stamp.red{color:var(--stamp-red)}.stamp.blue{color:var(--stamp-blue)}.stamp.green{color:var(--stamp-green)}
+.qactions{display:flex;gap:10px;flex-wrap:wrap;margin:18px 30px 0}
+.qactions[hidden]{display:none}
+.qnote{margin:10px 30px 0;font:500 12.5px var(--f-mono);color:var(--kraft-ink)}
+@media (max-width:900px){.quote{grid-template-columns:1fr}.out{position:static}.qlabel,.qactions,.qnote{margin-left:0;margin-right:0}.mini-printer{margin:0 10px}}
+
+/* rastreio */
+.track{margin-top:40px;background:var(--paper);border-radius:6px;box-shadow:0 26px 50px -30px rgba(70,40,10,.6);overflow:hidden}
+.track-q{display:flex;gap:10px;flex-wrap:wrap;padding:20px 22px;border-bottom:var(--rule) solid var(--ink);align-items:center}
+.track-q .field{max-width:320px;font-family:var(--f-mono);letter-spacing:.06em;text-transform:uppercase}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-left:auto}
+.chip{border:1px dashed var(--ink-2);background:transparent;border-radius:999px;padding:7px 12px;font:600 13px var(--f-mono);cursor:pointer;color:var(--ink-2)}
+.chip:hover{border-style:solid;color:var(--ink)}
+.track-msg{padding:0 22px;min-height:0;font-weight:600;color:var(--stamp-red)}
+.track-msg:not(:empty){padding:14px 22px 0}
+.route{--p:0;position:relative;list-style:none;display:grid;grid-template-columns:repeat(5,1fr);padding:56px 22px 30px}
+.route::before,.route .fill{content:"";position:absolute;left:calc(10% + 0px);right:10%;top:72px;height:4px;background:repeating-linear-gradient(90deg,var(--ink) 0 10px,transparent 10px 18px);opacity:.25}
+.route .fill{opacity:1;background:var(--ink);right:auto;width:calc(80% * var(--p));transition:width 1.1s var(--ease)}
+.route .light{position:absolute;top:66px;left:10%;width:16px;height:16px;border-radius:50%;background:var(--signal);box-shadow:0 0 0 6px rgba(255,74,28,.18),0 0 18px rgba(255,74,28,.9);animation:run 2.4s var(--ease) infinite;opacity:0}
+.route.on .light{opacity:1}
+@keyframes run{from{transform:translateX(-8px)}to{transform:translateX(calc(var(--len,0px) - 8px))}}
+.stop{position:relative;text-align:center;padding-top:34px}
+.stop::before{content:"";position:absolute;left:50%;top:6px;width:20px;height:20px;margin-left:-10px;border-radius:50%;background:var(--paper);border:3px solid rgba(20,20,20,.3);z-index:1}
+.stop.ok::before{background:var(--ink);border-color:var(--ink)}
+.stop.now::before{background:var(--signal);border-color:var(--ink)}
+.stop b{display:block;font:800 16px/1.15 var(--f-sans);font-stretch:85%}
+.stop small{display:block;margin-top:4px;font:500 12px var(--f-mono);color:var(--ink-2)}
+.stop .stamp{margin-top:12px;font-size:11.5px;padding:5px 7px;visibility:hidden}
+.stop.ok .stamp,.stop.now .stamp{visibility:visible}
+@media (max-width:760px){
+  .route{grid-template-columns:1fr;gap:22px;padding:24px 22px 26px 58px}
+  .route::before,.route .fill{left:32px;right:auto;top:30px;bottom:30px;width:4px;height:auto;background:repeating-linear-gradient(180deg,var(--ink) 0 10px,transparent 10px 18px)}
+  .route .fill{background:var(--ink);bottom:auto;height:calc((100% - 60px) * var(--p))}
+  .route .light{left:26px;top:24px;animation-name:runv}
+  .stop{text-align:left;padding-top:0}.stop::before{left:-36px;top:0;margin-left:0}
+  .stop .stamp{margin-top:8px}
+  .chips{margin-left:0}
+}
+@keyframes runv{from{transform:translateY(-8px)}to{transform:translateY(calc(var(--len,0px) - 8px))}}
+
+/* serviços: o palete */
+.pallet{margin-top:60px;display:grid;grid-template-columns:repeat(12,1fr);gap:10px;align-items:end}
+.crate{position:relative;background:linear-gradient(180deg,var(--kraft-lt),var(--kraft) 70%);border-radius:4px;padding:30px 18px 18px;box-shadow:inset 0 0 0 1px rgba(61,47,32,.22),0 14px 20px -16px rgba(60,35,10,.7);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.crate::before{content:"";position:absolute;left:50%;top:0;width:44px;height:100%;margin-left:-22px;background:var(--tape);opacity:.7}
+.crate:hover{transform:translateY(-6px);box-shadow:inset 0 0 0 1px rgba(61,47,32,.22),0 24px 26px -18px rgba(60,35,10,.7)}
+.crate .tag{position:relative;background:var(--paper);border-radius:3px;padding:14px 16px;box-shadow:0 1px 0 rgba(0,0,0,.06)}
+.crate h3{font:900 clamp(22px,2.4vw,30px)/.95 var(--f-sans);font-stretch:70%;text-transform:uppercase;letter-spacing:-.01em}
+.crate p{margin-top:8px;font-size:15px;color:#3a3732;line-height:1.45}
+.crate .ico{position:absolute;right:14px;top:14px;width:22px;height:22px}
+.c1{grid-column:span 7;min-height:250px}.c2{grid-column:span 5;min-height:250px}
+.c3{grid-column:2/span 5;min-height:210px}.c4{grid-column:span 5;min-height:210px}
+.c5{grid-column:3/span 4;min-height:190px}.c6{grid-column:span 4;min-height:190px}
+.pallet-wood{grid-column:1/-1;height:44px;margin-top:4px;position:relative;
+  background:linear-gradient(#9b7246,#8a6339) top/100% 12px no-repeat,linear-gradient(#9b7246,#8a6339) bottom/100% 10px no-repeat}
+.pallet-wood::before{content:"";position:absolute;left:0;right:0;top:12px;bottom:10px;background:linear-gradient(90deg,#7b5630 0 8%,transparent 8% 46%,#7b5630 46% 54%,transparent 54% 92%,#7b5630 92%)}
+.pallet-order{display:contents}
+@media (max-width:860px){.pallet{grid-template-columns:1fr 1fr}.c1,.c2,.c3,.c4,.c5,.c6{grid-column:auto;min-height:0}.c1{grid-column:1/-1}}
+@media (max-width:520px){.pallet{grid-template-columns:1fr}}
+
+/* cobertura */
+.cover-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,5vw,60px);align-items:center}
+.radar{width:100%;height:auto;overflow:visible}
+.radar .ring{fill:none;stroke:var(--kraft-ink);stroke-opacity:.35;stroke-width:1.2;stroke-dasharray:3 6}
+.radar .ring-l{font:600 11px var(--f-mono);fill:var(--kraft-ink);fill-opacity:.7}
+.radar .ln{fill:none;stroke:var(--ink);stroke-width:1.6}
+.radar .dot{fill:var(--ink)}
+.radar .city{font:700 13px var(--f-sans);fill:var(--ink)}
+.radar .km{font:500 11px var(--f-mono);fill:var(--kraft-ink)}
+.radar .hub{fill:var(--signal);stroke:var(--ink);stroke-width:2}
+.radar .hub-l{font:900 14px var(--f-sans);fill:var(--ink);letter-spacing:.06em}
+.legend{list-style:none;margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:6px 18px;font:500 14px var(--f-mono);color:var(--kraft-ink)}
+.legend b{color:var(--ink);font-family:var(--f-sans);font-weight:700}
+@media (max-width:860px){.cover-grid{grid-template-columns:1fr}}
+.kmlist{display:none;list-style:none;margin-top:18px;columns:2;column-gap:18px;font:500 14px/1.9 var(--f-mono);color:var(--kraft-ink)}
+.kmlist b{font-family:var(--f-sans);color:var(--ink)}
+@media (max-width:600px){.radar .city{font-size:20px}.radar .km,.radar .ring-l{display:none}.radar .hub-l{font-size:19px}.kmlist{display:block}}
+
+/* conferência: a prancheta */
+.board{max-width:760px;margin:44px auto 0;background:#6b4a2b;border-radius:14px;padding:46px 18px 18px;position:relative;box-shadow:0 30px 50px -30px rgba(40,20,5,.8)}
+.clip{position:absolute;left:50%;top:-14px;width:150px;height:46px;margin-left:-75px;border-radius:10px;background:linear-gradient(#d9dde2,#9aa1a9);box-shadow:inset 0 -3px 0 rgba(0,0,0,.25),0 6px 10px -6px rgba(0,0,0,.5)}
+.clip::after{content:"";position:absolute;left:50%;top:10px;width:46px;height:14px;margin-left:-23px;border-radius:7px;background:#5d646c}
+.sheet{background:var(--paper);border-radius:4px;padding:26px clamp(18px,4vw,36px)}
+.sheet-h{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font:600 12.5px var(--f-mono);letter-spacing:.08em;color:var(--ink-2);padding-bottom:14px;border-bottom:var(--rule) solid var(--ink)}
+.checks{list-style:none}
+.checks li{display:grid;grid-template-columns:34px 1fr;gap:14px;align-items:start;padding:14px 0;border-bottom:1px solid rgba(20,20,20,.14)}
+.checks li:last-child{border-bottom:0}
+.box-ck{width:28px;height:28px;border:2px solid var(--ink);border-radius:3px;position:relative}
+.box-ck svg{position:absolute;inset:-6px -4px -2px -2px;width:38px;height:36px;stroke:var(--stamp-blue);stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.box-ck path{stroke-dasharray:40;stroke-dashoffset:0}
+.checks b{font:800 19px/1.2 var(--f-sans);font-stretch:85%}
+.checks small{display:block;margin-top:3px;font-size:15px;color:#4a463e}
+.sign{display:flex;justify-content:flex-end;margin-top:18px;font:600 12px var(--f-mono);color:var(--ink-2);gap:10px;align-items:center}
+.sign i{font:italic 700 22px/1 var(--f-sans);color:var(--stamp-blue);font-stretch:62%}
+
+/* chamada final */
+.final .label{display:grid;grid-template-columns:1fr auto;max-width:1000px;margin:0 auto;transform:rotate(.6deg)}
+.final .main{padding:clamp(26px,4vw,44px)}
+.final h2{font:900 clamp(2.6rem,7vw,5.4rem)/.88 var(--f-sans);font-stretch:66%;text-transform:uppercase;letter-spacing:-.02em}
+.final p{margin-top:12px;max-width:44ch;color:#2c2a25}
+.final .ctas{justify-content:flex-start;margin-top:22px}
+.stub{border-left:2px dashed var(--ink);padding:26px 22px;display:flex;flex-direction:column;justify-content:space-between;gap:16px;min-width:200px;transition:transform .4s var(--ease);transform-origin:0 50%}
+.final .label:hover .stub{transform:rotate(3deg) translateX(6px)}
+.stub small{font:500 11.5px var(--f-mono);letter-spacing:.14em;color:var(--ink-2)}
+.stub strong{font:700 15px var(--f-mono)}
+.stub .scissor{display:flex;align-items:center;gap:6px;font:500 12px var(--f-mono);color:var(--ink-2)}
+@media (max-width:760px){.final .label{grid-template-columns:1fr}.stub{border-left:0;border-top:2px dashed var(--ink);min-width:0;flex-direction:row;flex-wrap:wrap}}
+
+/* rodapé */
+.foot{padding:56px 0 40px;color:var(--kraft-ink)}
+.foot-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:28px}
+.foot h3{font:700 12.5px var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--kraft-ink);margin-bottom:10px}
+.foot li{list-style:none;margin:4px 0;font-size:15px}
+@media (max-width:760px){.foot-grid{grid-template-columns:1fr}}
+
+
+/* estado inicial controlado pelo JS (sem JS, tudo aparece) */
+html.intro .nav,html.intro .hl-bar{visibility:hidden}
+</style>
+</head>
+<body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<!--hellys:hbar-->
+<div class="hl-bar" role="note" aria-label="Aviso: este site é um modelo">
+  <div class="hl-bar-in">
+    <a class="hl-logo-link" href="https://hellys.dev.br/" aria-label="hellys. (ir para o portfólio)"><svg xmlns="http://www.w3.org/2000/svg" class="hl-logo" aria-hidden="true" focusable="false" viewBox="0 0 4532.21 943.33"><g transform="translate(368.53 141.33) scale(0.86)"><path fill="#ff8a3d" d="M-82.13 -164.33L-428.52 350L-82.13 864.33L-9.87 815.67L-323.48 350L-9.87 -115.67ZM665.87 -115.67L979.48 350L665.87 815.67L738.13 864.33L1084.52 350L738.13 -164.33Z"/><path fill="#e8ecf1" d="M198 700L66 700L66 0L198 0L198 289L458 289L458 0L590 0L590 700L458 700L458 409L198 409L198 700Z"/></g><g transform="translate(1531.21 743.33) scale(1)"><path fill="#e8ecf1" d="M196 0L70 0L70-700L196-700L196-435L214-435Q222-451 239-467Q256-483 284.50-493.50Q313-504 357-504L357-504Q415-504 458.50-477.50Q502-451 526-404.50Q550-358 550-296L550-296L550 0L424 0L424-286Q424-342 396.50-370Q369-398 318-398L318-398Q260-398 228-359.50Q196-321 196-252L196-252L196 0ZM894 14L894 14Q820 14 763.50-17.50Q707-49 675.50-106.50Q644-164 644-242L644-242L644-254Q644-332 675-389.50Q706-447 762-478.50Q818-510 892-510L892-510Q965-510 1019-477.50Q1073-445 1103-387.50Q1133-330 1133-254L1133-254L1133-211L772-211Q774-160 810-128Q846-96 898-96L898-96Q951-96 976-119Q1001-142 1014-170L1014-170L1117-116Q1103-90 1076.50-59.50Q1050-29 1006-7.50Q962 14 894 14ZM773-305L773-305L1005-305Q1001-348 970.50-374Q940-400 891-400L891-400Q840-400 810-374Q780-348 773-305ZM1353 0L1227 0L1227-700L1353-700L1353 0ZM1601 0L1475 0L1475-700L1601-700L1601 0ZM2089 200L1777 200L1777 90L2047 90Q2075 90 2075 60L2075 60L2075-65L2057-65Q2049-48 2032-31Q2015-14 1986-3Q1957 8 1912 8L1912 8Q1854 8 1810.50-18.50Q1767-45 1743-92Q1719-139 1719-200L1719-200L1719-496L1845-496L1845-210Q1845-154 1872.50-126Q1900-98 1951-98L1951-98Q2009-98 2041-136.50Q2073-175 2073-244L2073-244L2073-496L2199-496L2199 88Q2199 139 2169 169.50Q2139 200 2089 200L2089 200ZM2527 14L2527 14Q2430 14 2368-28Q2306-70 2293-148L2293-148L2409-178Q2416-143 2432.50-123Q2449-103 2473.50-94.50Q2498-86 2527-86L2527-86Q2571-86 2592-101.50Q2613-117 2613-140L2613-140Q2613-163 2593-175.50Q2573-188 2529-196L2529-196L2501-201Q2449-211 2406-228.50Q2363-246 2337-277Q2311-308 2311-357L2311-357Q2311-431 2365-470.50Q2419-510 2507-510L2507-510Q2590-510 2645-473Q2700-436 2717-376L2717-376L2600-340Q2592-378 2567.50-394Q2543-410 2507-410L2507-410Q2471-410 2452-397.50Q2433-385 2433-363L2433-363Q2433-339 2453-327.50Q2473-316 2507-310L2507-310L2535-305Q2591-295 2636.50-278.50Q2682-262 2708.50-231.50Q2735-201 2735-149L2735-149Q2735-71 2678.50-28.50Q2622 14 2527 14Z"/><path fill="#ff8a3d" d="M2907 14L2907 14Q2866 14 2838.50-12.50Q2811-39 2811-81L2811-81Q2811-123 2838.50-149.50Q2866-176 2907-176L2907-176Q2947-176 2974-149.50Q3001-123 3001-81L3001-81Q3001-39 2974-12.50Q2947 14 2907 14Z"/></g></svg></a>
+    <p><b>Projeto autoral<span class="hl-of"> da hellys.</span></b><span class="hl-mid"> Modelo de site para transportadoras.</span><span class="hl-long"> A Prumo Cargas é fictícia.</span></p>
+    <a class="hl-more" href="https://hellys.dev.br/#projeto-modelos">Outros modelos</a>
+    <a class="hl-cta" href="https://wa.me/5511994032102?text=Oi%2C%20vi%20o%20modelo%20de%20site%20para%20transportadoras%20no%20portf%C3%B3lio%20da%20hellys%20e%20quero%20um%20assim." target="_blank" rel="noopener">Quero um site assim <svg class="hl-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</div>
+<!--/hellys:hbar-->
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#topo" aria-label="Prumo Cargas, início"><b>PRUMO</b><span>CARGAS</span></a>
+    <ul>
+      <li><a href="#cotacao">Cotar</a></li>
+      <li><a href="#rastreio">Rastrear</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#cobertura">Cobertura</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+    <a class="btn btn-go" href="#cotacao">Cotar frete</a>
+  </div>
+</header>
+
+<div class="printer" aria-hidden="true"><div class="printer-body"><span>PRUMO · 4×6</span><i></i></div><div class="printer-slot"></div></div>
+<button class="btn btn-line intro-skip" type="button" id="skip-intro">Pular abertura</button>
+
+<main id="conteudo" tabindex="-1">
+  <!-- herói -->
+  <section class="hero" id="topo" aria-labelledby="h1">
+    <div class="box-mark up" aria-hidden="true">
+      <svg viewBox="0 0 32 32"><path d="M10 26V8M5 13l5-5 5 5M22 26V8M17 13l5-5 5 5M4 29h24"/></svg> ESTE LADO PARA CIMA
+    </div>
+    <div class="box-mark fragil" aria-hidden="true">FRÁGIL · CUIDADO</div>
+    <div class="wrap">
+      <article class="label" id="hero-label">
+        <span class="tape tl" aria-hidden="true"></span><span class="tape br" aria-hidden="true"></span>
+        <div class="lb-row lb-top pr">
+          <div class="who"><b>PRUMO CARGAS</b><span>TRANSPORTE RODOVIÁRIO · CD BARUERI/SP</span></div>
+          <div class="sort"><small>ROTA</small><strong>BRU·01</strong></div>
+        </div>
+        <div class="lb-row lb-head pr">
+          <h1 id="h1"><span>Sua carga</span><span>no <em class="o" style="font-style:normal">prumo.</em></span></h1>
+          <p>Coleta, transferência e entrega com rastreio do CD até o canhoto. Cote em 3 campos e veja o prazo na hora.</p>
+        </div>
+        <div class="lb-row lb-fields pr">
+          <div class="fld"><small>Coleta</small><b>Em até 24 h na Grande SP</b></div>
+          <div class="fld"><small>Cobertura</small><b>SP · RJ · MG · PR · SC</b></div>
+          <div class="fld"><small>Rastreio</small><b>Ao vivo, do CD ao canhoto</b></div>
+        </div>
+        <div class="lb-row lb-foot pr">
+          <div class="bars"><svg id="hero-bars" viewBox="0 0 220 58" aria-hidden="true"></svg><span>PRM 2610 0001 BR</span></div>
+          <div class="picto" aria-hidden="true">
+            <svg viewBox="0 0 32 32"><path d="M10 25V9M6 13l4-4 4 4M22 25V9M18 13l4-4 4 4M5 28h22"/></svg>
+            <svg viewBox="0 0 32 32"><path d="M10 5h12l-1 8a5 5 0 0 1-10 0zM16 18v8M11 27h10M14 8l2 3-2 2 2 2"/></svg>
+            <svg viewBox="0 0 32 32"><path d="M5 16a11 11 0 0 1 22 0zM16 16v9a2.5 2.5 0 0 1-5 0M16 5v2M9 21v2M23 21v2"/></svg>
+          </div>
+          <div class="ctas">
+            <a class="btn btn-go" href="#cotacao">Cotar frete <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn-line" href="#rastreio"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4"/></svg>Rastrear carga</a>
+          </div>
+        </div>
+      </article>
+      <p class="foot-note">Prazos, cobertura e código são ilustrativos de uma empresa fictícia.</p>
+    </div>
+  </section>
+
+  <!-- cotação -->
+  <section class="sec" id="cotacao" aria-labelledby="h-cot">
+    <div class="wrap">
+      <h2 class="sec-h rv" id="h-cot">Cote em 3 campos.</h2>
+      <p class="sec-p rv">De onde sai, para onde vai e quanto pesa. A etiqueta sai pronta com o prazo estimado, e você manda pelo WhatsApp.</p>
+      <div class="quote">
+        <form id="qform" novalidate>
+          <ol class="steps">
+            <li class="step" data-step="0" aria-current="step">
+              <div class="step-h"><i>1/3</i><label for="q-orig">De onde sai?</label><output id="o-orig"></output></div>
+              <div class="row"><input class="field" id="q-orig" list="cidades" autocomplete="off" placeholder="Cidade de coleta, ex.: Barueri" aria-describedby="h-orig"><button class="btn btn-go" type="button" data-next disabled>Avançar</button></div>
+              <p class="hint" id="h-orig">Escolha uma cidade da lista.</p>
+            </li>
+            <li class="step locked" data-step="1">
+              <div class="step-h"><i>2/3</i><label for="q-dest">Para onde vai?</label><output id="o-dest"></output></div>
+              <div class="row"><input class="field" id="q-dest" list="cidades" autocomplete="off" placeholder="Cidade de entrega, ex.: Curitiba" aria-describedby="h-dest"><button class="btn btn-go" type="button" data-next disabled>Avançar</button></div>
+              <p class="hint" id="h-dest">Escolha uma cidade da lista.</p>
+            </li>
+            <li class="step locked" data-step="2">
+              <div class="step-h"><i>3/3</i><label for="q-peso">Quanto pesa?</label><output id="o-peso"></output></div>
+              <div class="row"><input class="field" id="q-peso" inputmode="numeric" placeholder="Peso total em kg, ex.: 850" aria-describedby="h-peso"><input class="field" id="q-vol" inputmode="numeric" placeholder="Volumes, ex.: 12" aria-label="Quantidade de volumes" style="flex-basis:120px"><button class="btn btn-go" type="submit" data-next disabled>Gerar etiqueta</button></div>
+              <p class="hint" id="h-peso">Peso em quilos. Os volumes são opcionais.</p>
+            </li>
+          </ol>
+          <datalist id="cidades"></datalist>
+        </form>
+        <div class="out" aria-live="polite">
+          <div class="mini-printer" aria-hidden="true"></div>
+          <article class="label qlabel" id="qlabel">
+            <div class="lb-row lb-top"><div class="who"><b>PRUMO CARGAS</b><span>PRÉ-COTAÇÃO</span></div><div class="sort"><small>COD</small><strong id="q-code">—</strong></div></div>
+            <div class="qempty lb-row">A etiqueta sai aqui quando você preencher os 3 campos.</div>
+            <div class="qres">
+              <div class="lb-row qgrid">
+                <div class="fld"><small>Remetente</small><b id="r-orig">—</b></div>
+                <div class="fld"><small>Destinatário</small><b id="r-dest">—</b></div>
+                <div class="fld"><small>Peso · volumes</small><b id="r-peso">—</b></div>
+                <div class="fld"><small>Modalidade</small><b id="r-mod">—</b></div>
+              </div>
+              <div class="lb-row qprazo"><div><small>PRAZO ESTIMADO</small><strong id="r-prazo">—</strong></div><span class="stamp red" id="r-stamp">Pré-cotação</span></div>
+              <div class="lb-row lb-foot" style="grid-template-columns:auto 1fr"><div class="bars"><svg id="q-bars" viewBox="0 0 220 58" aria-hidden="true"></svg><span id="q-code2">—</span></div></div>
+            </div>
+          </article>
+          <div class="qactions" id="qactions" hidden>
+            <button class="btn btn-go" type="button" data-demo="whats"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.4-4A8 8 0 1 1 8 18.7z"/><path d="M9 9.5c.4 2.2 2.3 4.1 4.5 4.5l1-1.2 2 .9c-.3 1.3-1.4 2-2.6 1.8A7 7 0 0 1 8.2 10c-.2-1.2.5-2.3 1.8-2.6l.9 2z"/></svg>Enviar pelo WhatsApp</button>
+            <button class="btn btn-line" type="button" id="q-reset">Fazer outra</button>
+          </div>
+          <p class="qnote" id="qnote">Estimativa ilustrativa. No site real, o prazo vem da tabela da transportadora.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- rastreio -->
+  <section class="sec paper-sec" id="rastreio" aria-labelledby="h-ras">
+    <div class="wrap">
+      <h2 class="sec-h rv" id="h-ras">Onde está a carga, agora.</h2>
+      <p class="sec-p rv" style="color:#4a463e">Digite o código da etiqueta. A linha mostra cada etapa com hora e local, e a luz marca onde a carga está neste momento.</p>
+      <div class="track rv">
+        <form class="track-q" id="tform" role="search">
+          <label class="sr-only" for="t-code">Código de rastreio</label>
+          <input class="field" id="t-code" placeholder="PRM26100001" autocomplete="off" spellcheck="false">
+          <button class="btn btn-go" type="submit"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4"/></svg>Rastrear</button>
+          <div class="chips"><button class="chip" type="button" data-code="PRM26100001">Testar: em trânsito</button><button class="chip" type="button" data-code="PRM26100002">Testar: entregue</button></div>
+        </form>
+        <p class="track-msg" id="t-msg" role="status"></p>
+        <ol class="route" id="route" aria-label="Etapas da entrega">
+          <span class="fill" aria-hidden="true"></span><span class="light" aria-hidden="true"></span>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- serviços -->
+  <section class="sec" id="servicos" aria-labelledby="h-ser">
+    <div class="wrap">
+      <h2 class="sec-h rv" id="h-ser">O que a gente leva.</h2>
+      <p class="sec-p rv">Do pallet avulso ao caminhão fechado. Todos com seguro, rastreio e comprovante de entrega digital.</p>
+      <div class="pallet" id="pallet">
+        <div class="crate c5"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16v13H4zM4 7l2-3h12l2 3M10 11h4"/></svg><div class="tag"><h3>E-commerce</h3><p>Coleta diária no seu estoque e entrega rastreada para o seu cliente final.</p></div></div>
+        <div class="crate c6"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 14 4 9l5-5M4 9h11a5 5 0 0 1 0 10h-3"/></svg><div class="tag"><h3>Logística reversa</h3><p>Troca e devolução recolhidas na casa do cliente e de volta ao seu CD.</p></div></div>
+        <div class="crate c3"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6-5.3-6-11a6 6 0 0 1 12 0c0 5.7-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg><div class="tag"><h3>Distribuição urbana</h3><p>Entregas na Grande SP com janela agendada e rota planejada no dia.</p></div></div>
+        <div class="crate c4"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10 12 4l9 6v10H3zM8 20v-6h8v6"/></svg><div class="tag"><h3>Armazenagem</h3><p>CD com controle de entrada e saída, separação e expedição no mesmo lugar.</p></div></div>
+        <div class="crate c1"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h8v6H3zM13 7h8v6h-8zM3 15h8v5H3zM13 15h8v5h-8z"/></svg><div class="tag"><h3>Carga fracionada</h3><p>Seus volumes dividem o caminhão com outros clientes: você paga só o espaço que usa, com consolidação no CD e prazo por região.</p></div></div>
+        <div class="crate c2"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h12v11H3zM15 10h4l2 3v4h-6M7 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM17 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg><div class="tag"><h3>Lotação</h3><p>Caminhão fechado só para a sua carga, direto da sua doca para o destino.</p></div></div>
+        <div class="pallet-wood" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- cobertura -->
+  <section class="sec" id="cobertura" aria-labelledby="h-cob" style="padding-top:0">
+    <div class="wrap cover-grid">
+      <div>
+        <h2 class="sec-h rv" id="h-cob">Saindo de Barueri para o Sul e o Sudeste.</h2>
+        <p class="sec-p rv">O CD fica no polo logístico da Grande SP. Cada linha sai dele até uma cidade atendida, com a distância rodoviária aproximada.</p>
+        <ul class="legend rv" id="legend"></ul>
+      </div>
+      <div><svg class="radar" id="radar" viewBox="0 0 640 600" role="img" aria-label="Diagrama de cobertura saindo do CD de Barueri para cidades de SP, RJ, MG, PR, SC e GO, com distâncias aproximadas"></svg><ul class="kmlist" id="kmlist" aria-hidden="true"></ul></div>
+    </div>
+  </section>
+
+  <!-- conferência -->
+  <section class="sec paper-sec" aria-labelledby="h-con">
+    <div class="wrap">
+      <h2 class="sec-h rv" id="h-con" style="margin:0 auto;text-align:center">Conferido antes de sair.</h2>
+      <div class="board">
+        <span class="clip" aria-hidden="true"></span>
+        <div class="sheet">
+          <div class="sheet-h"><span>CHECKLIST DE SAÍDA · CD BARUERI</span><span>DOCA 03</span></div>
+          <ul class="checks" id="checks">
+            <li><span class="box-ck" aria-hidden="true"><svg viewBox="0 0 38 36"><path d="M6 19l8 8L33 6"/></svg></span><div><b>Seguro em toda viagem</b><small>A carga sai coberta do CD até o destino.</small></div></li>
+            <li><span class="box-ck" aria-hidden="true"><svg viewBox="0 0 38 36"><path d="M6 19l8 8L33 6"/></svg></span><div><b>Motorista e veículo identificados</b><small>Você recebe placa e nome antes da coleta.</small></div></li>
+            <li><span class="box-ck" aria-hidden="true"><svg viewBox="0 0 38 36"><path d="M6 19l8 8L33 6"/></svg></span><div><b>Coleta com hora marcada</b><small>Janela combinada com a sua doca, sem caminhão esperando na rua.</small></div></li>
+            <li><span class="box-ck" aria-hidden="true"><svg viewBox="0 0 38 36"><path d="M6 19l8 8L33 6"/></svg></span><div><b>Rastreio ao vivo</b><small>Cada etapa registrada com hora e local, do CD ao destino.</small></div></li>
+            <li><span class="box-ck" aria-hidden="true"><svg viewBox="0 0 38 36"><path d="M6 19l8 8L33 6"/></svg></span><div><b>Canhoto digital</b><small>Foto do comprovante assinado assim que a carga é entregue.</small></div></li>
+            <li><span class="box-ck" aria-hidden="true"><svg viewBox="0 0 38 36"><path d="M6 19l8 8L33 6"/></svg></span><div><b>Gente de verdade no WhatsApp</b><small>Atendimento humano em horário comercial.</small></div></li>
+          </ul>
+          <div class="sign">conferente <i>Prumo</i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- chamada final -->
+  <section class="sec final" id="contato" aria-labelledby="h-fin">
+    <div class="wrap">
+      <article class="label">
+        <span class="tape tl" aria-hidden="true"></span>
+        <div class="main">
+          <h2 id="h-fin">Tem carga pra sair hoje?</h2>
+          <p>Cote agora ou chame no WhatsApp. A gente responde com prazo e valor fechado, sem letra miúda.</p>
+          <div class="ctas"><a class="btn btn-go" href="#cotacao">Cotar frete</a><button class="btn btn-line" type="button" data-demo="whats">Falar no WhatsApp</button></div>
+        </div>
+        <div class="stub"><div><small>COMPROVANTE</small><br><strong>PRM 2610 0001 BR</strong></div><span class="scissor"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.5 7.5 20 18M8.5 16.5 20 6"/></svg>destaque aqui</span></div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><a class="brand" href="#topo"><b>PRUMO</b><span>CARGAS</span></a><p style="margin-top:10px;max-width:34ch;font-size:15px">Transporte rodoviário de cargas a partir de Barueri/SP.</p></div>
+      <div><h3>Contato</h3><ul><li>(11) 0000-0000</li><li>contato@prumocargas.exemplo</li><li>Av. Exemplo, 1000, Barueri/SP</li></ul></div>
+      <div><h3>Atalhos</h3><ul><li><a href="#cotacao">Cotar frete</a></li><li><a href="#rastreio">Rastrear carga</a></li><li><a href="#servicos">Serviços</a></li></ul></div>
+    </div>
+<!--hellys:made-->
+<div class="hl-made">
+  <div>
+    <svg xmlns="http://www.w3.org/2000/svg" class="hl-logo" aria-hidden="true" focusable="false" viewBox="0 0 4532.21 943.33"><g transform="translate(368.53 141.33) scale(0.86)"><path fill="#ff8a3d" d="M-82.13 -164.33L-428.52 350L-82.13 864.33L-9.87 815.67L-323.48 350L-9.87 -115.67ZM665.87 -115.67L979.48 350L665.87 815.67L738.13 864.33L1084.52 350L738.13 -164.33Z"/><path fill="#e8ecf1" d="M198 700L66 700L66 0L198 0L198 289L458 289L458 0L590 0L590 700L458 700L458 409L198 409L198 700Z"/></g><g transform="translate(1531.21 743.33) scale(1)"><path fill="#e8ecf1" d="M196 0L70 0L70-700L196-700L196-435L214-435Q222-451 239-467Q256-483 284.50-493.50Q313-504 357-504L357-504Q415-504 458.50-477.50Q502-451 526-404.50Q550-358 550-296L550-296L550 0L424 0L424-286Q424-342 396.50-370Q369-398 318-398L318-398Q260-398 228-359.50Q196-321 196-252L196-252L196 0ZM894 14L894 14Q820 14 763.50-17.50Q707-49 675.50-106.50Q644-164 644-242L644-242L644-254Q644-332 675-389.50Q706-447 762-478.50Q818-510 892-510L892-510Q965-510 1019-477.50Q1073-445 1103-387.50Q1133-330 1133-254L1133-254L1133-211L772-211Q774-160 810-128Q846-96 898-96L898-96Q951-96 976-119Q1001-142 1014-170L1014-170L1117-116Q1103-90 1076.50-59.50Q1050-29 1006-7.50Q962 14 894 14ZM773-305L773-305L1005-305Q1001-348 970.50-374Q940-400 891-400L891-400Q840-400 810-374Q780-348 773-305ZM1353 0L1227 0L1227-700L1353-700L1353 0ZM1601 0L1475 0L1475-700L1601-700L1601 0ZM2089 200L1777 200L1777 90L2047 90Q2075 90 2075 60L2075 60L2075-65L2057-65Q2049-48 2032-31Q2015-14 1986-3Q1957 8 1912 8L1912 8Q1854 8 1810.50-18.50Q1767-45 1743-92Q1719-139 1719-200L1719-200L1719-496L1845-496L1845-210Q1845-154 1872.50-126Q1900-98 1951-98L1951-98Q2009-98 2041-136.50Q2073-175 2073-244L2073-244L2073-496L2199-496L2199 88Q2199 139 2169 169.50Q2139 200 2089 200L2089 200ZM2527 14L2527 14Q2430 14 2368-28Q2306-70 2293-148L2293-148L2409-178Q2416-143 2432.50-123Q2449-103 2473.50-94.50Q2498-86 2527-86L2527-86Q2571-86 2592-101.50Q2613-117 2613-140L2613-140Q2613-163 2593-175.50Q2573-188 2529-196L2529-196L2501-201Q2449-211 2406-228.50Q2363-246 2337-277Q2311-308 2311-357L2311-357Q2311-431 2365-470.50Q2419-510 2507-510L2507-510Q2590-510 2645-473Q2700-436 2717-376L2717-376L2600-340Q2592-378 2567.50-394Q2543-410 2507-410L2507-410Q2471-410 2452-397.50Q2433-385 2433-363L2433-363Q2433-339 2453-327.50Q2473-316 2507-310L2507-310L2535-305Q2591-295 2636.50-278.50Q2682-262 2708.50-231.50Q2735-201 2735-149L2735-149Q2735-71 2678.50-28.50Q2622 14 2527 14Z"/><path fill="#ff8a3d" d="M2907 14L2907 14Q2866 14 2838.50-12.50Q2811-39 2811-81L2811-81Q2811-123 2838.50-149.50Q2866-176 2907-176L2907-176Q2947-176 2974-149.50Q3001-123 3001-81L3001-81Q3001-39 2974-12.50Q2947 14 2907 14Z"/></g></svg>
+    <p><b>Este site é um projeto autoral da hellys.</b> A Prumo Cargas não existe: nome, números, endereço e telefone são fictícios. Quer o site da sua transportadora assim, com cotação e rastreio funcionando de verdade?</p>
+  </div>
+  <div class="hl-made-acts">
+    <a class="hl-cta" href="https://wa.me/5511994032102?text=Oi%2C%20vi%20o%20modelo%20de%20site%20para%20transportadoras%20no%20portf%C3%B3lio%20da%20hellys%20e%20quero%20um%20assim." target="_blank" rel="noopener">Falar com a hellys <svg class="hl-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a class="hl-more" href="https://hellys.dev.br/#projeto-modelos">Ver os outros modelos</a>
+  </div>
+</div>
+<!--/hellys:made-->
+  </div>
+</footer>
+
+<!--hellys:toast-->
+<div class="hl-toast" id="hl-toast" role="status" aria-live="polite">
+  <p><b>Isto é um modelo.</b> <span data-hl-msg>No site real, este botão abre o WhatsApp da transportadora já com a mensagem escrita.</span> <a href="https://wa.me/5511994032102?text=Oi%2C%20vi%20o%20modelo%20de%20site%20para%20transportadoras%20no%20portf%C3%B3lio%20da%20hellys%20e%20quero%20um%20assim." target="_blank" rel="noopener">Quero um site assim <svg class="hl-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+  <button type="button" id="hl-toast-x" aria-label="Fechar aviso"><svg class="hl-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+</div>
+<script>
+(function(){
+  var t = document.getElementById('hl-toast'); if (!t) return;
+  var msg = t.querySelector('[data-hl-msg]'), def = msg.innerHTML, tm;
+  window.hellysNote = function(text){ msg.innerHTML = text || def; t.classList.add('show'); clearTimeout(tm); tm = setTimeout(function(){ t.classList.remove('show'); }, 9000); };
+  document.addEventListener('click', function(e){
+    var b = e.target.closest && e.target.closest('[data-demo]');
+    if (b){ e.preventDefault(); window.hellysNote(b.getAttribute('data-demo')); }
+  });
+  document.getElementById('hl-toast-x').addEventListener('click', function(){ t.classList.remove('show'); });
+})();
+</script>
+<!--/hellys:toast-->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  var root = document.documentElement;
+  root.classList.remove('no-js');
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasG = typeof gsap !== 'undefined';
+  var store = { get: function(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }, set: function(k, v){ try { localStorage.setItem(k, v); } catch(e){} } };
+  var sess = { get: function(k){ try { return sessionStorage.getItem(k); } catch(e){ return null; } }, set: function(k, v){ try { sessionStorage.setItem(k, v); } catch(e){} } };
+
+  // ---------- código de barras (ilustrativo, gerado a partir do texto) ----------
+  function bars(svg, text){
+    var h = 0; for (var i = 0; i < text.length; i++) h = (h * 31 + text.charCodeAt(i)) >>> 0;
+    function r(){ h ^= h << 13; h >>>= 0; h ^= h >> 17; h ^= h << 5; h >>>= 0; return h / 4294967296; }
+    var x = 4, out = '';
+    while (x < 214){ var w = [1.6, 2.6, 3.8][Math.floor(r() * 3)], gap = [1.6, 2.4, 3.4][Math.floor(r() * 3)]; if (x + w > 216) break; out += '<rect class="b" x="' + x.toFixed(1) + '" y="0" width="' + w + '" height="58" fill="#141414"/>'; x += w + gap; }
+    svg.innerHTML = out;
+  }
+  bars(document.getElementById('hero-bars'), 'PRM26100001BR');
+
+  // ---------- cidades e distâncias rodoviárias aproximadas a partir de Barueri ----------
+  var CID = [
+    ['Barueri', 'SP', 0, 0], ['São Paulo', 'SP', 28, 95], ['Osasco', 'SP', 12, 80], ['Guarulhos', 'SP', 55, 70], ['Jundiaí', 'SP', 55, 355], ['Campinas', 'SP', 90, 345],
+    ['Sorocaba', 'SP', 80, 270], ['Santos', 'SP', 95, 135], ['São José dos Campos', 'SP', 115, 68], ['Ribeirão Preto', 'SP', 320, 340], ['Bauru', 'SP', 330, 305],
+    ['Rio de Janeiro', 'RJ', 440, 80], ['Belo Horizonte', 'MG', 590, 37], ['Curitiba', 'PR', 400, 228], ['Florianópolis', 'SC', 700, 200], ['Goiânia', 'GO', 920, 342]
+  ];
+  var byName = {}; CID.forEach(function(c){ byName[(c[0] + ', ' + c[1]).toLowerCase()] = c; byName[c[0].toLowerCase()] = c; });
+  var dl = document.getElementById('cidades');
+  dl.innerHTML = CID.map(function(c){ return '<option value="' + c[0] + ', ' + c[1] + '"></option>'; }).join('');
+  function city(v){ return byName[String(v || '').trim().toLowerCase()] || null; }
+
+  // ---------- cotação em 3 passos travados ----------
+  var form = document.getElementById('qform'), steps = [].slice.call(form.querySelectorAll('.step'));
+  var inOrig = document.getElementById('q-orig'), inDest = document.getElementById('q-dest'), inPeso = document.getElementById('q-peso'), inVol = document.getElementById('q-vol');
+  var Q = {};
+  function valid(i){
+    if (i === 0) return !!city(inOrig.value);
+    if (i === 1) return !!city(inDest.value) && city(inDest.value) !== city(inOrig.value);
+    var p = parseInt(String(inPeso.value).replace(/\D/g, ''), 10); return p > 0 && p <= 30000;
+  }
+  function refresh(){
+    steps.forEach(function(s, i){ var b = s.querySelector('[data-next]'); if (b) b.disabled = !valid(i); });
+    // explica na hora por que o botão não libera
+    var hd = document.getElementById('h-dest'), same = city(inDest.value) && city(inDest.value) === city(inOrig.value);
+    hd.textContent = same ? 'O destino precisa ser diferente da origem.' : 'Escolha uma cidade da lista.';
+    hd.classList.toggle('err', !!same);
+  }
+  function go(i){
+    steps.forEach(function(s, k){
+      s.classList.toggle('locked', k > i); s.classList.toggle('done', k < i);
+      if (k === i) s.setAttribute('aria-current', 'step'); else s.removeAttribute('aria-current');
+    });
+    var inp = steps[i] && steps[i].querySelector('input'); if (inp) setTimeout(function(){ inp.focus({ preventScroll: true }); }, 60);
+  }
+  [inOrig, inDest, inPeso, inVol].forEach(function(el){ el.addEventListener('input', function(){ el.removeAttribute('aria-invalid'); refresh(); }); });
+  steps.forEach(function(s, i){
+    var b = s.querySelector('[data-next]');
+    if (i < 2) b.addEventListener('click', function(){ advance(i); });
+    s.querySelector('input').addEventListener('keydown', function(e){ if (e.key === 'Enter'){ e.preventDefault(); advance(i); } });
+    s.addEventListener('click', function(){ if (s.classList.contains('done')) go(i); });
+  });
+  function advance(i){
+    var hint = steps[i].querySelector('.hint'), inp = steps[i].querySelector('input');
+    if (!valid(i)){
+      inp.setAttribute('aria-invalid', 'true'); hint.classList.add('err');
+      hint.textContent = i === 2 ? 'Digite o peso em quilos (até 30.000 kg).' : (i === 1 && city(inDest.value) && city(inDest.value) === city(inOrig.value) ? 'O destino precisa ser diferente da origem.' : 'Não achei essa cidade. Escolha uma da lista.');
+      return;
+    }
+    hint.classList.remove('err');
+    if (i === 0){ var c = city(inOrig.value); document.getElementById('o-orig').textContent = c[0]; }
+    if (i === 1){ var d = city(inDest.value); document.getElementById('o-dest').textContent = d[0]; }
+    if (i < 2) go(i + 1); else make();
+  }
+  form.addEventListener('submit', function(e){ e.preventDefault(); advance(2); });
+
+  function estimate(o, d, kg){
+    var km = Math.abs(o[2] - d[2]) < 40 && o[3] !== d[3] ? o[2] + d[2] : Math.max(o[2], d[2]) + Math.min(o[2], d[2]) * 0.6;
+    km = Math.max(km, 20);
+    var dias = km <= 120 ? 1 : km <= 450 ? 2 : km <= 750 ? 3 : 4;
+    var lot = kg >= 6000;
+    if (!lot && km > 120) dias += 1;
+    return { km: Math.round(km), dias: dias, mod: lot ? 'Lotação' : (km <= 120 ? 'Distribuição urbana' : 'Carga fracionada') };
+  }
+  function code(){ var n = Math.floor(100000 + Math.random() * 899999); return 'PRM' + n; }
+  function render(data, animate){
+    var lb = document.getElementById('qlabel');
+    document.getElementById('q-code').textContent = data.code.slice(-4);
+    document.getElementById('q-code2').textContent = data.code.replace(/(...)(...)(...)/, '$1 $2 $3') + ' BR';
+    document.getElementById('r-orig').textContent = data.orig;
+    document.getElementById('r-dest').textContent = data.dest;
+    document.getElementById('r-peso').textContent = data.kg.toLocaleString('pt-BR') + ' kg' + (data.vol ? ' · ' + data.vol + ' vol.' : '');
+    document.getElementById('r-mod').textContent = data.mod;
+    document.getElementById('r-prazo').textContent = data.dias + (data.dias === 1 ? ' dia útil' : ' dias úteis');
+    bars(document.getElementById('q-bars'), data.code);
+    lb.classList.add('has');
+    document.getElementById('qactions').hidden = false;
+    if (animate && hasG && !reduce){
+      gsap.fromTo(lb, { clipPath: 'inset(0 0 100% 0)', y: -24 }, { clipPath: 'inset(0 0 0% 0)', y: 0, duration: 1.1, ease: 'steps(18)' });
+      gsap.fromTo('#q-bars .b', { scaleY: 0, transformOrigin: '50% 100%' }, { scaleY: 1, duration: .25, stagger: .008, delay: .7 });
+      gsap.fromTo('#r-stamp', { scale: 1.9, opacity: 0, rotate: -20 }, { scale: 1, opacity: .88, rotate: -7, duration: .45, delay: 1.15, ease: 'back.out(2.2)' });
+    }
+  }
+  function make(){
+    var o = city(inOrig.value), d = city(inDest.value), kg = parseInt(String(inPeso.value).replace(/\D/g, ''), 10), vol = parseInt(String(inVol.value).replace(/\D/g, ''), 10) || 0;
+    var e = estimate(o, d, kg);
+    Q = { code: code(), orig: o[0] + '/' + o[1], dest: d[0] + '/' + d[1], kg: kg, vol: vol, mod: e.mod, dias: e.dias };
+    document.getElementById('o-peso').textContent = kg.toLocaleString('pt-BR') + ' kg';
+    steps.forEach(function(s){ s.classList.add('done'); s.classList.remove('locked'); s.removeAttribute('aria-current'); });
+    render(Q, true);
+    store.set('prumo-ultima-cotacao', JSON.stringify(Q));
+  }
+  document.getElementById('q-reset').addEventListener('click', function(){
+    form.reset(); ['o-orig', 'o-dest', 'o-peso'].forEach(function(id){ document.getElementById(id).textContent = ''; });
+    document.getElementById('qlabel').classList.remove('has'); document.getElementById('qactions').hidden = true; document.getElementById('q-code').textContent = '—';
+    refresh(); go(0);
+  });
+  // quem volta encontra a última etiqueta gerada
+  try { var last = JSON.parse(store.get('prumo-ultima-cotacao') || 'null'); if (last && last.code){ render(last, false); document.getElementById('qnote').textContent = 'Sua última pré-cotação, guardada neste navegador. Estimativa ilustrativa.'; } } catch(e){}
+  refresh();
+
+  // ---------- rastreio: uma linha, uma luz que corre até onde a carga está ----------
+  var TRK = {
+    PRM26100001: [['Coletado', 'seg 08:12 · Barueri/SP'], ['No CD', 'seg 18:40 · CD Barueri'], ['Em transferência', 'ter 06:05 · rumo a Campinas'], ['Saiu para entrega', 'previsto ter 13h · Campinas/SP'], ['Entregue', 'previsto ter até 18h']],
+    PRM26100002: [['Coletado', 'qui 09:02 · Osasco/SP'], ['No CD', 'qui 17:55 · CD Barueri'], ['Em transferência', 'sex 05:40 · rumo a Curitiba'], ['Saiu para entrega', 'sáb 08:10 · Curitiba/PR'], ['Entregue', 'sáb 11:47 · canhoto digital']]
+  };
+  var NOW = { PRM26100001: 3, PRM26100002: 5 };
+  var STAMP = ['blue', 'blue', 'blue', 'blue', 'green'];
+  var route = document.getElementById('route'), tmsg = document.getElementById('t-msg'), tin = document.getElementById('t-code');
+  function track(c){
+    c = String(c || '').toUpperCase().replace(/\s+/g, '').replace(/BR$/, '');
+    var data = TRK[c];
+    route.querySelectorAll('.stop').forEach(function(n){ n.remove(); });
+    if (!data){ tmsg.textContent = c ? 'Não achamos o código ' + c + '. Confira letras e números (ex.: PRM26100001).' : 'Digite o código que está na etiqueta.'; route.classList.remove('on'); route.style.setProperty('--p', 0); return; }
+    tmsg.textContent = '';
+    var now = NOW[c], frag = document.createDocumentFragment();
+    data.forEach(function(st, i){
+      var li = document.createElement('li'); li.className = 'stop' + (i < now ? ' ok' : '') + (i === now - 1 && now < 5 ? ' now' : '');
+      li.innerHTML = '<b>' + st[0] + '</b><small>' + st[1] + '</small><span class="stamp ' + STAMP[i] + '">' + (i < now ? st[0] : '') + '</span>';
+      if (i === now - 1) li.setAttribute('aria-current', 'step');
+      frag.appendChild(li);
+    });
+    route.appendChild(frag);
+    var p = (now - 1) / 4; route.style.setProperty('--p', p);
+    requestAnimationFrame(function(){
+      var v = matchMedia('(max-width:760px)').matches, fill = route.querySelector('.fill');
+      route.style.setProperty('--len', (v ? fill.getBoundingClientRect().height : route.getBoundingClientRect().width * .8 * p) + 'px');
+      route.classList.toggle('on', !reduce && now < 5);
+    });
+    if (hasG && !reduce){
+      gsap.fromTo(route.querySelectorAll('.stop.ok .stamp'), { scale: 1.8, opacity: 0, rotate: -18 }, { scale: 1, opacity: .88, rotate: -7, duration: .4, stagger: .18, delay: .3, ease: 'back.out(2)' });
+    }
+  }
+  document.getElementById('tform').addEventListener('submit', function(e){ e.preventDefault(); track(tin.value); });
+  document.querySelectorAll('.chip').forEach(function(b){ b.addEventListener('click', function(){ tin.value = b.dataset.code; track(b.dataset.code); }); });
+  addEventListener('resize', function(){ if (route.querySelector('.stop')) track(tin.value || 'PRM26100001'); });
+  tin.value = 'PRM26100001'; track('PRM26100001');
+
+  // ---------- cobertura: as linhas saem do CD até cada cidade ----------
+  var svg = document.getElementById('radar'), cx = 320, cy = 300, R = 270, maxKm = 950;
+  function rad(km){ return R * Math.sqrt(km / maxKm); }
+  var s = '';
+  [100, 300, 600, 900].forEach(function(k){ s += '<circle class="ring" cx="' + cx + '" cy="' + cy + '" r="' + rad(k).toFixed(1) + '"/><text class="ring-l" x="' + (cx + 4) + '" y="' + (cy - rad(k) - 6).toFixed(1) + '">' + k + ' km</text>'; });
+  // rótulos ajustados à mão onde as cidades ficam na mesma direção
+  var LBL = { 'Campinas': { side: 'L' }, 'Jundiaí': { side: 'R', dy: 8 }, 'São José dos Campos': { name: 'S. J. dos Campos', side: 'R', dy: 32 }, 'Rio de Janeiro': { side: 'R', dy: -4 }, 'Bauru': { side: 'L' }, 'Ribeirão Preto': { side: 'L' } };
+  var show = CID.filter(function(c){ return c[2] >= 50 && c[0] !== 'Guarulhos'; });
+  show.forEach(function(c){
+    var a = (c[3] - 90) * Math.PI / 180, r = rad(c[2]), x = cx + Math.cos(a) * r, y = cy + Math.sin(a) * r;
+    var o = LBL[c[0]] || {}, right = o.side ? o.side === 'R' : Math.cos(a) >= -.15, tx = x + (right ? 10 : -10), anchor = right ? 'start' : 'end', ty = y + (o.dy || 0);
+    s += '<path class="ln" d="M' + cx + ' ' + cy + 'L' + x.toFixed(1) + ' ' + y.toFixed(1) + '"/>';
+    s += '<circle class="dot" cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="4.5"/>';
+    s += '<text class="city" x="' + tx.toFixed(1) + '" y="' + (ty - 2).toFixed(1) + '" text-anchor="' + anchor + '">' + (o.name || c[0]) + '</text>';
+    s += '<text class="km" x="' + tx.toFixed(1) + '" y="' + (ty + 13).toFixed(1) + '" text-anchor="' + anchor + '">' + c[2] + ' km</text>';
+  });
+  s += '<circle class="hub" cx="' + cx + '" cy="' + cy + '" r="11"/><text class="hub-l" x="' + cx + '" y="' + (cy + 34) + '" text-anchor="middle">CD BARUERI</text>';
+  svg.innerHTML = s;
+  document.getElementById('kmlist').innerHTML = show.slice().sort(function(a, b){ return a[2] - b[2]; }).map(function(c){ return '<li><b>' + c[0] + '</b> ' + c[2] + ' km</li>'; }).join('');
+  document.getElementById('legend').innerHTML = [['SP', 'capital, interior e litoral'], ['RJ', 'capital'], ['MG', 'Belo Horizonte'], ['PR', 'Curitiba'], ['SC', 'Florianópolis'], ['GO', 'Goiânia']]
+    .map(function(x){ return '<li><b>' + x[0] + '</b> ' + x[1] + '</li>'; }).join('') + '<li style="grid-column:1/-1;margin-top:8px">Raio ilustrativo · distâncias rodoviárias aproximadas</li>';
+
+  // ---------- aviso do modelo ----------
+
+  if (!hasG || reduce) return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  // ---------- abertura: a etiqueta sai da impressora e cola na caixa ----------
+  var label = document.getElementById('hero-label'), printer = document.querySelector('.printer');
+  var played = sess.get('prumo-intro') && !/[?&]intro=1/.test(location.search);
+  var intro = gsap.timeline({ paused: true, defaults: { ease: 'expo.out' }, onComplete: done });
+  var guard; function done(){ clearTimeout(guard); root.classList.remove('intro'); sess.set('prumo-intro', '1'); gsap.set(label, { clearProps: 'clipPath' }); }
+  if (!played){
+    root.classList.add('intro');
+    var rows = label.querySelectorAll('.pr > *');
+    gsap.set(label, { clipPath: 'inset(0 0 100% 0)', rotate: 0, y: -10, boxShadow: '0 0 0 rgba(0,0,0,0)' });
+    gsap.set(rows, { clipPath: 'inset(0 100% 0 0)' });
+    gsap.set('#hero-bars .b', { scaleY: 0, transformOrigin: '50% 100%' });
+    gsap.set('.hero .tape, .box-mark, .foot-note', { autoAlpha: 0 });
+    intro
+      .to(printer, { opacity: 1, y: 0, duration: .5 }, 0)
+      .to(label, { clipPath: 'inset(0 0 0% 0)', y: 0, duration: 1.5, ease: 'steps(28)' }, .35)
+      .to(rows, { clipPath: 'inset(0 0% 0 0)', duration: .32, stagger: .09, ease: 'power2.out' }, .45)
+      .to('#hero-bars .b', { scaleY: 1, duration: .18, stagger: .006, ease: 'power1.out' }, 1.35)
+      .to(printer, { y: -110, opacity: 0, duration: .55, ease: 'power3.in' }, 2.0)
+      .fromTo(label, { scale: 1.035 }, { scale: 1, rotate: -1.1, duration: .7, boxShadow: '0 2px 0 rgba(0,0,0,.05),0 28px 50px -26px rgba(70,40,10,.75),0 10px 18px -12px rgba(70,40,10,.4)' }, 2.15)
+      .fromTo('.hero .tape', { scaleX: 0, autoAlpha: 1, transformOrigin: '0 50%' }, { scaleX: 1, duration: .4, stagger: .12 }, 2.45)
+      .to('.box-mark, .foot-note', { autoAlpha: 1, duration: .6, stagger: .1 }, 2.6)
+      .add(function(){ root.classList.remove('intro'); }, 2.7)
+      .from('.nav, .hl-bar', { y: -20, autoAlpha: 0, duration: .6 }, 2.7);
+    gsap.set(printer, { y: -60 });
+    var skip = function(){ if (intro.progress() < 1) intro.progress(1); };
+    document.getElementById('skip-intro').addEventListener('click', skip);
+    addEventListener('keydown', skip, { once: true });
+    addEventListener('wheel', skip, { once: true, passive: true });
+    addEventListener('touchstart', skip, { once: true, passive: true });
+    // rede de segurança: se o aparelho travar os quadros, a página não fica presa na abertura
+    var arm = function(){ clearTimeout(guard); if (document.visibilityState === 'visible' && intro.progress() < 1) guard = setTimeout(skip, 5200); };
+    document.addEventListener('visibilitychange', arm); arm();
+    intro.play();
+  }
+
+  // ---------- rolagem: cada seção assenta uma vez ----------
+  gsap.utils.toArray('.rv').forEach(function(el){
+    gsap.from(el, { y: 26, opacity: 0, duration: .9, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 86%', once: true } });
+  });
+  // o palete é carregado de baixo para cima
+  gsap.from('#pallet .crate', { y: -60, opacity: 0, duration: .7, ease: 'bounce.out', stagger: { each: .12, from: 'end' }, scrollTrigger: { trigger: '#pallet', start: 'top 78%', once: true } });
+  // as linhas da cobertura saem do CD
+  var lines = svg.querySelectorAll('.ln');
+  lines.forEach(function(l){ var len = l.getTotalLength(); l.style.strokeDasharray = len; l.style.strokeDashoffset = len; });
+  gsap.from(svg.querySelectorAll('.dot, .city, .km'), { opacity: 0, duration: .4, stagger: .03, delay: .7, scrollTrigger: { trigger: svg, start: 'top 75%', once: true } });
+  gsap.to(lines, { strokeDashoffset: 0, duration: 1, stagger: .05, ease: 'expo.out', scrollTrigger: { trigger: svg, start: 'top 75%', once: true } });
+  // o conferente marca cada item
+  var ticks = document.querySelectorAll('#checks path');
+  gsap.set(ticks, { strokeDashoffset: 40 });
+  gsap.to(ticks, { strokeDashoffset: 0, duration: .35, stagger: .22, ease: 'power2.out', scrollTrigger: { trigger: '#checks', start: 'top 72%', once: true } });
+  gsap.from('.sign i', { opacity: 0, x: -10, duration: .5, delay: 1.5, scrollTrigger: { trigger: '#checks', start: 'top 72%', once: true } });
+})();
+</script>
+</body>
+</html>
