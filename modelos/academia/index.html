@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="pt-BR" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Academia Arranque — modelo de site para academias · hellys.</title>
+<meta name="description" content="Projeto autoral da hellys.: site-modelo para academias, com painel de esteira que monta a semana de treino, horários mais vazios e grade de aulas. A Arranque é fictícia.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#25282c">
+<meta property="og:title" content="Academia Arranque — modelo de site para academias">
+<meta property="og:description" content="Escolha o objetivo e o painel monta a sua semana. Projeto autoral da hellys. (empresa fictícia).">
+<!--hellys:meta-->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="hellys.">
+<meta property="og:url" content="https://hellys.dev.br/modelos/academia/">
+<meta property="og:image" content="https://hellys.dev.br/modelos/academia/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Painel de esteira com display de LED montando a semana de treino na página da Academia Arranque.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://hellys.dev.br/modelos/academia/">
+<!--/hellys:meta-->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2325282c'/%3E%3Cg fill='%23ffb21e'%3E%3Crect x='6' y='18' width='4' height='8'/%3E%3Crect x='12' y='12' width='4' height='14'/%3E%3Crect x='18' y='15' width='4' height='11'/%3E%3Crect x='24' y='8' width='4' height='18'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&family=Saira:wdth,wght@75..125,500..800&display=swap" rel="stylesheet">
+<!--hellys:css-->
+<style id="hl-layer">
+.hl-bar{position:relative;z-index:60;background:#10141a;color:#e8ecf1;font:500 13.5px/1.3 var(--hl-font,system-ui,sans-serif)}
+.hl-bar-in{max-width:var(--hl-wrap,1200px);margin:0 auto;padding:6px var(--hl-pad,clamp(16px,4.2vw,48px));display:flex;align-items:center;gap:14px;min-height:42px}
+.hl-logo-link{display:inline-flex;align-items:center;border-radius:3px;flex:0 0 auto}
+.hl-logo{height:16px;width:auto;display:block}
+.hl-bar p{flex:1 1 auto;color:#b9c4d1;margin:0}
+.hl-bar p b{color:#e8ecf1;font-weight:700}
+.hl-more{color:#e8ecf1;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(232,236,241,.4);white-space:nowrap}
+.hl-more:hover{text-decoration-color:#ff8a3d}
+.hl-cta{display:inline-flex;align-items:center;gap:8px;background:#ff8a3d;color:#10141a;font-weight:700;text-decoration:none;padding:7px 12px;border-radius:4px;white-space:nowrap;line-height:1.2}
+.hl-cta:hover{background:#ffa463}
+.hl-ico{width:1.1em;height:1.1em;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.hl-bar :focus-visible,.hl-made :focus-visible,.hl-toast :focus-visible{outline:2px solid #ff8a3d;outline-offset:2px}
+@media (max-width:860px){.hl-long,.hl-bar .hl-more{display:none}}
+@media (max-width:600px){.hl-mid,.hl-of{display:none}.hl-bar-in{gap:10px}.hl-bar p{font-size:12.5px}.hl-logo{height:13px}.hl-cta{padding:6px 9px;font-size:12.5px}.hl-bar .hl-cta .hl-ico{display:none}}
+.hl-made{background:#10141a;color:#e8ecf1;border-radius:8px;padding:clamp(22px,4vw,34px);display:grid;grid-template-columns:1fr auto;gap:18px 28px;align-items:center;font:400 15.5px/1.55 var(--hl-font,system-ui,sans-serif);text-align:left;letter-spacing:normal;text-transform:none}
+.hl-made p{color:#b9c4d1;max-width:62ch;margin:0}
+.hl-made p b{color:#e8ecf1}
+.hl-made .hl-logo{height:22px;margin-bottom:12px}
+.hl-made-acts{display:flex;flex-direction:column;gap:12px;align-items:stretch}
+.hl-made .hl-cta{justify-content:center;padding:11px 16px;font-size:15px}
+.hl-made .hl-more{text-align:center;font-size:14.5px}
+@media (max-width:760px){.hl-made{grid-template-columns:1fr}}
+.hl-toast{position:fixed;left:50%;bottom:18px;z-index:2000;width:min(560px,calc(100vw - 24px));transform:translate(-50%,160%);visibility:hidden;transition:transform .5s cubic-bezier(.16,1,.3,1),visibility 0s .5s;background:#10141a;color:#e8ecf1;border-radius:8px;padding:16px 18px;box-shadow:0 24px 40px -18px rgba(0,0,0,.6);display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start;font:400 15px/1.5 var(--hl-font,system-ui,sans-serif);text-align:left;letter-spacing:normal;text-transform:none}
+.hl-toast.show{transform:translate(-50%,0);visibility:visible;transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.hl-toast p{color:#c7d0db;margin:0}
+.hl-toast p b{color:#e8ecf1}
+.hl-toast a{color:#ff8a3d;font-weight:700;white-space:nowrap}
+.hl-toast a .hl-ico{display:inline;vertical-align:-.2em}
+.hl-toast button{background:none;border:0;color:#9aa6b4;cursor:pointer;padding:4px;display:grid}
+.hl-toast button .hl-ico{width:22px;height:22px}
+@media (prefers-reduced-motion:reduce){.hl-toast,.hl-toast.show{transition:none}}
+</style>
+<!--/hellys:css-->
+<style>
+:root{
+  --wall:#e4e7e7; --wall-2:#d2d7d7; --ink:#1b1d20; --ink-2:#4a4e55;
+  --body:#25282c; --body-2:#30343a; --key:#3c4148; --key-2:#474d55; --key-ink:#e7e9ec; --key-dim:#b4bac2;
+  --glass:#120d07; --led:#ffb21e; --led-off:#33260f; --led-mid:#7a5713;
+  --go:#157a43; --go-2:#11683a; --stop:#c42b1f; --stop-2:#a8231a;
+  --wrap:1220px; --pad:clamp(16px,4.2vw,48px); --ease:cubic-bezier(.16,1,.3,1);
+  --f-head:"Saira",system-ui,sans-serif; --f-sans:"Public Sans",system-ui,sans-serif;
+  --hl-font:"Public Sans",system-ui,sans-serif; --hl-wrap:1220px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{font:400 17px/1.55 var(--f-sans);color:var(--ink);background:var(--wall);overflow-x:hidden}
+::selection{background:var(--led);color:var(--ink)}
+a{color:inherit}
+svg{display:block}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid #1f6feb;outline-offset:3px;border-radius:6px}
+.console :focus-visible,.board :focus-visible{outline-color:var(--led)}
+[hidden]{display:none!important}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+.ico{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.lab{font:700 12px/1 var(--f-head);font-stretch:112%;letter-spacing:.14em;text-transform:uppercase}
+
+/* ---------- navegação ---------- */
+.nav{position:sticky;top:0;z-index:50;background:var(--wall);border-bottom:1px solid var(--wall-2)}
+.nav .wrap{display:flex;align-items:center;gap:22px;min-height:62px}
+.brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font:800 25px/1 var(--f-head);font-stretch:118%;letter-spacing:-.01em;text-transform:uppercase}
+.brand svg{width:30px;height:30px}
+.nav-links{display:flex;gap:22px;margin-left:auto;list-style:none}
+.nav-links a{font-weight:600;font-size:15.5px;text-decoration:none;color:var(--ink-2)}
+.nav-links a:hover{color:var(--ink)}
+.btn{display:inline-block;white-space:nowrap;border:0;cursor:pointer;text-decoration:none;font:700 15px/1 var(--f-sans);padding:12px 16px;border-radius:8px;background:var(--go);color:#fff;transition:background-color .2s}
+.btn:hover{background:var(--go-2)}
+@media (max-width:940px){.nav-links{display:none}.nav .btn{margin-left:auto}}
+@media (max-width:600px){.nav .btn .long{display:none}}
+
+/* ---------- abertura: o painel ---------- */
+.hero{padding:clamp(22px,3vw,40px) 0 clamp(48px,6vw,84px)}
+.hero-top{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px 30px;margin-bottom:clamp(18px,2.4vw,28px)}
+.hero h1{font:800 clamp(2.3rem,4.9vw,4.3rem)/.93 var(--f-head);font-stretch:96%;letter-spacing:-.02em;text-transform:uppercase;max-width:16ch}
+.hero-top p{color:var(--ink-2);max-width:38ch;font-size:clamp(16px,1.3vw,18px)}
+
+.console{background:var(--body);color:var(--key-ink);border-radius:26px 26px 18px 18px;padding:clamp(14px,2vw,24px);box-shadow:inset 0 2px 0 rgba(255,255,255,.07),0 34px 50px -34px rgba(10,12,14,.65)}
+.c-top{display:grid;grid-template-columns:150px minmax(0,1fr) 150px;gap:clamp(10px,1.4vw,18px);align-items:stretch}
+.wins{display:grid;gap:clamp(10px,1.4vw,18px)}
+.win{background:var(--glass);border-radius:10px;padding:10px 12px 12px;box-shadow:inset 0 0 0 2px #0a0704,inset 0 0 0 4px var(--body-2);display:flex;flex-direction:column;justify-content:space-between;gap:8px}
+.win .lab{color:var(--key-dim);font-size:11px;letter-spacing:.12em}
+.seg7{height:40px;width:auto;max-width:100%}
+.seg7 .s{fill:var(--led-off)}
+.seg7 .s.on{fill:var(--led)}
+.screen{background:var(--glass);border-radius:12px;padding:clamp(10px,1.3vw,16px) clamp(10px,1.3vw,16px) 10px;box-shadow:inset 0 0 0 2px #0a0704,inset 0 0 0 5px var(--body-2)}
+#dm{width:100%;height:auto}
+#dm circle{fill:var(--led-off)}
+#dm circle.on{fill:var(--led)}
+#dm circle.mid{fill:var(--led-mid)}
+.days{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));margin-top:6px;text-align:center}
+.days span{font:700 12px/1 var(--f-head);font-stretch:112%;letter-spacing:.1em;color:#8a7650}
+.days span.on{color:var(--led)}
+
+.c-keys{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,1fr) auto;gap:clamp(12px,1.6vw,22px);margin-top:clamp(14px,1.8vw,22px);align-items:end}
+.grp > .lab{display:block;color:var(--key-dim);margin:0 0 8px 2px}
+.keys{display:grid;gap:8px}
+.k-obj{grid-template-columns:repeat(2,minmax(0,1fr))}
+.k-dias{grid-template-columns:repeat(4,minmax(0,1fr))}
+.k-per{grid-template-columns:repeat(3,minmax(0,1fr))}
+.key{position:relative;border:0;cursor:pointer;background:var(--key);color:var(--key-ink);border-radius:9px;min-height:50px;padding:10px 12px 10px 14px;display:flex;align-items:center;gap:10px;text-align:left;font:700 15px/1.15 var(--f-sans);box-shadow:inset 0 1px 0 rgba(255,255,255,.09),inset 0 -2px 0 rgba(0,0,0,.28);transition:background-color .15s,transform .1s}
+.key:hover{background:var(--key-2)}
+.key:active{transform:translateY(1px)}
+.key::after{content:"";position:absolute;top:8px;right:8px;width:7px;height:7px;border-radius:50%;background:#1d160b}
+.key[aria-pressed="true"]::after{background:var(--led)}
+.key[aria-pressed="true"]{background:#4a5059}
+.k-dias .key,.k-per .key{justify-content:center;text-align:center;padding:10px 6px}
+.k-dias .key{font:800 22px/1 var(--f-head)}
+.skey{border:0;cursor:pointer;background:transparent;color:var(--key-ink);display:grid;justify-items:center;gap:6px;text-align:center;padding:4px 4px 0;width:118px}
+.skey svg{width:72px;height:66px;transition:transform .3s var(--ease)}
+.skey span{font:600 13px/1.2 var(--f-sans);color:var(--key-dim)}
+.skey[aria-pressed="true"] svg{transform:translate(8px,-6px) rotate(14deg)}
+.skey[aria-pressed="true"] span{color:#fff}
+
+.c-run{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:clamp(12px,1.6vw,22px);align-items:center;margin-top:clamp(14px,1.8vw,22px);padding-top:clamp(14px,1.8vw,22px);border-top:2px solid #1c1f22}
+.big{border:0;cursor:pointer;text-decoration:none;display:grid;justify-items:center;align-content:center;gap:4px;border-radius:16px;padding:14px 22px;min-height:76px;color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.18),inset 0 -3px 0 rgba(0,0,0,.25);transition:background-color .15s,transform .1s}
+.big:active{transform:translateY(1px)}
+.big b{font:800 26px/1 var(--f-head);font-stretch:120%;letter-spacing:.06em}
+.big span{font:600 14px/1.15 var(--f-sans)}
+.stop{background:var(--stop)}
+.stop:hover{background:var(--stop-2)}
+.start{background:var(--go);min-width:240px}
+.start:hover{background:var(--go-2)}
+.prog{list-style:none;display:grid;gap:2px;font-size:15px;min-width:0}
+.prog li{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:10px;align-items:baseline;padding:4px 0;border-bottom:1px solid #33373d}
+.prog li:last-child{border-bottom:0}
+.prog .d{font:800 14px/1 var(--f-head);font-stretch:112%;letter-spacing:.08em;color:var(--led)}
+.prog .m{font:700 14px/1 var(--f-head);color:var(--key-dim);white-space:nowrap}
+.prog li.note{grid-template-columns:minmax(0,1fr);color:#fff;font-weight:600}
+@media (max-width:1060px){
+  .c-keys{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .skey{width:auto;grid-template-columns:auto 1fr;justify-items:start;align-items:center;text-align:left}
+  .skey svg{width:56px;height:52px}
+}
+@media (max-width:860px){
+  .c-top{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .screen{grid-column:1/-1;order:-1}
+  .wins{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .c-run{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .prog{grid-column:1/-1;order:-1}
+  .start{min-width:0}
+}
+@media (max-width:560px){
+  .console{border-radius:18px;padding:12px}
+  .c-top{grid-template-columns:minmax(0,1fr)}
+  .wins{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .win{padding:8px 10px 10px}
+  .seg7{height:30px}
+  .c-keys{grid-template-columns:minmax(0,1fr)}
+  .key{min-height:46px}
+  .c-run{grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr)}
+  .big{padding:12px 12px;min-height:68px}
+  .big b{font-size:21px}
+  .big span{font-size:13px}
+}
+
+/* ---------- seções ---------- */
+.sec{padding:clamp(56px,7vw,100px) 0}
+.sec-h{font:800 clamp(2.1rem,4.3vw,3.5rem)/.95 var(--f-head);font-stretch:96%;letter-spacing:-.015em;text-transform:uppercase;max-width:18ch}
+.sec-sub{color:var(--ink-2);font-size:clamp(17px,1.4vw,19px);max-width:56ch;margin-top:12px}
+.dark{background:var(--body);color:var(--key-ink)}
+.dark .sec-sub{color:var(--key-dim)}
+
+/* lotação */
+.board{margin-top:clamp(24px,3vw,38px);background:#1c1f22;border-radius:18px;padding:clamp(14px,2vw,24px)}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.tabs .key{min-height:44px;padding:8px 18px 8px 14px;font:800 15px/1 var(--f-head);font-stretch:112%;letter-spacing:.08em}
+.lot{background:var(--glass);border-radius:12px;padding:16px 14px 10px;box-shadow:inset 0 0 0 2px #0a0704,inset 0 0 0 5px var(--body-2)}
+.bars{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:clamp(3px,.6vw,8px);height:190px;align-items:end}
+.bar{display:grid;grid-template-rows:repeat(10,minmax(0,1fr));gap:3px;height:100%}
+.bar i{border-radius:2px;background:var(--led-off)}
+.bar i.on{background:var(--led)}
+.hrs{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:clamp(3px,.6vw,8px);margin-top:8px;text-align:center}
+.hrs span{font:700 12px/1 var(--f-head);color:#8a7650;padding:4px 0;border-radius:4px}
+.hrs span.low{background:var(--led);color:var(--glass)}
+.lot-say{margin-top:14px;font-size:clamp(17px,1.5vw,20px);font-weight:600;color:#fff}
+.lot-say b{color:var(--led)}
+.fine{margin-top:6px;font-size:14px;color:var(--key-dim)}
+@media (max-width:560px){.bars{height:150px;gap:2px}.bar{gap:2px}.hrs{gap:2px}.hrs span{font-size:11.5px;letter-spacing:-.03em;padding:4px 0}.hrs span:nth-child(even):not(.low){color:transparent}}
+
+/* grade de aulas */
+.grade{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));margin-top:clamp(24px,3vw,38px);border-top:3px solid var(--ink)}
+.gd{padding:14px 14px 18px 0}
+.gd + .gd{padding-left:14px;border-left:1px solid #c4caca}
+.gd h3{font:800 18px/1 var(--f-head);font-stretch:112%;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+.gd ul{list-style:none;display:grid;gap:8px}
+.gd li{display:grid;gap:1px;padding:8px 10px;border-radius:8px;background:#f3f5f5;box-shadow:inset 0 0 0 1px #cdd3d3}
+.gd li b{font:700 13px/1 var(--f-head);color:var(--ink-2);letter-spacing:.04em}
+.gd li span{font-weight:700;font-size:15.5px;line-height:1.25}
+.gd li.mine{background:var(--body);color:#fff;box-shadow:none}
+.gd li.mine b{color:var(--led)}
+.legend{display:flex;align-items:center;gap:10px;margin-top:16px;color:var(--ink-2);font-size:15px}
+.legend i{width:18px;height:18px;border-radius:4px;background:var(--body)}
+@media (max-width:980px){.grade{grid-template-columns:repeat(3,minmax(0,1fr))}.gd:nth-child(4){padding-left:0;border-left:0}.gd:nth-child(n+4){border-top:1px solid #c4caca}}
+@media (max-width:560px){.grade{grid-template-columns:repeat(2,minmax(0,1fr))}.gd:nth-child(n){padding-left:0;border-left:0;padding-right:10px}.gd:nth-child(even){padding-left:10px;border-left:1px solid #c4caca}.gd:nth-child(n+3){border-top:1px solid #c4caca}}
+
+/* primeira semana: passos com setas */
+.steps{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:clamp(24px,3vw,38px)}
+.steps li{position:relative;padding:0 clamp(28px,3vw,44px) 0 0}
+.steps li:not(:last-child)::after{content:"";position:absolute;right:clamp(6px,1vw,12px);top:20px;width:clamp(14px,1.6vw,22px);height:clamp(14px,1.6vw,22px);border-top:3px solid var(--ink);border-right:3px solid var(--ink);transform:rotate(45deg)}
+.steps .n{display:block;font:800 clamp(3.4rem,6vw,5rem)/.85 var(--f-head);font-stretch:80%;color:var(--ink);margin-bottom:12px}
+.steps h3{font:800 20px/1.1 var(--f-head);font-stretch:108%;text-transform:uppercase;letter-spacing:.02em;margin-bottom:6px}
+.steps p{color:var(--ink-2)}
+@media (max-width:860px){.steps{grid-template-columns:minmax(0,1fr);gap:26px}.steps li{padding:0 0 0 0;display:grid;grid-template-columns:72px minmax(0,1fr);column-gap:14px}.steps .n{grid-row:span 2;margin:0}.steps li:not(:last-child)::after{right:auto;left:26px;top:auto;bottom:-22px;transform:rotate(135deg);width:14px;height:14px}}
+
+.mods{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:clamp(24px,3vw,38px);border-top:2px solid var(--key-ink)}
+.mods li{padding:18px 20px 20px 0;border-bottom:1px solid #3d4248;display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 14px;align-items:start}
+.mods li:nth-child(3n+2),.mods li:nth-child(3n+3){padding-left:20px;border-left:1px solid #3d4248}
+.mods svg{grid-row:span 2;width:30px;height:30px;color:var(--led);margin-top:2px}
+.mods h3{font:800 20px/1.1 var(--f-head);font-stretch:108%;text-transform:uppercase;letter-spacing:.02em}
+.mods p{color:var(--key-dim)}
+@media (max-width:860px){.mods{grid-template-columns:minmax(0,1fr)}.mods li:nth-child(n){padding-left:0;border-left:0}}
+
+.where{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:3px solid var(--ink);margin-top:clamp(22px,3vw,34px)}
+.where > div{padding:20px 22px 0 0}
+.where > div + div{padding-left:22px;border-left:1px solid #c4caca}
+.where h3{margin-bottom:10px;color:var(--ink-2)}
+.where p{font-weight:700}
+.where small{display:block;color:var(--ink-2);font-size:15px;margin-top:4px}
+@media (max-width:800px){.where{grid-template-columns:minmax(0,1fr)}.where > div + div{padding-left:0;border-left:0;border-top:1px solid #c4caca;margin-top:18px}}
+
+.foot{background:var(--body);color:var(--key-ink);padding:44px 0 36px}
+.foot-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:26px;margin-bottom:34px}
+.foot h3{color:var(--key-dim);margin-bottom:12px}
+.foot ul{list-style:none;display:grid;gap:6px}
+.foot-note{color:var(--key-dim);margin-top:12px;max-width:34ch}
+@media (max-width:760px){.foot-grid{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body>
+<!--hellys:hbar-->
+<div class="hl-bar" role="note" aria-label="Aviso: este site é um modelo">
+  <div class="hl-bar-in">
+    <a class="hl-logo-link" href="https://hellys.dev.br/" aria-label="hellys. (ir para o portfólio)"><svg xmlns="http://www.w3.org/2000/svg" class="hl-logo" aria-hidden="true" focusable="false" viewBox="0 0 4532.21 943.33"><g transform="translate(368.53 141.33) scale(0.86)"><path fill="#ff8a3d" d="M-82.13 -164.33L-428.52 350L-82.13 864.33L-9.87 815.67L-323.48 350L-9.87 -115.67ZM665.87 -115.67L979.48 350L665.87 815.67L738.13 864.33L1084.52 350L738.13 -164.33Z"/><path fill="#e8ecf1" d="M198 700L66 700L66 0L198 0L198 289L458 289L458 0L590 0L590 700L458 700L458 409L198 409L198 700Z"/></g><g transform="translate(1531.21 743.33) scale(1)"><path fill="#e8ecf1" d="M196 0L70 0L70-700L196-700L196-435L214-435Q222-451 239-467Q256-483 284.50-493.50Q313-504 357-504L357-504Q415-504 458.50-477.50Q502-451 526-404.50Q550-358 550-296L550-296L550 0L424 0L424-286Q424-342 396.50-370Q369-398 318-398L318-398Q260-398 228-359.50Q196-321 196-252L196-252L196 0ZM894 14L894 14Q820 14 763.50-17.50Q707-49 675.50-106.50Q644-164 644-242L644-242L644-254Q644-332 675-389.50Q706-447 762-478.50Q818-510 892-510L892-510Q965-510 1019-477.50Q1073-445 1103-387.50Q1133-330 1133-254L1133-254L1133-211L772-211Q774-160 810-128Q846-96 898-96L898-96Q951-96 976-119Q1001-142 1014-170L1014-170L1117-116Q1103-90 1076.50-59.50Q1050-29 1006-7.50Q962 14 894 14ZM773-305L773-305L1005-305Q1001-348 970.50-374Q940-400 891-400L891-400Q840-400 810-374Q780-348 773-305ZM1353 0L1227 0L1227-700L1353-700L1353 0ZM1601 0L1475 0L1475-700L1601-700L1601 0ZM2089 200L1777 200L1777 90L2047 90Q2075 90 2075 60L2075 60L2075-65L2057-65Q2049-48 2032-31Q2015-14 1986-3Q1957 8 1912 8L1912 8Q1854 8 1810.50-18.50Q1767-45 1743-92Q1719-139 1719-200L1719-200L1719-496L1845-496L1845-210Q1845-154 1872.50-126Q1900-98 1951-98L1951-98Q2009-98 2041-136.50Q2073-175 2073-244L2073-244L2073-496L2199-496L2199 88Q2199 139 2169 169.50Q2139 200 2089 200L2089 200ZM2527 14L2527 14Q2430 14 2368-28Q2306-70 2293-148L2293-148L2409-178Q2416-143 2432.50-123Q2449-103 2473.50-94.50Q2498-86 2527-86L2527-86Q2571-86 2592-101.50Q2613-117 2613-140L2613-140Q2613-163 2593-175.50Q2573-188 2529-196L2529-196L2501-201Q2449-211 2406-228.50Q2363-246 2337-277Q2311-308 2311-357L2311-357Q2311-431 2365-470.50Q2419-510 2507-510L2507-510Q2590-510 2645-473Q2700-436 2717-376L2717-376L2600-340Q2592-378 2567.50-394Q2543-410 2507-410L2507-410Q2471-410 2452-397.50Q2433-385 2433-363L2433-363Q2433-339 2453-327.50Q2473-316 2507-310L2507-310L2535-305Q2591-295 2636.50-278.50Q2682-262 2708.50-231.50Q2735-201 2735-149L2735-149Q2735-71 2678.50-28.50Q2622 14 2527 14Z"/><path fill="#ff8a3d" d="M2907 14L2907 14Q2866 14 2838.50-12.50Q2811-39 2811-81L2811-81Q2811-123 2838.50-149.50Q2866-176 2907-176L2907-176Q2947-176 2974-149.50Q3001-123 3001-81L3001-81Q3001-39 2974-12.50Q2947 14 2907 14Z"/></g></svg></a>
+    <p><b>Projeto autoral<span class="hl-of"> da hellys.</span></b><span class="hl-mid"> Modelo de site para academias.</span><span class="hl-long"> A Academia Arranque é fictícia.</span></p>
+    <a class="hl-more" href="https://hellys.dev.br/modelos/">Outros modelos</a>
+    <a class="hl-cta" href="https://wa.me/5511994032102?text=Oi%2C%20vi%20o%20modelo%20de%20site%20para%20academias%20no%20portf%C3%B3lio%20da%20hellys%20e%20quero%20um%20assim." target="_blank" rel="noopener">Quero um site assim <svg class="hl-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</div>
+<!--/hellys:hbar-->
+
+<header class="nav" id="topo">
+  <div class="wrap">
+    <a class="brand" href="#topo" aria-label="Academia Arranque, início">
+      <svg viewBox="0 0 30 30" aria-hidden="true"><rect width="30" height="30" rx="7" fill="#25282c"/><g fill="#ffb21e"><rect x="5" y="17" width="4" height="8"/><rect x="10.5" y="11" width="4" height="14"/><rect x="16" y="14" width="4" height="11"/><rect x="21.5" y="6" width="4" height="19"/></g></svg>
+      Arranque
+    </a>
+    <ul class="nav-links">
+      <li><a href="#painel">Monte a semana</a></li>
+      <li><a href="#lotacao">Horários vazios</a></li>
+      <li><a href="#aulas">Aulas</a></li>
+      <li><a href="#onde">Onde fica</a></li>
+    </ul>
+    <a class="btn" href="#painel" data-demo="No site real, este botão abre o WhatsApp da academia para marcar a aula experimental.">Aula<span class="long"> experimental</span></a>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="painel" aria-labelledby="h1">
+  <div class="wrap">
+    <div class="hero-top">
+      <h1 id="h1">Escolha o objetivo. A gente monta a semana.</h1>
+      <p>Aperte as teclas do painel: ele mostra os dias, os minutos e o horário mais vazio pra você começar.</p>
+    </div>
+
+    <div class="console">
+      <div class="c-top">
+        <div class="wins">
+          <div class="win"><span class="lab">Minutos/semana</span><svg class="seg7" id="s-min" aria-hidden="true"></svg></div>
+          <div class="win"><span class="lab">Dias</span><svg class="seg7" id="s-dias" aria-hidden="true"></svg></div>
+        </div>
+        <div class="screen">
+          <svg id="dm" viewBox="0 0 72 20" role="img" aria-label=""></svg>
+          <div class="days" id="days" aria-hidden="true"><span>SEG</span><span>TER</span><span>QUA</span><span>QUI</span><span>SEX</span><span>SÁB</span></div>
+        </div>
+        <div class="wins">
+          <div class="win"><span class="lab">Horário sugerido</span><svg class="seg7" id="s-hora" aria-hidden="true"></svg></div>
+          <div class="win"><span class="lab">Aulas em grupo</span><svg class="seg7" id="s-aulas" aria-hidden="true"></svg></div>
+        </div>
+      </div>
+
+      <div class="c-keys">
+        <div class="grp"><span class="lab" id="g-obj">Objetivo</span>
+          <div class="keys k-obj" role="group" aria-labelledby="g-obj" id="k-obj">
+            <button class="key" type="button" data-v="emagrecer" aria-pressed="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c1 4 6 6 6 11a6 6 0 0 1-12 0c0-3 2-4 2-7 2 1 3 3 3 5 1-2 1-6 1-9z"/></svg>Emagrecer</button>
+            <button class="key" type="button" data-v="forca" aria-pressed="false"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6M6 7v10M18 7v10M21 9v6M6 12h12"/></svg>Ganhar força</button>
+            <button class="key" type="button" data-v="folego" aria-pressed="false"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8h11a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3M3 16h8"/></svg>Fôlego</button>
+            <button class="key" type="button" data-v="voltar" aria-pressed="false"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 3-6.2M4 4v4h4"/></svg>Voltar a treinar</button>
+          </div>
+        </div>
+        <div class="grp"><span class="lab" id="g-dias">Dias por semana</span>
+          <div class="keys k-dias" role="group" aria-labelledby="g-dias" id="k-dias">
+            <button class="key" type="button" data-v="2" aria-pressed="false">2</button>
+            <button class="key" type="button" data-v="3" aria-pressed="true">3</button>
+            <button class="key" type="button" data-v="4" aria-pressed="false">4</button>
+            <button class="key" type="button" data-v="5" aria-pressed="false">5</button>
+          </div>
+        </div>
+        <div class="grp"><span class="lab" id="g-per">Período</span>
+          <div class="keys k-per" role="group" aria-labelledby="g-per" id="k-per">
+            <button class="key" type="button" data-v="manha" aria-pressed="false">Manhã</button>
+            <button class="key" type="button" data-v="almoco" aria-pressed="false">Almoço</button>
+            <button class="key" type="button" data-v="noite" aria-pressed="true">Noite</button>
+          </div>
+        </div>
+        <button class="skey" type="button" id="skey" aria-pressed="false">
+          <svg viewBox="0 0 72 66" aria-hidden="true"><path d="M10 64c0-14 18-10 18-22s-14-8-14-20" fill="none" stroke="#c42b1f" stroke-width="2.5" stroke-dasharray="1 0"/><path d="M14 22c-4-4 4-8 0-12" fill="none" stroke="#c42b1f" stroke-width="2.5"/><rect x="30" y="4" width="34" height="26" rx="8" fill="#c42b1f"/><circle cx="40" cy="17" r="4.5" fill="#25282c"/><rect x="52" y="12" width="8" height="10" rx="2" fill="#a8231a"/><path d="M14 10h16" stroke="#c42b1f" stroke-width="2.5"/></svg>
+          <span>Tenho lesão ou restrição</span>
+        </button>
+      </div>
+
+      <div class="c-run">
+        <button class="big stop" type="button" id="stop"><b>PARAR</b><span>Zerar escolhas</span></button>
+        <ol class="prog" id="prog" aria-live="polite" aria-label="Sua semana de exemplo"></ol>
+        <a class="big start" href="#painel" id="start" data-demo=""><b>INICIAR</b><span>Marcar aula experimental</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec dark" id="lotacao" aria-labelledby="lo-h">
+  <div class="wrap">
+    <h2 class="sec-h" id="lo-h">Os horários mais vazios</h2>
+    <p class="sec-sub">Lotação média por hora. Escolha o dia e veja quando dá pra treinar sem fila no aparelho.</p>
+    <div class="board">
+      <div class="tabs" id="tabs" role="group" aria-label="Dia da semana"></div>
+      <div class="lot">
+        <div class="bars" id="bars" role="img" aria-label=""></div>
+        <div class="hrs" id="hrs" aria-hidden="true"></div>
+      </div>
+      <p class="lot-say" id="lot-say" aria-live="polite"></p>
+      <p class="fine">Números ilustrativos. No site real, a academia atualiza com a própria movimentação.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="aulas" aria-labelledby="au-h">
+  <div class="wrap">
+    <h2 class="sec-h" id="au-h">Grade de aulas</h2>
+    <p class="sec-sub">As aulas em grupo entram no plano sem custo à parte. As marcadas em grafite caem na semana que você montou no painel.</p>
+    <div class="grade" id="grade"></div>
+    <p class="legend"><i aria-hidden="true"></i>Na sua semana</p>
+  </div>
+</section>
+
+<section class="sec dark" id="modalidades" aria-labelledby="mo-h">
+  <div class="wrap">
+    <h2 class="sec-h" id="mo-h">O que tem aqui</h2>
+    <ul class="mods">
+      <li><svg viewBox="0 0 24 24" class="ico" aria-hidden="true"><path d="M3 9v6M6 7v10M18 7v10M21 9v6M6 12h12"/></svg><h3>Musculação</h3><p>Ficha montada por professor, com revisão a cada 30 dias.</p></li>
+      <li><svg viewBox="0 0 24 24" class="ico" aria-hidden="true"><path d="M5 20l4-8 4 3 6-11"/><circle cx="19" cy="4" r="1.5"/></svg><h3>Funcional</h3><p>Circuito em grupo de até 12 pessoas, 45 minutos.</p></li>
+      <li><svg viewBox="0 0 24 24" class="ico" aria-hidden="true"><circle cx="6" cy="17" r="3.5"/><circle cx="18" cy="17" r="3.5"/><path d="M6 17l4-8h5l3 8M10 9l2-4h3"/></svg><h3>Bike indoor</h3><p>Aula com música e carga no seu ritmo.</p></li>
+      <li><svg viewBox="0 0 24 24" class="ico" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg><h3>Ritmos</h3><p>Dança pra suar sem perceber, sem precisar saber dançar.</p></li>
+      <li><svg viewBox="0 0 24 24" class="ico" aria-hidden="true"><circle cx="12" cy="4" r="2"/><path d="M4 9l8 2 8-2M12 11v5l-4 5M12 16l4 5"/></svg><h3>Alongamento</h3><p>Mobilidade e postura, bom pra quem passa o dia sentado.</p></li>
+      <li><svg viewBox="0 0 24 24" class="ico" aria-hidden="true"><path d="M3 19h18M5 19l3-9h11l2 9M8 10l2-5h4"/></svg><h3>Cardio livre</h3><p>Esteiras, bikes e elíptico com fone e ventilação.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec" id="semana" aria-labelledby="se-h">
+  <div class="wrap">
+    <h2 class="sec-h" id="se-h">Sua primeira semana</h2>
+    <ol class="steps">
+      <li><span class="n" aria-hidden="true">1</span><h3>Aula experimental</h3><p>Você treina com um professor do lado, sem compromisso.</p></li>
+      <li><span class="n" aria-hidden="true">2</span><h3>Avaliação</h3><p>Conversa sobre objetivo, rotina e qualquer dor ou lesão.</p></li>
+      <li><span class="n" aria-hidden="true">3</span><h3>Ficha montada</h3><p>Treino escrito para os seus dias, com carga de começo.</p></li>
+      <li><span class="n" aria-hidden="true">4</span><h3>Revisão em 30 dias</h3><p>O professor ajusta a ficha com o que você evoluiu.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec" id="onde" aria-labelledby="on-h" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="sec-h" id="on-h">Onde fica</h2>
+    <div class="where">
+      <div><h3 class="lab">Endereço</h3><p>Rua Exemplo, 321 · Vila Modelo<br>São Paulo/SP</p><small>Endereço fictício. Bicicletário na entrada.</small></div>
+      <div><h3 class="lab">Horário</h3><p>Seg a sex 6h às 22h<br>Sábado 8h às 14h</p><small>Professor na sala em todos os horários.</small></div>
+      <div><h3 class="lab">Contato</h3><p>(11) 0000-0000</p><small>Aula experimental marcada pelo WhatsApp.</small></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><a class="brand" href="#topo"><svg viewBox="0 0 30 30" aria-hidden="true"><rect width="30" height="30" rx="7" fill="#e4e7e7"/><g fill="#25282c"><rect x="5" y="17" width="4" height="8"/><rect x="10.5" y="11" width="4" height="14"/><rect x="16" y="14" width="4" height="11"/><rect x="21.5" y="6" width="4" height="19"/></g></svg>Arranque</a><p class="foot-note">Musculação, funcional, bike indoor, ritmos e alongamento, com professor em todos os horários.</p></div>
+      <div><h3 class="lab">Contato</h3><ul><li>(11) 0000-0000</li><li>oi@arranque.exemplo</li><li>Rua Exemplo, 321 · São Paulo/SP</li></ul></div>
+      <div><h3 class="lab">Atalhos</h3><ul><li><a href="#painel">Monte a semana</a></li><li><a href="#lotacao">Horários vazios</a></li><li><a href="#aulas">Grade de aulas</a></li></ul></div>
+    </div>
+<!--hellys:made-->
+<div class="hl-made">
+  <div>
+    <svg xmlns="http://www.w3.org/2000/svg" class="hl-logo" aria-hidden="true" focusable="false" viewBox="0 0 4532.21 943.33"><g transform="translate(368.53 141.33) scale(0.86)"><path fill="#ff8a3d" d="M-82.13 -164.33L-428.52 350L-82.13 864.33L-9.87 815.67L-323.48 350L-9.87 -115.67ZM665.87 -115.67L979.48 350L665.87 815.67L738.13 864.33L1084.52 350L738.13 -164.33Z"/><path fill="#e8ecf1" d="M198 700L66 700L66 0L198 0L198 289L458 289L458 0L590 0L590 700L458 700L458 409L198 409L198 700Z"/></g><g transform="translate(1531.21 743.33) scale(1)"><path fill="#e8ecf1" d="M196 0L70 0L70-700L196-700L196-435L214-435Q222-451 239-467Q256-483 284.50-493.50Q313-504 357-504L357-504Q415-504 458.50-477.50Q502-451 526-404.50Q550-358 550-296L550-296L550 0L424 0L424-286Q424-342 396.50-370Q369-398 318-398L318-398Q260-398 228-359.50Q196-321 196-252L196-252L196 0ZM894 14L894 14Q820 14 763.50-17.50Q707-49 675.50-106.50Q644-164 644-242L644-242L644-254Q644-332 675-389.50Q706-447 762-478.50Q818-510 892-510L892-510Q965-510 1019-477.50Q1073-445 1103-387.50Q1133-330 1133-254L1133-254L1133-211L772-211Q774-160 810-128Q846-96 898-96L898-96Q951-96 976-119Q1001-142 1014-170L1014-170L1117-116Q1103-90 1076.50-59.50Q1050-29 1006-7.50Q962 14 894 14ZM773-305L773-305L1005-305Q1001-348 970.50-374Q940-400 891-400L891-400Q840-400 810-374Q780-348 773-305ZM1353 0L1227 0L1227-700L1353-700L1353 0ZM1601 0L1475 0L1475-700L1601-700L1601 0ZM2089 200L1777 200L1777 90L2047 90Q2075 90 2075 60L2075 60L2075-65L2057-65Q2049-48 2032-31Q2015-14 1986-3Q1957 8 1912 8L1912 8Q1854 8 1810.50-18.50Q1767-45 1743-92Q1719-139 1719-200L1719-200L1719-496L1845-496L1845-210Q1845-154 1872.50-126Q1900-98 1951-98L1951-98Q2009-98 2041-136.50Q2073-175 2073-244L2073-244L2073-496L2199-496L2199 88Q2199 139 2169 169.50Q2139 200 2089 200L2089 200ZM2527 14L2527 14Q2430 14 2368-28Q2306-70 2293-148L2293-148L2409-178Q2416-143 2432.50-123Q2449-103 2473.50-94.50Q2498-86 2527-86L2527-86Q2571-86 2592-101.50Q2613-117 2613-140L2613-140Q2613-163 2593-175.50Q2573-188 2529-196L2529-196L2501-201Q2449-211 2406-228.50Q2363-246 2337-277Q2311-308 2311-357L2311-357Q2311-431 2365-470.50Q2419-510 2507-510L2507-510Q2590-510 2645-473Q2700-436 2717-376L2717-376L2600-340Q2592-378 2567.50-394Q2543-410 2507-410L2507-410Q2471-410 2452-397.50Q2433-385 2433-363L2433-363Q2433-339 2453-327.50Q2473-316 2507-310L2507-310L2535-305Q2591-295 2636.50-278.50Q2682-262 2708.50-231.50Q2735-201 2735-149L2735-149Q2735-71 2678.50-28.50Q2622 14 2527 14Z"/><path fill="#ff8a3d" d="M2907 14L2907 14Q2866 14 2838.50-12.50Q2811-39 2811-81L2811-81Q2811-123 2838.50-149.50Q2866-176 2907-176L2907-176Q2947-176 2974-149.50Q3001-123 3001-81L3001-81Q3001-39 2974-12.50Q2947 14 2907 14Z"/></g></svg>
+    <p><b>Este site é um projeto autoral da hellys.</b> A Academia Arranque não existe: nome, números, endereço e telefone são fictícios. Quer o site da sua academia assim, com plano da semana e aula experimental funcionando de verdade?</p>
+  </div>
+  <div class="hl-made-acts">
+    <a class="hl-cta" href="https://wa.me/5511994032102?text=Oi%2C%20vi%20o%20modelo%20de%20site%20para%20academias%20no%20portf%C3%B3lio%20da%20hellys%20e%20quero%20um%20assim." target="_blank" rel="noopener">Falar com a hellys <svg class="hl-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a class="hl-more" href="https://hellys.dev.br/modelos/">Ver os outros modelos</a>
+  </div>
+</div>
+<!--/hellys:made-->
+  </div>
+</footer>
+
+<!--hellys:toast-->
+<div class="hl-toast" id="hl-toast" role="status" aria-live="polite">
+  <p><b>Isto é um modelo.</b> <span data-hl-msg>No site real, este botão abre o WhatsApp da academia já com o pedido de aula experimental.</span> <a href="https://wa.me/5511994032102?text=Oi%2C%20vi%20o%20modelo%20de%20site%20para%20academias%20no%20portf%C3%B3lio%20da%20hellys%20e%20quero%20um%20assim." target="_blank" rel="noopener">Quero um site assim <svg class="hl-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+  <button type="button" id="hl-toast-x" aria-label="Fechar aviso"><svg class="hl-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+</div>
+<script>
+(function(){
+  var t = document.getElementById('hl-toast'); if (!t) return;
+  var msg = t.querySelector('[data-hl-msg]'), def = msg.innerHTML, tm;
+  window.hellysNote = function(text){ msg.innerHTML = text || def; t.classList.add('show'); clearTimeout(tm); tm = setTimeout(function(){ t.classList.remove('show'); }, 9000); };
+  document.addEventListener('click', function(e){
+    var b = e.target.closest && e.target.closest('[data-demo]');
+    if (b){ e.preventDefault(); window.hellysNote(b.getAttribute('data-demo')); }
+  });
+  document.getElementById('hl-toast-x').addEventListener('click', function(){ t.classList.remove('show'); });
+})();
+</script>
+<!--/hellys:toast-->
+
+<script>
+(function(){
+  var root = document.documentElement; root.classList.remove('no-js');
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var NS = 'http://www.w3.org/2000/svg';
+  function $(id){ return document.getElementById(id); }
+  var store = { get: function(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }, set: function(k, v){ try { localStorage.setItem(k, v); } catch(e){} } };
+
+  // ---------- fonte de pontos 5x7 ----------
+  var F = {
+    A:'01110 10001 10001 11111 10001 10001 10001', B:'11110 10001 10001 11110 10001 10001 11110', C:'01110 10001 10000 10000 10000 10001 01110',
+    D:'11100 10010 10001 10001 10001 10010 11100', E:'11111 10000 10000 11110 10000 10000 11111', F:'11111 10000 10000 11110 10000 10000 10000',
+    G:'01110 10001 10000 10111 10001 10001 01111', H:'10001 10001 10001 11111 10001 10001 10001', I:'01110 00100 00100 00100 00100 00100 01110',
+    L:'10000 10000 10000 10000 10000 10000 11111', M:'10001 11011 10101 10101 10001 10001 10001', N:'10001 10001 11001 10101 10011 10001 10001',
+    O:'01110 10001 10001 10001 10001 10001 01110', P:'11110 10001 10001 11110 10000 10000 10000', Q:'01110 10001 10001 10001 10101 10010 01101',
+    R:'11110 10001 10001 11110 10100 10010 10001', S:'01111 10000 10000 01110 00001 00001 11110', T:'11111 00100 00100 00100 00100 00100 00100',
+    U:'10001 10001 10001 10001 10001 10001 01110', V:'10001 10001 10001 10001 10001 01010 00100', X:'10001 10001 01010 00100 01010 10001 10001',
+    'Ç':'01110 10001 10000 10001 01110 00100 01100', x:'00000 00000 10001 01010 00100 01010 10001',
+    '2':'01110 10001 00001 00010 00100 01000 11111', '3':'11111 00010 00100 00010 00001 10001 01110', '4':'00010 00110 01010 10010 11111 00010 00010',
+    '5':'11111 10000 11110 00001 00001 10001 01110', ' ':'00000 00000 00000 00000 00000 00000 00000'
+  };
+  var W = 72, H = 20, dots = [];
+  (function(){
+    var svg = $('dm'), frag = document.createDocumentFragment();
+    for (var y = 0; y < H; y++) for (var x = 0; x < W; x++){
+      var c = document.createElementNS(NS, 'circle'); c.setAttribute('cx', x + .5); c.setAttribute('cy', y + .5); c.setAttribute('r', .38);
+      frag.appendChild(c); dots.push(c);
+    }
+    svg.appendChild(frag);
+  })();
+  var lit = new Array(W * H).fill(0);
+  function paint(next){ for (var i = 0; i < next.length; i++) if (next[i] !== lit[i]){ dots[i].setAttribute('class', next[i] === 2 ? 'on' : next[i] === 1 ? 'mid' : ''); lit[i] = next[i]; } }
+  function frame(text, heights, upto){
+    var m = new Array(W * H).fill(0), t = text.split(''), x0 = Math.round((W - (t.length * 6 - 1)) / 2);
+    t.forEach(function(ch, k){ var g = (F[ch] || F[' ']).split(' '); for (var r = 0; r < 7; r++) for (var c = 0; c < 5; c++) if (g[r][c] === '1') m[r * W + x0 + k * 6 + c] = 2; });
+    heights.forEach(function(h, d){
+      var hh = Math.min(h, upto == null ? 11 : upto);
+      for (var c = 1; c < 11; c++){
+        m[19 * W + d * 12 + c] = h ? 2 : 1;
+        for (var r = 1; r < hh; r++) m[(19 - r) * W + d * 12 + c] = 2;
+      }
+    });
+    return m;
+  }
+
+  // ---------- sete segmentos ----------
+  var SEGS = { a:'2,1 3,0 9,0 10,1 9,2 3,2', b:'11,2 12,3 12,9 11,10 10,9 10,3', c:'11,12 12,13 12,19 11,20 10,19 10,13', d:'2,21 3,20 9,20 10,21 9,22 3,22', e:'1,12 2,13 2,19 1,20 0,19 0,13', f:'1,2 2,3 2,9 1,10 0,9 0,3', g:'2,11 3,10 9,10 10,11 9,12 3,12' };
+  var DIG = { '0':'abcdef', '1':'bc', '2':'abged', '3':'abgcd', '4':'fgbc', '5':'afgcd', '6':'afgedc', '7':'abc', '8':'abcdefg', '9':'abcdfg', '-':'g', ' ':'' };
+  function seg7(svg, str){
+    var n = str.replace(':', '').length, colon = str.indexOf(':') > -1, w = n * 16 + (colon ? 6 : 0);
+    if (svg.getAttribute('data-n') !== str.replace(/[0-9 -]/g, '9')){
+      svg.setAttribute('viewBox', '-1 -1 ' + (w + 1) + ' 24'); svg.setAttribute('data-n', str.replace(/[0-9 -]/g, '9'));
+      var html = '', x = 0, k = 0;
+      str.split('').forEach(function(ch){
+        if (ch === ':'){ html += '<circle class="s on" cx="' + (x + 1.5) + '" cy="7" r="1.4"/><circle class="s on" cx="' + (x + 1.5) + '" cy="15" r="1.4"/>'; x += 6; return; }
+        html += '<g data-k="' + (k++) + '" transform="translate(' + x + ' 0) skewX(-6)">' + 'abcdefg'.split('').map(function(s){ return '<polygon class="s" data-s="' + s + '" points="' + SEGS[s] + '"/>'; }).join('') + '</g>';
+        x += 16;
+      });
+      svg.innerHTML = html;
+    }
+    var digits = str.replace(':', '').split('');
+    svg.querySelectorAll('g').forEach(function(g, i){ var on = DIG[digits[i]] || ''; g.querySelectorAll('polygon').forEach(function(p){ p.setAttribute('class', 's' + (on.indexOf(p.getAttribute('data-s')) > -1 ? ' on' : '')); }); });
+  }
+
+  // ---------- programa ----------
+  var CLASSES = ['Funcional', 'Bike indoor', 'Ritmos', 'Alongamento', 'Funcional leve'];
+  var T = {
+    emagrecer: { txt: 'EMAGRECER', s: [['Musculação A + 20 min de esteira', 60, 8], ['Funcional', 45, 9], ['Musculação B + 20 min de bike', 60, 8], ['Bike indoor', 45, 10], ['Ritmos', 50, 7]] },
+    forca:     { txt: 'FORÇA', s: [['Musculação A · pernas', 55, 9], ['Musculação B · costas e braços', 55, 8], ['Musculação C · peito e ombros', 55, 8], ['Funcional', 45, 7], ['Musculação A · pernas', 55, 9]] },
+    folego:    { txt: 'FOLEGO', s: [['Bike indoor', 45, 10], ['Funcional', 45, 9], ['Esteira intervalada', 35, 10], ['Ritmos', 50, 8], ['Musculação geral', 45, 6]] },
+    voltar:    { txt: 'VOLTAR', s: [['Musculação adaptada', 40, 5], ['Alongamento', 40, 3], ['Musculação adaptada', 40, 5], ['Funcional leve', 40, 5], ['Alongamento', 40, 3]] }
+  };
+  var DAYS = { 2: [0, 3], 3: [0, 2, 4], 4: [0, 1, 3, 4], 5: [0, 1, 2, 3, 4] };
+  var DN = ['SEG', 'TER', 'QUA', 'QUI', 'SEX', 'SÁB'], DL = ['segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado'], DNA = ['na segunda', 'na terça', 'na quarta', 'na quinta', 'na sexta', 'no sábado'];
+  var PER = { manha: [6, 9], almoco: [11, 13], noite: [18, 21] }, PN = { manha: 'de manhã', almoco: 'no almoço', noite: 'à noite' };
+
+  // lotação ilustrativa (% por hora)
+  var BASE = { 6: 55, 7: 72, 8: 46, 9: 30, 10: 24, 11: 32, 12: 52, 13: 40, 14: 20, 15: 22, 16: 30, 17: 56, 18: 90, 19: 96, 20: 74, 21: 44 };
+  var SAB = { 8: 40, 9: 72, 10: 84, 11: 60, 12: 34, 13: 18 };
+  var MULT = [1.08, 1, 1.04, .96, .76];
+  function lot(d){
+    var o = {}; if (d === 5){ for (var k in SAB) o[k] = SAB[k]; return o; }
+    for (var h in BASE) o[h] = Math.min(100, Math.round(BASE[h] * (h >= 17 ? MULT[d] : (MULT[d] + 1) / 2)));
+    return o;
+  }
+
+  var st = { obj: 'emagrecer', dias: 3, per: 'noite', rest: false };
+  try { var sv = JSON.parse(store.get('arranque') || 'null'); if (sv){ if (T[sv.obj]) st.obj = sv.obj; if (DAYS[sv.dias]) st.dias = sv.dias; if (PER[sv.per]) st.per = sv.per; st.rest = !!sv.rest; } } catch(e){}
+
+  function plan(){
+    var t = T[st.obj], ds = DAYS[st.dias];
+    var ses = ds.map(function(d, i){ var s = t.s[i]; return { d: d, nome: s[0], min: s[1], int: st.rest ? Math.min(s[2], 5) : s[2] }; });
+    var best = null, r = PER[st.per];
+    for (var h = r[0]; h <= r[1]; h++){
+      var avg = ds.reduce(function(a, d){ return a + (lot(d)[h] || 100); }, 0) / ds.length;
+      if (!best || avg < best.v) best = { h: h, v: avg };
+    }
+    return { ses: ses, min: ses.reduce(function(a, s){ return a + s.min; }, 0), aulas: ses.filter(function(s){ return CLASSES.indexOf(s.nome) > -1; }).length, hora: best.h };
+  }
+
+  var anim = 0;
+  function render(grow){
+    var p = plan(), heights = [0, 0, 0, 0, 0, 0];
+    p.ses.forEach(function(s){ heights[s.d] = s.int + 1; });
+    var txt = T[st.obj].txt + ' ' + st.dias + 'x';
+    cancelAnimationFrame(anim);
+    if (grow && !reduce){
+      var t0 = performance.now();
+      (function step(now){ var k = Math.min(11, Math.floor((now - t0) / 22)); paint(frame(txt, heights, k)); if (k < 11) anim = requestAnimationFrame(step); })(t0);
+    } else paint(frame(txt, heights));
+    $('dm').setAttribute('aria-label', 'Programa ' + T[st.obj].txt.toLowerCase() + ', ' + st.dias + ' dias: ' + p.ses.map(function(s){ return DL[s.d]; }).join(', '));
+    $('days').querySelectorAll('span').forEach(function(sp, i){ sp.className = heights[i] ? 'on' : ''; });
+    seg7($('s-min'), String(p.min).padStart(3, ' '));
+    seg7($('s-dias'), String(st.dias));
+    seg7($('s-hora'), (p.hora < 10 ? '0' : '') + p.hora + ':00');
+    seg7($('s-aulas'), String(p.aulas));
+    var li = p.ses.map(function(s){ return '<li><span class="d">' + DN[s.d] + '</span><span>' + s.nome + '</span><span class="m">' + s.min + ' min</span></li>'; }).join('');
+    if (st.rest) li = '<li class="note">Antes do primeiro treino: conversa com o professor pra adaptar os exercícios.</li>' + li;
+    $('prog').innerHTML = li;
+    $('start').setAttribute('data-demo', 'No site real, este botão abre o WhatsApp da academia com o pedido: aula experimental, objetivo ' + { emagrecer: 'emagrecer', forca: 'ganhar força', folego: 'fôlego', voltar: 'voltar a treinar' }[st.obj] + ', ' + st.dias + ' dias por semana, ' + PN[st.per] + ' (sugestão: ' + p.hora + 'h)' + (st.rest ? ', com restrição a conversar.' : '.'));
+    grade(p);
+    store.set('arranque', JSON.stringify(st));
+  }
+  function sync(){
+    [['k-obj', 'obj'], ['k-dias', 'dias'], ['k-per', 'per']].forEach(function(g){ $(g[0]).querySelectorAll('.key').forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.v) === String(st[g[1]])); }); });
+    $('skey').setAttribute('aria-pressed', st.rest);
+  }
+  [['k-obj', 'obj'], ['k-dias', 'dias'], ['k-per', 'per']].forEach(function(g){
+    $(g[0]).addEventListener('click', function(e){ var b = e.target.closest('.key'); if (!b) return; st[g[1]] = g[1] === 'dias' ? +b.dataset.v : b.dataset.v; sync(); render(true); });
+  });
+  $('skey').addEventListener('click', function(){ st.rest = !st.rest; sync(); render(true); });
+  $('stop').addEventListener('click', function(){ st = { obj: 'emagrecer', dias: 3, per: 'noite', rest: false }; sync(); render(true); });
+
+  // ---------- grade de aulas ----------
+  var G = [
+    [['07:00', 'Funcional'], ['12:15', 'Bike indoor'], ['18:30', 'Funcional'], ['19:30', 'Ritmos']],
+    [['07:00', 'Bike indoor'], ['12:15', 'Alongamento'], ['18:30', 'Bike indoor'], ['19:30', 'Funcional']],
+    [['07:00', 'Funcional'], ['12:15', 'Bike indoor'], ['18:30', 'Ritmos'], ['19:30', 'Funcional']],
+    [['07:00', 'Bike indoor'], ['12:15', 'Alongamento'], ['18:30', 'Funcional'], ['19:30', 'Bike indoor']],
+    [['07:00', 'Funcional'], ['12:15', 'Bike indoor'], ['18:30', 'Ritmos']],
+    [['09:00', 'Funcional'], ['10:00', 'Ritmos'], ['11:00', 'Alongamento']]
+  ];
+  function grade(p){
+    var mine = {}; p.ses.forEach(function(s){ mine[s.d] = s.nome.replace(' leve', ''); });
+    var r = PER[st.per];
+    $('grade').innerHTML = G.map(function(day, d){
+      return '<div class="gd"><h3>' + DN[d] + '</h3><ul>' + day.map(function(a){
+        var h = +a[0].slice(0, 2), on = mine[d] === a[1] && h >= r[0] && h <= r[1] + 1;
+        return '<li' + (on ? ' class="mine"' : '') + '><b>' + a[0] + '</b><span>' + a[1] + '</span></li>';
+      }).join('') + '</ul></div>';
+    }).join('');
+  }
+
+  // ---------- lotação ----------
+  var dsel = 0;
+  $('tabs').innerHTML = DN.map(function(n, i){ return '<button class="key" type="button" data-d="' + i + '" aria-pressed="' + (i === 0) + '">' + n + '</button>'; }).join('');
+  function lotRender(){
+    var o = lot(dsel), hs = Object.keys(o).map(Number).sort(function(a, b){ return a - b; });
+    var low = hs.slice().sort(function(a, b){ return o[a] - o[b]; }).slice(0, 3).sort(function(a, b){ return a - b; });
+    $('bars').innerHTML = hs.map(function(h){ var n = Math.max(1, Math.round(o[h] / 10)), s = ''; for (var i = 10; i >= 1; i--) s += '<i' + (i <= n ? ' class="on"' : '') + '></i>'; return '<div class="bar">' + s + '</div>'; }).join('');
+    $('hrs').innerHTML = hs.map(function(h){ return '<span' + (low.indexOf(h) > -1 ? ' class="low"' : '') + '>' + h + 'h</span>'; }).join('');
+    $('bars').setAttribute('aria-label', 'Lotação por hora ' + DNA[dsel] + ': ' + hs.map(function(h){ return h + 'h ' + o[h] + '%'; }).join(', '));
+    $('lot-say').innerHTML = 'Mais vazio ' + DNA[dsel] + ': <b>' + low.map(function(h){ return h + 'h'; }).join(', ').replace(/, ([^,]*)$/, ' e $1') + '</b>.';
+  }
+  $('tabs').addEventListener('click', function(e){ var b = e.target.closest('.key'); if (!b) return; dsel = +b.dataset.d; this.querySelectorAll('.key').forEach(function(x){ x.setAttribute('aria-pressed', x === b); }); lotRender(); });
+  lotRender();
+
+  sync(); render(false);
+
+  // ---------- abertura: teste de LEDs do painel (o conteúdo já está na tela) ----------
+  if (reduce) return;
+  var played = false; try { played = sessionStorage.getItem('arranque-intro') && !/[?&]intro=1/.test(location.search); } catch(e){}
+  if (played) return;
+  try { sessionStorage.setItem('arranque-intro', '1'); } catch(e){}
+  var all = new Array(W * H).fill(2), segs = document.querySelectorAll('.seg7 .s');
+  paint(all); segs.forEach(function(s){ s.style.fill = 'var(--led)'; });
+  setTimeout(function(){ segs.forEach(function(s){ s.style.fill = ''; }); render(true); }, 260);
+})();
+</script>
+</body>
+</html>

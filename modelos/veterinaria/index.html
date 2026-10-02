@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="pt-BR" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Focinho Clínica Veterinária — modelo de site para clínicas veterinárias · hellys.</title>
+<meta name="description" content="Projeto autoral da hellys.: site-modelo para clínicas veterinárias, com carteirinha de vacinação que mostra o que falta, banho e tosa e agenda. A Focinho é fictícia.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#5b3a8c">
+<meta property="og:title" content="Focinho Clínica Veterinária — modelo de site para clínicas veterinárias">
+<meta property="og:description" content="Monte a carteirinha do seu pet e veja qual vacina falta. Projeto autoral da hellys. (empresa fictícia).">
+<!--hellys:meta-->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="hellys.">
+<meta property="og:url" content="https://hellys.dev.br/modelos/veterinaria/">
+<meta property="og:image" content="https://hellys.dev.br/modelos/veterinaria/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Carteirinha de vacinação aberta com o calendário de vacinas do pet na página da Focinho Clínica Veterinária.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://hellys.dev.br/modelos/veterinaria/">
+<!--/hellys:meta-->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%235b3a8c'/%3E%3Crect x='8' y='6' width='16' height='20' rx='2' fill='%23fff'/%3E%3Cpath d='M11 12h10M11 16h10M11 20h6' stroke='%23cfdcee' stroke-width='2'/%3E%3Ccircle cx='21' cy='21' r='4' fill='none' stroke='%232c4bb8' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+<!--hellys:css-->
+<style id="hl-layer">
+.hl-bar{position:relative;z-index:60;background:#10141a;color:#e8ecf1;font:500 13.5px/1.3 var(--hl-font,system-ui,sans-serif)}
+.hl-bar-in{max-width:var(--hl-wrap,1200px);margin:0 auto;padding:6px var(--hl-pad,clamp(16px,4.2vw,48px));display:flex;align-items:center;gap:14px;min-height:42px}
+.hl-logo-link{display:inline-flex;align-items:center;border-radius:3px;flex:0 0 auto}
+.hl-logo{height:16px;width:auto;display:block}
+.hl-bar p{flex:1 1 auto;color:#b9c4d1;margin:0}
+.hl-bar p b{color:#e8ecf1;font-weight:700}
+.hl-more{color:#e8ecf1;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(232,236,241,.4);white-space:nowrap}
+.hl-more:hover{text-decoration-color:#ff8a3d}
+.hl-cta{display:inline-flex;align-items:center;gap:8px;background:#ff8a3d;color:#10141a;font-weight:700;text-decoration:none;padding:7px 12px;border-radius:4px;white-space:nowrap;line-height:1.2}
+.hl-cta:hover{background:#ffa463}
+.hl-ico{width:1.1em;height:1.1em;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.hl-bar :focus-visible,.hl-made :focus-visible,.hl-toast :focus-visible{outline:2px solid #ff8a3d;outline-offset:2px}
+@media (max-width:860px){.hl-long,.hl-bar .hl-more{display:none}}
+@media (max-width:600px){.hl-mid,.hl-of{display:none}.hl-bar-in{gap:10px}.hl-bar p{font-size:12.5px}.hl-logo{height:13px}.hl-cta{padding:6px 9px;font-size:12.5px}.hl-bar .hl-cta .hl-ico{display:none}}
+.hl-made{background:#10141a;color:#e8ecf1;border-radius:8px;padding:clamp(22px,4vw,34px);display:grid;grid-template-columns:1fr auto;gap:18px 28px;align-items:center;font:400 15.5px/1.55 var(--hl-font,system-ui,sans-serif);text-align:left;letter-spacing:normal;text-transform:none}
+.hl-made p{color:#b9c4d1;max-width:62ch;margin:0}
+.hl-made p b{color:#e8ecf1}
+.hl-made .hl-logo{height:22px;margin-bottom:12px}
+.hl-made-acts{display:flex;flex-direction:column;gap:12px;align-items:stretch}
+.hl-made .hl-cta{justify-content:center;padding:11px 16px;font-size:15px}
+.hl-made .hl-more{text-align:center;font-size:14.5px}
+@media (max-width:760px){.hl-made{grid-template-columns:1fr}}
+.hl-toast{position:fixed;left:50%;bottom:18px;z-index:2000;width:min(560px,calc(100vw - 24px));transform:translate(-50%,160%);visibility:hidden;transition:transform .5s cubic-bezier(.16,1,.3,1),visibility 0s .5s;background:#10141a;color:#e8ecf1;border-radius:8px;padding:16px 18px;box-shadow:0 24px 40px -18px rgba(0,0,0,.6);display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start;font:400 15px/1.5 var(--hl-font,system-ui,sans-serif);text-align:left;letter-spacing:normal;text-transform:none}
+.hl-toast.show{transform:translate(-50%,0);visibility:visible;transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.hl-toast p{color:#c7d0db;margin:0}
+.hl-toast p b{color:#e8ecf1}
+.hl-toast a{color:#ff8a3d;font-weight:700;white-space:nowrap}
+.hl-toast a .hl-ico{display:inline;vertical-align:-.2em}
+.hl-toast button{background:none;border:0;color:#9aa6b4;cursor:pointer;padding:4px;display:grid}
+.hl-toast button .hl-ico{width:22px;height:22px}
+@media (prefers-reduced-motion:reduce){.hl-toast,.hl-toast.show{transition:none}}
+</style>
+<!--/hellys:css-->
+<style>
+:root{
+  --cover:#5b3a8c; --cover-dk:#452a6d; --cover-ink:#f6f1fd; --cover-dim:#dccff2;
+  --paper:#ffffff; --rule:#cfdcee; --rule-2:#e7eef8; --ink:#1d1a24; --ink-2:#56526a;
+  --stamp:#2c4bb8; --ok:#1f7a4d; --late:#c2321f; --pen:#1f3a8a;
+  --wrap:1220px; --pad:clamp(16px,4.2vw,48px); --ease:cubic-bezier(.16,1,.3,1);
+  --f-head:"Bricolage Grotesque",system-ui,sans-serif; --f-sans:"Atkinson Hyperlegible",system-ui,sans-serif; --f-hand:"Kalam",cursive;
+  --hl-font:"Atkinson Hyperlegible",system-ui,sans-serif; --hl-wrap:1220px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{font:400 17px/1.55 var(--f-sans);color:var(--cover-ink);background:var(--cover);overflow-x:hidden}
+::selection{background:#fff;color:var(--cover)}
+a{color:inherit}
+svg{display:block}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid #ffd76a;outline-offset:3px;border-radius:4px}
+.page :focus-visible,.sheet :focus-visible{outline-color:var(--stamp)}
+[hidden]{display:none!important}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+.ico{width:1.15em;height:1.15em;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;cursor:pointer;text-decoration:none;font:700 17px/1 var(--f-sans);padding:16px 22px;border-radius:10px;background:#fff;color:var(--cover);transition:transform .25s var(--ease),background-color .2s}
+.btn:hover{background:#f1eafb;transform:translateY(-2px)}
+.btn-ink{background:var(--stamp);color:#fff}
+.btn-ink:hover{background:#22399a}
+.btn-line{background:transparent;color:var(--cover-ink);box-shadow:inset 0 0 0 2px var(--cover-dim)}
+.btn-line:hover{background:rgba(255,255,255,.08)}
+.btn[disabled]{opacity:.45;cursor:not-allowed;transform:none}
+
+/* ---------- navegação ---------- */
+.nav{position:sticky;top:0;z-index:50;background:var(--cover);border-bottom:1px solid rgba(246,241,253,.2)}
+.nav .wrap{display:flex;align-items:center;gap:22px;min-height:62px}
+.brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font:800 24px/1 var(--f-head);letter-spacing:-.02em}
+.brand svg{width:30px;height:30px}
+.brand span{font:700 12px/1 var(--f-sans);letter-spacing:.14em;text-transform:uppercase;color:var(--cover-dim)}
+.nav-links{display:flex;gap:22px;margin-left:auto;list-style:none}
+.nav-links a{font-weight:700;font-size:15.5px;text-decoration:none;color:var(--cover-dim)}
+.nav-links a:hover{color:#fff}
+.nav .btn{padding:11px 16px;font-size:15px;display:inline-block;white-space:nowrap}
+@media (max-width:940px){.nav-links{display:none}.nav .btn{margin-left:auto}}
+@media (max-width:600px){.nav .btn .long{display:none}}
+
+/* ---------- capa e carteirinha aberta ---------- */
+.hero{padding:clamp(22px,3vw,40px) 0 clamp(44px,6vw,80px)}
+.hero-top{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px 30px;margin-bottom:clamp(18px,2.4vw,28px)}
+.hero h1{font:800 clamp(2.3rem,4.8vw,4.1rem)/.95 var(--f-head);letter-spacing:-.03em;max-width:17ch}
+.hero-top p{color:var(--cover-dim);max-width:40ch;font-size:clamp(16px,1.3vw,18px)}
+.book{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);padding:12px;background:var(--cover-dk);border-radius:14px;box-shadow:0 30px 50px -30px rgba(20,8,40,.75);position:relative;color:var(--ink)}
+.book::after{content:"";position:absolute;top:22px;bottom:22px;left:calc(12px + (100% - 24px) * .41);width:0;border-left:2px dashed #b9a6d9}
+.page{background:var(--paper);padding:clamp(18px,2.6vw,30px);background-image:linear-gradient(var(--rule-2) 1px,transparent 1px);background-size:100% 34px;background-position:0 64px}
+.page:first-child{border-radius:8px 0 0 8px}
+.page:last-child{border-radius:0 8px 8px 0}
+.ph{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:10px;border-bottom:2px solid var(--ink);padding-bottom:8px;margin-bottom:14px}
+.ph h2{font:800 15px/1 var(--f-head);letter-spacing:.12em;text-transform:uppercase}
+.ph span{font:700 12px/1 var(--f-sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
+.idgrid{display:grid;grid-template-columns:96px 1fr;gap:14px 16px;align-items:start}
+.photo{width:96px;height:118px;border:2px dashed var(--rule);border-radius:4px;display:grid;place-items:center;background:#fafcff}
+.photo svg{width:62px;height:62px}
+.f{display:grid;gap:5px}
+.f > label,.f .lb{font:700 12px/1 var(--f-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
+.inp{width:100%;height:46px;border:0;border-bottom:2px solid var(--ink);background:transparent;font:700 24px/1 var(--f-hand);color:var(--pen);padding:0 2px}
+.inp::placeholder{color:#a3aec2;font-weight:400}
+.inp:focus{outline:none;border-bottom-color:var(--stamp);background:#f4f7fd}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{border:0;cursor:pointer;border-radius:999px;padding:9px 13px;background:#f1f4f9;box-shadow:inset 0 0 0 1.5px var(--rule);font:700 15px/1 var(--f-sans);color:var(--ink-2)}
+.seg button:hover{background:#e8eef8;color:var(--ink)}
+.seg button[aria-pressed="true"]{background:var(--stamp);color:#fff;box-shadow:none}
+.idrows{grid-column:1/-1;display:grid;gap:14px}
+.sig{grid-column:1/-1;display:flex;justify-content:space-between;align-items:end;gap:10px;margin-top:6px}
+.sig small{font:700 11.5px/1.3 var(--f-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.roundstamp{width:92px;height:92px;flex:0 0 auto;color:var(--stamp);opacity:.85;transform:rotate(-12deg)}
+
+.vt{width:100%;border-collapse:collapse}
+.vt th{font:700 11.5px/1.2 var(--f-sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);text-align:left;padding:0 8px 8px 0;border-bottom:1.5px solid var(--ink)}
+.vt td{padding:8px 8px 8px 0;border-bottom:1px solid var(--rule);vertical-align:middle}
+.vt td.v b{display:block;font:700 15.5px/1.2 var(--f-sans)}
+.vt td.v span{display:block;font-size:13px;color:var(--ink-2);line-height:1.25}
+.vt td.q{font:700 20px/1.1 var(--f-hand);color:var(--pen);white-space:nowrap}
+.sticker{display:inline-grid;min-width:118px;border:1.5px solid #8e8aa3;border-radius:3px;padding:4px 7px;background:#fff;font:700 10.5px/1.25 var(--f-sans);letter-spacing:.04em;color:#4b4760;transform:rotate(-1.5deg)}
+.sticker i{font-style:normal;color:var(--ok)}
+.slot{display:inline-grid;place-items:center;min-width:118px;height:36px;border:1.5px dashed var(--rule);border-radius:3px;font:700 10.5px/1 var(--f-sans);letter-spacing:.1em;text-transform:uppercase;color:#9aa5b8}
+.tag{display:inline-block;font:700 12px/1 var(--f-sans);letter-spacing:.1em;text-transform:uppercase;padding:6px 8px 5px;border-radius:3px}
+.tag.now{background:var(--late);color:#fff}
+.tag.next{box-shadow:inset 0 0 0 1.5px var(--stamp);color:var(--stamp)}
+.tag.ok{box-shadow:inset 0 0 0 1.5px var(--ok);color:var(--ok)}
+.tag.yr{box-shadow:inset 0 0 0 1.5px var(--ink-2);color:var(--ink-2)}
+.verdict{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-top:16px}
+.bigstamp{font:800 clamp(20px,2vw,26px)/1 var(--f-head);letter-spacing:.06em;text-transform:uppercase;padding:9px 14px 8px;border:3px solid currentColor;border-radius:6px;transform:rotate(-4deg)}
+.bigstamp.ok{color:var(--ok)}
+.bigstamp.late{color:var(--late)}
+.ref{font-size:13.5px;color:var(--ink-2);margin-top:12px}
+.thump{animation:thump .35s cubic-bezier(.2,1.6,.4,1) both}
+@keyframes thump{from{transform:rotate(-4deg) scale(1.6);opacity:0}to{transform:rotate(-4deg) scale(1);opacity:1}}
+@media (prefers-reduced-motion:reduce){.thump{animation:none}}
+@media (max-width:900px){
+  .book{grid-template-columns:minmax(0,1fr)}.book::after{display:none}
+  .page:first-child{border-radius:8px 8px 0 0}.page:last-child{border-radius:0 0 8px 8px;border-top:2px dashed var(--rule)}
+}
+@media (max-width:560px){
+  .roundstamp{width:74px;height:74px}
+  .vt thead{display:none}.vt tr{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 10px;padding:10px 0;border-bottom:1px solid var(--rule)}
+  .vt td{border:0;padding:0}.vt td.st{align-self:center;justify-self:end}
+}
+
+/* ---------- seções ---------- */
+.sec{padding:clamp(56px,7vw,100px) 0}
+.sec-h{font:800 clamp(2.1rem,4.2vw,3.4rem)/.98 var(--f-head);letter-spacing:-.03em;max-width:18ch}
+.sec-sub{color:var(--cover-dim);font-size:clamp(17px,1.4vw,19px);max-width:56ch;margin-top:12px}
+.light{background:#f4f0fa;color:var(--ink)}
+.light .sec-sub{color:var(--ink-2)}
+
+/* ficha de banho e tosa */
+.sheet{margin-top:clamp(24px,3vw,38px);background:var(--paper);color:var(--ink);border-radius:8px;box-shadow:0 24px 40px -30px rgba(20,8,40,.45);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr)}
+.sheet > div{padding:clamp(18px,2.6vw,30px)}
+.sheet > div + div{border-left:2px dashed var(--rule)}
+.opts{display:grid;gap:16px}
+.svc{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.svc label{display:flex;gap:10px;align-items:center;cursor:pointer;padding:10px 12px;border-radius:8px;box-shadow:inset 0 0 0 1.5px var(--rule);font:700 15.5px/1.2 var(--f-sans);color:var(--ink)}
+.svc label:hover{background:#f6f8fc}
+.svc input{width:20px;height:20px;accent-color:var(--stamp)}
+.card10{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin:12px 0 6px}
+.card10 span{aspect-ratio:1;border-radius:50%;border:2px dashed var(--rule);display:grid;place-items:center;color:var(--stamp)}
+.card10 span.on{border-style:solid;border-color:var(--stamp)}
+.card10 svg{width:60%;height:60%}
+.card10 span:last-child{border-color:var(--ok);color:var(--ok);font:800 11px/1.1 var(--f-head);text-align:center}
+.sum{font:700 22px/1.25 var(--f-hand);color:var(--pen);margin:10px 0 14px;min-height:2.5em}
+@media (max-width:860px){.sheet{grid-template-columns:minmax(0,1fr)}.sheet > div + div{border-left:0;border-top:2px dashed var(--rule)}}
+
+/* consultas */
+.cons{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:clamp(24px,3vw,38px);border-top:2px solid var(--ink)}
+.cons li{padding:18px 20px 20px 0;border-bottom:1px solid #d9d0e8}
+.cons li:nth-child(3n+2),.cons li:nth-child(3n+3){padding-left:20px;border-left:1px solid #d9d0e8}
+.cons h3{font:800 21px/1.1 var(--f-head);letter-spacing:-.01em;margin-bottom:6px}
+.cons p{color:var(--ink-2)}
+@media (max-width:860px){.cons{grid-template-columns:minmax(0,1fr)}.cons li:nth-child(n){padding-left:0;border-left:0}}
+
+.where{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:2px solid var(--cover-ink);margin-top:clamp(22px,3vw,34px)}
+.where > div{padding:20px 22px 0 0}
+.where > div + div{padding-left:22px;border-left:1px solid rgba(246,241,253,.3)}
+.where h3{font:700 13px/1 var(--f-sans);letter-spacing:.14em;text-transform:uppercase;color:var(--cover-dim);margin-bottom:10px}
+.where p{font-weight:700}
+.where small{display:block;color:var(--cover-dim);font-size:15px;margin-top:4px}
+@media (max-width:800px){.where{grid-template-columns:minmax(0,1fr)}.where > div + div{padding-left:0;border-left:0;border-top:1px solid rgba(246,241,253,.3);margin-top:18px}}
+
+.foot{background:var(--cover-dk);padding:44px 0 36px}
+.foot-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:26px;margin-bottom:34px}
+.foot h3{font:700 13px/1 var(--f-sans);letter-spacing:.14em;text-transform:uppercase;color:var(--cover-dim);margin-bottom:12px}
+.foot ul{list-style:none;display:grid;gap:6px}
+.foot-note{color:var(--cover-dim);margin-top:12px;max-width:34ch}
+@media (max-width:760px){.foot-grid{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body>
+<!--hellys:hbar-->
+<div class="hl-bar" role="note" aria-label="Aviso: este site é um modelo">
+  <div class="hl-bar-in">
+    <a class="hl-logo-link" href="https://hellys.dev.br/" aria-label="hellys. (ir para o portfólio)"><svg xmlns="http://www.w3.org/2000/svg" class="hl-logo" aria-hidden="true" focusable="false" viewBox="0 0 4532.21 943.33"><g transform="translate(368.53 141.33) scale(0.86)"><path fill="#ff8a3d" d="M-82.13 -164.33L-428.52 350L-82.13 864.33L-9.87 815.67L-323.48 350L-9.87 -115.67ZM665.87 -115.67L979.48 350L665.87 815.67L738.13 864.33L1084.52 350L738.13 -164.33Z"/><path fill="#e8ecf1" d="M198 700L66 700L66 0L198 0L198 289L458 289L458 0L590 0L590 700L458 700L458 409L198 409L198 700Z"/></g><g transform="translate(1531.21 743.33) scale(1)"><path fill="#e8ecf1" d="M196 0L70 0L70-700L196-700L196-435L214-435Q222-451 239-467Q256-483 284.50-493.50Q313-504 357-504L357-504Q415-504 458.50-477.50Q502-451 526-404.50Q550-358 550-296L550-296L550 0L424 0L424-286Q424-342 396.50-370Q369-398 318-398L318-398Q260-398 228-359.50Q196-321 196-252L196-252L196 0ZM894 14L894 14Q820 14 763.50-17.50Q707-49 675.50-106.50Q644-164 644-242L644-242L644-254Q644-332 675-389.50Q706-447 762-478.50Q818-510 892-510L892-510Q965-510 1019-477.50Q1073-445 1103-387.50Q1133-330 1133-254L1133-254L1133-211L772-211Q774-160 810-128Q846-96 898-96L898-96Q951-96 976-119Q1001-142 1014-170L1014-170L1117-116Q1103-90 1076.50-59.50Q1050-29 1006-7.50Q962 14 894 14ZM773-305L773-305L1005-305Q1001-348 970.50-374Q940-400 891-400L891-400Q840-400 810-374Q780-348 773-305ZM1353 0L1227 0L1227-700L1353-700L1353 0ZM1601 0L1475 0L1475-700L1601-700L1601 0ZM2089 200L1777 200L1777 90L2047 90Q2075 90 2075 60L2075 60L2075-65L2057-65Q2049-48 2032-31Q2015-14 1986-3Q1957 8 1912 8L1912 8Q1854 8 1810.50-18.50Q1767-45 1743-92Q1719-139 1719-200L1719-200L1719-496L1845-496L1845-210Q1845-154 1872.50-126Q1900-98 1951-98L1951-98Q2009-98 2041-136.50Q2073-175 2073-244L2073-244L2073-496L2199-496L2199 88Q2199 139 2169 169.50Q2139 200 2089 200L2089 200ZM2527 14L2527 14Q2430 14 2368-28Q2306-70 2293-148L2293-148L2409-178Q2416-143 2432.50-123Q2449-103 2473.50-94.50Q2498-86 2527-86L2527-86Q2571-86 2592-101.50Q2613-117 2613-140L2613-140Q2613-163 2593-175.50Q2573-188 2529-196L2529-196L2501-201Q2449-211 2406-228.50Q2363-246 2337-277Q2311-308 2311-357L2311-357Q2311-431 2365-470.50Q2419-510 2507-510L2507-510Q2590-510 2645-473Q2700-436 2717-376L2717-376L2600-340Q2592-378 2567.50-394Q2543-410 2507-410L2507-410Q2471-410 2452-397.50Q2433-385 2433-363L2433-363Q2433-339 2453-327.50Q2473-316 2507-310L2507-310L2535-305Q2591-295 2636.50-278.50Q2682-262 2708.50-231.50Q2735-201 2735-149L2735-149Q2735-71 2678.50-28.50Q2622 14 2527 14Z"/><path fill="#ff8a3d" d="M2907 14L2907 14Q2866 14 2838.50-12.50Q2811-39 2811-81L2811-81Q2811-123 2838.50-149.50Q2866-176 2907-176L2907-176Q2947-176 2974-149.50Q3001-123 3001-81L3001-81Q3001-39 2974-12.50Q2947 14 2907 14Z"/></g></svg></a>
+    <p><b>Projeto autoral<span class="hl-of"> da hellys.</span></b><span class="hl-mid"> Modelo de site para clínicas veterinárias.</span><span class="hl-long"> A Focinho Clínica Veterinária é fictícia.</span></p>
+    <a class="hl-more" href="https://hellys.dev.br/modelos/">Outros modelos</a>
+    <a class="hl-cta" href="https://wa.me/5511994032102?text=Oi%2C%20vi%20o%20modelo%20de%20site%20para%20cl%C3%ADnicas%20veterin%C3%A1rias%20no%20portf%C3%B3lio%20da%20hellys%20e%20quero%20um%20assim." target="_blank" rel="noopener">Quero um site assim <svg class="hl-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</div>
+<!--/hellys:hbar-->
+
+<header class="nav" id="topo">
+  <div class="wrap">
+    <a class="brand" href="#topo" aria-label="Focinho Clínica Veterinária, início">
+      <svg viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="14" fill="#f6f1fd"/><ellipse cx="15" cy="18" rx="6.5" ry="5" fill="#5b3a8c"/><circle cx="8.5" cy="11.5" r="2.4" fill="#5b3a8c"/><circle cx="12.6" cy="8.3" r="2.4" fill="#5b3a8c"/><circle cx="17.4" cy="8.3" r="2.4" fill="#5b3a8c"/><circle cx="21.5" cy="11.5" r="2.4" fill="#5b3a8c"/></svg>
+      Focinho <span>Clínica Veterinária</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#carteirinha">Vacinas</a></li>
+      <li><a href="#banho">Banho e tosa</a></li>
+      <li><a href="#consultas">Consultas</a></li>
+      <li><a href="#onde">Onde fica</a></li>
+    </ul>
+    <a class="btn" href="#carteirinha" data-demo="No site real, este botão abre o WhatsApp da clínica para marcar.">Agendar<span class="long"> vacina</span></a>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="carteirinha" aria-labelledby="h1">
+  <div class="wrap">
+    <div class="hero-top">
+      <h1 id="h1">A carteirinha do seu pet, sempre em dia.</h1>
+      <p>Preencha o nome e a idade: a carteirinha mostra o que já devia ter tomado, o que vem e quando.</p>
+    </div>
+    <div class="book">
+      <div class="page" aria-label="Identificação do animal">
+        <div class="ph"><h2>Identificação</h2><span>Carteira nº 0001</span></div>
+        <div class="idgrid">
+          <div class="photo" aria-hidden="true"><svg viewBox="0 0 64 64" id="pet-ico"></svg></div>
+          <div class="f"><label for="nome">Nome do pet</label><input class="inp" id="nome" maxlength="18" placeholder="Ex.: Paçoca" autocomplete="off"></div>
+          <div class="idrows">
+            <div class="f"><span class="lb" id="esp-lb">Espécie</span><div class="seg" role="group" aria-labelledby="esp-lb" id="esp"><button type="button" data-v="cao" aria-pressed="true">Cão</button><button type="button" data-v="gato" aria-pressed="false">Gato</button></div></div>
+            <div class="f"><span class="lb" id="id-lb">Idade</span><div class="seg" role="group" aria-labelledby="id-lb" id="idade"></div></div>
+            <div class="f"><span class="lb" id="hi-lb">Já tomou vacina?</span><div class="seg" role="group" aria-labelledby="hi-lb" id="hist"><button type="button" data-v="0" aria-pressed="true">Nenhuma</button><button type="button" data-v="1" aria-pressed="false">Algumas</button><button type="button" data-v="2" aria-pressed="false">Todas até agora</button></div></div>
+          </div>
+          <div class="sig"><small>Focinho Clínica Veterinária<br>CRMV-SP 00000 (fictício)</small>
+            <svg class="roundstamp" id="rstamp" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="50" cy="50" r="36" fill="none" stroke="currentColor" stroke-width="1.5"/><path id="rs-arc" d="M18 50a32 32 0 1 1 64 0" fill="none"/><text font-family="Atkinson Hyperlegible" font-weight="700" font-size="11" letter-spacing="3" fill="currentColor"><textPath href="#rs-arc" startOffset="50%" text-anchor="middle">FOCINHO</textPath></text><text x="50" y="62" text-anchor="middle" font-family="Atkinson Hyperlegible" font-weight="700" font-size="12" fill="currentColor">VET</text></svg>
+          </div>
+        </div>
+      </div>
+      <div class="page" aria-live="polite">
+        <div class="ph"><h2>Vacinas <span id="pet-nome" style="font:inherit;letter-spacing:inherit;color:var(--ink)">do seu pet</span></h2><span>referência geral</span></div>
+        <table class="vt">
+          <thead><tr><th scope="col">Vacina</th><th scope="col">Quando</th><th scope="col">Etiqueta</th><th scope="col">Situação</th></tr></thead>
+          <tbody id="vt"></tbody>
+        </table>
+        <div class="verdict"><span class="bigstamp" id="bigstamp"></span><a class="btn btn-ink" href="#carteirinha" id="vac-go" data-demo="">Agendar vacina
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        <p class="ref">Calendário de referência geral para cães e gatos. O veterinário confirma o esquema certo para o seu pet na consulta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec light" id="banho" aria-labelledby="bt-h">
+  <div class="wrap">
+    <h2 class="sec-h" id="bt-h">Banho e tosa com hora marcada</h2>
+    <p class="sec-sub">Marque o porte, a pelagem e o que quer fazer. O cartão fidelidade carimba a cada banho.</p>
+    <div class="sheet">
+      <div class="opts">
+        <div class="f"><span class="lb" id="po-lb">Porte</span><div class="seg" role="group" aria-labelledby="po-lb" id="porte"><button type="button" data-v="Pequeno" aria-pressed="true">Pequeno</button><button type="button" data-v="Médio" aria-pressed="false">Médio</button><button type="button" data-v="Grande" aria-pressed="false">Grande</button></div></div>
+        <div class="f"><span class="lb" id="pe-lb">Pelagem</span><div class="seg" role="group" aria-labelledby="pe-lb" id="pelo"><button type="button" data-v="curta" aria-pressed="true">Curta</button><button type="button" data-v="longa" aria-pressed="false">Longa</button></div></div>
+        <div class="f"><span class="lb">Serviços</span><div class="svc" id="svc">
+          <label><input type="checkbox" value="banho" checked>Banho</label>
+          <label><input type="checkbox" value="tosa higiênica">Tosa higiênica</label>
+          <label><input type="checkbox" value="tosa completa">Tosa completa</label>
+          <label><input type="checkbox" value="hidratação">Hidratação</label>
+          <label><input type="checkbox" value="corte de unha">Corte de unha</label>
+          <label><input type="checkbox" value="leva e traz">Leva e traz</label>
+        </div></div>
+      </div>
+      <div>
+        <span class="lb" style="font:700 12px/1 var(--f-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)">Cartão fidelidade</span>
+        <div class="card10" id="card10" aria-label="Cartão fidelidade: o décimo banho é cortesia"></div>
+        <p class="sum" id="sum"></p>
+        <button class="btn btn-ink" type="button" data-demo="No site real, este botão manda o pedido de banho e tosa para o WhatsApp da clínica.">Agendar banho</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec light" id="consultas" aria-labelledby="co-h" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="sec-h" id="co-h">Consultas e exames</h2>
+    <ul class="cons">
+      <li><h3>Clínica geral</h3><p>Check-up, filhote novo, mudança de comportamento ou apetite.</p></li>
+      <li><h3>Vacinas e vermífugo</h3><p>Calendário completo, com lembrete no WhatsApp antes de cada dose.</p></li>
+      <li><h3>Exames</h3><p>Sangue, urina e ultrassom, com resultado explicado na consulta.</p></li>
+      <li><h3>Castração</h3><p>Avaliação pré-cirúrgica, cirurgia e retorno marcado.</p></li>
+      <li><h3>Dermatologia</h3><p>Coceira, queda de pelo, alergia e otite.</p></li>
+      <li><h3>Odontologia veterinária</h3><p>Limpeza de tártaro e extrações com anestesia.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec" id="onde" aria-labelledby="on-h">
+  <div class="wrap">
+    <h2 class="sec-h" id="on-h">Onde fica</h2>
+    <div class="where">
+      <div><h3>Endereço</h3><p>Rua Exemplo, 987 · Jardim Modelo<br>São Paulo/SP</p><small>Endereço fictício. Estacionamento na frente.</small></div>
+      <div><h3>Horário</h3><p>Seg a sex 8h às 20h<br>Sábado 8h às 16h</p><small>Emergência no horário de funcionamento.</small></div>
+      <div><h3>Contato</h3><p>(11) 0000-0000</p><small>Lembrete de vacina e banho pelo WhatsApp.</small></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><a class="brand" href="#topo"><svg viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="14" fill="#f6f1fd"/><ellipse cx="15" cy="18" rx="6.5" ry="5" fill="#5b3a8c"/><circle cx="8.5" cy="11.5" r="2.4" fill="#5b3a8c"/><circle cx="12.6" cy="8.3" r="2.4" fill="#5b3a8c"/><circle cx="17.4" cy="8.3" r="2.4" fill="#5b3a8c"/><circle cx="21.5" cy="11.5" r="2.4" fill="#5b3a8c"/></svg>Focinho <span>Clínica Veterinária</span></a><p class="foot-note">Clínica geral, vacinas, exames, castração e banho e tosa para cães e gatos.</p></div>
+      <div><h3>Contato</h3><ul><li>(11) 0000-0000</li><li>oi@focinho.exemplo</li><li>Rua Exemplo, 987 · São Paulo/SP</li></ul></div>
+      <div><h3>Atalhos</h3><ul><li><a href="#carteirinha">Carteirinha de vacina</a></li><li><a href="#banho">Banho e tosa</a></li><li><a href="#consultas">Consultas</a></li></ul></div>
+    </div>
+<!--hellys:made-->
+<div class="hl-made">
+  <div>
+    <svg xmlns="http://www.w3.org/2000/svg" class="hl-logo" aria-hidden="true" focusable="false" viewBox="0 0 4532.21 943.33"><g transform="translate(368.53 141.33) scale(0.86)"><path fill="#ff8a3d" d="M-82.13 -164.33L-428.52 350L-82.13 864.33L-9.87 815.67L-323.48 350L-9.87 -115.67ZM665.87 -115.67L979.48 350L665.87 815.67L738.13 864.33L1084.52 350L738.13 -164.33Z"/><path fill="#e8ecf1" d="M198 700L66 700L66 0L198 0L198 289L458 289L458 0L590 0L590 700L458 700L458 409L198 409L198 700Z"/></g><g transform="translate(1531.21 743.33) scale(1)"><path fill="#e8ecf1" d="M196 0L70 0L70-700L196-700L196-435L214-435Q222-451 239-467Q256-483 284.50-493.50Q313-504 357-504L357-504Q415-504 458.50-477.50Q502-451 526-404.50Q550-358 550-296L550-296L550 0L424 0L424-286Q424-342 396.50-370Q369-398 318-398L318-398Q260-398 228-359.50Q196-321 196-252L196-252L196 0ZM894 14L894 14Q820 14 763.50-17.50Q707-49 675.50-106.50Q644-164 644-242L644-242L644-254Q644-332 675-389.50Q706-447 762-478.50Q818-510 892-510L892-510Q965-510 1019-477.50Q1073-445 1103-387.50Q1133-330 1133-254L1133-254L1133-211L772-211Q774-160 810-128Q846-96 898-96L898-96Q951-96 976-119Q1001-142 1014-170L1014-170L1117-116Q1103-90 1076.50-59.50Q1050-29 1006-7.50Q962 14 894 14ZM773-305L773-305L1005-305Q1001-348 970.50-374Q940-400 891-400L891-400Q840-400 810-374Q780-348 773-305ZM1353 0L1227 0L1227-700L1353-700L1353 0ZM1601 0L1475 0L1475-700L1601-700L1601 0ZM2089 200L1777 200L1777 90L2047 90Q2075 90 2075 60L2075 60L2075-65L2057-65Q2049-48 2032-31Q2015-14 1986-3Q1957 8 1912 8L1912 8Q1854 8 1810.50-18.50Q1767-45 1743-92Q1719-139 1719-200L1719-200L1719-496L1845-496L1845-210Q1845-154 1872.50-126Q1900-98 1951-98L1951-98Q2009-98 2041-136.50Q2073-175 2073-244L2073-244L2073-496L2199-496L2199 88Q2199 139 2169 169.50Q2139 200 2089 200L2089 200ZM2527 14L2527 14Q2430 14 2368-28Q2306-70 2293-148L2293-148L2409-178Q2416-143 2432.50-123Q2449-103 2473.50-94.50Q2498-86 2527-86L2527-86Q2571-86 2592-101.50Q2613-117 2613-140L2613-140Q2613-163 2593-175.50Q2573-188 2529-196L2529-196L2501-201Q2449-211 2406-228.50Q2363-246 2337-277Q2311-308 2311-357L2311-357Q2311-431 2365-470.50Q2419-510 2507-510L2507-510Q2590-510 2645-473Q2700-436 2717-376L2717-376L2600-340Q2592-378 2567.50-394Q2543-410 2507-410L2507-410Q2471-410 2452-397.50Q2433-385 2433-363L2433-363Q2433-339 2453-327.50Q2473-316 2507-310L2507-310L2535-305Q2591-295 2636.50-278.50Q2682-262 2708.50-231.50Q2735-201 2735-149L2735-149Q2735-71 2678.50-28.50Q2622 14 2527 14Z"/><path fill="#ff8a3d" d="M2907 14L2907 14Q2866 14 2838.50-12.50Q2811-39 2811-81L2811-81Q2811-123 2838.50-149.50Q2866-176 2907-176L2907-176Q2947-176 2974-149.50Q3001-123 3001-81L3001-81Q3001-39 2974-12.50Q2947 14 2907 14Z"/></g></svg>
+    <p><b>Este site é um projeto autoral da hellys.</b> A Focinho Clínica Veterinária não existe: nome, números, endereço e telefone são fictícios. Quer o site da sua clínica assim, com carteirinha de vacina e agenda funcionando de verdade?</p>
+  </div>
+  <div class="hl-made-acts">
+    <a class="hl-cta" href="https://wa.me/5511994032102?text=Oi%2C%20vi%20o%20modelo%20de%20site%20para%20cl%C3%ADnicas%20veterin%C3%A1rias%20no%20portf%C3%B3lio%20da%20hellys%20e%20quero%20um%20assim." target="_blank" rel="noopener">Falar com a hellys <svg class="hl-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a class="hl-more" href="https://hellys.dev.br/modelos/">Ver os outros modelos</a>
+  </div>
+</div>
+<!--/hellys:made-->
+  </div>
+</footer>
+
+<!--hellys:toast-->
+<div class="hl-toast" id="hl-toast" role="status" aria-live="polite">
+  <p><b>Isto é um modelo.</b> <span data-hl-msg>No site real, este botão abre o WhatsApp da clínica já com o pedido escrito.</span> <a href="https://wa.me/5511994032102?text=Oi%2C%20vi%20o%20modelo%20de%20site%20para%20cl%C3%ADnicas%20veterin%C3%A1rias%20no%20portf%C3%B3lio%20da%20hellys%20e%20quero%20um%20assim." target="_blank" rel="noopener">Quero um site assim <svg class="hl-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+  <button type="button" id="hl-toast-x" aria-label="Fechar aviso"><svg class="hl-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+</div>
+<script>
+(function(){
+  var t = document.getElementById('hl-toast'); if (!t) return;
+  var msg = t.querySelector('[data-hl-msg]'), def = msg.innerHTML, tm;
+  window.hellysNote = function(text){ msg.innerHTML = text || def; t.classList.add('show'); clearTimeout(tm); tm = setTimeout(function(){ t.classList.remove('show'); }, 9000); };
+  document.addEventListener('click', function(e){
+    var b = e.target.closest && e.target.closest('[data-demo]');
+    if (b){ e.preventDefault(); window.hellysNote(b.getAttribute('data-demo')); }
+  });
+  document.getElementById('hl-toast-x').addEventListener('click', function(){ t.classList.remove('show'); });
+})();
+</script>
+<!--/hellys:toast-->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+(function(){
+  var root = document.documentElement; root.classList.remove('no-js');
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasG = typeof window.gsap !== 'undefined';
+  function $(id){ return document.getElementById(id); }
+  function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]; }); }
+  var store = { get: function(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }, set: function(k, v){ try { localStorage.setItem(k, v); } catch(e){} } };
+
+  // idade em semanas
+  var IDADES = [['6 semanas', 6], ['2 meses', 9], ['3 meses', 13], ['4 meses', 17], ['6 meses', 26], ['1 ano ou mais', 60]];
+  var st = { nome: '', esp: 'cao', idade: 9, hist: 0 };
+  try { var sv = JSON.parse(store.get('focinho') || 'null'); if (sv){ st.nome = String(sv.nome || '').slice(0, 18); st.esp = sv.esp === 'gato' ? 'gato' : 'cao'; st.idade = IDADES.some(function(x){ return x[1] === sv.idade; }) ? sv.idade : 9; st.hist = [0, 1, 2].indexOf(sv.hist) > -1 ? sv.hist : 0; } } catch(e){}
+
+  var DOG = '<path d="M14 20c-4 0-7 8-5 14l6-3M50 20c4 0 7 8 5 14l-6-3" fill="none" stroke="#9aa5b8" stroke-width="2.5" stroke-linejoin="round"/><path d="M18 22c3-6 25-6 28 0 3 6 3 18-2 26-5 7-19 7-24 0-5-8-5-20-2-26z" fill="none" stroke="#9aa5b8" stroke-width="2.5"/><circle cx="25" cy="32" r="2.2" fill="#9aa5b8"/><circle cx="39" cy="32" r="2.2" fill="#9aa5b8"/><ellipse cx="32" cy="41" rx="4" ry="3" fill="#9aa5b8"/>';
+  var CAT = '<path d="M17 28l-3-15 10 7M47 28l3-15-10 7" fill="none" stroke="#9aa5b8" stroke-width="2.5" stroke-linejoin="round"/><path d="M17 26c4-8 26-8 30 0 3 8 1 18-6 22-5 3-13 3-18 0-7-4-9-14-6-22z" fill="none" stroke="#9aa5b8" stroke-width="2.5"/><circle cx="25" cy="33" r="2.2" fill="#9aa5b8"/><circle cx="39" cy="33" r="2.2" fill="#9aa5b8"/><path d="M30 40h4l-2 2.5z" fill="#9aa5b8"/><path d="M14 38h9M14 42h9M41 38h9M41 42h9" stroke="#9aa5b8" stroke-width="1.5"/>';
+
+  // ---------- calendário de referência (semanas de vida) ----------
+  // Doses atrasadas não se acumulam: a próxima fica para 4 semanas depois da anterior.
+  function em(sem){ var d = new Date(); d.setDate(d.getDate() + Math.round(sem * 7)); return '~' + d.getDate() + '/' + (d.getMonth() + 1); }
+  function plano(){
+    var cao = st.esp === 'cao', a = st.idade, h = st.hist, R = [];
+    var nome = cao ? 'Polivalente V8 ou V10' : 'Polivalente felina V3, V4 ou V5';
+    var sub = cao ? 'cinomose, parvovirose, hepatite e outras' : 'panleucopenia, rinotraqueíte e calicivirose';
+    var opc = cao ? { v: 'Gripe e giárdia', s: 'conforme a rotina do pet' } : { v: 'FeLV (leucemia felina)', s: 'depois do teste, conforme o risco' };
+    function row(v, s, quando){ // quando: 'feita' | semanas a partir de hoje (0 = agora)
+      if (quando === 'feita') return { v: v, s: s, q: 'feita', st: 'ok', feita: true };
+      return quando <= 0 ? { v: v, s: s, q: 'agora', st: 'now' } : { v: v, s: s, q: em(quando), st: 'next' };
+    }
+    var last;
+    if (a < 52){
+      var d1 = cao ? 6 : 8; last = -99;
+      [d1, d1 + 4, d1 + 8].forEach(function(w, i){
+        var feita = a >= w && (h === 2 || (h === 1 && i === 0));
+        if (feita){ last = w; R.push(row(nome + ' · ' + (i + 1) + 'ª dose', i ? '3 a 4 semanas depois' : sub, 'feita')); return; }
+        var due = Math.max(w, last + 4, a); last = due;
+        R.push(row(nome + ' · ' + (i + 1) + 'ª dose', i ? '3 a 4 semanas depois' : sub, due - a));
+      });
+      R.push(h === 2 && a >= 12 ? row('Antirrábica', 'a partir de 12 semanas', 'feita') : row('Antirrábica', 'a partir de 12 semanas', Math.max(12, a) - a));
+    } else if (h === 2){
+      R.push(row(nome, 'esquema de filhote completo', 'feita'));
+      R.push(row('Antirrábica', 'dose de filhote', 'feita'));
+      last = a - 40;
+    } else {
+      R.push(row(nome + (h ? ' · reforço' : ' · 1ª dose'), h ? 'esquema incompleto: o veterinário avalia' : 'adulto sem histórico', 0));
+      if (!h) R.push(row(nome + ' · 2ª dose', '3 a 4 semanas depois', 4));
+      R.push(row('Antirrábica', 'dose única no adulto', 0));
+      last = h ? a : a + 4;
+    }
+    R.push({ v: opc.v, s: opc.s, q: 'conversar', st: 'next' });
+    var meses = Math.max(1, Math.round((last + 52 - a) / 4.35));
+    R.push({ v: 'Reforço anual', s: 'polivalente e antirrábica', q: a >= 52 && h === 2 ? 'ver a última' : 'em ~' + meses + (meses === 1 ? ' mês' : ' meses'), st: 'yr' });
+    return R;
+  }
+  var LBL = { now: 'Falta', next: 'Próxima', ok: 'Em dia', yr: 'Anual' };
+  function render(stamp){
+    $('pet-ico').innerHTML = st.esp === 'cao' ? DOG : CAT;
+    $('pet-nome').textContent = st.nome ? '· ' + st.nome : 'do seu pet';
+    var rows = plano();
+    $('vt').innerHTML = rows.map(function(r){
+      var etq = r.feita ? '<span class="sticker">' + esc(r.v.split(' · ')[0]).toUpperCase() + '<br>LOTE 000 · <i>APLICADA</i></span>' : '<span class="slot">etiqueta</span>';
+      return '<tr><td class="v"><b>' + esc(r.v) + '</b><span>' + esc(r.s) + '</span></td><td class="q">' + esc(r.q) + '</td><td class="lbl">' + etq + '</td><td class="st"><span class="tag ' + r.st + '">' + LBL[r.st] + '</span></td></tr>';
+    }).join('');
+    var falta = rows.filter(function(r){ return r.st === 'now'; }).length;
+    var bs = $('bigstamp');
+    bs.className = 'bigstamp ' + (falta ? 'late' : 'ok');
+    bs.textContent = falta ? (falta === 1 ? 'Falta 1 vacina' : 'Faltam ' + falta + ' vacinas') : 'Vacinas em dia';
+    if (stamp && !reduce){ bs.classList.remove('thump'); void bs.offsetWidth; bs.classList.add('thump'); }
+    var go = $('vac-go');
+    go.setAttribute('data-demo', 'No site real, este botão abre o WhatsApp da clínica com o pedido: ' + esc((st.nome || 'meu pet') + ', ' + (st.esp === 'cao' ? 'cão' : 'gato') + ', ' + IDADES.filter(function(x){ return x[1] === st.idade; })[0][0]) + (falta ? ', precisa de ' + falta + ' vacina(s).' : ', vacinas em dia.'));
+    store.set('focinho', JSON.stringify(st));
+  }
+  $('idade').innerHTML = IDADES.map(function(x){ return '<button type="button" data-v="' + x[1] + '" aria-pressed="' + (x[1] === st.idade) + '">' + x[0] + '</button>'; }).join('');
+  function sync(){
+    $('esp').querySelectorAll('button').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.v === st.esp); });
+    $('idade').querySelectorAll('button').forEach(function(b){ b.setAttribute('aria-pressed', +b.dataset.v === st.idade); });
+    $('hist').querySelectorAll('button').forEach(function(b){ b.setAttribute('aria-pressed', +b.dataset.v === st.hist); });
+  }
+  $('nome').value = st.nome;
+  $('nome').addEventListener('input', function(e){ st.nome = e.target.value.trim(); render(false); });
+  $('esp').addEventListener('click', function(e){ var b = e.target.closest('button'); if (!b) return; st.esp = b.dataset.v; sync(); render(true); });
+  $('idade').addEventListener('click', function(e){ var b = e.target.closest('button'); if (!b) return; st.idade = +b.dataset.v; sync(); render(true); });
+  $('hist').addEventListener('click', function(e){ var b = e.target.closest('button'); if (!b) return; st.hist = +b.dataset.v; sync(); render(true); });
+  sync(); render(false);
+
+  // ---------- banho e tosa ----------
+  var bt = { porte: 'Pequeno', pelo: 'curta' };
+  var PAW = '<svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="15" rx="5" ry="4" fill="currentColor"/><circle cx="6.5" cy="9.5" r="2" fill="currentColor"/><circle cx="10" cy="6.5" r="2" fill="currentColor"/><circle cx="14" cy="6.5" r="2" fill="currentColor"/><circle cx="17.5" cy="9.5" r="2" fill="currentColor"/></svg>';
+  $('card10').innerHTML = [1, 2, 3, 4, 5, 6, 7, 8, 9].map(function(i){ return '<span class="' + (i <= 3 ? 'on' : '') + '">' + (i <= 3 ? PAW : '') + '</span>'; }).join('') + '<span>10º<br>cortesia</span>';
+  function sum(){
+    var sv = [].slice.call(document.querySelectorAll('#svc input:checked')).map(function(i){ return i.value; });
+    $('sum').textContent = (st.nome || 'Seu pet') + ' · porte ' + bt.porte.toLowerCase() + ', pelagem ' + bt.pelo + (sv.length ? ' · ' + sv.join(', ') : ' · escolha um serviço');
+  }
+  [['porte', 'porte'], ['pelo', 'pelo']].forEach(function(p){
+    $(p[0]).addEventListener('click', function(e){ var b = e.target.closest('button'); if (!b) return; bt[p[1]] = b.dataset.v; this.querySelectorAll('button').forEach(function(x){ x.setAttribute('aria-pressed', x === b); }); sum(); });
+  });
+  $('svc').addEventListener('change', sum);
+  $('nome').addEventListener('input', sum);
+  sum();
+
+  // ---------- abertura: o carimbo da clínica bate (o conteúdo já está todo na tela) ----------
+  if (!hasG || reduce) return;
+  var played = false; try { played = sessionStorage.getItem('focinho-intro') && !/[?&]intro=1/.test(location.search); } catch(e){}
+  if (played) return;
+  var guard, tl = gsap.timeline({ paused: true, onComplete: function(){ clearTimeout(guard); try { sessionStorage.setItem('focinho-intro', '1'); } catch(e){} } });
+  tl.fromTo('#rstamp', { scale: 1.8, opacity: 0, rotation: -30, transformOrigin: '50% 50%' }, { scale: 1, opacity: .85, rotation: -12, duration: .35, ease: 'back.out(2.2)' }, .1)
+    .fromTo('#vt tr', { x: 10 }, { x: 0, duration: .35, stagger: .04, ease: 'power2.out', clearProps: 'transform' }, .15);
+  var skip = function(){ if (tl.progress() < 1) tl.progress(1); };
+  addEventListener('keydown', skip, { once: true });
+  addEventListener('touchstart', skip, { once: true, passive: true });
+  var arm = function(){ clearTimeout(guard); if (document.visibilityState === 'visible' && tl.progress() < 1) guard = setTimeout(skip, 2500); };
+  document.addEventListener('visibilitychange', arm); arm();
+  tl.play();
+})();
+</script>
+</body>
+</html>

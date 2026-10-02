@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="pt-BR" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quadra Imóveis — modelo de site para imobiliárias · hellys.</title>
+<meta name="description" content="Projeto autoral da hellys.: site-modelo para imobiliárias, com mapa do bairro, alfinetes de venda e aluguel, ficha do imóvel e agenda de visita. A Quadra Imóveis é fictícia.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#21483c">
+<meta property="og:title" content="Quadra Imóveis — modelo de site para imobiliárias">
+<meta property="og:description" content="Ache o imóvel no mapa do bairro e marque a visita. Projeto autoral da hellys. (empresa fictícia).">
+<!--hellys:meta-->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="hellys.">
+<meta property="og:url" content="https://hellys.dev.br/modelos/imobiliaria/">
+<meta property="og:image" content="https://hellys.dev.br/modelos/imobiliaria/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Mapa do bairro com alfinetes de imóveis à venda e para alugar na página da Quadra Imóveis.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://hellys.dev.br/modelos/imobiliaria/">
+<!--/hellys:meta-->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2321483c'/%3E%3Cpath d='M16 27V15' stroke='%23e8e3d6' stroke-width='2'/%3E%3Ccircle cx='16' cy='11' r='6' fill='%23d63a2f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Overpass:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<!--hellys:css-->
+<style id="hl-layer">
+.hl-bar{position:relative;z-index:60;background:#10141a;color:#e8ecf1;font:500 13.5px/1.3 var(--hl-font,system-ui,sans-serif)}
+.hl-bar-in{max-width:var(--hl-wrap,1200px);margin:0 auto;padding:6px var(--hl-pad,clamp(16px,4.2vw,48px));display:flex;align-items:center;gap:14px;min-height:42px}
+.hl-logo-link{display:inline-flex;align-items:center;border-radius:3px;flex:0 0 auto}
+.hl-logo{height:16px;width:auto;display:block}
+.hl-bar p{flex:1 1 auto;color:#b9c4d1;margin:0}
+.hl-bar p b{color:#e8ecf1;font-weight:700}
+.hl-more{color:#e8ecf1;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(232,236,241,.4);white-space:nowrap}
+.hl-more:hover{text-decoration-color:#ff8a3d}
+.hl-cta{display:inline-flex;align-items:center;gap:8px;background:#ff8a3d;color:#10141a;font-weight:700;text-decoration:none;padding:7px 12px;border-radius:4px;white-space:nowrap;line-height:1.2}
+.hl-cta:hover{background:#ffa463}
+.hl-ico{width:1.1em;height:1.1em;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.hl-bar :focus-visible,.hl-made :focus-visible,.hl-toast :focus-visible{outline:2px solid #ff8a3d;outline-offset:2px}
+@media (max-width:860px){.hl-long,.hl-bar .hl-more{display:none}}
+@media (max-width:600px){.hl-mid,.hl-of{display:none}.hl-bar-in{gap:10px}.hl-bar p{font-size:12.5px}.hl-logo{height:13px}.hl-cta{padding:6px 9px;font-size:12.5px}.hl-bar .hl-cta .hl-ico{display:none}}
+.hl-made{background:#10141a;color:#e8ecf1;border-radius:8px;padding:clamp(22px,4vw,34px);display:grid;grid-template-columns:1fr auto;gap:18px 28px;align-items:center;font:400 15.5px/1.55 var(--hl-font,system-ui,sans-serif);text-align:left;letter-spacing:normal;text-transform:none}
+.hl-made p{color:#b9c4d1;max-width:62ch;margin:0}
+.hl-made p b{color:#e8ecf1}
+.hl-made .hl-logo{height:22px;margin-bottom:12px}
+.hl-made-acts{display:flex;flex-direction:column;gap:12px;align-items:stretch}
+.hl-made .hl-cta{justify-content:center;padding:11px 16px;font-size:15px}
+.hl-made .hl-more{text-align:center;font-size:14.5px}
+@media (max-width:760px){.hl-made{grid-template-columns:1fr}}
+.hl-toast{position:fixed;left:50%;bottom:18px;z-index:2000;width:min(560px,calc(100vw - 24px));transform:translate(-50%,160%);visibility:hidden;transition:transform .5s cubic-bezier(.16,1,.3,1),visibility 0s .5s;background:#10141a;color:#e8ecf1;border-radius:8px;padding:16px 18px;box-shadow:0 24px 40px -18px rgba(0,0,0,.6);display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start;font:400 15px/1.5 var(--hl-font,system-ui,sans-serif);text-align:left;letter-spacing:normal;text-transform:none}
+.hl-toast.show{transform:translate(-50%,0);visibility:visible;transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.hl-toast p{color:#c7d0db;margin:0}
+.hl-toast p b{color:#e8ecf1}
+.hl-toast a{color:#ff8a3d;font-weight:700;white-space:nowrap}
+.hl-toast a .hl-ico{display:inline;vertical-align:-.2em}
+.hl-toast button{background:none;border:0;color:#9aa6b4;cursor:pointer;padding:4px;display:grid}
+.hl-toast button .hl-ico{width:22px;height:22px}
+@media (prefers-reduced-motion:reduce){.hl-toast,.hl-toast.show{transition:none}}
+</style>
+<!--/hellys:css-->
+<style>
+:root{
+  --wall:#21483c; --wall-2:#1a3a30; --on-wall:#eef3ef; --dim:#b9cfc5;
+  --paper:#fffdf6; --street:#fffdf6; --block:#f3d5bc; --block-line:#e3b997; --park:#b5d9a4; --park-line:#8fbf7c; --river:#9ccbe8;
+  --map-ink:#6e5b49; --ink:#1f2a26; --ink-2:#4e5a55;
+  --sale:#d23a2f; --rent:#2459c4; --card:#fffbea; --card-rule:#c7dbef; --card-red:#e07a72;
+  --wrap:1240px; --pad:clamp(16px,4.2vw,48px); --ease:cubic-bezier(.16,1,.3,1);
+  --f-head:"Overpass",system-ui,sans-serif; --f-type:"Courier Prime","Courier New",monospace;
+  --hl-font:"Overpass",system-ui,sans-serif; --hl-wrap:1240px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{font:400 17px/1.55 var(--f-head);color:var(--on-wall);background:var(--wall);overflow-x:hidden}
+::selection{background:var(--sale);color:#fff}
+a{color:inherit}
+svg{display:block}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid #ffd45c;outline-offset:3px;border-radius:4px}
+.card :focus-visible,.strip :focus-visible,.map :focus-visible{outline-color:var(--rent)}
+[hidden]{display:none!important}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+.ico{width:1.1em;height:1.1em;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.lab{font:800 12px/1 var(--f-head);letter-spacing:.14em;text-transform:uppercase}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;cursor:pointer;text-decoration:none;font:800 16.5px/1 var(--f-head);padding:15px 20px 13px;border-radius:8px;background:var(--paper);color:var(--wall);transition:transform .25s var(--ease),background-color .2s}
+.btn:hover{background:#fff;transform:translateY(-2px)}
+.btn-ink{background:var(--wall);color:#fff}
+.btn-ink:hover{background:var(--wall-2)}
+.btn-line{background:transparent;color:var(--on-wall);box-shadow:inset 0 0 0 2px var(--dim)}
+.btn-line:hover{background:rgba(255,255,255,.07)}
+
+/* ---------- navegação ---------- */
+.nav{position:sticky;top:0;z-index:50;background:var(--wall);border-bottom:1px solid rgba(238,243,239,.16)}
+.nav .wrap{display:flex;align-items:center;gap:22px;min-height:62px}
+.brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font:900 23px/1 var(--f-head);letter-spacing:-.01em}
+.brand svg{width:30px;height:30px}
+.brand span{font-weight:600;color:var(--dim)}
+.nav-links{display:flex;gap:22px;margin-left:auto;list-style:none}
+.nav-links a{font-weight:700;font-size:15.5px;text-decoration:none;color:var(--dim)}
+.nav-links a:hover{color:#fff}
+.nav .btn{padding:11px 15px 10px;font-size:15px;display:inline-block;white-space:nowrap}
+@media (max-width:940px){.nav-links{display:none}.nav .btn{margin-left:auto}}
+@media (max-width:600px){.nav .btn .long{display:none}}
+
+/* ---------- abertura: o mapa ---------- */
+.hero{padding:clamp(22px,3vw,40px) 0 clamp(48px,6vw,84px)}
+.hero-top{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:14px 30px;margin-bottom:clamp(18px,2.4vw,28px)}
+.hero h1{font:900 clamp(2.3rem,4.8vw,4.1rem)/.95 var(--f-head);letter-spacing:-.03em;max-width:15ch}
+.hero-top .side{display:grid;gap:14px;justify-items:start;max-width:40ch}
+.hero-top p{color:var(--dim);font-size:clamp(16px,1.3vw,18px)}
+.board{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:clamp(16px,2vw,26px);align-items:start}
+
+.mapwrap{position:relative;background:var(--paper);border-radius:4px;padding:clamp(10px,1.3vw,16px);box-shadow:0 30px 44px -30px rgba(0,0,0,.6)}
+.tack{position:absolute;width:14px;height:14px;border-radius:50%;z-index:2}
+.tack::after{content:"";position:absolute;left:3px;top:3px;width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.75)}
+.tack.t1{top:-5px;left:-5px;background:#e4b33a}.tack.t2{top:-5px;right:-5px;background:var(--rent)}.tack.t3{bottom:-5px;left:-5px;background:var(--rent)}.tack.t4{bottom:-5px;right:-5px;background:#e4b33a}
+.strip{position:relative;display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;background:#fff;color:var(--ink);padding:10px 14px;margin:-2px 6px 12px;border:1px solid #e5dfcf}
+.strip::before,.strip::after{content:"";position:absolute;top:-9px;width:64px;height:22px;background:rgba(236,222,170,.75);transform:rotate(-4deg)}
+.strip::before{left:-18px}.strip::after{right:-18px;transform:rotate(5deg)}
+.seg{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.seg .lab{color:var(--ink-2);margin-right:4px}
+.seg button{border:0;cursor:pointer;border-radius:6px;padding:8px 11px 6px;background:#f2efe6;font:800 14.5px/1 var(--f-head);color:var(--ink-2)}
+.seg button:hover{background:#e9e4d6;color:var(--ink)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.count{margin-left:auto;font:700 15px/1 var(--f-type);color:var(--ink-2)}
+.map{width:100%;height:auto;user-select:none;-webkit-user-select:none}
+.map .st-lab{font:800 13px var(--f-head);letter-spacing:.12em;fill:var(--map-ink);text-transform:uppercase}
+.map .pk-lab{font:800 13px var(--f-head);letter-spacing:.1em;fill:#3f6b33;text-transform:uppercase}
+.map .rv-lab{font:italic 700 14px var(--f-head);letter-spacing:.14em;fill:#3d7fae}
+.map .mg-lab{font:700 14px var(--f-type);fill:var(--ink-2)}
+.pin{cursor:pointer;outline:none}
+.pin .pi{transition:transform .35s var(--ease),opacity .3s}
+.pin.off .pi{transform:translateY(-26px);opacity:0}
+.pin.off{pointer-events:none}
+.board.sel .pin:not(.on) .pi{opacity:.28}
+.pin.on .pi{transform:scale(1.25)}
+.pin:focus-visible .ring{stroke:#ffd45c;stroke-width:4}
+.pin .ring{fill:none;stroke:none}
+.route{fill:none;stroke:var(--ink);stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:2 12}
+.route-under{fill:none;stroke:#fff;stroke-width:12;stroke-linecap:round;stroke-linejoin:round;opacity:.9}
+.drawer{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.drawer button{border:0;cursor:pointer;background:#f2efe6;color:var(--ink);border-radius:6px 6px 2px 2px;padding:8px 10px 6px;font:700 14px/1.1 var(--f-type);display:inline-flex;align-items:center;gap:7px;border-top:4px solid var(--c)}
+.drawer button:hover{background:#e9e4d6}
+.drawer button[aria-pressed="true"]{background:var(--ink);color:#fff}
+
+/* ficha */
+.card{background:var(--card);color:var(--ink);border-radius:3px;padding:16px 18px 18px;box-shadow:0 22px 34px -24px rgba(0,0,0,.65);background-image:linear-gradient(transparent 51px,var(--card-red) 51px,var(--card-red) 53px,transparent 53px),repeating-linear-gradient(transparent 0 27px,var(--card-rule) 27px 28px);background-position:0 0,0 53px;background-size:100% 100%,100% 28px;background-repeat:no-repeat,repeat-y;font-family:var(--f-type)}
+.card .hd{display:flex;justify-content:space-between;align-items:center;gap:10px;height:36px;margin-bottom:12px}
+.card .hd b{font:700 22px/1 var(--f-type);letter-spacing:.02em}
+.neg{font:800 12px/1 var(--f-head);letter-spacing:.14em;text-transform:uppercase;padding:6px 8px 4px;border-radius:3px;color:#fff}
+.neg.v{background:var(--sale)}.neg.a{background:var(--rent)}
+.fl{display:grid;grid-template-columns:96px minmax(0,1fr);font-size:16px;line-height:28px}
+.fl dt{color:var(--ink-2);text-transform:uppercase;font-size:14px}
+.fl dd{font-weight:700}
+.days{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}
+.days button{border:0;cursor:pointer;background:#fff;box-shadow:inset 0 0 0 1.5px #cfc6ad;border-radius:5px;padding:7px 9px 5px;font:700 14px/1 var(--f-type)}
+.days button[aria-pressed="true"]{background:var(--ink);color:#fff;box-shadow:none}
+.acts{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.x{border:0;background:transparent;cursor:pointer;font:700 15px/1 var(--f-type);text-decoration:underline;text-underline-offset:3px;color:var(--ink-2);padding:10px 4px}
+.legend{display:grid;gap:12px;margin-top:4px}
+.legend li{display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px;align-items:center;list-style:none;font-size:16px;line-height:1.35}
+.legend svg{width:30px;height:34px}
+.hint{margin-top:14px;font-weight:700;font-size:16px;line-height:28px}
+.slide{animation:slide .4s var(--ease) both}
+@keyframes slide{from{transform:translateX(28px) rotate(1.5deg);opacity:0}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.slide{animation:none}.pin .pi{transition:none}}
+@media (max-width:980px){.board{grid-template-columns:minmax(0,1fr)}.card.slide{animation-name:slideup}}
+@keyframes slideup{from{transform:translateY(18px);opacity:0}to{transform:none;opacity:1}}
+@media (max-width:700px){.drawer{flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:6px;margin-left:-2px;margin-right:-2px}.drawer button{flex:0 0 auto;scroll-snap-align:start}}
+@media (max-width:560px){.strip{margin:-2px 0 10px;padding:10px}.count{margin-left:0;width:100%}.seg button{padding:8px 9px 6px}}
+
+/* ---------- seções ---------- */
+.sec{padding:clamp(56px,7vw,100px) 0}
+.sec-h{font:900 clamp(2.1rem,4.2vw,3.4rem)/.98 var(--f-head);letter-spacing:-.03em;max-width:18ch}
+.sec-sub{color:var(--dim);font-size:clamp(17px,1.4vw,19px);max-width:56ch;margin-top:12px}
+.sell{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,460px);gap:clamp(24px,4vw,60px);align-items:start}
+.sell .card{padding:16px 20px 22px}
+.ff{display:grid;gap:14px}
+.ff label,.ff .fh{display:block;font:700 14px/1 var(--f-type);text-transform:uppercase;color:var(--ink-2);margin-bottom:6px}
+.ff select,.ff input{width:100%;height:44px;border:0;border-bottom:2px solid var(--ink);background:transparent;font:700 18px/1 var(--f-type);color:var(--ink);padding:0 2px;border-radius:0}
+.ff select:focus,.ff input:focus{outline:none;background:#fff6cf}
+.ff .days{margin:0}
+.sell-note{color:var(--ink-2);font-size:14px;line-height:1.4;margin-top:12px}
+@media (max-width:860px){.sell{grid-template-columns:minmax(0,1fr)}}
+
+.cards4{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,1.6vw,20px);margin-top:clamp(24px,3vw,38px)}
+.cards4 .card{min-height:250px}
+.cards4 .card .hd b{font-size:30px}
+.cards4 h3{font:800 20px/28px var(--f-head);margin-bottom:0}
+.cards4 p{font-size:16px;line-height:28px}
+@media (max-width:980px){.cards4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.cards4{grid-template-columns:minmax(0,1fr)}.cards4 .card{min-height:0}}
+
+.where{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:2px solid var(--on-wall);margin-top:clamp(22px,3vw,34px)}
+.where > div{padding:20px 22px 0 0}
+.where > div + div{padding-left:22px;border-left:1px solid rgba(238,243,239,.26)}
+.where h3{color:var(--dim);margin-bottom:10px}
+.where p{font-weight:700}
+.where small{display:block;color:var(--dim);font-size:15px;margin-top:4px}
+@media (max-width:800px){.where{grid-template-columns:minmax(0,1fr)}.where > div + div{padding-left:0;border-left:0;border-top:1px solid rgba(238,243,239,.26);margin-top:18px}}
+
+.foot{background:var(--wall-2);padding:44px 0 36px}
+.foot-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:26px;margin-bottom:34px}
+.foot h3{color:var(--dim);margin-bottom:12px}
+.foot ul{list-style:none;display:grid;gap:6px}
+.foot-note{color:var(--dim);margin-top:12px;max-width:34ch}
+@media (max-width:760px){.foot-grid{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body>
+<!--hellys:hbar-->
+<div class="hl-bar" role="note" aria-label="Aviso: este site é um modelo">
+  <div class="hl-bar-in">
+    <a class="hl-logo-link" href="https://hellys.dev.br/" aria-label="hellys. (ir para o portfólio)"><svg xmlns="http://www.w3.org/2000/svg" class="hl-logo" aria-hidden="true" focusable="false" viewBox="0 0 4532.21 943.33"><g transform="translate(368.53 141.33) scale(0.86)"><path fill="#ff8a3d" d="M-82.13 -164.33L-428.52 350L-82.13 864.33L-9.87 815.67L-323.48 350L-9.87 -115.67ZM665.87 -115.67L979.48 350L665.87 815.67L738.13 864.33L1084.52 350L738.13 -164.33Z"/><path fill="#e8ecf1" d="M198 700L66 700L66 0L198 0L198 289L458 289L458 0L590 0L590 700L458 700L458 409L198 409L198 700Z"/></g><g transform="translate(1531.21 743.33) scale(1)"><path fill="#e8ecf1" d="M196 0L70 0L70-700L196-700L196-435L214-435Q222-451 239-467Q256-483 284.50-493.50Q313-504 357-504L357-504Q415-504 458.50-477.50Q502-451 526-404.50Q550-358 550-296L550-296L550 0L424 0L424-286Q424-342 396.50-370Q369-398 318-398L318-398Q260-398 228-359.50Q196-321 196-252L196-252L196 0ZM894 14L894 14Q820 14 763.50-17.50Q707-49 675.50-106.50Q644-164 644-242L644-242L644-254Q644-332 675-389.50Q706-447 762-478.50Q818-510 892-510L892-510Q965-510 1019-477.50Q1073-445 1103-387.50Q1133-330 1133-254L1133-254L1133-211L772-211Q774-160 810-128Q846-96 898-96L898-96Q951-96 976-119Q1001-142 1014-170L1014-170L1117-116Q1103-90 1076.50-59.50Q1050-29 1006-7.50Q962 14 894 14ZM773-305L773-305L1005-305Q1001-348 970.50-374Q940-400 891-400L891-400Q840-400 810-374Q780-348 773-305ZM1353 0L1227 0L1227-700L1353-700L1353 0ZM1601 0L1475 0L1475-700L1601-700L1601 0ZM2089 200L1777 200L1777 90L2047 90Q2075 90 2075 60L2075 60L2075-65L2057-65Q2049-48 2032-31Q2015-14 1986-3Q1957 8 1912 8L1912 8Q1854 8 1810.50-18.50Q1767-45 1743-92Q1719-139 1719-200L1719-200L1719-496L1845-496L1845-210Q1845-154 1872.50-126Q1900-98 1951-98L1951-98Q2009-98 2041-136.50Q2073-175 2073-244L2073-244L2073-496L2199-496L2199 88Q2199 139 2169 169.50Q2139 200 2089 200L2089 200ZM2527 14L2527 14Q2430 14 2368-28Q2306-70 2293-148L2293-148L2409-178Q2416-143 2432.50-123Q2449-103 2473.50-94.50Q2498-86 2527-86L2527-86Q2571-86 2592-101.50Q2613-117 2613-140L2613-140Q2613-163 2593-175.50Q2573-188 2529-196L2529-196L2501-201Q2449-211 2406-228.50Q2363-246 2337-277Q2311-308 2311-357L2311-357Q2311-431 2365-470.50Q2419-510 2507-510L2507-510Q2590-510 2645-473Q2700-436 2717-376L2717-376L2600-340Q2592-378 2567.50-394Q2543-410 2507-410L2507-410Q2471-410 2452-397.50Q2433-385 2433-363L2433-363Q2433-339 2453-327.50Q2473-316 2507-310L2507-310L2535-305Q2591-295 2636.50-278.50Q2682-262 2708.50-231.50Q2735-201 2735-149L2735-149Q2735-71 2678.50-28.50Q2622 14 2527 14Z"/><path fill="#ff8a3d" d="M2907 14L2907 14Q2866 14 2838.50-12.50Q2811-39 2811-81L2811-81Q2811-123 2838.50-149.50Q2866-176 2907-176L2907-176Q2947-176 2974-149.50Q3001-123 3001-81L3001-81Q3001-39 2974-12.50Q2947 14 2907 14Z"/></g></svg></a>
+    <p><b>Projeto autoral<span class="hl-of"> da hellys.</span></b><span class="hl-mid"> Modelo de site para imobiliárias.</span><span class="hl-long"> A Quadra Imóveis é fictícia.</span></p>
+    <a class="hl-more" href="https://hellys.dev.br/modelos/">Outros modelos</a>
+    <a class="hl-cta" href="https://wa.me/5511994032102?text=Oi%2C%20vi%20o%20modelo%20de%20site%20para%20imobili%C3%A1rias%20no%20portf%C3%B3lio%20da%20hellys%20e%20quero%20um%20assim." target="_blank" rel="noopener">Quero um site assim <svg class="hl-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</div>
+<!--/hellys:hbar-->
+
+<header class="nav" id="topo">
+  <div class="wrap">
+    <a class="brand" href="#topo" aria-label="Quadra Imóveis, início">
+      <svg viewBox="0 0 30 30" aria-hidden="true"><rect width="30" height="30" rx="6" fill="#fffdf6"/><path d="M15 26V14" stroke="#21483c" stroke-width="2"/><circle cx="15" cy="10" r="6" fill="#d23a2f"/><circle cx="13" cy="8" r="1.8" fill="#fff" opacity=".8"/></svg>
+      Quadra <span>Imóveis</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#mapa">Mapa</a></li>
+      <li><a href="#vender">Vender ou alugar</a></li>
+      <li><a href="#como">Como funciona</a></li>
+      <li><a href="#onde">Onde fica</a></li>
+    </ul>
+    <a class="btn" href="#mapa" data-demo="No site real, este botão abre o WhatsApp da imobiliária.">Falar<span class="long"> com corretor</span></a>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="mapa" aria-labelledby="h1">
+  <div class="wrap">
+    <div class="hero-top">
+      <h1 id="h1">Ache o imóvel no mapa do bairro.</h1>
+      <div class="side">
+        <p>Vermelho está à venda, azul é para alugar. Toque num alfinete para abrir a ficha e marcar a visita.</p>
+        <a class="btn btn-line" href="#vender">Quero vender meu imóvel</a>
+      </div>
+    </div>
+
+    <div class="board" id="board">
+      <div class="mapwrap">
+        <span class="tack t1" aria-hidden="true"></span><span class="tack t2" aria-hidden="true"></span><span class="tack t3" aria-hidden="true"></span><span class="tack t4" aria-hidden="true"></span>
+        <div class="strip">
+          <div class="seg" role="group" aria-label="Negócio" id="f-neg"><button type="button" data-v="todos" aria-pressed="true">Todos</button><button type="button" data-v="v" aria-pressed="false">Comprar</button><button type="button" data-v="a" aria-pressed="false">Alugar</button></div>
+          <div class="seg" role="group" aria-labelledby="q-lb" id="f-q"><span class="lab" id="q-lb">Quartos</span><button type="button" data-v="0" aria-pressed="true">Tanto faz</button><button type="button" data-v="1" aria-pressed="false">1</button><button type="button" data-v="2" aria-pressed="false">2</button><button type="button" data-v="3" aria-pressed="false">3+</button></div>
+          <span class="count" id="count" aria-live="polite"></span>
+        </div>
+        <svg class="map" id="map" role="group" aria-label="Mapa ilustrativo do bairro Vila Modelo com os imóveis"></svg>
+        <div class="drawer" id="drawer" role="group" aria-label="Fichas dos imóveis no mapa"></div>
+      </div>
+      <div id="side" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="vender" aria-labelledby="ve-h" style="background:var(--wall-2)">
+  <div class="wrap sell">
+    <div>
+      <h2 class="sec-h" id="ve-h">Quer vender ou alugar o seu?</h2>
+      <p class="sec-sub">Preencha a ficha em branco. Um corretor marca a visita para avaliar o imóvel e diz quanto ele vale no bairro hoje.</p>
+    </div>
+    <form class="card" id="sell" onsubmit="return false">
+      <div class="hd"><b>FICHA NOVA</b><span class="neg v" id="sell-neg">Venda</span></div>
+      <div class="ff">
+        <div><span class="fh" id="sq-lb">Quero</span><div class="days" role="group" aria-labelledby="sq-lb" id="s-quero"><button type="button" data-v="Venda" aria-pressed="true">Vender</button><button type="button" data-v="Aluguel" aria-pressed="false">Alugar</button></div></div>
+        <div><label for="s-tipo">Tipo</label><select id="s-tipo"><option>Apartamento</option><option>Casa</option><option>Sobrado</option><option>Terreno</option><option>Sala comercial</option></select></div>
+        <div><label for="s-rua">Rua e bairro</label><input id="s-rua" placeholder="Ex.: R. dos Ipês, Vila Modelo" autocomplete="off"></div>
+        <div><span class="fh" id="sk-lb">Quartos</span><div class="days" role="group" aria-labelledby="sk-lb" id="s-q"><button type="button" data-v="1" aria-pressed="false">1</button><button type="button" data-v="2" aria-pressed="true">2</button><button type="button" data-v="3" aria-pressed="false">3</button><button type="button" data-v="4+" aria-pressed="false">4+</button></div></div>
+      </div>
+      <div class="acts" style="margin-top:18px"><button class="btn btn-ink" type="button" id="sell-go" data-demo="">Pedir avaliação</button></div>
+      <p class="sell-note">A avaliação é feita na visita, por corretor credenciado. Nada é publicado sem a sua autorização.</p>
+    </form>
+  </div>
+</section>
+
+<section class="sec" id="como" aria-labelledby="co-h">
+  <div class="wrap">
+    <h2 class="sec-h" id="co-h">Do alfinete à chave</h2>
+    <p class="sec-sub">Quem compra ou aluga com a Quadra tem um corretor do começo ao fim.</p>
+    <ol class="cards4">
+      <li class="card"><div class="hd"><b>01</b></div><h3>Visita</h3><p>Você escolhe o dia; o corretor encontra você na porta do imóvel.</p></li>
+      <li class="card"><div class="hd"><b>02</b></div><h3>Proposta</h3><p>A gente leva a sua proposta ao dono e volta com a resposta por escrito.</p></li>
+      <li class="card"><div class="hd"><b>03</b></div><h3>Documentos</h3><p>Certidões, contrato e financiamento: a gente acompanha cada papel.</p></li>
+      <li class="card"><div class="hd"><b>04</b></div><h3>Chaves</h3><p>Vistoria com fotos no dia da entrega, assinada pelos dois lados.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec" id="onde" aria-labelledby="on-h" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="sec-h" id="on-h">Onde fica</h2>
+    <div class="where">
+      <div><h3 class="lab">Endereço</h3><p>Av. Central, 580 · Vila Modelo<br>São Paulo/SP</p><small>O quadrado verde no mapa. Endereço fictício.</small></div>
+      <div><h3 class="lab">Horário</h3><p>Seg a sex 9h às 18h<br>Sábado 9h às 13h</p><small>Visitas também no sábado.</small></div>
+      <div><h3 class="lab">Contato</h3><p>(11) 0000-0000</p><small>CRECI 00000-J (fictício).</small></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><a class="brand" href="#topo"><svg viewBox="0 0 30 30" aria-hidden="true"><rect width="30" height="30" rx="6" fill="#fffdf6"/><path d="M15 26V14" stroke="#21483c" stroke-width="2"/><circle cx="15" cy="10" r="6" fill="#d23a2f"/><circle cx="13" cy="8" r="1.8" fill="#fff" opacity=".8"/></svg>Quadra <span>Imóveis</span></a><p class="foot-note">Venda e aluguel de casas e apartamentos na Vila Modelo e arredores.</p></div>
+      <div><h3 class="lab">Contato</h3><ul><li>(11) 0000-0000</li><li>oi@quadra.exemplo</li><li>Av. Central, 580 · São Paulo/SP</li></ul></div>
+      <div><h3 class="lab">Atalhos</h3><ul><li><a href="#mapa">Mapa de imóveis</a></li><li><a href="#vender">Vender ou alugar</a></li><li><a href="#como">Como funciona</a></li></ul></div>
+    </div>
+<!--hellys:made-->
+<div class="hl-made">
+  <div>
+    <svg xmlns="http://www.w3.org/2000/svg" class="hl-logo" aria-hidden="true" focusable="false" viewBox="0 0 4532.21 943.33"><g transform="translate(368.53 141.33) scale(0.86)"><path fill="#ff8a3d" d="M-82.13 -164.33L-428.52 350L-82.13 864.33L-9.87 815.67L-323.48 350L-9.87 -115.67ZM665.87 -115.67L979.48 350L665.87 815.67L738.13 864.33L1084.52 350L738.13 -164.33Z"/><path fill="#e8ecf1" d="M198 700L66 700L66 0L198 0L198 289L458 289L458 0L590 0L590 700L458 700L458 409L198 409L198 700Z"/></g><g transform="translate(1531.21 743.33) scale(1)"><path fill="#e8ecf1" d="M196 0L70 0L70-700L196-700L196-435L214-435Q222-451 239-467Q256-483 284.50-493.50Q313-504 357-504L357-504Q415-504 458.50-477.50Q502-451 526-404.50Q550-358 550-296L550-296L550 0L424 0L424-286Q424-342 396.50-370Q369-398 318-398L318-398Q260-398 228-359.50Q196-321 196-252L196-252L196 0ZM894 14L894 14Q820 14 763.50-17.50Q707-49 675.50-106.50Q644-164 644-242L644-242L644-254Q644-332 675-389.50Q706-447 762-478.50Q818-510 892-510L892-510Q965-510 1019-477.50Q1073-445 1103-387.50Q1133-330 1133-254L1133-254L1133-211L772-211Q774-160 810-128Q846-96 898-96L898-96Q951-96 976-119Q1001-142 1014-170L1014-170L1117-116Q1103-90 1076.50-59.50Q1050-29 1006-7.50Q962 14 894 14ZM773-305L773-305L1005-305Q1001-348 970.50-374Q940-400 891-400L891-400Q840-400 810-374Q780-348 773-305ZM1353 0L1227 0L1227-700L1353-700L1353 0ZM1601 0L1475 0L1475-700L1601-700L1601 0ZM2089 200L1777 200L1777 90L2047 90Q2075 90 2075 60L2075 60L2075-65L2057-65Q2049-48 2032-31Q2015-14 1986-3Q1957 8 1912 8L1912 8Q1854 8 1810.50-18.50Q1767-45 1743-92Q1719-139 1719-200L1719-200L1719-496L1845-496L1845-210Q1845-154 1872.50-126Q1900-98 1951-98L1951-98Q2009-98 2041-136.50Q2073-175 2073-244L2073-244L2073-496L2199-496L2199 88Q2199 139 2169 169.50Q2139 200 2089 200L2089 200ZM2527 14L2527 14Q2430 14 2368-28Q2306-70 2293-148L2293-148L2409-178Q2416-143 2432.50-123Q2449-103 2473.50-94.50Q2498-86 2527-86L2527-86Q2571-86 2592-101.50Q2613-117 2613-140L2613-140Q2613-163 2593-175.50Q2573-188 2529-196L2529-196L2501-201Q2449-211 2406-228.50Q2363-246 2337-277Q2311-308 2311-357L2311-357Q2311-431 2365-470.50Q2419-510 2507-510L2507-510Q2590-510 2645-473Q2700-436 2717-376L2717-376L2600-340Q2592-378 2567.50-394Q2543-410 2507-410L2507-410Q2471-410 2452-397.50Q2433-385 2433-363L2433-363Q2433-339 2453-327.50Q2473-316 2507-310L2507-310L2535-305Q2591-295 2636.50-278.50Q2682-262 2708.50-231.50Q2735-201 2735-149L2735-149Q2735-71 2678.50-28.50Q2622 14 2527 14Z"/><path fill="#ff8a3d" d="M2907 14L2907 14Q2866 14 2838.50-12.50Q2811-39 2811-81L2811-81Q2811-123 2838.50-149.50Q2866-176 2907-176L2907-176Q2947-176 2974-149.50Q3001-123 3001-81L3001-81Q3001-39 2974-12.50Q2947 14 2907 14Z"/></g></svg>
+    <p><b>Este site é um projeto autoral da hellys.</b> A Quadra Imóveis não existe: nome, números, endereço e telefone são fictícios. Quer o site da sua imobiliária assim, com busca no mapa e agenda de visitas funcionando de verdade?</p>
+  </div>
+  <div class="hl-made-acts">
+    <a class="hl-cta" href="https://wa.me/5511994032102?text=Oi%2C%20vi%20o%20modelo%20de%20site%20para%20imobili%C3%A1rias%20no%20portf%C3%B3lio%20da%20hellys%20e%20quero%20um%20assim." target="_blank" rel="noopener">Falar com a hellys <svg class="hl-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a class="hl-more" href="https://hellys.dev.br/modelos/">Ver os outros modelos</a>
+  </div>
+</div>
+<!--/hellys:made-->
+  </div>
+</footer>
+
+<!--hellys:toast-->
+<div class="hl-toast" id="hl-toast" role="status" aria-live="polite">
+  <p><b>Isto é um modelo.</b> <span data-hl-msg>No site real, este botão abre o WhatsApp da imobiliária já com o imóvel escolhido.</span> <a href="https://wa.me/5511994032102?text=Oi%2C%20vi%20o%20modelo%20de%20site%20para%20imobili%C3%A1rias%20no%20portf%C3%B3lio%20da%20hellys%20e%20quero%20um%20assim." target="_blank" rel="noopener">Quero um site assim <svg class="hl-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+  <button type="button" id="hl-toast-x" aria-label="Fechar aviso"><svg class="hl-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+</div>
+<script>
+(function(){
+  var t = document.getElementById('hl-toast'); if (!t) return;
+  var msg = t.querySelector('[data-hl-msg]'), def = msg.innerHTML, tm;
+  window.hellysNote = function(text){ msg.innerHTML = text || def; t.classList.add('show'); clearTimeout(tm); tm = setTimeout(function(){ t.classList.remove('show'); }, 9000); };
+  document.addEventListener('click', function(e){
+    var b = e.target.closest && e.target.closest('[data-demo]');
+    if (b){ e.preventDefault(); window.hellysNote(b.getAttribute('data-demo')); }
+  });
+  document.getElementById('hl-toast-x').addEventListener('click', function(){ t.classList.remove('show'); });
+})();
+</script>
+<!--/hellys:toast-->
+
+<script>
+(function(){
+  var root = document.documentElement; root.classList.remove('no-js');
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var narrow = matchMedia('(max-width: 700px)');
+  function $(id){ return document.getElementById(id); }
+
+  // ---------- bairro fictício: ruas, quadras, praça, parque e rio ----------
+  var X = [40, 220, 400, 580, 760, 940], Y = [40, 190, 340, 490], AVJ = 2;
+  var VN = [null, 'R. das Acácias', 'R. dos Ipês', 'R. Jacarandá', 'R. Paineira', 'R. Sibipiruna'];
+  var HN = ['R. do Mirante', 'R. da Escola', 'Av. Central', 'R. da Ponte'];
+  var OFFICE = [580, 340];
+  var IM = [
+    { c: 'QD-101', n: 'v', t: 'Apartamento', q: 2, g: 1, a: 58,  s: 'V1', x: 248, y: 110, o: 'andar alto, sol da manhã' },
+    { c: 'QD-102', n: 'v', t: 'Casa',        q: 3, g: 2, a: 140, s: 'V2', x: 372, y: 430, o: 'quintal com churrasqueira' },
+    { c: 'QD-103', n: 'a', t: 'Apartamento', q: 1, g: 1, a: 42,  s: 'H2', x: 680, y: 368, o: 'mobiliado, aceita pet' },
+    { c: 'QD-104', n: 'v', t: 'Sobrado',     q: 3, g: 2, a: 160, s: 'V3', x: 608, y: 150, o: 'suíte e escritório' },
+    { c: 'QD-105', n: 'a', t: 'Kitnet',      q: 1, g: 0, a: 28,  s: 'V4', x: 732, y: 250, o: 'contas de água inclusas' },
+    { c: 'QD-106', n: 'a', t: 'Apartamento', q: 2, g: 1, a: 64,  s: 'V5', x: 912, y: 420, o: 'condomínio com portaria' },
+    { c: 'QD-107', n: 'a', t: 'Casa',        q: 2, g: 1, a: 90,  s: 'V1', x: 192, y: 440, o: 'perto do parque do rio' },
+    { c: 'QD-108', n: 'v', t: 'Apartamento', q: 3, g: 2, a: 88,  s: 'H2', x: 300, y: 312, o: 'reformado, varanda gourmet' },
+    { c: 'QD-109', n: 'v', t: 'Casa',        q: 2, g: 1, a: 110, s: 'V4', x: 788, y: 110, o: 'térrea, rua sem saída' },
+    { c: 'QD-110', n: 'a', t: 'Apartamento', q: 3, g: 2, a: 96,  s: 'H1', x: 500, y: 218, o: 'de frente pra praça' },
+    { c: 'QD-111', n: 'v', t: 'Apartamento', q: 1, g: 1, a: 45,  s: 'V5', x: 912, y: 160, o: 'ótimo pra investir' },
+    { c: 'QD-112', n: 'a', t: 'Sobrado',     q: 3, g: 2, a: 150, s: 'H3', x: 660, y: 462, o: 'garagem coberta pra 2' }
+  ];
+  var NEG = { v: 'Venda', a: 'Aluguel' }, COL = { v: '#d23a2f', a: '#2459c4' };
+  var st = { neg: 'todos', q: 0, sel: null, day: 0 };
+  var portrait = narrow.matches, svg = $('map'), pins = {};
+
+  function P(x, y){ return portrait ? [y, x] : [x, y]; }
+  function rect(x, y, w, h, fill, line, rx){ var a = P(x, y), b = P(x + w, y + h); return '<rect x="' + Math.min(a[0], b[0]) + '" y="' + Math.min(a[1], b[1]) + '" width="' + Math.abs(b[0] - a[0]) + '" height="' + Math.abs(b[1] - a[1]) + '" rx="' + (rx || 4) + '" fill="' + fill + '" stroke="' + line + '" stroke-width="1.5"/>'; }
+  function label(x, y, txt, cls, alongV){ var p = P(x, y), rot = portrait ? !alongV : alongV; return '<text class="' + cls + '" x="' + p[0] + '" y="' + p[1] + '" text-anchor="middle" dominant-baseline="central"' + (rot ? ' transform="rotate(-90 ' + p[0] + ' ' + p[1] + ')"' : '') + '>' + txt + '</text>'; }
+  function half(j){ return j === AVJ ? 17 : 11; }
+
+  function build(){
+    var MW = portrait ? 640 : 1000, MH = portrait ? 1000 : 640, MG = 46, h = '';
+    svg.setAttribute('viewBox', '0 0 ' + MW + ' ' + (MH + MG));
+    h += '<rect width="' + MW + '" height="' + MH + '" fill="#fffdf6"/>';
+    // rio e parque
+    var rv = [[0, 590], [200, 560], [330, 625], [520, 596], [700, 568], [840, 585], [1000, 606]];
+    var d = 'M' + P(rv[0][0], rv[0][1]).join(',');
+    for (var i = 1; i < rv.length; i++){ var m = P((rv[i - 1][0] + rv[i][0]) / 2, (rv[i - 1][1] + rv[i][1]) / 2), c = P(rv[i - 1][0], rv[i - 1][1]); d += ' Q' + c.join(',') + ' ' + m.join(','); }
+    d += ' L' + P(1000, 606).join(',');
+    h += rect(0, 503, 1000, 50, 'var(--park)', 'var(--park-line)', 0);
+    h += '<path d="' + d + '" fill="none" stroke="var(--river)" stroke-width="36" stroke-linecap="butt"/>';
+    for (var t = 0; t < 14; t++){ var tp = P(30 + t * 72, 528); h += '<circle cx="' + tp[0] + '" cy="' + tp[1] + '" r="6" fill="#8fbf7c"/>'; }
+    // quadras
+    for (var ci = 0; ci < X.length - 1; ci++) for (var rj = 0; rj < Y.length - 1; rj++){
+      var x1 = X[ci] + 11, x2 = X[ci + 1] - 11, y1 = Y[rj] + half(rj), y2 = Y[rj + 1] - half(rj + 1);
+      var praca = ci === 2 && rj === 0;
+      h += rect(x1, y1, x2 - x1, y2 - y1, praca ? 'var(--park)' : 'var(--block)', praca ? 'var(--park-line)' : 'var(--block-line)');
+      if (praca){ [[440, 80], [530, 70], [470, 150], [545, 140], [500, 110]].forEach(function(p){ var q = P(p[0], p[1]); h += '<circle cx="' + q[0] + '" cy="' + q[1] + '" r="9" fill="#8fbf7c"/>'; }); }
+    }
+    // borda: quadras cortadas fora da grade
+    h += rect(0, 0, 29, 479, 'var(--block)', 'var(--block-line)', 0) + rect(951, 0, 49, 479, 'var(--block)', 'var(--block-line)', 0);
+    h += rect(0, 0, 1000, 29, 'var(--block)', 'var(--block-line)', 0);
+    // nomes
+    for (var v = 1; v < X.length; v++) h += label(X[v], v % 2 ? 268 : 415, VN[v], 'st-lab', true);
+    HN.forEach(function(n, j){ h += label([670, 310, 130, 310][j], Y[j], n, 'st-lab', false); });
+    h += label(490, 172, 'Praça da Matriz', 'pk-lab', false);
+    h += label(860, 528, 'Parque do Rio', 'pk-lab', false);
+    h += label(130, 583, 'Rio Modelo', 'rv-lab', false);
+    // margem de papel: título e escala
+    h += '<line x1="0" y1="' + MH + '" x2="' + MW + '" y2="' + MH + '" stroke="#e5dfcf" stroke-width="2"/>';
+    h += '<text class="mg-lab" x="10" y="' + (MH + 29) + '">VILA MODELO · bairro fictício</text>';
+    h += '<g transform="translate(' + (MW - 130) + ' ' + (MH + 24) + ')"><path d="M0 0h100M0-6v12M50-4v8M100-6v12" stroke="#4e5a55" stroke-width="2" fill="none"/><text class="mg-lab" x="104" y="5" font-size="12">100 m</text></g>';
+    // rota, imobiliária e alfinetes
+    h += '<g id="rt"></g>';
+    var o = P(OFFICE[0], OFFICE[1]);
+    h += '<g transform="translate(' + o[0] + ' ' + o[1] + ')" aria-hidden="true"><rect x="-16" y="-16" width="32" height="32" rx="5" fill="#21483c" stroke="#fff" stroke-width="3"/><text x="0" y="1" text-anchor="middle" dominant-baseline="central" fill="#fff" style="font:900 19px var(--f-head)">Q</text></g>';
+    var lo = P(OFFICE[0] + (portrait ? 0 : 0), OFFICE[1]);
+    h += '<text class="st-lab" x="' + (lo[0] + 22) + '" y="' + (lo[1] - 22) + '" style="fill:#21483c;font-size:12px">QUADRA IMÓVEIS</text>';
+    IM.forEach(function(m){
+      var p = P(m.x, m.y);
+      h += '<g class="pin" id="p-' + m.c + '" data-c="' + m.c + '" role="button" tabindex="0" aria-label="' + m.c + ', ' + m.t + ' para ' + (m.n === 'v' ? 'venda' : 'alugar') + ', ' + m.q + (m.q === 1 ? ' quarto' : ' quartos') + '" transform="translate(' + p[0] + ' ' + p[1] + ')"><g class="sc"><g class="pi">' +
+        '<ellipse cx="5" cy="1" rx="7" ry="2.5" fill="rgba(0,0,0,.22)"/><line x1="0" y1="0" x2="0" y2="-22" stroke="#5b5f63" stroke-width="2.4" stroke-linecap="round"/>' +
+        '<circle class="ring" cx="0" cy="-29" r="15"/><circle cx="0" cy="-29" r="11" fill="' + COL[m.n] + '"/><circle cx="-3.5" cy="-32.5" r="3.2" fill="#fff" opacity=".7"/>' +
+        '<circle cx="0" cy="-22" r="24" fill="transparent"/></g></g></g>';
+    });
+    svg.innerHTML = h;
+    pins = {}; svg.querySelectorAll('.pin').forEach(function(g){ pins[g.dataset.c] = g; });
+    scalePins(); filter(false); if (st.sel) route(st.sel, false);
+  }
+  function scalePins(){
+    var vb = svg.viewBox.baseVal, ppu = svg.clientWidth / (vb && vb.width ? vb.width : 1000);
+    var k = Math.min(2.4, Math.max(1, 11 / (11 * ppu)));
+    svg.querySelectorAll('.pin .sc').forEach(function(g){ g.setAttribute('transform', 'scale(' + k.toFixed(2) + ')'); });
+  }
+
+  function match(m){ return (st.neg === 'todos' || st.neg === m.n) && (!st.q || (st.q === 3 ? m.q >= 3 : m.q === st.q)); }
+  function filter(){
+    var vis = IM.filter(match);
+    IM.forEach(function(m){ var g = pins[m.c], on = match(m); g.classList.toggle('off', !on); g.setAttribute('tabindex', on ? '0' : '-1'); g.setAttribute('aria-hidden', !on); });
+    $('count').textContent = vis.length + (vis.length === 1 ? ' imóvel no mapa' : ' imóveis no mapa');
+    $('drawer').innerHTML = vis.map(function(m){ return '<button type="button" data-c="' + m.c + '" style="--c:' + COL[m.n] + '" aria-pressed="' + (st.sel === m.c) + '">' + m.c + ' · ' + (m.t === 'Apartamento' ? 'Apto' : m.t) + (m.q ? ' ' + m.q + 'q' : '') + '</button>'; }).join('') || '<span style="color:#4e5a55;font:700 15px var(--f-type)">Nenhum imóvel com esses filtros. Tente outro número de quartos.</span>';
+    if (st.sel && !vis.some(function(m){ return m.c === st.sel; })) select(null);
+  }
+
+  // caminho pela rua: da imobiliária até a porta do imóvel
+  function path(m){
+    var pts = [OFFICE.slice()], ax = m.s[0], i = +m.s[1];
+    if (ax === 'V'){ var sx = X[i]; pts.push([sx, OFFICE[1]], [sx, m.y], [m.x, m.y]); }
+    else {
+      var sy = Y[i];
+      if (sy === OFFICE[1]) pts.push([m.x, sy], [m.x, m.y]);
+      else { var vx = X.reduce(function(b, x){ return Math.abs(x - m.x) < Math.abs(b - m.x) ? x : b; }, X[1]); pts.push([vx, OFFICE[1]], [vx, sy], [m.x, sy], [m.x, m.y]); }
+    }
+    var len = 0; for (var k = 1; k < pts.length; k++) len += Math.abs(pts[k][0] - pts[k - 1][0]) + Math.abs(pts[k][1] - pts[k - 1][1]);
+    return { d: 'M' + pts.map(function(p){ return P(p[0], p[1]).join(','); }).join(' L'), min: Math.max(1, Math.round(len * 1.15 / 80)) };
+  }
+  function route(c, anim){
+    var g = $('rt'); if (!g) return;
+    if (!c){ g.innerHTML = ''; return 0; }
+    var r = path(IM.filter(function(m){ return m.c === c; })[0]);
+    g.innerHTML = '<path class="route-under" d="' + r.d + '"/><path class="route" d="' + r.d + '"/>';
+    if (anim && !reduce){ var p = g.querySelector('.route-under'), L = p.getTotalLength(); p.style.strokeDasharray = L; p.animate([{ strokeDashoffset: L }, { strokeDashoffset: 0 }], { duration: 450, easing: 'ease-out' }); }
+    return r.min;
+  }
+
+  function days(){
+    var out = [], d = new Date(); d.setHours(12);
+    var WD = ['dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sáb'];
+    while (out.length < 4){ d.setDate(d.getDate() + 1); if (d.getDay() !== 0) out.push(WD[d.getDay()] + ' ' + d.getDate() + '/' + (d.getMonth() + 1)); }
+    return out;
+  }
+  var DAYS = days();
+
+  function legend(){
+    $('side').innerHTML = '<div class="card"><div class="hd"><b>LEGENDA</b></div><ul class="legend">' +
+      '<li><svg viewBox="-15 -44 30 48" aria-hidden="true"><line x1="0" y1="0" x2="0" y2="-22" stroke="#5b5f63" stroke-width="2.4"/><circle cx="0" cy="-29" r="11" fill="#d23a2f"/></svg>À venda</li>' +
+      '<li><svg viewBox="-15 -44 30 48" aria-hidden="true"><line x1="0" y1="0" x2="0" y2="-22" stroke="#5b5f63" stroke-width="2.4"/><circle cx="0" cy="-29" r="11" fill="#2459c4"/></svg>Para alugar</li>' +
+      '<li><svg viewBox="-17 -17 34 34" aria-hidden="true"><rect x="-14" y="-14" width="28" height="28" rx="5" fill="#21483c"/><text x="0" y="1" text-anchor="middle" dominant-baseline="central" fill="#fff" style="font:900 17px var(--f-head)">Q</text></svg>Quadra Imóveis</li></ul>' +
+      '<p class="hint">Toque num alfinete ou numa ficha embaixo do mapa. Imóveis e bairro são fictícios.</p></div>';
+  }
+  function ficha(m, min){
+    $('side').innerHTML = '<article class="card slide" aria-label="Ficha ' + m.c + '"><div class="hd"><b>' + m.c + '</b><span class="neg ' + m.n + '">' + NEG[m.n] + '</span></div>' +
+      '<dl class="fl"><dt>Tipo</dt><dd>' + m.t + '</dd><dt>Rua</dt><dd>' + (m.s[0] === 'V' ? VN[+m.s[1]] : HN[+m.s[1]]) + '</dd>' +
+      '<dt>Quartos</dt><dd>' + m.q + ' · vagas ' + m.g + '</dd><dt>Área</dt><dd>' + m.a + ' m²</dd><dt>Valor</dt><dd>no WhatsApp</dd><dt>Obs.</dt><dd>' + m.o + '</dd><dt>Distância</dt><dd>~' + min + ' min a pé da Quadra</dd></dl>' +
+      '<div class="days" role="group" aria-label="Dia da visita">' + DAYS.map(function(d, i){ return '<button type="button" data-i="' + i + '" aria-pressed="' + (i === st.day) + '">' + d + '</button>'; }).join('') + '</div>' +
+      '<div class="acts"><button class="btn btn-ink" type="button" id="visit" data-demo="">Agendar visita</button><button class="x" type="button" id="close">Fechar ficha</button></div></article>';
+    visitText(m);
+  }
+  function visitText(m){ var b = $('visit'); if (b) b.setAttribute('data-demo', 'No site real, este botão abre o WhatsApp da imobiliária com o pedido: visita ao ' + m.c + ' (' + m.t.toLowerCase() + ', ' + NEG[m.n].toLowerCase() + ') no dia ' + DAYS[st.day] + '.'); }
+  function select(c, fromMap){
+    st.sel = c;
+    Object.keys(pins).forEach(function(k){ pins[k].classList.toggle('on', k === c); });
+    $('board').classList.toggle('sel', !!c);
+    $('drawer').querySelectorAll('button').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.c === c); });
+    var min = route(c, true);
+    if (!c){ legend(); return; }
+    var m = IM.filter(function(x){ return x.c === c; })[0];
+    pins[c].parentNode.appendChild(pins[c]);
+    ficha(m, min);
+    if (narrow.matches && fromMap !== false){ var s = $('side'); setTimeout(function(){ s.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'nearest' }); }, 60); }
+  }
+
+  svg.addEventListener('click', function(e){ var g = e.target.closest('.pin'); if (g) select(g.dataset.c); });
+  svg.addEventListener('keydown', function(e){ var g = e.target.closest('.pin'); if (g && (e.key === 'Enter' || e.key === ' ')){ e.preventDefault(); select(g.dataset.c); } });
+  $('drawer').addEventListener('click', function(e){ var b = e.target.closest('button'); if (b) select(b.dataset.c); });
+  $('side').addEventListener('click', function(e){
+    if (e.target.closest('#close')){ var c = st.sel; select(null); if (pins[c]) pins[c].focus(); return; }
+    var b = e.target.closest('.days button'); if (!b) return;
+    st.day = +b.dataset.i; this.querySelectorAll('.days button').forEach(function(x){ x.setAttribute('aria-pressed', x === b); });
+    visitText(IM.filter(function(x){ return x.c === st.sel; })[0]);
+  });
+  [['f-neg', 'neg'], ['f-q', 'q']].forEach(function(f){
+    $(f[0]).addEventListener('click', function(e){ var b = e.target.closest('button'); if (!b) return; st[f[1]] = f[1] === 'q' ? +b.dataset.v : b.dataset.v; this.querySelectorAll('button').forEach(function(x){ x.setAttribute('aria-pressed', x === b); }); filter(); });
+  });
+  narrow.addEventListener ? narrow.addEventListener('change', function(){ portrait = narrow.matches; build(); }) : narrow.addListener(function(){ portrait = narrow.matches; build(); });
+  var rz; addEventListener('resize', function(){ clearTimeout(rz); rz = setTimeout(scalePins, 120); });
+
+  // ficha em branco: vender ou alugar
+  var sell = { quero: 'Venda', q: '2' };
+  function sellText(){
+    $('sell-neg').textContent = sell.quero; $('sell-neg').className = 'neg ' + (sell.quero === 'Venda' ? 'v' : 'a');
+    $('sell-go').setAttribute('data-demo', 'No site real, este botão manda a ficha pro WhatsApp da imobiliária: ' + (sell.quero === 'Venda' ? 'vender' : 'alugar') + ' ' + $('s-tipo').value.toLowerCase() + ' de ' + sell.q + (sell.q === '1' ? ' quarto' : ' quartos') + ($('s-rua').value.trim() ? ' na ' + $('s-rua').value.trim().slice(0, 60) : '') + '. A avaliação é marcada na visita.');
+  }
+  [['s-quero', 'quero'], ['s-q', 'q']].forEach(function(f){
+    $(f[0]).addEventListener('click', function(e){ var b = e.target.closest('button'); if (!b) return; sell[f[1]] = b.dataset.v; this.querySelectorAll('button').forEach(function(x){ x.setAttribute('aria-pressed', x === b); }); sellText(); });
+  });
+  $('s-tipo').addEventListener('change', sellText); $('s-rua').addEventListener('input', sellText);
+  sellText();
+
+  build(); legend();
+
+  // ---------- abertura: os alfinetes caem no mapa (o mapa já está na tela) ----------
+  if (reduce || !Element.prototype.animate) return;
+  var played = false; try { played = sessionStorage.getItem('quadra-intro') && !/[?&]intro=1/.test(location.search); } catch(e){}
+  if (played) return;
+  try { sessionStorage.setItem('quadra-intro', '1'); } catch(e){}
+  svg.querySelectorAll('.pin .pi').forEach(function(p, i){
+    p.animate([{ transform: 'translateY(-60px)', opacity: 0 }, { transform: 'translateY(0)', opacity: 1, offset: .75 }, { transform: 'translateY(-4px)' }, { transform: 'translateY(0)' }], { duration: 420, delay: 60 + i * 34, easing: 'cubic-bezier(.3,.7,.4,1)', fill: 'backwards' });
+  });
+})();
+</script>
+</body>
+</html>

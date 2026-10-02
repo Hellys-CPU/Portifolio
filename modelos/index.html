@@ -3,20 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sites-modelo da hellys. — cinco ramos, cinco sites que funcionam</title>
-<meta name="description" content="Cinco sites de demonstração feitos pela hellys., cada um com a cara do próprio ramo e uma ferramenta que faz o trabalho do negócio: transportadora, oficina, fisioterapia, hamburgueria e contabilidade.">
+<title>Sites-modelo da hellys. — dez ramos, dez sites que funcionam</title>
+<meta name="description" content="Dez sites de demonstração feitos pela hellys., cada um com a cara do próprio ramo e uma ferramenta que faz o trabalho do negócio: transportadora, oficina, fisioterapia, hamburgueria, contabilidade, odontologia, veterinária, academia, imobiliária e móveis planejados.">
 <meta name="theme-color" content="#10141a">
 <link rel="canonical" href="https://hellys.dev.br/modelos/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="hellys.">
 <meta property="og:url" content="https://hellys.dev.br/modelos/">
-<meta property="og:title" content="Sites-modelo da hellys. — cinco ramos, cinco sites que funcionam">
-<meta property="og:description" content="Transportadora, oficina, fisioterapia, hamburgueria e contabilidade. Abra, mexa e veja funcionando.">
+<meta property="og:title" content="Sites-modelo da hellys. — dez ramos, dez sites que funcionam">
+<meta property="og:description" content="Transportadora, oficina, fisioterapia, hamburgueria, contabilidade, odontologia, veterinária, academia, imobiliária e móveis planejados. Abra, mexa e veja funcionando.">
 <meta property="og:image" content="https://hellys.dev.br/modelos/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Os cinco sites-modelo da hellys. lado a lado">
+<meta property="og:image:alt" content="Os dez sites-modelo da hellys. lado a lado">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
@@ -55,7 +55,7 @@ a{color:inherit;text-decoration:none}
 
 .grid{list-style:none;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(16px,2.2vw,26px);padding-bottom:clamp(50px,7vw,90px)}
 .grid li{grid-column:span 2}
-.grid li:nth-child(4),.grid li:nth-child(5){grid-column:span 3}
+.grid li:nth-child(n+7){grid-column:span 3}
 .site{display:grid;grid-template-rows:auto 1fr;height:100%;background:var(--surface);border:1px solid var(--line);border-radius:8px;overflow:hidden;transition:border-color .25s var(--ease),transform .35s var(--ease)}
 .shot{display:block;overflow:hidden;border-bottom:1px solid var(--line);background:var(--surface-2)}
 .shot img{display:block;width:100%;height:auto;aspect-ratio:1200/630;object-fit:cover;object-position:top;transition:transform .6s var(--ease)}
@@ -70,8 +70,8 @@ a{color:inherit;text-decoration:none}
 .site:hover .go{color:var(--accent)}
 .site:hover .go .ico{transform:translate(2px,-2px)}
 .site:focus-visible{outline:2px solid var(--accent-2);outline-offset:4px}
-@media (max-width:980px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.grid li,.grid li:nth-child(4),.grid li:nth-child(5){grid-column:span 1}.grid li:nth-child(5){grid-column:1/-1}}
-@media (max-width:620px){.grid{grid-template-columns:1fr}.grid li:nth-child(5){grid-column:auto}.top nav .hide-sm{display:none}}
+@media (max-width:980px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.grid li,.grid li:nth-child(n+7){grid-column:span 1}}
+@media (max-width:620px){.grid{grid-template-columns:1fr}.top nav .hide-sm{display:none}}
 @media (prefers-reduced-motion:reduce){.site,.shot img,.go .ico{transition:none}.site:hover{transform:none}.site:hover .shot img{transform:none}}
 
 .cta{border-top:1px solid var(--line);background:var(--surface)}
@@ -103,8 +103,8 @@ a{color:inherit;text-decoration:none}
 
 <main>
   <section class="head wrap" aria-labelledby="h1">
-    <h1 id="h1">Cinco ramos, cinco sites <em>que funcionam</em>.</h1>
-    <p>Sites de demonstração feitos pela hellys. Cada um tem a cara do próprio ramo e <b>uma ferramenta que faz o trabalho do negócio</b>: cotar, agendar, medir, montar o pedido, avisar o vencimento. Abra, mexa, teste no celular. As marcas são fictícias.</p>
+    <h1 id="h1">Dez ramos, dez sites <em>que funcionam</em>.</h1>
+    <p>Sites de demonstração feitos pela hellys. Cada um tem a cara do próprio ramo e <b>uma ferramenta que faz o trabalho do negócio</b>: cotar, agendar, medir, montar o pedido, lembrar a vacina, achar o imóvel no mapa. Abra, mexa, teste no celular. As marcas são fictícias.</p>
   </section>
 
   <ul class="grid wrap" aria-label="Sites-modelo">
@@ -127,6 +127,26 @@ a{color:inherit;text-decoration:none}
     <li><a class="site" href="contabilidade/" target="_blank" rel="noopener" aria-label="Dia Útil Contabilidade, site-modelo para escritórios contábeis (abre em nova aba)">
       <span class="shot"><img src="contabilidade/og.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></span>
       <span class="body"><span class="ramo mono">Contabilidade</span><h2>Dia Útil Contabilidade</h2><p>A folhinha de parede com a data de hoje: escolha o tipo da empresa e veja o que vence no mês.</p><span class="go mono">abrir o site <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span></span>
+    </a></li>
+    <li><a class="site" href="odontologia/" target="_blank" rel="noopener" aria-label="Esmalte Odontologia, site-modelo para clínicas odontológicas (abre em nova aba)">
+      <span class="shot"><img src="odontologia/og.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></span>
+      <span class="body"><span class="ramo mono">Odontologia</span><h2>Esmalte Odontologia</h2><p>Letreiro de consultório: toque na placa do tratamento, a porta de vidro explica e a agenda grava o horário na placa de latão.</p><span class="go mono">abrir o site <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span></span>
+    </a></li>
+    <li><a class="site" href="veterinaria/" target="_blank" rel="noopener" aria-label="Focinho Clínica Veterinária, site-modelo para clínicas veterinárias (abre em nova aba)">
+      <span class="shot"><img src="veterinaria/og.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></span>
+      <span class="body"><span class="ramo mono">Clínica veterinária</span><h2>Focinho Clínica Veterinária</h2><p>A carteirinha de vacinação do pet: preencha a idade e ela mostra qual vacina falta e quando vem a próxima.</p><span class="go mono">abrir o site <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span></span>
+    </a></li>
+    <li><a class="site" href="academia/" target="_blank" rel="noopener" aria-label="Academia Arranque, site-modelo para academias (abre em nova aba)">
+      <span class="shot"><img src="academia/og.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></span>
+      <span class="body"><span class="ramo mono">Academia</span><h2>Academia Arranque</h2><p>O painel da esteira: escolha o objetivo e os dias, o display de LED monta a semana e mostra o horário mais vazio.</p><span class="go mono">abrir o site <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span></span>
+    </a></li>
+    <li><a class="site" href="imobiliaria/" target="_blank" rel="noopener" aria-label="Quadra Imóveis, site-modelo para imobiliárias (abre em nova aba)">
+      <span class="shot"><img src="imobiliaria/og.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></span>
+      <span class="body"><span class="ramo mono">Imobiliária</span><h2>Quadra Imóveis</h2><p>O mapa do bairro na parede: filtre, toque no alfinete, veja a ficha do imóvel e o caminho até a visita.</p><span class="go mono">abrir o site <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span></span>
+    </a></li>
+    <li><a class="site" href="moveis/" target="_blank" rel="noopener" aria-label="Esquadro Planejados, site-modelo para lojas de móveis planejados (abre em nova aba)">
+      <span class="shot"><img src="moveis/og.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></span>
+      <span class="body"><span class="ramo mono">Móveis planejados</span><h2>Esquadro Planejados</h2><p>Catálogo técnico: monte a parede da cozinha módulo por módulo, com as medidas somando e a lista do pedido pronta.</p><span class="go mono">abrir o site <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span></span>
     </a></li>
   </ul>
 

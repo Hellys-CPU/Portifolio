@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="pt-BR" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Esmalte Odontologia — modelo de site para clínicas odontológicas · hellys.</title>
+<meta name="description" content="Projeto autoral da hellys.: site-modelo para clínicas odontológicas, com letreiro de tratamentos que acende, explicação antes de marcar e agenda. A Esmalte Odontologia é fictícia.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1d58c9">
+<meta property="og:title" content="Esmalte Odontologia — modelo de site para clínicas odontológicas">
+<meta property="og:description" content="Toque no tratamento, veja como é e marque o horário. Projeto autoral da hellys. (empresa fictícia).">
+<!--hellys:meta-->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="hellys.">
+<meta property="og:url" content="https://hellys.dev.br/modelos/odontologia/">
+<meta property="og:image" content="https://hellys.dev.br/modelos/odontologia/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Letreiro luminoso de consultório da Esmalte Odontologia com os tratamentos em painéis acesos.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://hellys.dev.br/modelos/odontologia/">
+<!--/hellys:meta-->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23fbfdfd'/%3E%3Cpath d='M9 7c3-2 5 0 7 0s4-2 7 0c3 3 1 8 0 11-1 4-1 8-3 8s-2-6-4-6-2 6-4 6-2-4-3-8c-1-3-3-8 0-11z' fill='%231d58c9'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed:wght@600;700;800;900&family=Sofia+Sans:wght@400;500;600;700&family=Spectral+SC:wght@500;600&display=swap" rel="stylesheet">
+<!--hellys:css-->
+<style id="hl-layer">
+.hl-bar{position:relative;z-index:60;background:#10141a;color:#e8ecf1;font:500 13.5px/1.3 var(--hl-font,system-ui,sans-serif)}
+.hl-bar-in{max-width:var(--hl-wrap,1200px);margin:0 auto;padding:6px var(--hl-pad,clamp(16px,4.2vw,48px));display:flex;align-items:center;gap:14px;min-height:42px}
+.hl-logo-link{display:inline-flex;align-items:center;border-radius:3px;flex:0 0 auto}
+.hl-logo{height:16px;width:auto;display:block}
+.hl-bar p{flex:1 1 auto;color:#b9c4d1;margin:0}
+.hl-bar p b{color:#e8ecf1;font-weight:700}
+.hl-more{color:#e8ecf1;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(232,236,241,.4);white-space:nowrap}
+.hl-more:hover{text-decoration-color:#ff8a3d}
+.hl-cta{display:inline-flex;align-items:center;gap:8px;background:#ff8a3d;color:#10141a;font-weight:700;text-decoration:none;padding:7px 12px;border-radius:4px;white-space:nowrap;line-height:1.2}
+.hl-cta:hover{background:#ffa463}
+.hl-ico{width:1.1em;height:1.1em;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.hl-bar :focus-visible,.hl-made :focus-visible,.hl-toast :focus-visible{outline:2px solid #ff8a3d;outline-offset:2px}
+@media (max-width:860px){.hl-long,.hl-bar .hl-more{display:none}}
+@media (max-width:600px){.hl-mid,.hl-of{display:none}.hl-bar-in{gap:10px}.hl-bar p{font-size:12.5px}.hl-logo{height:13px}.hl-cta{padding:6px 9px;font-size:12.5px}.hl-bar .hl-cta .hl-ico{display:none}}
+.hl-made{background:#10141a;color:#e8ecf1;border-radius:8px;padding:clamp(22px,4vw,34px);display:grid;grid-template-columns:1fr auto;gap:18px 28px;align-items:center;font:400 15.5px/1.55 var(--hl-font,system-ui,sans-serif);text-align:left;letter-spacing:normal;text-transform:none}
+.hl-made p{color:#b9c4d1;max-width:62ch;margin:0}
+.hl-made p b{color:#e8ecf1}
+.hl-made .hl-logo{height:22px;margin-bottom:12px}
+.hl-made-acts{display:flex;flex-direction:column;gap:12px;align-items:stretch}
+.hl-made .hl-cta{justify-content:center;padding:11px 16px;font-size:15px}
+.hl-made .hl-more{text-align:center;font-size:14.5px}
+@media (max-width:760px){.hl-made{grid-template-columns:1fr}}
+.hl-toast{position:fixed;left:50%;bottom:18px;z-index:2000;width:min(560px,calc(100vw - 24px));transform:translate(-50%,160%);visibility:hidden;transition:transform .5s cubic-bezier(.16,1,.3,1),visibility 0s .5s;background:#10141a;color:#e8ecf1;border-radius:8px;padding:16px 18px;box-shadow:0 24px 40px -18px rgba(0,0,0,.6);display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start;font:400 15px/1.5 var(--hl-font,system-ui,sans-serif);text-align:left;letter-spacing:normal;text-transform:none}
+.hl-toast.show{transform:translate(-50%,0);visibility:visible;transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.hl-toast p{color:#c7d0db;margin:0}
+.hl-toast p b{color:#e8ecf1}
+.hl-toast a{color:#ff8a3d;font-weight:700;white-space:nowrap}
+.hl-toast a .hl-ico{display:inline;vertical-align:-.2em}
+.hl-toast button{background:none;border:0;color:#9aa6b4;cursor:pointer;padding:4px;display:grid}
+.hl-toast button .hl-ico{width:22px;height:22px}
+@media (prefers-reduced-motion:reduce){.hl-toast,.hl-toast.show{transition:none}}
+</style>
+<!--/hellys:css-->
+<style>
+:root{
+  --wall:#d7ebe7; --wall-line:#c3dcd6; --wall-dk:#b9d6cf;
+  --acr:#fbfdfd; --acr-off:#e2e8ea; --frame:#8e9aa1; --frame-dk:#6d7980;
+  --blue:#1d58c9; --blue-dk:#143f94; --red:#d7261c; --red-dk:#ad1a12;
+  --glass:#16232a; --glass-2:#1e2f37; --vinyl:#f4f7f8; --vinyl-dim:#b9c7cd;
+  --brass:#c59a45; --brass-lt:#ddb868; --brass-ink:#3a2c0f;
+  --ink:#13202a; --ink-2:#44535e;
+  --wrap:1220px; --pad:clamp(16px,4.2vw,48px); --ease:cubic-bezier(.16,1,.3,1);
+  --f-sign:"Sofia Sans Condensed","Sofia Sans",sans-serif; --f-sans:"Sofia Sans",system-ui,sans-serif; --f-plate:"Spectral SC",Georgia,serif;
+  --hl-font:"Sofia Sans",system-ui,sans-serif; --hl-wrap:1220px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{font:500 17.5px/1.55 var(--f-sans);color:var(--ink);background:var(--wall);overflow-x:hidden}
+::selection{background:var(--blue);color:#fff}
+a{color:inherit}
+svg{display:block}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:4px}
+[hidden]{display:none!important}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+.ico{width:1.15em;height:1.15em;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+/* pastilha da fachada: a grade é o próprio revestimento da parede */
+.tiles{background-color:var(--wall);background-image:linear-gradient(var(--wall-line) 1px,transparent 1px),linear-gradient(90deg,var(--wall-line) 1px,transparent 1px);background-size:22px 22px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;cursor:pointer;text-decoration:none;font:700 17px/1 var(--f-sans);padding:16px 22px;border-radius:6px;background:var(--blue);color:#fff;transition:background-color .2s,transform .25s var(--ease)}
+.btn:hover{background:var(--blue-dk);transform:translateY(-2px)}
+.btn-glass{background:var(--vinyl);color:var(--glass)}
+.btn-glass:hover{background:#fff}
+.btn-line{background:transparent;color:var(--vinyl);box-shadow:inset 0 0 0 1.5px var(--vinyl-dim)}
+.btn-line:hover{background:rgba(255,255,255,.08)}
+.btn-red{background:var(--red)}
+.btn-red:hover{background:var(--red-dk)}
+.btn[disabled]{opacity:.45;cursor:not-allowed;transform:none}
+
+/* ---------- navegação ---------- */
+.nav{position:sticky;top:0;z-index:50;background:var(--acr);border-bottom:1px solid #cdd8dc}
+.nav .wrap{display:flex;align-items:center;gap:22px;min-height:62px}
+.brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font:900 22px/1 var(--f-sign);letter-spacing:.04em;color:var(--blue);text-transform:uppercase}
+.brand svg{width:26px;height:26px}
+.brand span{font:700 12px/1 var(--f-sans);letter-spacing:.18em;color:var(--ink-2)}
+.nav-links{display:flex;gap:22px;margin-left:auto;list-style:none}
+.nav-links a{font-weight:600;font-size:15.5px;text-decoration:none;color:var(--ink-2)}
+.nav-links a:hover{color:var(--blue)}
+.nav .btn{padding:11px 16px;font-size:15px;display:inline-block;white-space:nowrap}
+@media (max-width:940px){.nav-links{display:none}.nav .btn{margin-left:auto}}
+@media (max-width:600px){.nav .btn .long{display:none}}
+
+/* ---------- fachada ---------- */
+.facade{padding:clamp(22px,3vw,40px) 0 clamp(40px,5vw,70px)}
+.sign{position:relative;background:var(--acr);border-radius:10px;box-shadow:inset 0 0 0 6px var(--frame),inset 0 0 0 8px var(--frame-dk),0 18px 30px -24px rgba(19,32,42,.6);padding:clamp(18px,2.6vw,30px) clamp(22px,3vw,40px);display:flex;align-items:center;gap:clamp(14px,2.4vw,30px);overflow:hidden}
+.sign .tooth{width:clamp(64px,8vw,104px);height:auto;flex:0 0 auto}
+.sign h1{font:900 clamp(3.2rem,9vw,7.4rem)/.82 var(--f-sign);letter-spacing:.01em;text-transform:uppercase;color:var(--blue)}
+.sign h1 small{display:block;font:800 clamp(1rem,2.1vw,1.7rem)/1 var(--f-sign);letter-spacing:.32em;color:var(--ink);margin-top:clamp(6px,1vw,12px)}
+.sign .lamp{position:absolute;inset:0;background:#000;opacity:0;pointer-events:none;border-radius:10px}
+.sign-side{margin-left:auto;text-align:right;font:700 clamp(13px,1.2vw,16px)/1.5 var(--f-sans);color:var(--ink-2);letter-spacing:.04em;text-transform:uppercase}
+.sign-side b{display:block;color:var(--blue);font-size:1.15em}
+@media (max-width:760px){.sign-side{display:none}}
+
+.front{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(18px,3vw,36px);margin-top:clamp(18px,2.6vw,30px);align-items:stretch}
+.tower{background:var(--frame);border-radius:10px;padding:8px;display:grid;gap:6px;align-content:start}
+.tower > p{font:800 13px/1 var(--f-sign);letter-spacing:.2em;text-transform:uppercase;color:var(--glass);padding:6px 8px 4px}
+.pn{position:relative;width:100%;display:grid;grid-template-columns:44px 1fr auto;align-items:center;gap:14px;text-align:left;border:0;cursor:pointer;border-radius:5px;background:var(--acr-off);color:#6c7a83;padding:14px 16px;font:800 clamp(19px,1.7vw,23px)/1 var(--f-sign);letter-spacing:.06em;text-transform:uppercase;transition:background-color .15s,color .15s}
+.pn .ico{width:34px;height:34px;stroke-width:1.8}
+.pn small{font:600 13px/1.2 var(--f-sans);letter-spacing:0;text-transform:none;color:inherit;opacity:.9}
+.pn:hover{background:#eef2f3;color:var(--ink-2)}
+.pn[aria-pressed="true"]{background:var(--acr);color:var(--blue)}
+.pn[aria-pressed="true"]::after{content:"";position:absolute;left:6px;right:6px;bottom:4px;height:3px;border-radius:2px;background:var(--blue)}
+.pn.urg{color:#a5524d}
+.pn.urg[aria-pressed="true"]{background:var(--red);color:#fff}
+.pn.urg[aria-pressed="true"]::after{background:#fff}
+.pn .state{font:700 11px/1 var(--f-sans);letter-spacing:.14em;text-transform:uppercase;opacity:.75}
+
+.door{position:relative;background:var(--glass);color:var(--vinyl);border-radius:10px;box-shadow:inset 0 0 0 8px #2a3a42,inset 0 0 0 9px #0d161b;padding:clamp(24px,3.4vw,40px);display:grid;grid-template-rows:auto auto 1fr auto;gap:14px;overflow:hidden}
+.door .handle{position:absolute;right:18px;top:50%;width:10px;height:120px;margin-top:-60px;border-radius:5px;background:#c6cfd3}
+.door .hrs{font:700 14px/1.6 var(--f-sans);letter-spacing:.14em;text-transform:uppercase;color:var(--vinyl-dim)}
+.door .hrs b{color:var(--vinyl)}
+.door h2{font:900 clamp(2.4rem,5vw,4.2rem)/.9 var(--f-sign);text-transform:uppercase;letter-spacing:.01em;max-width:13ch}
+.info{padding-right:28px}
+.info h3{font:800 clamp(22px,2.2vw,28px)/1.05 var(--f-sign);text-transform:uppercase;letter-spacing:.06em;color:#fff}
+.info > p{color:var(--vinyl-dim);margin-top:8px;max-width:44ch}
+.steps{list-style:none;display:grid;gap:10px;margin-top:16px;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:start;font-weight:600}
+.steps li::before{content:counter(s);width:30px;height:30px;border-radius:50%;box-shadow:inset 0 0 0 1.5px var(--vinyl);display:grid;place-items:center;font:800 15px/1 var(--f-sign)}
+.steps li span{color:var(--vinyl-dim);font-weight:500;display:block}
+.info .hint{margin-top:14px;font-size:14px;color:var(--vinyl-dim)}
+.door .acts{display:flex;flex-wrap:wrap;gap:10px;padding-right:28px}
+.wipe{animation:wipe .45s steps(9) both}
+@keyframes wipe{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@media (prefers-reduced-motion:reduce){.wipe{animation:none}}
+@media (max-width:900px){.front{grid-template-columns:minmax(0,1fr)}.tower{grid-template-columns:repeat(2,minmax(0,1fr))}.tower > p{grid-column:1/-1}.pn{grid-template-columns:30px 1fr;gap:10px;padding:12px;font-size:17px}.pn .ico{width:26px;height:26px}.pn .state,.pn small{display:none}.door .handle{display:none}.info,.door .acts{padding-right:0}}
+
+.plate{display:inline-grid;margin-top:clamp(18px,2.6vw,28px);background:var(--brass);color:var(--brass-ink);border-radius:4px;padding:14px 22px;box-shadow:inset 0 0 0 2px #8f6c26,inset 0 0 0 5px var(--brass),inset 0 0 0 6px #8f6c26,0 10px 18px -12px rgba(58,44,15,.6);text-align:center;font:600 15px/1.35 var(--f-plate);letter-spacing:.08em}
+.plate b{font-weight:600;font-size:19px;letter-spacing:.14em}
+
+/* ---------- seções ---------- */
+.sec{padding:clamp(56px,7vw,100px) 0}
+.sec-h{font:900 clamp(2.3rem,4.6vw,3.8rem)/.92 var(--f-sign);text-transform:uppercase;letter-spacing:.01em;max-width:18ch}
+.sec-sub{color:var(--ink-2);font-size:clamp(17px,1.4vw,19px);max-width:56ch;margin-top:12px}
+
+/* agenda na porta */
+.agenda{background:var(--glass);color:var(--vinyl)}
+.agenda .sec-sub{color:var(--vinyl-dim)}
+.ag-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:clamp(20px,4vw,48px);margin-top:clamp(24px,3vw,38px);align-items:start}
+.days{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;margin-bottom:14px}
+.days button{border:0;cursor:pointer;border-radius:6px;padding:10px 4px;background:var(--glass-2);color:var(--vinyl-dim);text-align:center;font:700 13px/1.1 var(--f-sans);letter-spacing:.12em;text-transform:uppercase}
+.days button b{display:block;font:800 26px/1 var(--f-sign);letter-spacing:0;color:var(--vinyl);margin-top:4px}
+.days button:hover{background:#26404a}
+.days button[aria-pressed="true"]{background:var(--vinyl);color:var(--glass)}
+.days button[aria-pressed="true"] b{color:var(--blue)}
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:8px;list-style:none}
+.slots button{width:100%;border:0;cursor:pointer;border-radius:6px;padding:12px 0;background:transparent;color:var(--vinyl);box-shadow:inset 0 0 0 1.5px #4b6470;font:700 16px/1 var(--f-sans)}
+.slots button:hover{box-shadow:inset 0 0 0 1.5px var(--vinyl)}
+.slots button[aria-pressed="true"]{background:var(--blue);box-shadow:none}
+.slots button:disabled{color:#5f7782;text-decoration:line-through;cursor:not-allowed;box-shadow:inset 0 0 0 1px #2e4650}
+.legend{font-size:14px;color:var(--vinyl-dim);margin-top:12px}
+.engrave{background:var(--brass);color:var(--brass-ink);border-radius:4px;box-shadow:inset 0 0 0 2px #8f6c26,inset 0 0 0 6px var(--brass),inset 0 0 0 7px #8f6c26;padding:22px 24px;text-align:center}
+.engrave h3{font:600 13px/1 var(--f-plate);letter-spacing:.22em}
+.engrave p{font:600 22px/1.3 var(--f-plate);letter-spacing:.06em;margin:12px 0 16px;min-height:2.6em}
+.engrave .btn{width:100%}
+@media (max-width:860px){.ag-grid{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:480px){.days{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* primeira consulta: adesivos de porta */
+.first{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:clamp(24px,3vw,40px);list-style:none;counter-reset:f}
+.first li{counter-increment:f;background:var(--acr);border-radius:10px;box-shadow:inset 0 0 0 1px #c9d5d9;padding:22px 22px 24px}
+.first li::before{content:counter(f);display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--blue);color:#fff;font:900 24px/1 var(--f-sign);margin-bottom:14px}
+.first h3{font:800 22px/1.05 var(--f-sign);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px}
+.first p{color:var(--ink-2)}
+@media (max-width:800px){.first{grid-template-columns:minmax(0,1fr)}}
+
+.urgent{background:var(--red);color:#fff}
+.urgent .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px 40px;align-items:center;padding-top:clamp(36px,5vw,60px);padding-bottom:clamp(36px,5vw,60px)}
+.urgent h2{font:900 clamp(2.2rem,4.4vw,3.6rem)/.9 var(--f-sign);text-transform:uppercase}
+.urgent p{margin-top:10px;max-width:52ch;color:#fff}
+.urgent .btn{background:#fff;color:#b81d14}
+.urgent .btn:hover{background:#ffe9e7}
+@media (max-width:760px){.urgent .wrap{grid-template-columns:minmax(0,1fr)}}
+
+.where{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1.5px solid var(--ink);margin-top:clamp(22px,3vw,34px)}
+.where > div{padding:20px 22px 0 0}
+.where > div + div{padding-left:22px;border-left:1px solid #b9d0cb}
+.where h3{font:800 14px/1 var(--f-sign);letter-spacing:.18em;text-transform:uppercase;color:var(--ink-2);margin-bottom:10px}
+.where p{font-weight:600}
+.where small{display:block;color:var(--ink-2);font-weight:500;font-size:15px;margin-top:4px}
+@media (max-width:800px){.where{grid-template-columns:minmax(0,1fr)}.where > div + div{padding-left:0;border-left:0;border-top:1px solid #b9d0cb;margin-top:18px}}
+
+.foot{background:var(--acr);padding:44px 0 36px;border-top:1px solid #cdd8dc}
+.foot-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:26px;margin-bottom:34px}
+.foot h3{font:800 14px/1 var(--f-sign);letter-spacing:.18em;text-transform:uppercase;color:var(--ink-2);margin-bottom:12px}
+.foot ul{list-style:none;display:grid;gap:6px}
+.foot-note{color:var(--ink-2);margin-top:12px;max-width:34ch}
+@media (max-width:760px){.foot-grid{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body>
+<!--hellys:hbar-->
+<div class="hl-bar" role="note" aria-label="Aviso: este site é um modelo">
+  <div class="hl-bar-in">
+    <a class="hl-logo-link" href="https://hellys.dev.br/" aria-label="hellys. (ir para o portfólio)"><svg xmlns="http://www.w3.org/2000/svg" class="hl-logo" aria-hidden="true" focusable="false" viewBox="0 0 4532.21 943.33"><g transform="translate(368.53 141.33) scale(0.86)"><path fill="#ff8a3d" d="M-82.13 -164.33L-428.52 350L-82.13 864.33L-9.87 815.67L-323.48 350L-9.87 -115.67ZM665.87 -115.67L979.48 350L665.87 815.67L738.13 864.33L1084.52 350L738.13 -164.33Z"/><path fill="#e8ecf1" d="M198 700L66 700L66 0L198 0L198 289L458 289L458 0L590 0L590 700L458 700L458 409L198 409L198 700Z"/></g><g transform="translate(1531.21 743.33) scale(1)"><path fill="#e8ecf1" d="M196 0L70 0L70-700L196-700L196-435L214-435Q222-451 239-467Q256-483 284.50-493.50Q313-504 357-504L357-504Q415-504 458.50-477.50Q502-451 526-404.50Q550-358 550-296L550-296L550 0L424 0L424-286Q424-342 396.50-370Q369-398 318-398L318-398Q260-398 228-359.50Q196-321 196-252L196-252L196 0ZM894 14L894 14Q820 14 763.50-17.50Q707-49 675.50-106.50Q644-164 644-242L644-242L644-254Q644-332 675-389.50Q706-447 762-478.50Q818-510 892-510L892-510Q965-510 1019-477.50Q1073-445 1103-387.50Q1133-330 1133-254L1133-254L1133-211L772-211Q774-160 810-128Q846-96 898-96L898-96Q951-96 976-119Q1001-142 1014-170L1014-170L1117-116Q1103-90 1076.50-59.50Q1050-29 1006-7.50Q962 14 894 14ZM773-305L773-305L1005-305Q1001-348 970.50-374Q940-400 891-400L891-400Q840-400 810-374Q780-348 773-305ZM1353 0L1227 0L1227-700L1353-700L1353 0ZM1601 0L1475 0L1475-700L1601-700L1601 0ZM2089 200L1777 200L1777 90L2047 90Q2075 90 2075 60L2075 60L2075-65L2057-65Q2049-48 2032-31Q2015-14 1986-3Q1957 8 1912 8L1912 8Q1854 8 1810.50-18.50Q1767-45 1743-92Q1719-139 1719-200L1719-200L1719-496L1845-496L1845-210Q1845-154 1872.50-126Q1900-98 1951-98L1951-98Q2009-98 2041-136.50Q2073-175 2073-244L2073-244L2073-496L2199-496L2199 88Q2199 139 2169 169.50Q2139 200 2089 200L2089 200ZM2527 14L2527 14Q2430 14 2368-28Q2306-70 2293-148L2293-148L2409-178Q2416-143 2432.50-123Q2449-103 2473.50-94.50Q2498-86 2527-86L2527-86Q2571-86 2592-101.50Q2613-117 2613-140L2613-140Q2613-163 2593-175.50Q2573-188 2529-196L2529-196L2501-201Q2449-211 2406-228.50Q2363-246 2337-277Q2311-308 2311-357L2311-357Q2311-431 2365-470.50Q2419-510 2507-510L2507-510Q2590-510 2645-473Q2700-436 2717-376L2717-376L2600-340Q2592-378 2567.50-394Q2543-410 2507-410L2507-410Q2471-410 2452-397.50Q2433-385 2433-363L2433-363Q2433-339 2453-327.50Q2473-316 2507-310L2507-310L2535-305Q2591-295 2636.50-278.50Q2682-262 2708.50-231.50Q2735-201 2735-149L2735-149Q2735-71 2678.50-28.50Q2622 14 2527 14Z"/><path fill="#ff8a3d" d="M2907 14L2907 14Q2866 14 2838.50-12.50Q2811-39 2811-81L2811-81Q2811-123 2838.50-149.50Q2866-176 2907-176L2907-176Q2947-176 2974-149.50Q3001-123 3001-81L3001-81Q3001-39 2974-12.50Q2947 14 2907 14Z"/></g></svg></a>
+    <p><b>Projeto autoral<span class="hl-of"> da hellys.</span></b><span class="hl-mid"> Modelo de site para clínicas odontológicas.</span><span class="hl-long"> A Esmalte Odontologia é fictícia.</span></p>
+    <a class="hl-more" href="https://hellys.dev.br/modelos/">Outros modelos</a>
+    <a class="hl-cta" href="https://wa.me/5511994032102?text=Oi%2C%20vi%20o%20modelo%20de%20site%20para%20cl%C3%ADnicas%20odontol%C3%B3gicas%20no%20portf%C3%B3lio%20da%20hellys%20e%20quero%20um%20assim." target="_blank" rel="noopener">Quero um site assim <svg class="hl-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</div>
+<!--/hellys:hbar-->
+
+<header class="nav" id="topo">
+  <div class="wrap">
+    <a class="brand" href="#topo" aria-label="Esmalte Odontologia, início">
+      <svg viewBox="0 0 26 26" aria-hidden="true"><path d="M6.5 4.5c2.6-1.6 4.4 0 6.5 0s3.9-1.6 6.5 0c2.6 2.4 1 6.7.1 9.3-.9 3.5-.9 7.7-2.8 7.7s-1.9-5.4-3.8-5.4-1.9 5.4-3.8 5.4-1.9-4.2-2.8-7.7c-.9-2.6-2.5-6.9.1-9.3z" fill="#1d58c9"/></svg>
+      Esmalte <span>Odontologia</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#tratamentos">Tratamentos</a></li>
+      <li><a href="#agenda">Horários</a></li>
+      <li><a href="#primeira">Primeira consulta</a></li>
+      <li><a href="#onde">Onde fica</a></li>
+    </ul>
+    <a class="btn" href="#agenda">Marcar<span class="long"> avaliação</span></a>
+  </div>
+</header>
+
+<main>
+<section class="facade tiles" id="tratamentos" aria-labelledby="h1">
+  <div class="wrap">
+    <div class="sign" id="sign">
+      <svg class="tooth" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="48" fill="#1d58c9"/><path d="M27 26c9-6 16 0 23 0s14-6 23 0c9 8 3 23 0 32-3 12-3 26-9 26s-7-19-14-19-8 19-14 19-6-14-9-26c-3-9-9-24 0-32z" fill="#fbfdfd"/><path d="M38 34q12 5 24 0" fill="none" stroke="#1d58c9" stroke-width="3" stroke-linecap="round" opacity=".35"/></svg>
+      <h1 id="h1">Esmalte<small>Odontologia</small></h1>
+      <p class="sign-side">Clínico geral · Canal<br>Implante · Aparelho<b>Atendemos urgência</b></p>
+      <span class="lamp" id="lamp" aria-hidden="true"></span>
+    </div>
+
+    <div class="front">
+      <div class="tower" role="group" aria-label="O que você precisa?">
+        <p>O que você precisa?</p>
+        <div id="panels" style="display:contents"></div>
+      </div>
+      <div class="door" aria-live="polite">
+        <span class="handle" aria-hidden="true"></span>
+        <p class="hrs"><b>Seg a sex 8h às 20h</b> · Sáb 8h às 13h</p>
+        <h2>Tratamento explicado antes de começar.</h2>
+        <div class="info" id="info"></div>
+        <div class="acts">
+          <a class="btn btn-glass" href="#agenda" id="go-ag">Marcar avaliação
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <p class="plate" aria-label="Placa da clínica: Esmalte Odontologia, responsável técnico CRO-SP 00.000, dado fictício"><b>ESMALTE ODONTOLOGIA</b>Resp. técnico · CRO-SP 00.000 (fictício)</p>
+  </div>
+</section>
+
+<section class="sec agenda" id="agenda" aria-labelledby="ag-h">
+  <div class="wrap">
+    <h2 class="sec-h" id="ag-h">Horários livres</h2>
+    <p class="sec-sub">Escolha o dia e a hora. A recepção confirma pelo WhatsApp e manda o lembrete na véspera.</p>
+    <div class="ag-grid">
+      <div>
+        <div class="days" id="days" role="group" aria-label="Dia"></div>
+        <ul class="slots" id="slots" aria-label="Horários"></ul>
+        <p class="legend">Horários riscados já estão ocupados. Agenda de demonstração.</p>
+      </div>
+      <div class="engrave" aria-live="polite">
+        <h3>SUA CONSULTA</h3>
+        <p id="eng">Escolha um horário</p>
+        <button class="btn" type="button" id="send" disabled data-demo="No site real, este botão manda o horário escolhido para a recepção pelo WhatsApp.">Confirmar pelo WhatsApp</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tiles" id="primeira" aria-labelledby="pr-h">
+  <div class="wrap">
+    <h2 class="sec-h" id="pr-h">Como é a primeira consulta</h2>
+    <p class="sec-sub">Ninguém começa tratamento no escuro. A primeira consulta é pra entender e combinar.</p>
+    <ol class="first">
+      <li><h3>Conversa</h3><p>Você conta o que sente, desde quando e o que te preocupa. Sem pressa.</p></li>
+      <li><h3>Exame</h3><p>Exame da boca toda e radiografia, se precisar, pra ver o que não aparece.</p></li>
+      <li><h3>Plano por escrito</h3><p>Etapas, número de sessões e cuidados no papel, antes de qualquer procedimento.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="urgent" aria-labelledby="ur-h">
+  <div class="wrap">
+    <div>
+      <h2 id="ur-h">Dói agora?</h2>
+      <p>Dor forte, inchaço, dente quebrado ou que caiu: chame no WhatsApp que a gente encaixa no mesmo dia, dentro do horário de funcionamento.</p>
+    </div>
+    <a class="btn" href="#agenda" data-demo="No site real, este botão abre o WhatsApp da clínica com a urgência escrita.">
+      <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 18.8L4 20z"/></svg>
+      Chamar agora</a>
+  </div>
+</section>
+
+<section class="sec tiles" id="onde" aria-labelledby="on-h">
+  <div class="wrap">
+    <h2 class="sec-h" id="on-h">Onde fica</h2>
+    <div class="where">
+      <div><h3>Endereço</h3><p>Rua Exemplo, 654 · sala 2 · Centro<br>São Paulo/SP</p><small>Endereço fictício. Térreo, sem escada.</small></div>
+      <div><h3>Horário</h3><p>Seg a sex 8h às 20h<br>Sábado 8h às 13h</p><small>Urgência no mesmo dia, no horário.</small></div>
+      <div><h3>Contato</h3><p>(11) 0000-0000</p><small>Atendimento particular, com recibo para reembolso do plano.</small></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><a class="brand" href="#topo"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M6.5 4.5c2.6-1.6 4.4 0 6.5 0s3.9-1.6 6.5 0c2.6 2.4 1 6.7.1 9.3-.9 3.5-.9 7.7-2.8 7.7s-1.9-5.4-3.8-5.4-1.9 5.4-3.8 5.4-1.9-4.2-2.8-7.7c-.9-2.6-2.5-6.9.1-9.3z" fill="#1d58c9"/></svg>Esmalte <span>Odontologia</span></a><p class="foot-note">Clínico geral, canal, implante, aparelho e clareamento. Urgência no mesmo dia.</p></div>
+      <div><h3>Contato</h3><ul><li>(11) 0000-0000</li><li>oi@esmalte.exemplo</li><li>Rua Exemplo, 654 · São Paulo/SP</li></ul></div>
+      <div><h3>Atalhos</h3><ul><li><a href="#tratamentos">Tratamentos</a></li><li><a href="#agenda">Horários livres</a></li><li><a href="#primeira">Primeira consulta</a></li></ul></div>
+    </div>
+<!--hellys:made-->
+<div class="hl-made">
+  <div>
+    <svg xmlns="http://www.w3.org/2000/svg" class="hl-logo" aria-hidden="true" focusable="false" viewBox="0 0 4532.21 943.33"><g transform="translate(368.53 141.33) scale(0.86)"><path fill="#ff8a3d" d="M-82.13 -164.33L-428.52 350L-82.13 864.33L-9.87 815.67L-323.48 350L-9.87 -115.67ZM665.87 -115.67L979.48 350L665.87 815.67L738.13 864.33L1084.52 350L738.13 -164.33Z"/><path fill="#e8ecf1" d="M198 700L66 700L66 0L198 0L198 289L458 289L458 0L590 0L590 700L458 700L458 409L198 409L198 700Z"/></g><g transform="translate(1531.21 743.33) scale(1)"><path fill="#e8ecf1" d="M196 0L70 0L70-700L196-700L196-435L214-435Q222-451 239-467Q256-483 284.50-493.50Q313-504 357-504L357-504Q415-504 458.50-477.50Q502-451 526-404.50Q550-358 550-296L550-296L550 0L424 0L424-286Q424-342 396.50-370Q369-398 318-398L318-398Q260-398 228-359.50Q196-321 196-252L196-252L196 0ZM894 14L894 14Q820 14 763.50-17.50Q707-49 675.50-106.50Q644-164 644-242L644-242L644-254Q644-332 675-389.50Q706-447 762-478.50Q818-510 892-510L892-510Q965-510 1019-477.50Q1073-445 1103-387.50Q1133-330 1133-254L1133-254L1133-211L772-211Q774-160 810-128Q846-96 898-96L898-96Q951-96 976-119Q1001-142 1014-170L1014-170L1117-116Q1103-90 1076.50-59.50Q1050-29 1006-7.50Q962 14 894 14ZM773-305L773-305L1005-305Q1001-348 970.50-374Q940-400 891-400L891-400Q840-400 810-374Q780-348 773-305ZM1353 0L1227 0L1227-700L1353-700L1353 0ZM1601 0L1475 0L1475-700L1601-700L1601 0ZM2089 200L1777 200L1777 90L2047 90Q2075 90 2075 60L2075 60L2075-65L2057-65Q2049-48 2032-31Q2015-14 1986-3Q1957 8 1912 8L1912 8Q1854 8 1810.50-18.50Q1767-45 1743-92Q1719-139 1719-200L1719-200L1719-496L1845-496L1845-210Q1845-154 1872.50-126Q1900-98 1951-98L1951-98Q2009-98 2041-136.50Q2073-175 2073-244L2073-244L2073-496L2199-496L2199 88Q2199 139 2169 169.50Q2139 200 2089 200L2089 200ZM2527 14L2527 14Q2430 14 2368-28Q2306-70 2293-148L2293-148L2409-178Q2416-143 2432.50-123Q2449-103 2473.50-94.50Q2498-86 2527-86L2527-86Q2571-86 2592-101.50Q2613-117 2613-140L2613-140Q2613-163 2593-175.50Q2573-188 2529-196L2529-196L2501-201Q2449-211 2406-228.50Q2363-246 2337-277Q2311-308 2311-357L2311-357Q2311-431 2365-470.50Q2419-510 2507-510L2507-510Q2590-510 2645-473Q2700-436 2717-376L2717-376L2600-340Q2592-378 2567.50-394Q2543-410 2507-410L2507-410Q2471-410 2452-397.50Q2433-385 2433-363L2433-363Q2433-339 2453-327.50Q2473-316 2507-310L2507-310L2535-305Q2591-295 2636.50-278.50Q2682-262 2708.50-231.50Q2735-201 2735-149L2735-149Q2735-71 2678.50-28.50Q2622 14 2527 14Z"/><path fill="#ff8a3d" d="M2907 14L2907 14Q2866 14 2838.50-12.50Q2811-39 2811-81L2811-81Q2811-123 2838.50-149.50Q2866-176 2907-176L2907-176Q2947-176 2974-149.50Q3001-123 3001-81L3001-81Q3001-39 2974-12.50Q2947 14 2907 14Z"/></g></svg>
+    <p><b>Este site é um projeto autoral da hellys.</b> A Esmalte Odontologia não existe: nome, números, endereço e telefone são fictícios. Quer o site da sua clínica assim, com escolha do tratamento e agenda funcionando de verdade?</p>
+  </div>
+  <div class="hl-made-acts">
+    <a class="hl-cta" href="https://wa.me/5511994032102?text=Oi%2C%20vi%20o%20modelo%20de%20site%20para%20cl%C3%ADnicas%20odontol%C3%B3gicas%20no%20portf%C3%B3lio%20da%20hellys%20e%20quero%20um%20assim." target="_blank" rel="noopener">Falar com a hellys <svg class="hl-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a class="hl-more" href="https://hellys.dev.br/modelos/">Ver os outros modelos</a>
+  </div>
+</div>
+<!--/hellys:made-->
+  </div>
+</footer>
+
+<!--hellys:toast-->
+<div class="hl-toast" id="hl-toast" role="status" aria-live="polite">
+  <p><b>Isto é um modelo.</b> <span data-hl-msg>No site real, este botão abre o WhatsApp da clínica já com o horário escolhido.</span> <a href="https://wa.me/5511994032102?text=Oi%2C%20vi%20o%20modelo%20de%20site%20para%20cl%C3%ADnicas%20odontol%C3%B3gicas%20no%20portf%C3%B3lio%20da%20hellys%20e%20quero%20um%20assim." target="_blank" rel="noopener">Quero um site assim <svg class="hl-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+  <button type="button" id="hl-toast-x" aria-label="Fechar aviso"><svg class="hl-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+</div>
+<script>
+(function(){
+  var t = document.getElementById('hl-toast'); if (!t) return;
+  var msg = t.querySelector('[data-hl-msg]'), def = msg.innerHTML, tm;
+  window.hellysNote = function(text){ msg.innerHTML = text || def; t.classList.add('show'); clearTimeout(tm); tm = setTimeout(function(){ t.classList.remove('show'); }, 9000); };
+  document.addEventListener('click', function(e){
+    var b = e.target.closest && e.target.closest('[data-demo]');
+    if (b){ e.preventDefault(); window.hellysNote(b.getAttribute('data-demo')); }
+  });
+  document.getElementById('hl-toast-x').addEventListener('click', function(){ t.classList.remove('show'); });
+})();
+</script>
+<!--/hellys:toast-->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+(function(){
+  var root = document.documentElement; root.classList.remove('no-js');
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasG = typeof window.gsap !== 'undefined';
+  function $(id){ return document.getElementById(id); }
+
+  // ---------- painéis do letreiro (informação geral; o plano sai da avaliação) ----------
+  var IC = {
+    check: '<circle cx="9" cy="9" r="5"/><path d="M12.5 12.5 20 20M7 9h4"/>',
+    canal: '<path d="M7 4c2-1 3.5 0 5 0s3-1 5 0c2 2 1 6 0 8-1 3-1 8-3 8s-1.5-5-2-5-0.5 5-2 5-2-5-3-8c-1-2-2-6 0-8z"/><path d="M10 9v8M14 9v8"/>',
+    implante: '<path d="M8 4h8l-1 4H9z"/><path d="M10 8v12M14 8v12M9 11h6M9 14h6M9 17h6"/>',
+    aparelho: '<path d="M3 12c5-3 13-3 18 0"/><rect x="5" y="9" width="3" height="4" rx=".6"/><rect x="10.5" y="8.2" width="3" height="4" rx=".6"/><rect x="16" y="9" width="3" height="4" rx=".6"/>',
+    claro: '<path d="M7 6c2-1 3.5 0 5 0s3-1 5 0c2 2 1 6 0 8-1 3-1 6-3 6s-1.5-4-2-4-.5 4-2 4-2-3-3-6c-1-2-2-6 0-8z"/><path d="M19 3v3M17.5 4.5h3"/>',
+    urg: '<path d="M7 4c2-1 3.5 0 5 0s3-1 5 0c2 2 1 6 0 8-1 3-1 8-3 8s-1.5-5-2-5-.5 5-2 5-2-5-3-8c-1-2-2-6 0-8z"/><path d="M12 8v4M12 15v.3"/>'
+  };
+  var T = [
+    { id: 'check', nome: 'Check-up e limpeza', sub: 'por onde quase tudo começa', txt: 'Exame completo, limpeza e orientação de escovação. Se aparecer alguma coisa, você já sai sabendo o que é.',
+      steps: [['Exame', 'Boca toda, gengiva e mordida.'], ['Limpeza', 'Remoção de tártaro e polimento.'], ['Orientação', 'O que cuidar em casa e quando voltar.']] },
+    { id: 'canal', nome: 'Canal', sub: 'tira a dor e salva o dente', txt: 'Quando o nervo do dente inflama ou infecciona. O tratamento limpa por dentro e mantém o dente na boca.',
+      steps: [['Anestesia', 'O procedimento é feito sem dor.'], ['Limpeza dos canais', 'Em uma ou mais sessões, conforme o caso.'], ['Restauração', 'Fecha o dente; às vezes com coroa.']] },
+    { id: 'implante', nome: 'Implante', sub: 'repõe o dente que falta', txt: 'Um pino de titânio no osso faz o papel da raiz, e uma coroa por cima faz o papel do dente.',
+      steps: [['Avaliação com exame de imagem', 'Pra ver o osso e planejar.'], ['Pino', 'Colocado com anestesia local.'], ['Cicatrização e coroa', 'Depois de alguns meses, a coroa definitiva.']] },
+    { id: 'aparelho', nome: 'Aparelho', sub: 'alinha dentes e mordida', txt: 'Fixo ou alinhador transparente. A escolha depende do caso e da sua rotina.',
+      steps: [['Documentação', 'Fotos, radiografias e moldes ou escaneamento.'], ['Instalação', 'Aparelho fixo ou primeiros alinhadores.'], ['Manutenções', 'Consultas periódicas até a contenção.']] },
+    { id: 'claro', nome: 'Clareamento', sub: 'dentes mais claros', txt: 'Com moldeira em casa, no consultório ou os dois. Antes, a avaliação vê se pode clarear.',
+      steps: [['Avaliação', 'Sensibilidade, restaurações e cor de hoje.'], ['Moldeira ou sessão', 'Do jeito que combinar com você.'], ['Acompanhamento', 'Ajuste até a cor combinada.']] },
+    { id: 'urg', nome: 'Urgência', sub: 'dor, inchaço ou dente quebrado', txt: 'Dor forte, inchaço, dente quebrado ou que caiu. A gente encaixa no mesmo dia, no horário de funcionamento.',
+      steps: [['Chame no WhatsApp', 'Conte o que aconteceu.'], ['Atendimento no mesmo dia', 'Pra tirar a dor primeiro.'], ['Plano depois', 'O tratamento completo é combinado com calma.']] }
+  ];
+  var cur = null;
+  $('panels').innerHTML = T.map(function(t){
+    return '<button class="pn' + (t.id === 'urg' ? ' urg' : '') + '" type="button" data-t="' + t.id + '" aria-pressed="false"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true">' + IC[t.id] + '</svg><span>' + t.nome + '<br><small>' + t.sub + '</small></span><span class="state" aria-hidden="true">apagado</span></button>';
+  }).join('');
+  function info(animate){
+    var box = $('info'), t = T.filter(function(x){ return x.id === cur; })[0];
+    if (!t){ box.innerHTML = '<h3>Toque num painel</h3><p>Acenda o tratamento que você precisa e veja aqui como ele é, passo a passo.</p><p class="hint">Informação geral. O plano certo sai da avaliação.</p>'; }
+    else box.innerHTML = '<h3>' + t.nome + '</h3><p>' + t.txt + '</p><ol class="steps">' + t.steps.map(function(s){ return '<li><div>' + s[0] + '<span>' + s[1] + '</span></div></li>'; }).join('') + '</ol><p class="hint">Informação geral. O plano certo sai da avaliação.</p>';
+    if (animate && !reduce){ box.classList.remove('wipe'); void box.offsetWidth; box.classList.add('wipe'); }
+    var go = $('go-ag');
+    if (cur === 'urg'){ go.className = 'btn btn-red'; go.firstChild.nodeValue = 'Chamar agora '; go.setAttribute('data-demo', 'No site real, este botão abre o WhatsApp da clínica com a urgência escrita.'); }
+    else { go.className = 'btn btn-glass'; go.firstChild.nodeValue = 'Marcar avaliação '; go.removeAttribute('data-demo'); }
+    $('panels').querySelectorAll('.pn').forEach(function(b){ var on = b.dataset.t === cur; b.setAttribute('aria-pressed', on); b.querySelector('.state').textContent = on ? 'aceso' : 'apagado'; });
+    if (ag) engrave();
+  }
+  $('panels').addEventListener('click', function(e){ var b = e.target.closest('[data-t]'); if (!b) return; cur = cur === b.dataset.t ? null : b.dataset.t; info(true); });
+  info(false);
+
+  // ---------- agenda na porta ----------
+  var DOW = ['dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sáb'], days = [], d = new Date(); d.setHours(12, 0, 0, 0);
+  while (days.length < 6){ d.setDate(d.getDate() + 1); if (d.getDay() !== 0) days.push(new Date(d)); }
+  var ag = { day: 0, slot: null };
+  function hours(x){ var o = [], sat = x.getDay() === 6, h; for (h = 8; h < (sat ? 13 : 20); h++){ if (h !== 12) o.push(h); } return o; }
+  function busy(di, h){ return (di * 37 + h * 13 + days[di].getDate() * 5) % 9 < 4; }
+  function renderAg(){
+    $('days').innerHTML = days.map(function(x, i){ return '<button type="button" data-d="' + i + '" aria-pressed="' + (i === ag.day) + '">' + DOW[x.getDay()] + '<b>' + x.getDate() + '</b></button>'; }).join('');
+    $('slots').innerHTML = hours(days[ag.day]).map(function(h){ var id = ag.day + '-' + h, b = busy(ag.day, h); return '<li><button type="button" data-s="' + id + '" ' + (b ? 'disabled aria-label="' + h + 'h, ocupado"' : 'aria-pressed="' + (ag.slot === id) + '"') + '>' + String(h).padStart(2, '0') + ':00</button></li>'; }).join('');
+  }
+  function engrave(){
+    var e = $('eng'), s = $('send'), t = T.filter(function(x){ return x.id === cur; })[0];
+    if (!ag.slot){ e.textContent = 'Escolha um horário'; s.disabled = true; return; }
+    var p = ag.slot.split('-'), x = days[+p[0]];
+    e.innerHTML = (t && t.id !== 'urg' ? t.nome : 'Avaliação') + '<br>' + DOW[x.getDay()] + ', ' + x.getDate() + '/' + (x.getMonth() + 1) + ' · ' + String(p[1]).padStart(2, '0') + 'h';
+    s.disabled = false;
+    if (!reduce){ e.classList.remove('wipe'); void e.offsetWidth; e.classList.add('wipe'); }
+  }
+  $('days').addEventListener('click', function(e){ var b = e.target.closest('[data-d]'); if (!b) return; ag.day = +b.dataset.d; ag.slot = null; renderAg(); engrave(); });
+  $('slots').addEventListener('click', function(e){ var b = e.target.closest('[data-s]'); if (!b || b.disabled) return; ag.slot = b.dataset.s; renderAg(); engrave(); });
+  renderAg();
+
+  // ---------- abertura: o letreiro acende (o conteúdo já está todo na tela) ----------
+  if (!hasG || reduce) return;
+  var played = false; try { played = sessionStorage.getItem('esmalte-intro') && !/[?&]intro=1/.test(location.search); } catch(e){}
+  if (played) return;
+  var guard, tl = gsap.timeline({ paused: true, onComplete: function(){ clearTimeout(guard); try { sessionStorage.setItem('esmalte-intro', '1'); } catch(e){} gsap.set('#lamp', { opacity: 0 }); } });
+  tl.set('#lamp', { opacity: .16 }, 0).set('#lamp', { opacity: 0 }, .08).set('#lamp', { opacity: .1 }, .16).set('#lamp', { opacity: 0 }, .22).set('#lamp', { opacity: .06 }, .34).set('#lamp', { opacity: 0 }, .4)
+    .fromTo('.pn', { backgroundColor: '#fbfdfd' }, { backgroundColor: '#e2e8ea', duration: .25, stagger: .05, clearProps: 'backgroundColor' }, .3);
+  var skip = function(){ if (tl.progress() < 1) tl.progress(1); };
+  addEventListener('keydown', skip, { once: true });
+  addEventListener('touchstart', skip, { once: true, passive: true });
+  var arm = function(){ clearTimeout(guard); if (document.visibilityState === 'visible' && tl.progress() < 1) guard = setTimeout(skip, 2500); };
+  document.addEventListener('visibilitychange', arm); arm();
+  tl.play();
+})();
+</script>
+</body>
+</html>
