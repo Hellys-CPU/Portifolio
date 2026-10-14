@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hellys Optimizer — seu PC no modo jogo com um clique</title>
+<meta name="description" content="Otimizador para Windows 10 e 11 da hellys.: nota de saúde do PC com dados reais, perfis prontos que mostram o que mudam, Modo Jogo com FPS medido de verdade e um botão para desfazer cada alteração. Sem limpar registro, sem liberar RAM, sem promessa de FPS.">
+<meta name="theme-color" content="#10141a">
+<link rel="canonical" href="https://hellys.dev.br/optimizer/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="hellys.">
+<meta property="og:url" content="https://hellys.dev.br/optimizer/">
+<meta property="og:title" content="Hellys Optimizer — seu PC no modo jogo com um clique">
+<meta property="og:description" content="Otimizador honesto para Windows: nota de saúde real, perfis reversíveis, Modo Jogo com FPS medido e controle pelo celular. Grátis.">
+<meta property="og:image" content="https://hellys.dev.br/optimizer/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tela de Saúde do PC do Hellys Optimizer com nota 78 de 100">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Hellys Optimizer","operatingSystem":"Windows 10, Windows 11","applicationCategory":"UtilitiesApplication","softwareVersion":"0.4.0","offers":{"@type":"Offer","price":"0","priceCurrency":"BRL"},"publisher":{"@type":"Organization","name":"hellys.","url":"https://hellys.dev.br/"}}
+</script>
+<style>
+:root{
+  --bg:#10141a; --surface:#171d26; --surface-2:#1e2631; --line:#2a3341;
+  --text:#e8ecf1; --text-dim:#9aabbd; --accent:#ff8a3d; --accent-2:#3fc9a8; --danger:#ff6b6b;
+  --wrap:1220px; --pad:clamp(18px,4.5vw,64px); --ease:cubic-bezier(.16,1,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font:400 17px/1.6 'IBM Plex Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--accent);color:var(--bg)}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;height:auto;display:block}
+:focus-visible{outline:2px solid var(--accent-2);outline-offset:4px;border-radius:4px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+.mono{font-family:'IBM Plex Mono',monospace}
+.ico{width:1.05em;height:1.05em;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.skip{position:absolute;left:12px;top:-64px;z-index:100;background:var(--accent);color:var(--bg);font-weight:600;padding:10px 16px;border-radius:4px}
+.skip:focus{top:12px}
+
+/* topo */
+.top{position:sticky;top:0;z-index:20;border-bottom:1px solid var(--line);background:rgba(16,20,26,.92);backdrop-filter:blur(8px)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px}
+.logo{display:inline-flex;align-items:center;gap:12px;border-radius:4px}
+.logo svg{height:20px;width:auto;display:block}
+.logo .prod{font:500 12px/1 'IBM Plex Mono',monospace;color:var(--text-dim);letter-spacing:.14em;text-transform:uppercase;padding-left:12px;border-left:1px solid var(--line)}
+.top nav{display:flex;gap:22px;align-items:center;font-size:15px;color:var(--text-dim)}
+.top nav a:hover{color:var(--text)}
+.top nav .pill{background:var(--accent);color:var(--bg);font-weight:600;font-size:14px;padding:9px 16px;border-radius:999px}
+.top nav .pill:hover{color:var(--bg);background:#ffa463}
+@media (max-width:860px){.top nav .hide-md{display:none}}
+@media (max-width:520px){.logo .prod{display:none}}
+
+/* botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 22px;border-radius:4px;font:600 16px/1 'IBM Plex Sans',sans-serif;background:var(--accent);color:var(--bg);transition:background-color .2s}
+.btn:hover{background:#ffa463}
+.btn small{font:500 12px/1 'IBM Plex Mono',monospace;opacity:.75}
+.btn-line{background:transparent;color:var(--text);box-shadow:inset 0 0 0 1px var(--line)}
+.btn-line:hover{background:var(--surface-2)}
+
+/* hero */
+.hero{padding-top:clamp(44px,7vw,96px);padding-bottom:clamp(40px,6vw,72px)}
+.tag{display:inline-flex;gap:10px;align-items:center;font:500 12.5px/1 'IBM Plex Mono',monospace;color:var(--accent-2);border:1px solid rgba(63,201,168,.35);padding:7px 12px;border-radius:999px}
+.hero h1{font:700 clamp(2.5rem,6vw,5rem)/1 'Space Grotesk',sans-serif;letter-spacing:-.035em;max-width:16ch;margin-top:22px;text-wrap:balance}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.lead{color:var(--text-dim);font-size:clamp(17px,1.5vw,20px);max-width:60ch;margin-top:22px}
+.lead b{color:var(--text);font-weight:600}
+.hero .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.trust{list-style:none;display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:18px;color:var(--text-dim);font-size:14.5px}
+.trust li{display:inline-flex;align-items:center;gap:8px}
+.trust .ico{color:var(--accent-2)}
+.frame{margin-top:clamp(36px,5vw,60px);border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface);box-shadow:0 40px 90px -50px rgba(0,0,0,.95)}
+.frame .bar{display:flex;align-items:center;gap:7px;padding:10px 14px;border-bottom:1px solid var(--line);background:var(--surface-2)}
+.frame .bar i{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.frame .bar span{margin-left:10px;font:500 12px/1 'IBM Plex Mono',monospace;color:var(--text-dim)}
+
+/* números */
+.facts{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.facts li{padding:26px clamp(14px,2vw,26px);border-left:1px solid var(--line)}
+.facts li:first-child{padding-left:0}
+.facts li:first-child{border-left:0}
+.facts b{display:block;font:700 clamp(1.8rem,3.4vw,2.6rem)/1 'Space Grotesk',sans-serif;letter-spacing:-.02em}
+.facts span{display:block;margin-top:8px;color:var(--text-dim);font-size:14.5px;line-height:1.45}
+@media (max-width:760px){.facts{grid-template-columns:1fr 1fr}.facts li:nth-child(3){border-left:0}.facts li:nth-child(n+3){border-top:1px solid var(--line)}}
+
+/* seções */
+.sec{padding-top:clamp(64px,9vw,120px)}
+.kicker{font:500 12.5px/1 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-2)}
+.sec h2{font:700 clamp(2rem,4.2vw,3.3rem)/1.04 'Space Grotesk',sans-serif;letter-spacing:-.025em;max-width:20ch;margin-top:14px;text-wrap:balance}
+.sec h2 em{font-style:normal;color:var(--accent)}
+.sec .sub{color:var(--text-dim);max-width:62ch;margin-top:16px;font-size:clamp(16.5px,1.4vw,18.5px)}
+
+.feats{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2vw,22px);margin-top:clamp(28px,4vw,44px)}
+.feat{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:22px 22px 24px}
+.feat .ico{width:26px;height:26px;color:var(--accent)}
+.feat h3{font:600 20px/1.2 'Space Grotesk',sans-serif;margin-top:16px;letter-spacing:-.01em}
+.feat p{color:var(--text-dim);font-size:15.5px;line-height:1.55;margin-top:8px}
+@media (max-width:980px){.feats{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.feats{grid-template-columns:1fr}}
+
+.split{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(28px,5vw,64px);align-items:center;margin-top:clamp(28px,4vw,44px)}
+.split.rev{grid-template-columns:minmax(0,6fr) minmax(0,5fr)}
+.split.rev > :first-child{order:2}
+@media (max-width:900px){.split,.split.rev{grid-template-columns:1fr}.split.rev > :first-child{order:0}}
+.checks{list-style:none;display:grid;gap:16px}
+.checks li{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+.checks .ico{margin-top:4px;color:var(--accent-2)}
+.checks b{display:block;font-weight:600}
+.checks span{color:var(--text-dim);font-size:15.5px}
+
+.nots{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-top:clamp(28px,4vw,44px)}
+.nots li{background:var(--bg);padding:22px}
+.nots .x{font:600 13px/1 'IBM Plex Mono',monospace;color:var(--danger)}
+.nots b{display:block;font:600 19px/1.25 'Space Grotesk',sans-serif;margin-top:10px}
+.nots span{display:block;color:var(--text-dim);font-size:15px;margin-top:6px;line-height:1.5}
+@media (max-width:900px){.nots{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.nots{grid-template-columns:1fr}}
+
+.phones{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,3vw,36px);margin-top:clamp(28px,4vw,44px)}
+.phone{display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr);gap:clamp(16px,2.4vw,28px);align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:clamp(16px,2vw,24px)}
+.phone figure{border:6px solid #0b0e13;border-radius:26px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
+.phone h3{font:600 21px/1.2 'Space Grotesk',sans-serif;letter-spacing:-.01em}
+.phone .who{font:500 12px/1 'IBM Plex Mono',monospace;color:var(--accent-2);text-transform:uppercase;letter-spacing:.06em}
+.phone p{color:var(--text-dim);font-size:15.5px;margin-top:10px}
+.phone ul{color:var(--text-dim);font-size:15px;margin:12px 0 0 18px;display:grid;gap:4px}
+@media (max-width:980px){.phones{grid-template-columns:1fr}}
+@media (max-width:480px){.phone{grid-template-columns:1fr}.phone figure{max-width:220px}}
+
+/* preço */
+.plans{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,2.4vw,26px);margin-top:clamp(28px,4vw,44px);max-width:900px}
+.plan{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:clamp(22px,3vw,32px)}
+.plan.pro{border-color:rgba(255,138,61,.55);background:linear-gradient(180deg,rgba(255,138,61,.07),var(--surface) 55%)}
+.plan .name{font:600 14px/1 'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--text-dim)}
+.plan .soon{display:inline-block;margin-left:8px;font-size:11px;color:var(--bg);background:var(--accent);padding:4px 8px;border-radius:999px;vertical-align:1px}
+.plan .price{font:700 clamp(2.4rem,4.6vw,3.4rem)/1 'Space Grotesk',sans-serif;letter-spacing:-.03em;margin-top:18px}
+.plan .price small{font:500 15px/1 'IBM Plex Sans',sans-serif;color:var(--text-dim);letter-spacing:0;margin-left:6px}
+.plan ul{list-style:none;display:grid;gap:10px;margin:22px 0 26px;color:var(--text-dim);font-size:15.5px}
+.plan li{display:grid;grid-template-columns:auto 1fr;gap:10px}
+.plan li .ico{margin-top:4px;color:var(--accent-2)}
+.plan .btn{margin-top:auto}
+.plan .fine{color:var(--text-dim);font-size:13px;line-height:1.5;margin-top:12px}
+@media (max-width:720px){.plans{grid-template-columns:1fr}}
+
+/* instalar */
+.steps{list-style:none;counter-reset:s;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,2vw,22px);margin-top:clamp(28px,4vw,44px)}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:22px}
+.step h3{font:600 19px/1.25 'Space Grotesk',sans-serif;display:flex;gap:12px;align-items:center}
+.step h3::before{counter-increment:s;content:counter(s);display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--bg);font:700 14px/1 'IBM Plex Sans',sans-serif;flex:0 0 auto}
+.step p{color:var(--text-dim);font-size:15.5px;margin-top:10px}
+.step p b{color:var(--text);font-weight:600}
+@media (max-width:760px){.steps{grid-template-columns:1fr}}
+
+/* perguntas */
+.faq{max-width:860px;margin-top:clamp(24px,3.4vw,38px);border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;padding:20px 0;font:600 clamp(17px,1.5vw,19px)/1.35 'Space Grotesk',sans-serif}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';font:500 22px/1 'IBM Plex Mono',monospace;color:var(--accent);transition:transform .25s var(--ease)}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq .a{color:var(--text-dim);padding:0 0 22px;max-width:70ch;display:grid;gap:10px}
+.faq .a b{color:var(--text);font-weight:600}
+
+.cta{margin-top:clamp(64px,9vw,120px);border-top:1px solid var(--line);background:var(--surface)}
+.cta .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px 40px;align-items:center;padding-top:clamp(40px,6vw,72px);padding-bottom:clamp(40px,6vw,72px)}
+.cta h2{font:700 clamp(1.9rem,3.6vw,2.9rem)/1.05 'Space Grotesk',sans-serif;letter-spacing:-.02em;max-width:20ch}
+.cta p{color:var(--text-dim);margin-top:12px;max-width:52ch}
+.cta .acts{display:flex;flex-direction:column;gap:12px}
+@media (max-width:760px){.cta .wrap{grid-template-columns:1fr}}
+.foot{padding:26px 0 34px;color:var(--text-dim);font-size:13.5px}
+.foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+.foot a:hover{color:var(--text)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.faq summary::after{transition:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="../" aria-label="hellys. (ir para o portfólio)">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4532.21 943.33" aria-hidden="true" focusable="false"><g transform="translate(368.53 141.33) scale(0.86)"><path fill="#ff8a3d" d="M-82.13 -164.33L-428.52 350L-82.13 864.33L-9.87 815.67L-323.48 350L-9.87 -115.67ZM665.87 -115.67L979.48 350L665.87 815.67L738.13 864.33L1084.52 350L738.13 -164.33Z"/><path fill="#e8ecf1" d="M198 700L66 700L66 0L198 0L198 289L458 289L458 0L590 0L590 700L458 700L458 409L198 409L198 700Z"/></g><g transform="translate(1531.21 743.33) scale(1)"><path fill="#e8ecf1" d="M196 0L70 0L70-700L196-700L196-435L214-435Q222-451 239-467Q256-483 284.50-493.50Q313-504 357-504L357-504Q415-504 458.50-477.50Q502-451 526-404.50Q550-358 550-296L550-296L550 0L424 0L424-286Q424-342 396.50-370Q369-398 318-398L318-398Q260-398 228-359.50Q196-321 196-252L196-252L196 0ZM894 14L894 14Q820 14 763.50-17.50Q707-49 675.50-106.50Q644-164 644-242L644-242L644-254Q644-332 675-389.50Q706-447 762-478.50Q818-510 892-510L892-510Q965-510 1019-477.50Q1073-445 1103-387.50Q1133-330 1133-254L1133-254L1133-211L772-211Q774-160 810-128Q846-96 898-96L898-96Q951-96 976-119Q1001-142 1014-170L1014-170L1117-116Q1103-90 1076.50-59.50Q1050-29 1006-7.50Q962 14 894 14ZM773-305L773-305L1005-305Q1001-348 970.50-374Q940-400 891-400L891-400Q840-400 810-374Q780-348 773-305ZM1353 0L1227 0L1227-700L1353-700L1353 0ZM1601 0L1475 0L1475-700L1601-700L1601 0ZM2089 200L1777 200L1777 90L2047 90Q2075 90 2075 60L2075 60L2075-65L2057-65Q2049-48 2032-31Q2015-14 1986-3Q1957 8 1912 8L1912 8Q1854 8 1810.50-18.50Q1767-45 1743-92Q1719-139 1719-200L1719-200L1719-496L1845-496L1845-210Q1845-154 1872.50-126Q1900-98 1951-98L1951-98Q2009-98 2041-136.50Q2073-175 2073-244L2073-244L2073-496L2199-496L2199 88Q2199 139 2169 169.50Q2139 200 2089 200L2089 200ZM2527 14L2527 14Q2430 14 2368-28Q2306-70 2293-148L2293-148L2409-178Q2416-143 2432.50-123Q2449-103 2473.50-94.50Q2498-86 2527-86L2527-86Q2571-86 2592-101.50Q2613-117 2613-140L2613-140Q2613-163 2593-175.50Q2573-188 2529-196L2529-196L2501-201Q2449-211 2406-228.50Q2363-246 2337-277Q2311-308 2311-357L2311-357Q2311-431 2365-470.50Q2419-510 2507-510L2507-510Q2590-510 2645-473Q2700-436 2717-376L2717-376L2600-340Q2592-378 2567.50-394Q2543-410 2507-410L2507-410Q2471-410 2452-397.50Q2433-385 2433-363L2433-363Q2433-339 2453-327.50Q2473-316 2507-310L2507-310L2535-305Q2591-295 2636.50-278.50Q2682-262 2708.50-231.50Q2735-201 2735-149L2735-149Q2735-71 2678.50-28.50Q2622 14 2527 14Z"/><path fill="#ff8a3d" d="M2907 14L2907 14Q2866 14 2838.50-12.50Q2811-39 2811-81L2811-81Q2811-123 2838.50-149.50Q2866-176 2907-176L2907-176Q2947-176 2974-149.50Q3001-123 3001-81L3001-81Q3001-39 2974-12.50Q2947 14 2907 14Z"/></g></svg>
+      <span class="prod" aria-hidden="true">optimizer</span>
+    </a>
+    <nav aria-label="Seções">
+      <a class="hide-md" href="#recursos">Recursos</a>
+      <a class="hide-md" href="#celular">Celular</a>
+      <a class="hide-md" href="#preco">Preço</a>
+      <a class="hide-md" href="#perguntas">Perguntas</a>
+      <a class="pill" href="#baixar">Baixar grátis</a>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo" tabindex="-1">
+  <section class="hero wrap" aria-labelledby="h1">
+    <span class="tag">Para jogar e trabalhar · Windows 10 e 11</span>
+    <h1 id="h1">Seu PC no <em>modo jogo</em> com um clique.</h1>
+    <p class="lead">O Hellys Optimizer coloca o jogo em primeiro lugar, segura os programas que roubam o processador e ajusta o Windows para desempenho. <b>Cada mudança vem explicada e tem um botão para desfazer</b>, e você mede o FPS antes e depois para ver a diferença no seu PC.</p>
+    <div class="acts">
+      <a class="btn" href="#baixar">Baixar grátis para Windows <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v12M6 10l6 6 6-6M5 20h14"/></svg></a>
+      <a class="btn btn-line" href="#preco">Ver o Pro · R$ 49,90</a>
+    </div>
+    <ul class="trust" aria-label="Garantias">
+      <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Grátis para começar</li>
+      <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Desfaz tudo com um clique</li>
+      <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Sem cadastro e sem anúncio</li>
+      <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Atualiza sozinho</li>
+    </ul>
+    <figure class="frame">
+      <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span>Hellys Optimizer — Saúde do PC</span></div>
+      <img src="img/pc-inicio.jpg" alt="Tela Saúde do PC: nota 78 de 100, uso de processador, placa de vídeo, memória e disco, e a lista do que foi verificado com o motivo de cada ponto" width="2040" height="1290" fetchpriority="high">
+    </figure>
+  </section>
+
+  <div class="wrap"><ul class="facts" aria-label="Em números">
+    <li><b>55</b><span>ajustes, cada um com o objetivo, o efeito e como desfazer</span></li>
+    <li><b>9</b><span>perfis prontos: Jogos, Trabalho, Streaming, Economia e mais</span></li>
+    <li><b>100%</b><span>reversível: um botão “Desfazer” para cada alteração</span></li>
+    <li><b>0</b><span>dados enviados. Sem conta, sem anúncio, sem rastreamento</span></li>
+  </ul></div>
+
+  <section class="sec wrap" id="recursos" aria-labelledby="rec-h">
+    <span class="kicker">O que você ganha</span>
+    <h2 id="rec-h">Menos travada no jogo, PC mais leve e <em>zero dor de cabeça</em>.</h2>
+    <p class="sub">Feito para quem não é técnico: cada tela explica em passos o que vai acontecer, e o que é avançado fica escondido até você pedir.</p>
+    <ul class="feats">
+      <li class="feat">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M12 7v5l3 2"/></svg>
+        <h3>A nota do seu PC</h3>
+        <p>Nota de 0 a 100 com o motivo de cada ponto: espaço em disco, programas na inicialização, plano de energia, saúde do SSD. Cada aviso tem o atalho para resolver.</p>
+      </li>
+      <li class="feat">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg>
+        <h3>Otimização em um clique</h3>
+        <p>Perfis prontos para Jogos, Trabalho, Streaming e Economia. Antes de aplicar mostra o que muda, cria um ponto de restauração e não mexe no que já está bom.</p>
+      </li>
+      <li class="feat">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 11h4M8 9v4M15 12h.01M18 10h.01"/><rect x="2" y="6" width="20" height="12" rx="4"/></svg>
+        <h3>O jogo em primeiro lugar</h3>
+        <p>Acha seus jogos da Steam, Epic, Xbox, GOG, Ubisoft, EA, Riot e Battle.net. Ao abrir, o jogo ganha prioridade e o navegador, o Discord e o resto esperam; quando fecha, tudo volta.</p>
+      </li>
+      <li class="feat">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg>
+        <h3>FPS medido, não prometido</h3>
+        <p>FPS médio e os momentos de travada (“1% low”) com o PresentMon oficial da Intel. Meça com e sem otimização e veja a diferença real no seu jogo.</p>
+      </li>
+      <li class="feat">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/></svg>
+        <h3>PC leve de novo</h3>
+        <p>Tira da inicialização o que deixa o Windows lento para abrir e limpa caches e temporários, mostrando o tamanho antes. Documentos, fotos e downloads nunca entram.</p>
+      </li>
+      <li class="feat">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></svg>
+        <h3>Menos lag na internet</h3>
+        <p>Mede ping e variação, compara o seu DNS com Cloudflare, Google e Quad9 e troca para o mais rápido com um clique. Voltar ao original também é um clique.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="sec wrap" aria-labelledby="desf-h">
+    <div class="split">
+      <div>
+        <span class="kicker">Desfazer de verdade</span>
+        <h2 id="desf-h">Cada mudança fica <em>anotada</em>, com o botão para voltar.</h2>
+        <p class="sub">O Histórico mostra o que mudou, de qual valor para qual, o impacto esperado e como reverter.</p>
+        <ul class="checks" style="margin-top:26px">
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>Desfazer por item ou pela sessão inteira</b><span>Tudo volta exatamente ao valor de antes.</span></div></li>
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>Não aplica o que não consegue desfazer</b><span>Se o valor original não puder ser lido, o ajuste nem é feito.</span></div></li>
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>Prova com Benchmark antes e depois</b><span>Processador, memória, disco e latência, com aviso do que está dentro da variação normal.</span></div></li>
+        </ul>
+      </div>
+      <figure class="frame" style="margin-top:0">
+        <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span>Histórico</span></div>
+        <img src="img/pc-historico.jpg" alt="Histórico de alterações: Modo de Jogo do Windows mudou de 0 para 1, com impacto estimado e botão Desfazer" width="1650" height="720" loading="lazy" decoding="async">
+      </figure>
+    </div>
+  </section>
+
+  <section class="sec wrap" aria-labelledby="nao-h">
+    <span class="kicker">Por que confiar</span>
+    <h2 id="nao-h">Otimizador de verdade, sem os truques que <em>pioram</em> o PC.</h2>
+    <p class="sub">Muito “acelerador” faz o PC parecer mais rápido por um minuto e piora depois. O Hellys não faz nada disso:</p>
+    <ul class="nots">
+      <li><span class="x">✕ limpar registro</span><b>Não “limpa o registro”</b><span>Não deixa o PC mais rápido e pode quebrar programas.</span></li>
+      <li><span class="x">✕ liberar RAM</span><b>Não “libera memória”</b><span>Esvaziar a memória deixa tudo mais lento logo depois. O Windows já cuida disso.</span></li>
+      <li><span class="x">✕ promessa de FPS</span><b>Não promete FPS</b><span>Cada PC é um. O que muda, você mede no seu, com e sem perfil.</span></li>
+      <li><span class="x">✕ antivírus</span><b>Nunca desliga o antivírus</b><span>Nem o Firewall, nem as atualizações de segurança do Windows.</span></li>
+      <li><span class="x">✕ drivers e BIOS</span><b>Não mexe em driver, BIOS ou overclock</b><span>Faz backup dos drivers e aponta as ferramentas oficiais de NVIDIA, AMD e Intel.</span></li>
+      <li><span class="x">✕ dentro do jogo</span><b>Não injeta nada no jogo</b><span>Só ajusta o Windows e a prioridade do processo. Nada que um anti-cheat precise bloquear.</span></li>
+    </ul>
+  </section>
+
+  <section class="sec wrap" id="celular" aria-labelledby="cel-h">
+    <span class="kicker">No celular</span>
+    <h2 id="cel-h">Acompanhe o PC pelo celular. E veja o que pesa no próprio celular.</h2>
+    <p class="sub">O celular fala direto com o PC pela rede da sua casa, sem servidor e sem conta. O pareamento é por QR Code e cada pedido vai assinado com uma chave que só os dois conhecem.</p>
+    <div class="phones">
+      <article class="phone">
+        <figure><img src="img/cel-controle.jpg" alt="Celular mostrando o uso do processador, da placa de vídeo, da memória e do disco do PC, o jogo aberto e a nota de saúde" width="780" height="1688" loading="lazy" decoding="async"></figure>
+        <div>
+          <span class="who">Android e iPhone · pelo navegador</span>
+          <h3>Controle do PC</h3>
+          <p>Escaneie o QR Code da tela Celular no PC, no mesmo Wi-Fi.</p>
+          <ul>
+            <li>Processador, placa de vídeo, memória e temperatura ao vivo</li>
+            <li>Aplicar e desfazer perfis</li>
+            <li>Ligar o Modo Jogo e medir o FPS</li>
+          </ul>
+        </div>
+      </article>
+      <article class="phone">
+        <figure><img src="img/cel-android.jpg" alt="App Hellys no Android mostrando espaço ficando curto, bateria quente, atualização de segurança atrasada e economia de bateria ligada" width="780" height="1688" loading="lazy" decoding="async"></figure>
+        <div>
+          <span class="who">App para Android 8 ou mais novo</span>
+          <h3>Hellys no celular</h3>
+          <p>Só o que dá para medir de verdade, com atalho para a tela certa do Android.</p>
+          <ul>
+            <li>O que ocupa espaço e os apps parados há 30+ dias</li>
+            <li>Temperatura, saúde e ciclos da bateria</li>
+            <li>Teste de conexão: sinal, faixa do Wi-Fi e ping</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="preco" aria-labelledby="preco-h">
+    <span class="kicker">Preço</span>
+    <h2 id="preco-h">Comece grátis. Libere tudo por <em>R$ 49,90</em>, uma vez só.</h2>
+    <p class="sub">O grátis tem todas as funções, com limite de uso nas que mais fazem diferença. O Pro tira os limites, sem mensalidade.</p>
+    <div class="plans">
+      <div class="plan" id="baixar">
+        <span class="name">Grátis</span>
+        <p class="price">R$ 0</p>
+        <ul>
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Nota de saúde, Limpeza, Inicialização, Rede e Diagnóstico sem limite</li>
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Modo Jogo: prioridade e Modo Foco automáticos</li>
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Controle pelo celular e app Android</li>
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8v4M12 16h.01"/><circle cx="12" cy="12" r="9"/></svg>Para experimentar: 1 aplicação de perfil, 3 medições de FPS e 5 ajustes avulsos</li>
+        </ul>
+        <div style="display:grid;gap:10px;margin-top:auto">
+          <a class="btn" href="download/HellysOptimizer-setup.exe" download>Baixar para Windows <small>.exe · 3 MB</small></a>
+          <a class="btn btn-line" href="download/hellys-android.apk" download>App Android <small>.apk · 2 MB</small></a>
+        </div>
+      </div>
+      <div class="plan pro">
+        <span class="name">Pro <span class="soon">pagamento único</span></span>
+        <p class="price">R$ 49,90<small>sem mensalidade</small></p>
+        <ul>
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Perfis sem limite: troque entre Jogos, Trabalho e Economia quando quiser</li>
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Perfil automático por jogo: aplica ao abrir, desfaz ao fechar</li>
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Medir FPS e aplicar os 55 ajustes sem limite</li>
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Atualizações incluídas: o app se atualiza sozinho</li>
+        </ul>
+        <a class="btn" id="comprar-pro" href="https://wa.me/5511994032102?text=Oi%2C%20quero%20comprar%20o%20Hellys%20Optimizer%20Pro%20(R%24%2049%2C90)." target="_blank" rel="noopener">Comprar o Pro <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <p class="fine">Pix ou cartão pelo Mercado Pago. A chave de ativação chega no seu WhatsApp ou e-mail e você cola no app. Você tem 7 dias para desistir da compra, como manda o Código de Defesa do Consumidor.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="instalar" aria-labelledby="inst-h">
+    <span class="kicker">Instalar</span>
+    <h2 id="inst-h">Instalar leva um minuto. O Windows vai desconfiar, e a gente explica por quê.</h2>
+    <p class="sub">O instalador ainda não tem assinatura digital (um certificado pago), então o Windows não reconhece o fornecedor e mostra um aviso.</p>
+    <ol class="steps">
+      <li class="step"><h3>Baixe e abra o instalador</h3><p>Se aparecer <b>“O Windows protegeu o computador”</b>, clique em <b>Mais informações → Executar assim mesmo</b>.</p></li>
+      <li class="step"><h3>Windows 11 bloqueou de vez?</h3><p>É o <b>Controle inteligente de aplicativos</b>, que bloqueia todo programa sem assinatura. Ele só libera se for desligado em <b>Segurança do Windows → Controle de aplicativos e navegador</b>, e depois não dá para religar sem reinstalar o Windows. Se não quiser desligar, espere: só um instalador com assinatura digital passa por esse bloqueio.</p></li>
+      <li class="step"><h3>Comece pela nota</h3><p>A tela Início mostra a nota e o que vale olhar. O perfil indicado para o seu tipo de PC aparece com a lista do que muda. Quando sair versão nova, o próprio app avisa e atualiza.</p></li>
+      <li class="step"><h3>No Android</h3><p>Baixe o <b>.apk</b> no celular e permita “instalar apps desconhecidos” para o navegador quando o Android pedir.</p></li>
+    </ol>
+  </section>
+
+  <section class="sec wrap" id="perguntas" aria-labelledby="faq-h">
+    <span class="kicker">Perguntas</span>
+    <h2 id="faq-h">Antes de baixar</h2>
+    <div class="faq">
+      <details>
+        <summary>Vai aumentar o meu FPS?</summary>
+        <div class="a"><p>Depende do PC, e por isso o Hellys não promete número. Ele tira o que costuma atrapalhar (programas disputando o processador, plano de energia economizando, dicas e sugestões do Windows) e mede o FPS com e sem perfil para você ver a diferença real no seu jogo.</p></div>
+      </details>
+      <details>
+        <summary>É seguro? E se eu não gostar de alguma mudança?</summary>
+        <div class="a"><p>Cada mudança guarda o valor de antes e tem um botão <b>Desfazer</b> no Histórico. Antes de aplicar um perfil, o Hellys cria um ponto de restauração do Windows. Ajustes avançados ficam escondidos até você ligar o modo avançado.</p></div>
+      </details>
+      <details>
+        <summary>Dá ban em jogo com anti-cheat (Valorant, CS2, Fortnite)?</summary>
+        <div class="a"><p>O Hellys não injeta nada no jogo, não lê a memória dele e não mostra nada por cima da tela do jogo. Ele ajusta o Windows e a prioridade do processo, como o Gerenciador de Tarefas já permite.</p></div>
+      </details>
+      <details>
+        <summary>Precisa de internet? Meus dados vão para algum lugar?</summary>
+        <div class="a"><p>Não precisa de internet para funcionar e nada do seu PC é enviado: não há conta, servidor de dados ou rastreamento. A internet só é usada no teste de ping, na comparação de DNS, no download do medidor de FPS e para saber se há versão nova. O acesso pelo celular é só na rede da sua casa e vem desligado.</p></div>
+      </details>
+      <details>
+        <summary>Como recebo o Pro depois de pagar?</summary>
+        <div class="a"><p>Assim que o pagamento é confirmado, você recebe uma chave de ativação pelo WhatsApp ou e-mail. No Hellys, abra <b>Configurações → Hellys Pro</b>, cole a chave e pronto: os limites somem na hora, sem precisar reinstalar.</p></div>
+      </details>
+      <details>
+        <summary>Vou ter que pagar de novo nas atualizações?</summary>
+        <div class="a"><p>Não. O Pro é pagamento único, e o app procura versão nova sozinho e atualiza com um clique, mantendo seu histórico e a sua licença.</p></div>
+      </details>
+      <details>
+        <summary>Funciona no iPhone?</summary>
+        <div class="a"><p>O controle do PC funciona no iPhone pelo navegador, é só escanear o QR Code. Otimizar o próprio iPhone não dá: a Apple não permite esse tipo de app.</p></div>
+      </details>
+      <details>
+        <summary>Em quais Windows funciona?</summary>
+        <div class="a"><p>Windows 10 e 11 de 64 bits. O instalador baixa o WebView2 sozinho se o seu Windows ainda não tiver.</p></div>
+      </details>
+    </div>
+  </section>
+
+  <section class="cta" aria-labelledby="cta-h">
+    <div class="wrap">
+      <div>
+        <h2 id="cta-h">Descubra a nota do seu PC em 1 minuto.</h2>
+        <p>Baixe grátis, veja o que está pesando e otimize com um clique. Se não gostar de alguma mudança, um clique desfaz.</p>
+      </div>
+      <div class="acts">
+        <a class="btn" href="#baixar">Baixar grátis <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v12M6 10l6 6 6-6M5 20h14"/></svg></a>
+        <a class="btn btn-line" href="https://wa.me/5511994032102?text=Oi%2C%20tenho%20uma%20d%C3%BAvida%20sobre%20o%20Hellys%20Optimizer." target="_blank" rel="noopener">Tirar dúvida no WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap"><span>hellys. · Hellys Optimizer</span><a href="../">Ver o portfólio</a></div>
+</footer>
+</body>
+</html>
