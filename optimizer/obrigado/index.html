@@ -144,12 +144,12 @@ ol b{color:var(--text);font-weight:600}
     }
     if (mp === "rejected" && tentativas === 1) {
       mostrar("bad", "O pagamento não foi aprovado", "O Mercado Pago recusou o pagamento.",
-        '<p class="dim">Nada foi cobrado. Tente de novo no Hellys (<b>Configurações → Hellys Pro</b>) com outro cartão ou com Pix.</p>');
+        '<p class="dim">Nada foi cobrado. Tente de novo no Hellys (<b>Configurações → Hellys Pro</b>).</p>');
       return;
     }
     const lento = mp === "pending" || mp === "in_process";
-    mostrar("wait", "Esperando a aprovação", lento ? "Pagamento em análise ou aguardando (boleto)." : "Pagamento em processamento.",
-      `<p class="dim">${lento ? "Boleto pode levar até 3 dias úteis." : "Pix costuma aprovar em segundos; cartão, em até alguns minutos."} Comprou pelo app? Pode fechar: quando aprovar, o Hellys ativa o Pro sozinho. Comprou pelo site? Deixe esta página aberta (ou guarde o endereço): a chave aparece aqui.</p>`);
+    mostrar("wait", "Esperando a aprovação", lento ? "Pagamento em análise no Mercado Pago." : "Esperando o Pix.",
+      `<p class="dim">${lento ? "O Mercado Pago ainda está conferindo o pagamento." : "Pague o Pix pelo QR Code ou copia e cola; costuma aprovar em segundos."} Comprou pelo app? Pode fechar: quando aprovar, o Hellys ativa o Pro sozinho. Comprou pelo site? Deixe esta página aberta (ou guarde o endereço): a chave aparece aqui.</p>`);
     setTimeout(conferir, tentativas < 150 ? 4000 : 30000);
   }
   conferir();
