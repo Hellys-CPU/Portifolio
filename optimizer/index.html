@@ -6,6 +6,8 @@
 <title>Hellys Optimizer — seu PC no modo jogo com um clique</title>
 <meta name="description" content="Otimizador para Windows 10 e 11 da hellys.: nota de saúde do PC com dados reais, perfis prontos que mostram o que mudam, Modo Jogo com FPS medido de verdade e um botão para desfazer cada alteração. Sem limpar registro, sem liberar RAM, sem promessa de FPS.">
 <meta name="theme-color" content="#10141a">
+<!-- Endereço da loja (loja/ no repositório do app). Vazio: a compra pelo site some e fica o WhatsApp. -->
+<meta name="hellys-loja" content="">
 <link rel="canonical" href="https://hellys.dev.br/optimizer/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
@@ -159,6 +161,21 @@ img{max-width:100%;height:auto;display:block}
 @media (max-width:760px){.steps{grid-template-columns:1fr}}
 .buy-h{font:600 clamp(1.25rem,2vw,1.5rem)/1.2 'Space Grotesk',sans-serif;margin-top:clamp(36px,5vw,56px)}
 .buy-steps{margin-top:18px}
+.gift{margin-top:clamp(22px,3vw,32px);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:22px;max-width:860px}
+.gift h3{font:600 19px/1.25 'Space Grotesk',sans-serif}
+.gift p{color:var(--text-dim);font-size:15.5px;margin-top:8px}
+.gift p b{color:var(--text);font-weight:600}
+.gift-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:16px 0}
+.gift label{display:grid;gap:6px;font-size:14px;color:var(--text-dim)}
+.gift input{font:500 16px/1.2 'IBM Plex Sans',sans-serif;color:var(--text);background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:12px;width:100%}
+.gift input[name=pc]{font-family:'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase}
+.gift input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.gift .btn[disabled]{opacity:.6;cursor:wait}
+.gift-msg:empty{display:none}
+.gift-msg{color:var(--danger)!important}
+.fine-sm{color:var(--text-dim);font-size:14px;margin-top:14px}
+.fine-sm a{color:var(--accent)}
+@media (max-width:640px){.gift-row{grid-template-columns:1fr}}
 .vs{margin-top:clamp(28px,4vw,44px);border:1px solid var(--line);border-radius:10px;overflow:hidden}
 .vs-head,.vs-row{display:grid;grid-template-columns:minmax(130px,.6fr) 1fr 1.25fr}
 .vs-head span{padding:14px 20px;font:600 12.5px/1.3 'IBM Plex Mono',monospace;letter-spacing:.05em;text-transform:uppercase;color:var(--text-dim);background:var(--surface)}
@@ -377,8 +394,8 @@ img{max-width:100%;height:auto;display:block}
           <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Controle pelo celular e app Android</li>
           <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Atualizações incluídas: o app se atualiza sozinho</li>
         </ul>
-        <a class="btn" id="comprar-pro" href="https://wa.me/5511994032102?text=Oi%21%20Quero%20comprar%20o%20Hellys%20Pro%20%28R%24%2049%2C90%29.%20O%20c%C3%B3digo%20do%20meu%20PC%20%C3%A9%3A%20" target="_blank" rel="noopener">Comprar o Pro <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <p class="fine">Pix ou cartão pelo Mercado Pago. A chave vale para 1 PC, o do código enviado na compra (veja abaixo). Pode dar de presente: é só comprar com o código do PC de quem vai usar. Você tem 7 dias para desistir da compra, como manda o Código de Defesa do Consumidor.</p>
+        <a class="btn" id="comprar-pro" href="#como-comprar">Comprar o Pro <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <p class="fine">Pix ou cartão pelo Mercado Pago, direto no app: aprovou, o Pro ativa sozinho. Vale para 1 PC, o da compra. Pode dar de presente pelo site, com o código do PC de quem vai usar. Você tem 7 dias para desistir da compra, como manda o Código de Defesa do Consumidor.</p>
       </div>
       <div class="plan" id="baixar">
         <span class="name">Versão de teste</span>
@@ -386,7 +403,7 @@ img{max-width:100%;height:auto;display:block}
         <ul>
           <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Nota de saúde, Limpeza, Inicialização, Rede e Diagnóstico</li>
           <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8v4M12 16h.01"/><circle cx="12" cy="12" r="9"/></svg>Para experimentar: 1 aplicação de perfil, 3 medições de FPS e 5 ajustes avulsos por PC</li>
-          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>É o mesmo app: comprou, cola a chave e vira Pro na hora</li>
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>É o mesmo app: comprou, vira Pro na hora, sem reinstalar</li>
         </ul>
         <div style="display:grid;gap:10px;margin-top:auto">
           <a class="btn btn-line" href="download/HellysOptimizer-setup.exe" download>Baixar a versão de teste <small>.exe · 3 MB</small></a>
@@ -394,13 +411,24 @@ img{max-width:100%;height:auto;display:block}
         </div>
       </div>
     </div>
-    <h3 class="buy-h">Como comprar</h3>
+    <h3 class="buy-h" id="como-comprar">Como comprar</h3>
     <ol class="steps buy-steps">
-      <li class="step"><h3>Instale o Hellys</h3><p>O instalador é o mesmo da versão de teste.</p></li>
-      <li class="step"><h3>Clique em Comprar o Pro</h3><p>Em <b>Configurações → Hellys Pro</b>. O WhatsApp abre com o <b>código do seu PC</b> já na mensagem.</p></li>
-      <li class="step"><h3>Pague por Pix ou cartão</h3><p>Pelo Mercado Pago. A chave chega no WhatsApp ou no e-mail.</p></li>
-      <li class="step"><h3>Cole a chave</h3><p>Em <b>Configurações → Hellys Pro</b>. Os limites somem na hora, sem reinstalar.</p></li>
+      <li class="step"><h3>Instale o Hellys</h3><p>O instalador é o mesmo da versão de teste: <a href="download/HellysOptimizer-setup.exe" download>baixar</a>.</p></li>
+      <li class="step"><h3>Abra Configurações → Hellys Pro</h3><p>Digite o seu e-mail e clique em <b>Pagar R$ 49,90</b>. O pagamento abre no navegador.</p></li>
+      <li class="step"><h3>Pague por Pix ou cartão</h3><p>No Mercado Pago. Os dados do pagamento ficam com o Mercado Pago, nunca com o Hellys.</p></li>
+      <li class="step"><h3>Pronto: o Pro ativa sozinho</h3><p>Assim que o pagamento é aprovado (Pix leva segundos), sem copiar chave e sem reinstalar.</p></li>
     </ol>
+    <form class="gift" id="presente" hidden>
+      <h3>Dar de presente ou comprar para outro PC</h3>
+      <p>Peça o <b>código do PC</b> de quem vai usar (no app: <b>Configurações → Hellys Pro</b>). Depois do pagamento, a chave aparece na tela para você mandar.</p>
+      <div class="gift-row">
+        <label>Código do PC<input name="pc" required autocomplete="off" spellcheck="false" placeholder="ABCD-EFGH-JKMN-PQRS" maxlength="24"></label>
+        <label>Seu e-mail<input name="email" type="email" required autocomplete="email" placeholder="voce@exemplo.com" maxlength="254"></label>
+      </div>
+      <button class="btn" type="submit">Pagar R$ 49,90 <small>Pix ou cartão</small></button>
+      <p class="gift-msg" role="status" aria-live="polite"></p>
+    </form>
+    <p class="fine-sm" id="sem-loja">Prefere falar com alguém? <a href="https://wa.me/5511994032102?text=Oi%21%20Quero%20comprar%20o%20Hellys%20Pro%20%28R%24%2049%2C90%29." target="_blank" rel="noopener">Compre pelo WhatsApp</a>.</p>
   </section>
 
   <section class="sec wrap" id="instalar" aria-labelledby="inst-h">
@@ -433,15 +461,15 @@ img{max-width:100%;height:auto;display:block}
       </details>
       <details>
         <summary>Precisa de internet? Meus dados vão para algum lugar?</summary>
-        <div class="a"><p>Não precisa de internet para funcionar e nada do seu PC é enviado: não há conta, servidor de dados ou rastreamento. A internet só é usada no teste de ping, na comparação de DNS, no download do medidor de FPS e para saber se há versão nova. O acesso pelo celular é só na rede da sua casa e vem desligado.</p></div>
+        <div class="a"><p>Não precisa de internet para funcionar e nada do seu PC é enviado: não há conta ou rastreamento. A internet só é usada no teste de ping, na comparação de DNS, no download do medidor de FPS, para saber se há versão nova e, se você comprar o Pro, para mandar o código do PC e o seu e-mail à loja da hellys. O acesso pelo celular é só na rede da sua casa e vem desligado.</p></div>
       </details>
       <details>
         <summary>Como recebo o Pro depois de pagar?</summary>
-        <div class="a"><p>Compre pelo botão <b>Comprar o Pro</b> dentro do app (<b>Configurações → Hellys Pro</b>): o WhatsApp abre com o código do seu PC. Assim que o pagamento é confirmado, a chave chega por lá ou por e-mail. Cole a chave no mesmo lugar e pronto: os limites somem na hora, sem reinstalar.</p></div>
+        <div class="a"><p>Comprando pelo app (<b>Configurações → Hellys Pro</b>), o Pro ativa sozinho assim que o Mercado Pago aprova o pagamento: Pix leva segundos, cartão alguns minutos e boleto até 3 dias úteis. Pode fechar o Hellys no meio: ao abrir de novo, ele continua de onde parou.</p><p>Comprando de presente pelo site, a chave aparece na tela depois do pagamento. Quem vai usar cola em <b>Configurações → Hellys Pro → Já tem uma chave?</b></p></div>
       </details>
       <details>
         <summary>A chave vale em mais de um PC?</summary>
-        <div class="a"><p>Não. Cada chave libera um PC: o do código enviado na compra. Pode dar de presente, comprando com o código do PC de quem vai usar. Formatou o Windows? Continua valendo. Trocou de PC ou de placa-mãe? Chame no WhatsApp.</p></div>
+        <div class="a"><p>Não. Cada compra libera um PC: o da compra (ou o do código informado no presente). Formatou o Windows? Continua valendo. Trocou de PC ou de placa-mãe? Chame no WhatsApp.</p></div>
       </details>
       <details>
         <summary>Preciso desligar o antivírus?</summary>
@@ -480,5 +508,43 @@ img{max-width:100%;height:auto;display:block}
 <footer class="foot">
   <div class="wrap"><span>hellys. · Hellys Optimizer</span><a href="../">Ver o portfólio</a></div>
 </footer>
+<script>
+// Compra pelo site (presente ou outro PC): cria o pedido na loja e leva ao Mercado Pago.
+(() => {
+  const loja = (document.querySelector('meta[name="hellys-loja"]').content || "").replace(/\/+$/, "");
+  const form = document.getElementById("presente");
+  // https, ou a loja local dos testes.
+  if (!/^(https:\/\/|http:\/\/127\.0\.0\.1:)/.test(loja) || !form) return;
+  form.hidden = false;
+  const msg = form.querySelector(".gift-msg");
+  const botao = form.querySelector("button");
+  const ALFABETO = /^[0-9A-HJKMNP-TV-Z]{16}$/;
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    msg.textContent = "";
+    const pc = form.pc.value.toUpperCase().replace(/[\s-]/g, "").replace(/O/g, "0").replace(/[IL]/g, "1");
+    if (!ALFABETO.test(pc)) {
+      msg.textContent = "Confira o código do PC: são 16 letras e números, como ABCD-EFGH-JKMN-PQRS.";
+      return;
+    }
+    botao.disabled = true;
+    try {
+      const resp = await fetch(`${loja}/comprar`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ pc, email: form.email.value.trim() }),
+      });
+      const r = await resp.json();
+      if (!resp.ok) throw new Error(r.erro || "A loja não respondeu.");
+      const destino = new URL(r.url);
+      if (destino.protocol !== "https:" || !/(^|\.)mercadopago\.com(\.br)?$/.test(destino.hostname)) throw new Error("Link de pagamento inesperado.");
+      location.href = destino.href;
+    } catch (err) {
+      msg.textContent = (err && err.message) || "Não deu certo agora. Tente de novo em instantes.";
+      botao.disabled = false;
+    }
+  });
+})();
+</script>
 </body>
 </html>

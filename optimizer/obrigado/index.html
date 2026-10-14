@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compra do Hellys Pro · hellys.</title>
+<meta name="robots" content="noindex">
+<!-- O endereço desta página leva o código do pedido: não vaza para outros sites. -->
+<meta name="referrer" content="no-referrer">
+<!-- Endereço da loja (loja/ no repositório do app). Vazio: a página só orienta. -->
+<meta name="hellys-loja" content="">
+<meta name="theme-color" content="#10141a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#10141a;--surface:#171d26;--surface-2:#1e2631;--line:#2a3341;--text:#e8ecf1;--text-dim:#9aabbd;--accent:#ff8a3d;--accent-2:#3fc9a8;--danger:#ff6b6b}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font:400 17px/1.6 'IBM Plex Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+a{color:var(--accent)}
+main{flex:1;width:100%;max-width:680px;margin:0 auto;padding:clamp(32px,8vw,80px) 16px}
+.kicker{font:500 12.5px/1 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-2)}
+h1{font:700 clamp(1.9rem,6vw,2.8rem)/1.08 'Space Grotesk',sans-serif;letter-spacing:-.025em;margin-top:14px;text-wrap:balance}
+.dim{color:var(--text-dim);margin-top:14px}
+.dim b{color:var(--text);font-weight:600}
+.box{margin-top:28px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px}
+.box.ok{border-color:rgba(63,201,168,.5)}
+.box.bad{border-color:rgba(255,107,107,.5)}
+.status{display:flex;gap:12px;align-items:center;font:600 18px/1.3 'Space Grotesk',sans-serif}
+.dot{width:12px;height:12px;border-radius:50%;background:var(--accent);flex:0 0 auto}
+.wait .dot{animation:pulse 1.4s ease-in-out infinite}
+.ok .dot{background:var(--accent-2)}
+.bad .dot{background:var(--danger)}
+@keyframes pulse{50%{opacity:.25}}
+.key{margin-top:16px;font:500 13px/1.5 'IBM Plex Mono',monospace;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:12px;word-break:break-all;user-select:all}
+.btn{display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:12px 18px;border-radius:4px;border:0;font:600 15px/1 'IBM Plex Sans',sans-serif;background:var(--accent);color:var(--bg);cursor:pointer;text-decoration:none}
+.btn.line{background:none;color:var(--text);border:1px solid var(--line)}
+ol{margin:14px 0 0 20px;color:var(--text-dim)}
+ol b{color:var(--text);font-weight:600}
+.foot{padding:26px 16px 34px;color:var(--text-dim);font-size:13.5px;text-align:center}
+@media (prefers-reduced-motion:reduce){.wait .dot{animation:none}}
+</style>
+</head>
+<body>
+<main>
+  <span class="kicker">Hellys Pro</span>
+  <h1 id="titulo">Conferindo o seu pagamento</h1>
+  <p class="dim" id="texto">Só um instante.</p>
+
+  <div class="box wait" id="caixa" hidden>
+    <p class="status"><span class="dot" aria-hidden="true"></span><span id="situacao"></span></p>
+    <div id="detalhe"></div>
+  </div>
+
+  <p class="dim" style="margin-top:28px">Algum problema? <a href="https://wa.me/5511994032102?text=Oi%2C%20preciso%20de%20ajuda%20com%20a%20compra%20do%20Hellys%20Pro." target="_blank" rel="noopener">Fale com a gente no WhatsApp</a>. Você tem 7 dias para desistir da compra, como manda o Código de Defesa do Consumidor.</p>
+</main>
+<footer class="foot">hellys. · <a href="../">Hellys Optimizer</a></footer>
+
+<script>
+(() => {
+  const loja = (document.querySelector('meta[name="hellys-loja"]').content || "").replace(/\/+$/, "");
+  const q = new URLSearchParams(location.search);
+  const pedido = q.get("p") || "";
+  const token = q.get("t") || "";
+  const mp = q.get("collection_status") || q.get("status") || "";
+  const $ = (id) => document.getElementById(id);
+
+  function mostrar(tipo, titulo, situacao, html) {
+    $("titulo").textContent = titulo;
+    $("texto").hidden = true;
+    const caixa = $("caixa");
+    caixa.hidden = false;
+    caixa.className = "box " + tipo;
+    $("situacao").textContent = situacao;
+    $("detalhe").innerHTML = html;
+  }
+
+  if (!/^(https:\/\/|http:\/\/127\.0\.0\.1:)/.test(loja) || !/^[0-9a-f]{24}$/.test(pedido) || !/^[0-9a-f]{48}$/.test(token)) {
+    mostrar("bad", "Não achei o seu pedido", "Este endereço está incompleto.",
+      '<p class="dim">Se você pagou, abra o Hellys: o Pro ativa sozinho em <b>Configurações → Hellys Pro</b>. Se não ativar, chame a gente no WhatsApp com o e-mail da compra.</p>');
+    return;
+  }
+
+  const PASSOS =
+    '<ol><li>Abra o Hellys Optimizer no PC da compra.</li>' +
+    '<li>Vá em <b>Configurações → Hellys Pro</b>.</li>' +
+    '<li>Se comprou pelo app, o Pro já está ativo (ou ativa ao abrir). Se comprou pelo site, cole a chave em <b>Já tem uma chave?</b> e clique em <b>Ativar o Pro</b>.</li></ol>';
+
+  function chave(licenca, pc) {
+    const caixa = document.createElement("div");
+    const p = document.createElement("p");
+    p.className = "dim";
+    p.innerHTML = "Esta é a sua chave, para o PC <b></b>. Guarde: se reinstalar o Windows, é só colar de novo.";
+    p.querySelector("b").textContent = pc;
+    const k = document.createElement("div");
+    k.className = "key";
+    k.textContent = licenca;
+    const b = document.createElement("button");
+    b.className = "btn";
+    b.type = "button";
+    b.textContent = "Copiar a chave";
+    b.onclick = async () => {
+      try {
+        await navigator.clipboard.writeText(licenca);
+        b.textContent = "Copiada";
+      } catch {
+        b.textContent = "Selecione e copie acima";
+      }
+    };
+    caixa.append(p, k, b);
+    return caixa;
+  }
+
+  let tentativas = 0;
+  async function conferir() {
+    tentativas++;
+    let r;
+    try {
+      const resp = await fetch(`${loja}/pedido?id=${pedido}&t=${token}`, { cache: "no-store" });
+      r = await resp.json();
+      if (!resp.ok) throw new Error(r.erro || resp.status);
+    } catch (e) {
+      if (tentativas > 3 && String(e.message).includes("encontrado")) {
+        mostrar("bad", "Não achei o seu pedido", "A loja não conhece este pedido.",
+          '<p class="dim">Confira se abriu o endereço inteiro. Se pagou, chame a gente no WhatsApp com o e-mail da compra.</p>');
+        return;
+      }
+      mostrar("wait", "Conferindo o seu pagamento", "Sem resposta da loja agora. Tentando de novo…", "");
+      return setTimeout(conferir, 8000);
+    }
+
+    if (r.status === "pago" && r.licenca) {
+      mostrar("ok", "Pagamento aprovado. Obrigado!", "O Hellys Pro é seu.", PASSOS);
+      $("detalhe").append(chave(r.licenca, r.pc));
+      return;
+    }
+    if (r.status === "reembolsado") {
+      mostrar("bad", "Pagamento devolvido", "O dinheiro desta compra foi devolvido.", '<p class="dim">Por isso ela não libera o Pro. Quer comprar de novo? Abra o Hellys em <b>Configurações → Hellys Pro</b>.</p>');
+      return;
+    }
+    if (r.status === "valor_errado") {
+      mostrar("bad", "O valor não confere", "O valor pago é diferente do preço do Pro.", '<p class="dim">Chame a gente no WhatsApp com o e-mail da compra que a gente resolve.</p>');
+      return;
+    }
+    if (mp === "rejected" && tentativas === 1) {
+      mostrar("bad", "O pagamento não foi aprovado", "O Mercado Pago recusou o pagamento.",
+        '<p class="dim">Nada foi cobrado. Tente de novo no Hellys (<b>Configurações → Hellys Pro</b>) com outro cartão ou com Pix.</p>');
+      return;
+    }
+    const lento = mp === "pending" || mp === "in_process";
+    mostrar("wait", "Esperando a aprovação", lento ? "Pagamento em análise ou aguardando (boleto)." : "Pagamento em processamento.",
+      `<p class="dim">${lento ? "Boleto pode levar até 3 dias úteis." : "Pix costuma aprovar em segundos; cartão, em até alguns minutos."} Comprou pelo app? Pode fechar: quando aprovar, o Hellys ativa o Pro sozinho. Comprou pelo site? Deixe esta página aberta (ou guarde o endereço): a chave aparece aqui.</p>`);
+    setTimeout(conferir, tentativas < 150 ? 4000 : 30000);
+  }
+  conferir();
+})();
+</script>
+</body>
+</html>
