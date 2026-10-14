@@ -1,9 +1,11 @@
 # Arquivos de download do Hellys Optimizer
 
-Os botões da página `optimizer/` apontam para estes dois nomes fixos:
+Esta pasta é preenchida sozinha pelos builds do repositório Otimizer-Hellys a cada
+versão (tag `v*`, ou o botão **Publicar versão** em Actions):
 
-- `HellysOptimizer-setup.exe` — o `Hellys Optimizer_<versão>_x64-setup.exe` do build do Windows
-- `hellys-android.apk` — o APK do build do Android
+- `HellysOptimizer-setup.exe` — instalador do Windows (botão "Baixar" da página)
+- `HellysOptimizer_<versão>_x64-setup.nsis.zip` e `latest.json` — atualização automática do PC
+- `hellys-android.apk` e `android.json` — app Android e o aviso de versão nova
+- `novidades.json` — histórico de versões, mostrado em `optimizer/novidades/`
 
-A cada versão nova, baixe os arquivos em Actions (artefatos `hellys-optimizer-windows` e
-`hellys-android`) do repositório Otimizer-Hellys, renomeie para os nomes acima e substitua aqui.
+Não edite à mão: a próxima versão sobrescreve.

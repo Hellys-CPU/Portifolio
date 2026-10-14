@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Novidades do Hellys Optimizer · hellys.</title>
+<meta name="description" content="O que mudou em cada versão do Hellys Optimizer. As atualizações são incluídas e o app avisa quando sai uma nova.">
+<link rel="canonical" href="https://hellys.dev.br/optimizer/novidades/">
+<meta name="theme-color" content="#10141a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#10141a;--surface:#171d26;--line:#2a3341;--text:#e8ecf1;--text-dim:#9aabbd;--accent:#ff8a3d;--accent-2:#3fc9a8;--info:#6cb4ff}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font:400 17px/1.6 'IBM Plex Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+main{max-width:760px;margin:0 auto;padding:clamp(32px,8vw,80px) 16px}
+.kicker{font:500 12.5px/1 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-2)}
+h1{font:700 clamp(2rem,6vw,3rem)/1.05 'Space Grotesk',sans-serif;letter-spacing:-.025em;margin-top:14px}
+.sub{color:var(--text-dim);margin-top:14px}
+.versao{margin-top:28px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px}
+.versao h2{font:600 20px/1.2 'Space Grotesk',sans-serif;display:flex;flex-wrap:wrap;gap:6px 12px;align-items:baseline}
+.versao h2 small{font:500 13px/1 'IBM Plex Mono',monospace;color:var(--text-dim)}
+.versao ul{list-style:none;margin-top:14px;display:grid;gap:10px}
+.versao li{display:grid;grid-template-columns:92px 1fr;gap:12px;align-items:start;font-size:16px}
+.tag{font:600 11.5px/1 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.04em;border:1px solid;border-radius:999px;padding:5px 8px;text-align:center;margin-top:2px}
+.Novo{color:var(--accent);border-color:rgba(255,138,61,.45)}
+.Melhoria{color:var(--accent-2);border-color:rgba(63,201,168,.45)}
+.Correção{color:var(--info);border-color:rgba(108,180,255,.45)}
+.vazio{color:var(--text-dim);margin-top:28px}
+.foot{padding:26px 16px 34px;color:var(--text-dim);font-size:13.5px;text-align:center}
+@media (max-width:480px){.versao li{grid-template-columns:1fr;gap:4px}.tag{justify-self:start}}
+</style>
+</head>
+<body>
+<main>
+  <span class="kicker">Hellys Optimizer</span>
+  <h1>Novidades</h1>
+  <p class="sub">O que mudou em cada versão. As atualizações estão incluídas: quando sai uma nova, o Hellys avisa e atualiza com um clique.</p>
+  <div id="lista"><p class="vazio">Carregando…</p></div>
+</main>
+<footer class="foot"><a href="../">Hellys Optimizer</a> · hellys.</footer>
+<script>
+(async () => {
+  const lista = document.getElementById("lista");
+  const TIPOS = ["Novo", "Melhoria", "Correção"];
+  try {
+    const r = await fetch("../download/novidades.json", { cache: "no-cache" });
+    if (!r.ok) throw new Error(r.status);
+    const { versoes } = await r.json();
+    lista.textContent = "";
+    for (const v of versoes) {
+      const sec = document.createElement("section");
+      sec.className = "versao";
+      const h = document.createElement("h2");
+      h.textContent = `Versão ${v.versao} `;
+      const d = document.createElement("small");
+      d.textContent = v.data.split("-").reverse().join("/");
+      h.append(d);
+      const ul = document.createElement("ul");
+      for (const t of TIPOS) {
+        for (const i of v.itens.filter((x) => x.tipo === t)) {
+          const li = document.createElement("li");
+          const tag = document.createElement("span");
+          tag.className = `tag ${t}`;
+          tag.textContent = t;
+          const txt = document.createElement("span");
+          txt.textContent = i.texto;
+          li.append(tag, txt);
+          ul.append(li);
+        }
+      }
+      sec.append(h, ul);
+      lista.append(sec);
+    }
+  } catch {
+    lista.innerHTML = '<p class="vazio">Não deu para carregar as novidades agora. Tente de novo em instantes.</p>';
+  }
+})();
+</script>
+</body>
+</html>
