@@ -632,6 +632,8 @@
   }
   .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}
   .nav-links a.active{color:var(--text);}
+  /* Aba do app: leva para hellys.dev.br/optimizer/ (página própria). */
+  .nav-links a.nav-app{color:var(--accent);}
 
   /* HERO — status "ao vivo", botões e moldura de código com vida */
   .hero .tag{display:inline-flex;align-items:center;gap:8px;}

@@ -522,6 +522,7 @@
       <a href="#trajetoria">Trajetória</a>
       <a href="#diferenciais">Diferenciais</a>
       <a href="#projetos">Projetos</a>
+      <a href="optimizer/" class="nav-app" title="Hellys Optimizer: otimizador de Windows">Optimizer</a>
       <a href="#podcast">Podcast</a>
       <a href="#entretenimento">Arcade</a>
       <a href="#skills">Competências</a>
@@ -7137,7 +7138,8 @@ window.PortfolioLB = (function(){
       ctx.clearRect(0, 0, W, H);
       var i, p, a;
       for (i = pulses.length - 1; i >= 0; i--){
-        var age = (now - pulses[i].t) / 480;
+        // O clique pode ter carimbo um pouco mais novo que o quadro: idade negativa daria raio negativo.
+        var age = Math.max(0, (now - pulses[i].t) / 480);
         if (age >= 1){ pulses.splice(i, 1); continue; }
         ctx.globalAlpha = (1 - age) * 0.75 * vis;
         ctx.strokeStyle = 'rgb(255,138,61)';
