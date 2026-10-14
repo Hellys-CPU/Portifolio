@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="hellys.">
 <meta property="og:url" content="https://hellys.dev.br/optimizer/">
 <meta property="og:title" content="Hellys Optimizer — seu PC no modo jogo com um clique">
-<meta property="og:description" content="Otimizador honesto para Windows: nota de saúde real, perfis reversíveis, Modo Jogo com FPS medido e controle pelo celular. Grátis.">
+<meta property="og:description" content="Otimizador honesto para Windows: nota de saúde real, perfis reversíveis, Modo Jogo com FPS medido e controle pelo celular. Pro por R$ 49,90, pagamento único.">
 <meta property="og:image" content="https://hellys.dev.br/optimizer/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -25,7 +25,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Hellys Optimizer","operatingSystem":"Windows 10, Windows 11","applicationCategory":"UtilitiesApplication","softwareVersion":"0.4.0","offers":{"@type":"Offer","price":"0","priceCurrency":"BRL"},"publisher":{"@type":"Organization","name":"hellys.","url":"https://hellys.dev.br/"}}
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Hellys Optimizer","operatingSystem":"Windows 10, Windows 11","applicationCategory":"UtilitiesApplication","softwareVersion":"0.4.0","offers":{"@type":"Offer","name":"Hellys Pro","price":"49.90","priceCurrency":"BRL"},"publisher":{"@type":"Organization","name":"hellys.","url":"https://hellys.dev.br/"}}
 </script>
 <style>
 :root{
@@ -157,6 +157,21 @@ img{max-width:100%;height:auto;display:block}
 .step p{color:var(--text-dim);font-size:15.5px;margin-top:10px}
 .step p b{color:var(--text);font-weight:600}
 @media (max-width:760px){.steps{grid-template-columns:1fr}}
+.buy-h{font:600 clamp(1.25rem,2vw,1.5rem)/1.2 'Space Grotesk',sans-serif;margin-top:clamp(36px,5vw,56px)}
+.buy-steps{margin-top:18px}
+.vs{margin-top:clamp(28px,4vw,44px);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.vs-head,.vs-row{display:grid;grid-template-columns:minmax(130px,.6fr) 1fr 1.25fr}
+.vs-head span{padding:14px 20px;font:600 12.5px/1.3 'IBM Plex Mono',monospace;letter-spacing:.05em;text-transform:uppercase;color:var(--text-dim);background:var(--surface)}
+.vs-head span:last-child{color:var(--accent);background:linear-gradient(180deg,rgba(255,138,61,.12),var(--surface))}
+.vs-row{border-top:1px solid var(--line)}
+.vs-row>*{padding:16px 20px}
+.vs-row b{font:600 16px/1.35 'Space Grotesk',sans-serif}
+.vs-row span{font-size:15.5px;line-height:1.5}
+.vs-row span:nth-child(2){color:var(--text-dim)}
+.vs-row span:nth-child(2)::before{content:"✕ ";color:var(--danger);font-weight:700}
+.vs-row span:nth-child(3){background:rgba(255,138,61,.05)}
+.vs-row span:nth-child(3)::before{content:"✓ ";color:var(--accent-2);font-weight:700}
+@media (max-width:720px){.vs-head{display:none}.vs-row{grid-template-columns:1fr}.vs-row>*{padding:4px 18px}.vs-row b{padding-top:16px}.vs-row span:last-child{padding-bottom:16px;background:none}}
 
 /* perguntas */
 .faq{max-width:860px;margin-top:clamp(24px,3.4vw,38px);border-top:1px solid var(--line)}
@@ -189,11 +204,12 @@ img{max-width:100%;height:auto;display:block}
       <span class="prod" aria-hidden="true">optimizer</span>
     </a>
     <nav aria-label="Seções">
+      <a class="hide-md" href="#por-que">Por que</a>
       <a class="hide-md" href="#recursos">Recursos</a>
       <a class="hide-md" href="#celular">Celular</a>
       <a class="hide-md" href="#preco">Preço</a>
       <a class="hide-md" href="#perguntas">Perguntas</a>
-      <a class="pill" href="#baixar">Baixar grátis</a>
+      <a class="pill" href="#preco">Comprar o Pro</a>
     </nav>
   </div>
 </header>
@@ -204,11 +220,11 @@ img{max-width:100%;height:auto;display:block}
     <h1 id="h1">Seu PC no <em>modo jogo</em> com um clique.</h1>
     <p class="lead">O Hellys Optimizer coloca o jogo em primeiro lugar, segura os programas que roubam o processador e ajusta o Windows para desempenho. <b>Cada mudança vem explicada e tem um botão para desfazer</b>, e você mede o FPS antes e depois para ver a diferença no seu PC.</p>
     <div class="acts">
-      <a class="btn" href="#baixar">Baixar grátis para Windows <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v12M6 10l6 6 6-6M5 20h14"/></svg></a>
-      <a class="btn btn-line" href="#preco">Ver o Pro · R$ 49,90</a>
+      <a class="btn" href="#preco">Comprar o Pro · R$ 49,90 <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-line" href="#baixar">Testar antes de comprar</a>
     </div>
     <ul class="trust" aria-label="Garantias">
-      <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Grátis para começar</li>
+      <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Pagamento único, sem mensalidade</li>
       <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Desfaz tudo com um clique</li>
       <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Sem cadastro e sem anúncio</li>
       <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Atualiza sozinho</li>
@@ -225,6 +241,21 @@ img{max-width:100%;height:auto;display:block}
     <li><b>100%</b><span>reversível: um botão “Desfazer” para cada alteração</span></li>
     <li><b>0</b><span>dados enviados. Sem conta, sem anúncio, sem rastreamento</span></li>
   </ul></div>
+
+  <section class="sec wrap" id="por-que" aria-labelledby="pq-h">
+    <span class="kicker">Por que o Hellys</span>
+    <h2 id="pq-h">O que ele faz que <em>os outros não fazem</em>.</h2>
+    <p class="sub">Muito otimizador promete e não mostra. O Hellys mostra o que fez, mede o resultado no seu PC e deixa voltar atrás.</p>
+    <div class="vs" role="table" aria-label="Hellys Optimizer comparado com muito otimizador por aí">
+      <div class="vs-head" role="row"><span role="columnheader">Na prática</span><span role="columnheader">Muito otimizador por aí</span><span role="columnheader">Hellys Optimizer</span></div>
+      <div class="vs-row" role="row"><b role="rowheader">Resultado</b><span role="cell">Promete “+FPS” sem medir nada</span><span role="cell">Mede o FPS no seu jogo, antes e depois, com o PresentMon da Intel</span></div>
+      <div class="vs-row" role="row"><b role="rowheader">O que mudou</b><span role="cell">Mexe no Windows e não diz em quê</span><span role="cell">Mostra cada mudança, de qual valor para qual</span></div>
+      <div class="vs-row" role="row"><b role="rowheader">Se não gostar</b><span role="cell">Para voltar, só restaurando o Windows</span><span role="cell">Um clique desfaz, item por item ou tudo</span></div>
+      <div class="vs-row" role="row"><b role="rowheader">Na hora do jogo</b><span role="cell">Ajuste fixo, ligado o tempo todo</span><span role="cell">Liga sozinho quando o jogo abre e volta tudo quando fecha</span></div>
+      <div class="vs-row" role="row"><b role="rowheader">Celular</b><span role="cell">Só no PC</span><span role="cell">Acompanha e controla o PC pelo celular, na rede de casa</span></div>
+      <div class="vs-row" role="row"><b role="rowheader">Preço</b><span role="cell">Mensalidade ou anúncio</span><span role="cell">R$ 49,90 uma vez só, sem anúncio, em português</span></div>
+    </div>
+  </section>
 
   <section class="sec wrap" id="recursos" aria-labelledby="rec-h">
     <span class="kicker">O que você ganha</span>
@@ -333,45 +364,52 @@ img{max-width:100%;height:auto;display:block}
 
   <section class="sec wrap" id="preco" aria-labelledby="preco-h">
     <span class="kicker">Preço</span>
-    <h2 id="preco-h">Comece grátis. Libere tudo por <em>R$ 49,90</em>, uma vez só.</h2>
-    <p class="sub">O grátis tem todas as funções, com limite de uso nas que mais fazem diferença. O Pro tira os limites, sem mensalidade.</p>
+    <h2 id="preco-h">Hellys Pro: tudo liberado por <em>R$&nbsp;49,90</em>, uma vez só.</h2>
+    <p class="sub">Sem mensalidade, sem anúncio e com as atualizações incluídas. A versão de teste serve para você ver a nota do seu PC e experimentar cada função antes de comprar.</p>
     <div class="plans">
-      <div class="plan" id="baixar">
-        <span class="name">Grátis</span>
-        <p class="price">R$ 0</p>
-        <ul>
-          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Nota de saúde, Limpeza, Inicialização, Rede e Diagnóstico sem limite</li>
-          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Modo Jogo: prioridade e Modo Foco automáticos</li>
-          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Controle pelo celular e app Android</li>
-          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8v4M12 16h.01"/><circle cx="12" cy="12" r="9"/></svg>Para experimentar: 1 aplicação de perfil, 3 medições de FPS e 5 ajustes avulsos</li>
-        </ul>
-        <div style="display:grid;gap:10px;margin-top:auto">
-          <a class="btn" href="download/HellysOptimizer-setup.exe" download>Baixar para Windows <small>.exe · 3 MB</small></a>
-          <a class="btn btn-line" href="download/hellys-android.apk" download>App Android <small>.apk · 2 MB</small></a>
-        </div>
-      </div>
       <div class="plan pro">
-        <span class="name">Pro <span class="soon">pagamento único</span></span>
-        <p class="price">R$ 49,90<small>sem mensalidade</small></p>
+        <span class="name">Hellys Pro <span class="soon">completo</span></span>
+        <p class="price">R$ 49,90<small>pagamento único</small></p>
         <ul>
           <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Perfis sem limite: troque entre Jogos, Trabalho e Economia quando quiser</li>
           <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Perfil automático por jogo: aplica ao abrir, desfaz ao fechar</li>
           <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Medir FPS e aplicar os 55 ajustes sem limite</li>
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Controle pelo celular e app Android</li>
           <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Atualizações incluídas: o app se atualiza sozinho</li>
         </ul>
-        <a class="btn" id="comprar-pro" href="https://wa.me/5511994032102?text=Oi%2C%20quero%20comprar%20o%20Hellys%20Optimizer%20Pro%20(R%24%2049%2C90)." target="_blank" rel="noopener">Comprar o Pro <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <p class="fine">Pix ou cartão pelo Mercado Pago. A chave de ativação chega no seu WhatsApp ou e-mail e você cola no app. Você tem 7 dias para desistir da compra, como manda o Código de Defesa do Consumidor.</p>
+        <a class="btn" id="comprar-pro" href="https://wa.me/5511994032102?text=Oi%21%20Quero%20comprar%20o%20Hellys%20Pro%20%28R%24%2049%2C90%29.%20O%20c%C3%B3digo%20do%20meu%20PC%20%C3%A9%3A%20" target="_blank" rel="noopener">Comprar o Pro <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <p class="fine">Pix ou cartão pelo Mercado Pago. A chave vale para 1 PC, o do código enviado na compra (veja abaixo). Pode dar de presente: é só comprar com o código do PC de quem vai usar. Você tem 7 dias para desistir da compra, como manda o Código de Defesa do Consumidor.</p>
+      </div>
+      <div class="plan" id="baixar">
+        <span class="name">Versão de teste</span>
+        <p class="price">R$ 0<small>para ver antes de comprar</small></p>
+        <ul>
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Nota de saúde, Limpeza, Inicialização, Rede e Diagnóstico</li>
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8v4M12 16h.01"/><circle cx="12" cy="12" r="9"/></svg>Para experimentar: 1 aplicação de perfil, 3 medições de FPS e 5 ajustes avulsos por PC</li>
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>É o mesmo app: comprou, cola a chave e vira Pro na hora</li>
+        </ul>
+        <div style="display:grid;gap:10px;margin-top:auto">
+          <a class="btn btn-line" href="download/HellysOptimizer-setup.exe" download>Baixar a versão de teste <small>.exe · 3 MB</small></a>
+          <a class="btn btn-line" href="download/hellys-android.apk" download>App Android <small>.apk · 2 MB</small></a>
+        </div>
       </div>
     </div>
+    <h3 class="buy-h">Como comprar</h3>
+    <ol class="steps buy-steps">
+      <li class="step"><h3>Instale o Hellys</h3><p>O instalador é o mesmo da versão de teste.</p></li>
+      <li class="step"><h3>Clique em Comprar o Pro</h3><p>Em <b>Configurações → Hellys Pro</b>. O WhatsApp abre com o <b>código do seu PC</b> já na mensagem.</p></li>
+      <li class="step"><h3>Pague por Pix ou cartão</h3><p>Pelo Mercado Pago. A chave chega no WhatsApp ou no e-mail.</p></li>
+      <li class="step"><h3>Cole a chave</h3><p>Em <b>Configurações → Hellys Pro</b>. Os limites somem na hora, sem reinstalar.</p></li>
+    </ol>
   </section>
 
   <section class="sec wrap" id="instalar" aria-labelledby="inst-h">
     <span class="kicker">Instalar</span>
     <h2 id="inst-h">Instalar leva um minuto. O Windows vai desconfiar, e a gente explica por quê.</h2>
-    <p class="sub">O instalador ainda não tem assinatura digital (um certificado pago), então o Windows não reconhece o fornecedor e mostra um aviso.</p>
+    <p class="sub">O instalador ainda não tem assinatura digital (um certificado pago), então o Windows não reconhece quem fez o programa e avisa. <b>Não precisa desligar o antivírus</b>: ele continua ligado o tempo todo.</p>
     <ol class="steps">
       <li class="step"><h3>Baixe e abra o instalador</h3><p>Se aparecer <b>“O Windows protegeu o computador”</b>, clique em <b>Mais informações → Executar assim mesmo</b>.</p></li>
-      <li class="step"><h3>Windows 11 bloqueou de vez?</h3><p>É o <b>Controle inteligente de aplicativos</b>, que bloqueia todo programa sem assinatura. Ele só libera se for desligado em <b>Segurança do Windows → Controle de aplicativos e navegador</b>, e depois não dá para religar sem reinstalar o Windows. Se não quiser desligar, espere: só um instalador com assinatura digital passa por esse bloqueio.</p></li>
+      <li class="step"><h3>Windows 11 bloqueou sem botão de executar?</h3><p>É o <b>Controle Inteligente de Aplicativos</b>, que vem ligado em alguns Windows 11 e bloqueia todo programa sem assinatura digital paga, ao instalar e toda vez que ele abre. Para usar o Hellys, desligue só essa opção em <b>Segurança do Windows → Controle de aplicativos e navegador → Configurações do Controle Inteligente de Aplicativos → Desativado</b>. O antivírus continua ligado. Dá para religar depois (Windows 11 atualizado desde abril de 2026), mas com ela ligada o Hellys não abre.</p></li>
       <li class="step"><h3>Comece pela nota</h3><p>A tela Início mostra a nota e o que vale olhar. O perfil indicado para o seu tipo de PC aparece com a lista do que muda. Quando sair versão nova, o próprio app avisa e atualiza.</p></li>
       <li class="step"><h3>No Android</h3><p>Baixe o <b>.apk</b> no celular e permita “instalar apps desconhecidos” para o navegador quando o Android pedir.</p></li>
     </ol>
@@ -379,7 +417,7 @@ img{max-width:100%;height:auto;display:block}
 
   <section class="sec wrap" id="perguntas" aria-labelledby="faq-h">
     <span class="kicker">Perguntas</span>
-    <h2 id="faq-h">Antes de baixar</h2>
+    <h2 id="faq-h">Antes de comprar</h2>
     <div class="faq">
       <details>
         <summary>Vai aumentar o meu FPS?</summary>
@@ -399,7 +437,15 @@ img{max-width:100%;height:auto;display:block}
       </details>
       <details>
         <summary>Como recebo o Pro depois de pagar?</summary>
-        <div class="a"><p>Assim que o pagamento é confirmado, você recebe uma chave de ativação pelo WhatsApp ou e-mail. No Hellys, abra <b>Configurações → Hellys Pro</b>, cole a chave e pronto: os limites somem na hora, sem precisar reinstalar.</p></div>
+        <div class="a"><p>Compre pelo botão <b>Comprar o Pro</b> dentro do app (<b>Configurações → Hellys Pro</b>): o WhatsApp abre com o código do seu PC. Assim que o pagamento é confirmado, a chave chega por lá ou por e-mail. Cole a chave no mesmo lugar e pronto: os limites somem na hora, sem reinstalar.</p></div>
+      </details>
+      <details>
+        <summary>A chave vale em mais de um PC?</summary>
+        <div class="a"><p>Não. Cada chave libera um PC: o do código enviado na compra. Pode dar de presente, comprando com o código do PC de quem vai usar. Formatou o Windows? Continua valendo. Trocou de PC ou de placa-mãe? Chame no WhatsApp.</p></div>
+      </details>
+      <details>
+        <summary>Preciso desligar o antivírus?</summary>
+        <div class="a"><p>Não. O Hellys funciona com o antivírus ligado e nunca desliga o antivírus. O único bloqueio possível é o Controle Inteligente de Aplicativos de alguns Windows 11, explicado em <a href="#instalar">Instalar</a>.</p></div>
       </details>
       <details>
         <summary>Vou ter que pagar de novo nas atualizações?</summary>
@@ -419,11 +465,12 @@ img{max-width:100%;height:auto;display:block}
   <section class="cta" aria-labelledby="cta-h">
     <div class="wrap">
       <div>
-        <h2 id="cta-h">Descubra a nota do seu PC em 1 minuto.</h2>
-        <p>Baixe grátis, veja o que está pesando e otimize com um clique. Se não gostar de alguma mudança, um clique desfaz.</p>
+        <h2 id="cta-h">Seu PC no modo jogo, sem mensalidade.</h2>
+        <p>Hellys Pro por R$ 49,90, uma vez só. Quer ver antes? Instale a versão de teste e veja a nota do seu PC em 1 minuto.</p>
       </div>
       <div class="acts">
-        <a class="btn" href="#baixar">Baixar grátis <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v12M6 10l6 6 6-6M5 20h14"/></svg></a>
+        <a class="btn" href="#preco">Comprar o Pro <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-line" href="#baixar">Baixar a versão de teste</a>
         <a class="btn btn-line" href="https://wa.me/5511994032102?text=Oi%2C%20tenho%20uma%20d%C3%BAvida%20sobre%20o%20Hellys%20Optimizer." target="_blank" rel="noopener">Tirar dúvida no WhatsApp</a>
       </div>
     </div>
