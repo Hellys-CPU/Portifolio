@@ -1,0 +1,19 @@
+/* Páginas de texto do Hellys Optimizer (Termos e Privacidade). */
+:root{--bg:#10141a;--surface:#171d26;--line:#2a3341;--text:#e8ecf1;--text-dim:#9aabbd;--accent:#ff8a3d;--accent-2:#3fc9a8}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font:400 17px/1.65 'IBM Plex Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+main{max-width:760px;margin:0 auto;padding:clamp(32px,8vw,80px) 16px}
+.kicker{font:500 12.5px/1 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-2)}
+h1{font:700 clamp(2rem,6vw,2.8rem)/1.08 'Space Grotesk',sans-serif;letter-spacing:-.025em;margin-top:14px}
+.data{color:var(--text-dim);font-size:14px;margin-top:10px}
+.resumo{margin-top:24px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 20px}
+.resumo ul{margin:8px 0 0 20px}
+h2{font:600 21px/1.25 'Space Grotesk',sans-serif;margin-top:36px}
+p,li{color:var(--text-dim);margin-top:10px}
+p b,li b{color:var(--text);font-weight:600}
+ul,ol{margin-left:22px}
+li{margin-top:6px}
+.vendedor{margin-top:40px;border-top:1px solid var(--line);padding-top:20px;font-size:14.5px}
+.foot{padding:26px 16px 34px;color:var(--text-dim);font-size:13.5px;text-align:center}
+@media print{body{background:#fff;color:#000}p,li,.data{color:#222}a{color:#000}.resumo{background:none}}
