@@ -7,7 +7,7 @@
 <meta name="description" content="Otimizador para Windows 10 e 11 da hellys.: nota de saúde do PC com dados reais, perfis prontos que mostram o que mudam, Modo Jogo com FPS medido de verdade e um botão para desfazer cada alteração. Sem limpar registro, sem liberar RAM, sem promessa de FPS.">
 <meta name="theme-color" content="#10141a">
 <!-- Endereço da loja (loja/ no repositório do app). Vazio: a compra pelo site some e fica o WhatsApp. -->
-<meta name="hellys-loja" content="https://hellys-loja.guilherme-hellys1.workers.dev">
+<meta name="hellys-loja" content="">
 <link rel="canonical" href="https://hellys.dev.br/optimizer/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
@@ -231,7 +231,7 @@ img{max-width:100%;height:auto;display:block}
       <a class="hide-md" href="#celular">Celular</a>
       <a class="hide-md" href="#preco">Preço</a>
       <a class="hide-md" href="#perguntas">Perguntas</a>
-      <a class="pill" href="#preco">Comprar o Pro</a>
+      <a class="pill" href="#preco">Hellys Pro</a>
     </nav>
   </div>
 </header>
@@ -242,8 +242,8 @@ img{max-width:100%;height:auto;display:block}
     <h1 id="h1">Seu PC no <em>modo jogo</em> com um clique.</h1>
     <p class="lead">O Hellys Optimizer coloca o jogo em primeiro lugar, segura os programas que roubam o processador e ajusta o Windows para desempenho. <b>Cada mudança vem explicada e tem um botão para desfazer</b>, e você mede o FPS antes e depois para ver a diferença no seu PC.</p>
     <div class="acts">
-      <a class="btn" href="#preco">Comprar o Pro · R$ 49,90 <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a class="btn btn-line" href="#baixar">Testar antes de comprar</a>
+      <a class="btn" href="#preco">Conheça o Hellys Pro <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-line" href="#recursos">Ver o que faz</a>
     </div>
     <ul class="trust" aria-label="Garantias">
       <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Pagamento único, sem mensalidade</li>
@@ -388,6 +388,11 @@ img{max-width:100%;height:auto;display:block}
     <span class="kicker">Preço</span>
     <h2 id="preco-h">Hellys Pro: tudo liberado por <em>R$&nbsp;49,90</em>, uma vez só.</h2>
     <p class="sub">Sem mensalidade, sem anúncio e com as atualizações incluídas. A versão de teste serve para você ver a nota do seu PC e experimentar cada função antes de comprar.</p>
+    <div class="aviso-pausa" role="status" style="margin:14px 0 22px;padding:16px 18px;border:1px solid var(--accent);border-radius:12px;background:rgba(127,127,127,.08)">
+      <b>Download e compra temporariamente pausados.</b>
+      <p style="margin:.45rem 0 0">O Windows Defender está marcando o instalador por engano (falso positivo), o que é comum em programas novos ainda sem assinatura digital. Já pedimos a revisão à Microsoft e estamos resolvendo. O Hellys não mexe no seu antivírus. Volta assim que instalar sem travar.</p>
+      <p style="margin:.7rem 0 0"><a class="btn btn-line" href="https://wa.me/5511994032102?text=Oi%21%20Quero%20ser%20avisado%20quando%20o%20Hellys%20Optimizer%20voltar." target="_blank" rel="noopener">Quero ser avisado quando voltar</a></p>
+    </div>
     <div class="plans">
       <div class="plan pro">
         <span class="name">Hellys Pro <span class="soon">completo</span></span>
@@ -398,7 +403,7 @@ img{max-width:100%;height:auto;display:block}
           <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Medir FPS e aplicar os 55 ajustes sem limite</li>
           <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Atualizações incluídas: o app se atualiza sozinho (<a href="novidades/" style="color:var(--accent)">veja as novidades</a>)</li>
         </ul>
-        <a class="btn" id="comprar-pro" href="#como-comprar">Comprar o Pro <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <span class="btn" id="comprar-pro" aria-disabled="true" style="opacity:.5;cursor:not-allowed;pointer-events:none">Em breve</span>
         <p class="fine">Pagamento por Pix, pelo Mercado Pago, direto no app: aprovou, o Pro ativa sozinho. Vale para 1 PC, o da compra. Pode dar de presente pelo site, com o código do PC de quem vai usar. Você tem 7 dias para desistir da compra, como manda o Código de Defesa do Consumidor. <a href="termos/" style="color:var(--accent)">Termos de compra</a>.</p>
       </div>
       <div class="plan" id="baixar">
@@ -410,13 +415,12 @@ img{max-width:100%;height:auto;display:block}
           <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>É o mesmo app: comprou, vira Pro na hora, sem reinstalar</li>
         </ul>
         <div style="display:grid;gap:10px;margin-top:auto">
-          <a class="btn btn-line" href="download/HellysOptimizer-setup.exe" download>Baixar a versão de teste <small>.exe · 3 MB</small></a>
-          <a class="btn btn-line" href="download/hellys-android.apk" download>App Android <small>.apk · 2 MB</small></a>
+          <span class="btn btn-line" aria-disabled="true" style="opacity:.5;cursor:not-allowed;pointer-events:none">Em breve <small>download pausado</small></span>
         </div>
       </div>
     </div>
-    <h3 class="buy-h" id="como-comprar">Como comprar</h3>
-    <ol class="steps buy-steps">
+    <h3 class="buy-h" id="como-comprar" hidden>Como comprar</h3>
+    <ol class="steps buy-steps" hidden>
       <li class="step"><h3>Instale o Hellys</h3><p>O instalador é o mesmo da versão de teste: <a href="download/HellysOptimizer-setup.exe" download>baixar</a>.</p></li>
       <li class="step"><h3>Abra Configurações → Hellys Pro</h3><p>Digite o seu e-mail e clique em <b>Pagar R$ 49,90 com Pix</b>. O pagamento abre no navegador.</p></li>
       <li class="step"><h3>Pague com Pix</h3><p>QR Code ou copia e cola, no Mercado Pago. Os dados do pagamento ficam com o Mercado Pago, nunca com o Hellys.</p></li>
@@ -434,18 +438,17 @@ img{max-width:100%;height:auto;display:block}
       <button class="btn" type="submit">Pagar R$ 49,90 <small>com Pix</small></button>
       <p class="gift-msg" role="status" aria-live="polite"></p>
     </form>
-    <p class="fine-sm" id="sem-loja">Prefere falar com alguém? <a href="https://wa.me/5511994032102?text=Oi%21%20Quero%20comprar%20o%20Hellys%20Pro%20%28R%24%2049%2C90%29." target="_blank" rel="noopener">Compre pelo WhatsApp</a>.</p>
+    <p class="fine-sm" id="sem-loja">Alguma dúvida? <a href="https://wa.me/5511994032102?text=Oi%21%20Tenho%20uma%20d%C3%BAvida%20sobre%20o%20Hellys%20Optimizer." target="_blank" rel="noopener">Fale com a gente no WhatsApp</a>.</p>
   </section>
 
   <section class="sec wrap" id="instalar" aria-labelledby="inst-h">
     <span class="kicker">Instalar</span>
     <h2 id="inst-h">Instalar leva um minuto. O Windows vai desconfiar, e a gente explica por quê.</h2>
-    <p class="sub">O instalador ainda não tem assinatura digital (um certificado pago), então o Windows não reconhece quem fez o programa e avisa. <b>Não precisa desligar o antivírus</b>: ele continua ligado o tempo todo.</p>
+    <p class="sub">Estamos resolvendo um bloqueio do Windows Defender: por ainda não ter assinatura digital, o instalador é marcado por engano como ameaça (falso positivo) e chega a ser apagado no download. Já pedimos a revisão à Microsoft. Enquanto isso, o download está pausado. O Hellys <b>não mexe no seu antivírus</b>.</p>
     <ol class="steps">
-      <li class="step"><h3>Baixe e abra o instalador</h3><p>Se aparecer <b>“O Windows protegeu o computador”</b>, clique em <b>Mais informações → Executar assim mesmo</b>.</p></li>
-      <li class="step"><h3>Windows 11 bloqueou sem botão de executar?</h3><p>É o <b>Controle Inteligente de Aplicativos</b>, que vem ligado em alguns Windows 11 e bloqueia todo programa sem assinatura digital paga, ao instalar e toda vez que ele abre. Para usar o Hellys, desligue só essa opção em <b>Segurança do Windows → Controle de aplicativos e navegador → Configurações do Controle Inteligente de Aplicativos → Desativado</b>. O antivírus continua ligado. Dá para religar depois (Windows 11 atualizado desde abril de 2026), mas com ela ligada o Hellys não abre.</p></li>
-      <li class="step"><h3>Comece pela nota</h3><p>A tela Início mostra a nota e o que vale olhar. O perfil indicado para o seu tipo de PC aparece com a lista do que muda. Quando sair versão nova, o próprio app avisa e atualiza.</p></li>
-      <li class="step"><h3>No Android</h3><p>Baixe o <b>.apk</b> no celular e permita “instalar apps desconhecidos” para o navegador quando o Android pedir.</p></li>
+      <li class="step"><h3>Por que o aviso acontece</h3><p>Programas novos sem assinatura digital paga são tratados com desconfiança pelo Windows. No caso do Hellys, o Defender está indo além e marcando o instalador como ameaça por engano (um falso positivo).</p></li>
+      <li class="step"><h3>O que estamos fazendo</h3><p>Já enviamos o instalador para a Microsoft revisar e remover a marcação, e estamos providenciando a assinatura digital, que resolve isso de forma definitiva. Por isso o download está pausado por ora.</p></li>
+      <li class="step"><h3>Quer ser avisado quando voltar?</h3><p>Chame no <a href="https://wa.me/5511994032102?text=Oi%21%20Quero%20ser%20avisado%20quando%20o%20Hellys%20Optimizer%20voltar." target="_blank" rel="noopener">WhatsApp</a> que a gente avisa assim que o Hellys instalar sem travar.</p></li>
     </ol>
   </section>
 
@@ -483,7 +486,7 @@ img{max-width:100%;height:auto;display:block}
       </details>
       <details>
         <summary>Preciso desligar o antivírus?</summary>
-        <div class="a"><p>Não. O Hellys funciona com o antivírus ligado e nunca desliga o antivírus. O único bloqueio possível é o Controle Inteligente de Aplicativos de alguns Windows 11, explicado em <a href="#instalar">Instalar</a>.</p></div>
+        <div class="a"><p>Não. O Hellys nunca desliga o antivírus nem mexe nele. No momento, porém, o Windows Defender está marcando o instalador por engano (falso positivo), coisa comum em programas novos sem assinatura digital. Já pedimos a revisão à Microsoft e por isso o download está pausado. Veja <a href="#instalar">Instalar</a>.</p></div>
       </details>
       <details>
         <summary>Vou ter que pagar de novo nas atualizações?</summary>
@@ -507,8 +510,7 @@ img{max-width:100%;height:auto;display:block}
         <p>Hellys Pro por R$ 49,90, uma vez só. Quer ver antes? Instale a versão de teste e veja a nota do seu PC em 1 minuto.</p>
       </div>
       <div class="acts">
-        <a class="btn" href="#preco">Comprar o Pro <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="btn btn-line" href="#baixar">Baixar a versão de teste</a>
+        <a class="btn" href="https://wa.me/5511994032102?text=Oi%21%20Quero%20ser%20avisado%20quando%20o%20Hellys%20Optimizer%20voltar." target="_blank" rel="noopener">Quero ser avisado quando voltar <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn btn-line" href="https://wa.me/5511994032102?text=Oi%2C%20tenho%20uma%20d%C3%BAvida%20sobre%20o%20Hellys%20Optimizer." target="_blank" rel="noopener">Tirar dúvida no WhatsApp</a>
       </div>
     </div>
