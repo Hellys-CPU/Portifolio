@@ -1,0 +1,11 @@
+{
+  "version": "0.4.0",
+  "notes": "• Hellys Pro: compre direto no app com Pix e o Pro ativa sozinho quando o pagamento é aprovado.\n• Versão de teste com todas as funções, para experimentar antes de comprar.\n• Atualização automática: o Hellys avisa quando sai versão nova e atualiza com um clique.\n• e mais 4 novidades",
+  "pub_date": "2026-10-15T03:44:27.169Z",
+  "platforms": {
+    "windows-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVRalk4TzRBejhRRTB4dkh3N1gxT0Fjb1dtOWtCTHRoMVJwTWRzZm5peHo1QU1iZ1ZEUFlxalpUdmg2d2lOSnhodjNJOEdjYUU5TXJDU1pYckVvV2IzTWV2NVJIUThDV0FVPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkyMDM1NzQ4CWZpbGU6SGVsbHlzIE9wdGltaXplcl8wLjQuMF94NjQtc2V0dXAubnNpcy56aXAKK3pHRnI2RDFKaGlkQ2VwNjFQa3k2OXk4ZUhlYnBiMDRHR1BFVWF6c3k5MVpEWEVlVEYzd05NcjVIMlRMQit3czhuaFdBcmhZTUc1S3JDOUdpMC91QlE9PQo=",
+      "url": "https://hellys.dev.br/optimizer/download/HellysOptimizer_0.4.0_x64-setup.nsis.zip"
+    }
+  }
+}
