@@ -38,6 +38,8 @@ h1{font:700 clamp(1.9rem,6vw,2.8rem)/1.08 'Space Grotesk',sans-serif;letter-spac
 ol{margin:14px 0 0 20px;color:var(--text-dim)}
 ol b{color:var(--text);font-weight:600}
 .foot{padding:26px 16px 34px;color:var(--text-dim);font-size:13.5px;text-align:center}
+.vendedor-id{margin-top:8px;font-size:12.5px}
+.btn.sutil{background:none;color:var(--text-dim);border:1px solid var(--line);font-weight:500}
 @media (prefers-reduced-motion:reduce){.wait .dot{animation:none}}
 </style>
 </head>
@@ -52,9 +54,11 @@ ol b{color:var(--text);font-weight:600}
     <div id="detalhe"></div>
   </div>
 
-  <p class="dim" style="margin-top:28px">Algum problema? <a href="https://wa.me/5511994032102?text=Oi%2C%20preciso%20de%20ajuda%20com%20a%20compra%20do%20Hellys%20Pro." target="_blank" rel="noopener">Fale com a gente no WhatsApp</a>. Você tem 7 dias para desistir da compra, como manda o Código de Defesa do Consumidor.</p>
+  <p class="dim" style="margin-top:28px">Algum problema? <a href="https://wa.me/5511994032102?text=Oi%2C%20preciso%20de%20ajuda%20com%20a%20compra%20do%20Hellys%20Pro." target="_blank" rel="noopener">Fale com a gente no WhatsApp</a>. Você tem 7 dias para desistir da compra, como manda o Código de Defesa do Consumidor (<a href="../termos/">Termos de compra</a>).</p>
 </main>
-<footer class="foot">hellys. · <a href="../">Hellys Optimizer</a></footer>
+<footer class="foot">hellys. · <a href="../">Hellys Optimizer</a>
+  <p class="vendedor-id">Vendido por {{VENDEDOR_NOME}} · {{VENDEDOR_DOC}} · {{VENDEDOR_ENDERECO}} · <a href="mailto:{{VENDEDOR_EMAIL}}">{{VENDEDOR_EMAIL}}</a> · <a href="../termos/">Termos de compra</a> · <a href="../privacidade/">Privacidade</a></p>
+</footer>
 
 <script>
 (() => {
@@ -111,6 +115,47 @@ ol b{color:var(--text);font-weight:600}
     return caixa;
   }
 
+  // Direito de arrependimento (7 dias) pela mesma ferramenta da compra.
+  function desistencia(ate) {
+    const fuso = { timeZone: "America/Sao_Paulo" };
+    const d = new Date(ate);
+    const quando = d.toLocaleDateString("pt-BR", { ...fuso, day: "2-digit", month: "2-digit" }) + " às " +
+      d.toLocaleTimeString("pt-BR", { ...fuso, hour: "2-digit", minute: "2-digit" });
+    const caixa = document.createElement("div");
+    caixa.style.marginTop = "22px";
+    const p = document.createElement("p");
+    p.className = "dim";
+    p.textContent = `Mudou de ideia? Você pode desistir até ${quando} e receber o Pix de volta, inteiro. A chave deixa de valer.`;
+    const b = document.createElement("button");
+    b.className = "btn sutil";
+    b.type = "button";
+    b.textContent = "Desistir da compra";
+    b.onclick = async () => {
+      if (!confirm("Desistir da compra? O Mercado Pago devolve o Pix inteiro para a conta que pagou e a chave deixa de valer.")) return;
+      b.disabled = true;
+      b.textContent = "Desistindo…";
+      try {
+        const resp = await fetch(`${loja}/desistir`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ pedido, token }),
+        });
+        const r = await resp.json();
+        if (!resp.ok) throw new Error(r.erro || "A loja não respondeu.");
+        mostrar(r.status === "reembolsado" ? "ok" : "bad", "Compra desfeita", r.status === "reembolsado" ? "O Pix está voltando para a conta que pagou." : "Desistência registrada.",
+          r.status === "reembolsado"
+            ? '<p class="dim">O Mercado Pago devolve o valor inteiro. A chave deixou de valer e, no PC da compra, o Hellys volta para a versão de teste.</p>'
+            : '<p class="dim">O Mercado Pago não deixou devolver na hora; a gente faz a devolução à mão e avisa no e-mail da compra.</p>');
+      } catch (e) {
+        b.disabled = false;
+        b.textContent = "Desistir da compra";
+        p.textContent = (e && e.message) || "Não deu certo agora. Tente de novo ou fale com a gente no WhatsApp.";
+      }
+    };
+    caixa.append(p, b);
+    return caixa;
+  }
+
   let tentativas = 0;
   async function conferir() {
     tentativas++;
@@ -132,6 +177,11 @@ ol b{color:var(--text);font-weight:600}
     if (r.status === "pago" && r.licenca) {
       mostrar("ok", "Pagamento aprovado. Obrigado!", "O Hellys Pro é seu.", PASSOS);
       $("detalhe").append(chave(r.licenca, r.pc));
+      if (r.desistir_ate && Date.now() < Date.parse(r.desistir_ate)) $("detalhe").append(desistencia(r.desistir_ate));
+      return;
+    }
+    if (r.status === "desistencia") {
+      mostrar("bad", "Desistência registrada", "A compra foi desfeita.", '<p class="dim">O Mercado Pago não deixou devolver o Pix na hora; a gente faz a devolução à mão e avisa no e-mail da compra. A chave deixou de valer.</p>');
       return;
     }
     if (r.status === "reembolsado") {

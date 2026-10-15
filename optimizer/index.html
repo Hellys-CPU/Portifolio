@@ -174,6 +174,11 @@ img{max-width:100%;height:auto;display:block}
 .gift-msg:empty{display:none}
 .gift-msg{color:var(--danger)!important}
 .fine-sm{color:var(--text-dim);font-size:14px;margin-top:14px}
+.gift-resumo{font-size:14px!important}
+.gift-aceite{display:flex!important;gap:10px;align-items:flex-start;margin:4px 0 16px;font-size:14px}
+.gift-aceite input{width:auto!important;margin-top:4px;accent-color:var(--accent)}
+.gift-aceite a{color:var(--accent)}
+.foot .vendedor-id{flex-basis:100%;font-size:12.5px}
 .fine-sm a{color:var(--accent)}
 @media (max-width:640px){.gift-row{grid-template-columns:1fr}}
 .vs{margin-top:clamp(28px,4vw,44px);border:1px solid var(--line);border-radius:10px;overflow:hidden}
@@ -391,17 +396,16 @@ img{max-width:100%;height:auto;display:block}
           <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Perfis sem limite: troque entre Jogos, Trabalho e Economia quando quiser</li>
           <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Perfil automático por jogo: aplica ao abrir, desfaz ao fechar</li>
           <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Medir FPS e aplicar os 55 ajustes sem limite</li>
-          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Controle pelo celular e app Android</li>
           <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Atualizações incluídas: o app se atualiza sozinho (<a href="novidades/" style="color:var(--accent)">veja as novidades</a>)</li>
         </ul>
         <a class="btn" id="comprar-pro" href="#como-comprar">Comprar o Pro <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <p class="fine">Pagamento por Pix, pelo Mercado Pago, direto no app: aprovou, o Pro ativa sozinho. Vale para 1 PC, o da compra. Pode dar de presente pelo site, com o código do PC de quem vai usar. Você tem 7 dias para desistir da compra, como manda o Código de Defesa do Consumidor.</p>
+        <p class="fine">Pagamento por Pix, pelo Mercado Pago, direto no app: aprovou, o Pro ativa sozinho. Vale para 1 PC, o da compra. Pode dar de presente pelo site, com o código do PC de quem vai usar. Você tem 7 dias para desistir da compra, como manda o Código de Defesa do Consumidor. <a href="termos/" style="color:var(--accent)">Termos de compra</a>.</p>
       </div>
       <div class="plan" id="baixar">
         <span class="name">Versão de teste</span>
         <p class="price">R$ 0<small>para ver antes de comprar</small></p>
         <ul>
-          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Nota de saúde, Limpeza, Inicialização, Rede e Diagnóstico</li>
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Nota de saúde, Limpeza, Inicialização, Rede, Diagnóstico e controle pelo celular</li>
           <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8v4M12 16h.01"/><circle cx="12" cy="12" r="9"/></svg>Para experimentar: 1 aplicação de perfil, 3 medições de FPS e 5 ajustes avulsos por PC</li>
           <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>É o mesmo app: comprou, vira Pro na hora, sem reinstalar</li>
         </ul>
@@ -425,6 +429,8 @@ img{max-width:100%;height:auto;display:block}
         <label>Código do PC<input name="pc" required autocomplete="off" spellcheck="false" placeholder="ABCD-EFGH-JKMN-PQRS" maxlength="24"></label>
         <label>Seu e-mail<input name="email" type="email" required autocomplete="email" placeholder="voce@exemplo.com" maxlength="254"></label>
       </div>
+      <p class="gift-resumo">Hellys Pro para 1 PC (o do código acima) · R$ 49,90, pagamento único por Pix · a chave aparece na tela assim que o Pix é aprovado · 7 dias para desistir, com o Pix devolvido.</p>
+      <label class="gift-aceite"><input type="checkbox" name="aceite" required> Li e aceito os <a href="termos/" target="_blank" rel="noopener">Termos de compra e uso</a> e a <a href="privacidade/" target="_blank" rel="noopener">Política de Privacidade</a>.</label>
       <button class="btn" type="submit">Pagar R$ 49,90 <small>com Pix</small></button>
       <p class="gift-msg" role="status" aria-live="polite"></p>
     </form>
@@ -472,6 +478,10 @@ img{max-width:100%;height:auto;display:block}
         <div class="a"><p>Não. Cada compra libera um PC: o da compra (ou o do código informado no presente). Formatou o Windows? Continua valendo. Trocou de PC ou de placa-mãe? Chame no WhatsApp.</p></div>
       </details>
       <details>
+        <summary>Posso desistir da compra?</summary>
+        <div class="a"><p>Pode, em até <b>7 dias</b> depois de receber a chave, sem precisar explicar o motivo. Comprou pelo app? Em <b>Configurações → Hellys Pro → Desistir da compra</b>. Comprou de presente pelo site? Pelo botão na página de confirmação do pedido. O Pix volta inteiro e a chave deixa de valer. Detalhes nos <a href="termos/" class="ref-link" style="color:var(--accent)">Termos de compra</a>.</p></div>
+      </details>
+      <details>
         <summary>Preciso desligar o antivírus?</summary>
         <div class="a"><p>Não. O Hellys funciona com o antivírus ligado e nunca desliga o antivírus. O único bloqueio possível é o Controle Inteligente de Aplicativos de alguns Windows 11, explicado em <a href="#instalar">Instalar</a>.</p></div>
       </details>
@@ -506,7 +516,8 @@ img{max-width:100%;height:auto;display:block}
 </main>
 
 <footer class="foot">
-  <div class="wrap"><span>hellys. · Hellys Optimizer · <a href="novidades/">Novidades</a></span><a href="../">Ver o portfólio</a></div>
+  <div class="wrap"><span>hellys. · Hellys Optimizer · <a href="novidades/">Novidades</a> · <a href="termos/">Termos</a> · <a href="privacidade/">Privacidade</a></span><a href="../">Ver o portfólio</a>
+    <p class="vendedor-id">Vendido por {{VENDEDOR_NOME}} · {{VENDEDOR_DOC}} · {{VENDEDOR_ENDERECO}} · <a href="mailto:{{VENDEDOR_EMAIL}}">{{VENDEDOR_EMAIL}}</a> · <a href="termos/">Termos de compra</a> · <a href="privacidade/">Privacidade</a></p></div>
 </footer>
 <script>
 // Compra pelo site (presente ou outro PC): cria o pedido na loja e leva ao Mercado Pago.
