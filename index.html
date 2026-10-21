@@ -89,16 +89,16 @@
 <div id="ai-companions" class="ai-companions mono">
   <div class="ai-companions-inner" id="ai-companions-inner">
     <div class="companion companion-atena" data-orb="atena">
-      <div class="ai-orb orb-atena orb-sm" tabindex="0" role="button" aria-label="Falar com a Atena"><div class="orb-eyes"><span></span><span></span></div></div>
+      <div class="ai-orb orb-atena orb-sm" tabindex="0" role="button" aria-label="Falar com a Atena, engenheira de bordo"><div class="orb-eyes"><span></span><span></span></div></div>
       <div class="companion-bubble term" id="bubble-atena">
-        <div class="term-bar"><span></span><span></span><span></span><span class="term-title mono">atena@sistema</span></div>
+        <div class="term-bar"><span></span><span></span><span></span><span class="term-title mono">atena@bordo</span></div>
         <div class="term-body mono"><span class="term-prompt">$</span> <span class="term-out" id="term-out-atena"></span><span class="term-cursor">▍</span></div>
       </div>
     </div>
     <div class="companion companion-aurora" data-orb="aurora">
-      <div class="ai-orb orb-aurora orb-sm" tabindex="0" role="button" aria-label="Falar com a Aurora"><div class="orb-eyes"><span></span><span></span></div></div>
+      <div class="ai-orb orb-aurora orb-sm" tabindex="0" role="button" aria-label="Falar com a Aurora, comunicação de bordo"><div class="orb-eyes"><span></span><span></span></div></div>
       <div class="companion-bubble term" id="bubble-aurora">
-        <div class="term-bar"><span></span><span></span><span></span><span class="term-title mono">aurora@sistema</span></div>
+        <div class="term-bar"><span></span><span></span><span></span><span class="term-title mono">aurora@bordo</span></div>
         <div class="term-body mono"><span class="term-prompt">$</span> <span class="term-out" id="term-out-aurora"></span><span class="term-cursor">▍</span></div>
       </div>
     </div>
@@ -107,9 +107,9 @@
 
 <div id="intro-overlay" role="dialog" aria-label="Abertura do site">
   <canvas id="intro-canvas" aria-hidden="true"></canvas>
-  <button class="intro-hint mono" id="intro-hold" type="button" aria-label="Formar o nome Hellys">
+  <button class="intro-hint mono" id="intro-hold" type="button" aria-label="Montar o satélite e formar o nome Hellys">
     <span id="intro-hint-main">passe o mouse pelos pontos</span>
-    <span class="intro-hint-sub" id="intro-hint-sub">segure o clique pra formar o nome</span>
+    <span class="intro-hint-sub" id="intro-hint-sub">segure o clique pra montar o sistema</span>
   </button>
   <div class="intro-progress" aria-hidden="true"><i id="intro-progress-fill"></i></div>
   <button class="intro-skip mono" id="intro-skip" type="button">pular intro ›</button>
@@ -618,6 +618,7 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
       <div><div class="k">formação técnica</div><div class="v">Técnico em Marketing</div></div>
       <div><div class="k">formação em andamento</div><div class="v">Ciência da Computação (cursando)</div></div>
       <div><div class="k">foco atual</div><div class="v">Desenvolvimento de sistemas</div></div>
+      <div><div class="k">grupo</div><div class="v"><a href="https://hellys-cpu.github.io/pleiade/" class="ref-link" target="_blank" rel="noopener">Uma marca do grupo Plêiade</a></div></div>
     </div>
   </div>
   <div class="stat-bar">
@@ -1576,7 +1577,7 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
 
 </main>
 
-<footer>hellys · desenvolvimento de sistemas · são paulo · <button type="button" class="foot-term" id="term-open" data-cursor="abrir">terminal <kbd>`</kbd></button></footer>
+<footer>hellys · desenvolvimento de sistemas · são paulo · <a href="https://hellys-cpu.github.io/pleiade/" class="foot-grupo" target="_blank" rel="noopener">uma marca do grupo Plêiade</a> · <button type="button" class="foot-term" id="term-open" data-cursor="abrir">terminal <kbd>`</kbd></button></footer>
 
 <div id="term" class="tmn" role="dialog" aria-label="Terminal do portfólio" aria-hidden="true" inert>
   <div class="tmn-bar mono">
@@ -2066,7 +2067,8 @@ window.PortfolioLB = (function(){
 
 <script>
 (function(){
-  // ---- ABERTURA — enxame de pontos vivo: foge do mouse/dedo, e ao segurar se junta formando "HELLYS." ----
+  // ---- ABERTURA — enxame de pontos vivo: foge do mouse/dedo; ao segurar, os nanorrobôs montam o satélite
+  //      (Atena constrói a asa laranja, Aurora a verde) e depois se juntam formando "HELLYS." ----
   var overlay = document.getElementById('intro-overlay');
   var canvas = document.getElementById('intro-canvas');
   if (!overlay || !canvas) return;
@@ -2097,14 +2099,16 @@ window.PortfolioLB = (function(){
   var ctx = canvas.getContext('2d');
   var isCoarse = !!(window.matchMedia && window.matchMedia('(pointer:coarse)').matches);
   var IDLE_MAIN = isCoarse ? 'passe o dedo pelos pontos' : 'passe o mouse pelos pontos';
-  var IDLE_SUB = isCoarse ? 'toque e segure pra formar o nome' : 'segure o clique pra formar o nome';
+  var IDLE_SUB = isCoarse ? 'toque e segure pra montar o sistema' : 'segure o clique pra montar o sistema';
 
   var W = 0, H = 0, DPR = 1;
   var parts = [];
   var groups = [[], [], [], []];                 // 0 branco · 1 teal (Aurora) · 2 laranja (Atena) · 3 poeira
   var COLORS = ['232,236,241', '63,201,168', '255,138,61', '232,236,241'];
   var BASE_ALPHA = [0.85, 1, 1, 0.3];
-  var stage = 'idle';                            // idle · gag · fix · lock · burst · done
+  var stage = 'idle';                            // idle · sat · gag · fix · lock · burst · done
+  var sat = null;                                // o satélite: traços e pontos-alvo (ver satelite())
+  var satA = 0;                                  // quanto o traço do satélite está visível, 0..1
   var p = 0;                                     // progresso da formação, 0..1
   var holding = false, auto = false;
   var useB = seenBefore;                         // quem já viu a intro forma "HELLYS." direto, sem a piada
@@ -2232,6 +2236,52 @@ window.PortfolioLB = (function(){
     }
     var dust = W < 640 ? 110 : 260;
     for (var d = 0; d < dust; d++) add(null, null, 3, false);
+
+    // cada nanorrobô da palavra também tem um lugar no satélite: laranja na asa da Atena, teal na da Aurora, branco na estrutura
+    sat = satelite();
+    parts.forEach(function(pt){
+      if (!pt.a) return;
+      pt.sat = pt.g === 2 ? sat.asa(sat.ASA_ATENA) : (pt.g === 1 ? sat.asa(sat.ASA_AURORA) : sat.traco());
+    });
+  }
+
+  // ---- o satélite, desenhado num espaço de 100 × 60 com centro em (50, 30) — o mesmo do site da Plêiade ----
+  function satelite(){
+    var u = Math.min(W * 0.8 / 100, H * 0.55 / 60), cx = W / 2, cy = H * CY;
+    function P(x, y){ return { x: cx + (x - 50) * u, y: cy + (y - 30) * u }; }
+    var ASA_ATENA = [[8, 17.5], [18.5, 28], [29, 38]], ASA_AURORA = [[62, 71.5], [72, 81.5], [82.5, 92]];
+    var segs = [];
+    function ret(x0, y0, x1, y1){ segs.push([x0, y0, x1, y0], [x1, y0, x1, y1], [x1, y1, x0, y1], [x0, y1, x0, y0]); }
+    ASA_ATENA.concat(ASA_AURORA).forEach(function(a){ ret(a[0], 25, a[1], 35); segs.push([a[0], 30, a[1], 30]); });
+    ret(44, 17, 56, 41);
+    segs.push([44, 24, 56, 24], [44, 35, 56, 35], [38, 30, 44, 30], [56, 30, 62, 30], [50, 17, 50, 11],
+              [44, 40, 40.5, 46], [56, 40, 59.5, 46], [46.5, 41, 47.5, 43.5], [47.5, 43.5, 52.5, 43.5], [52.5, 43.5, 53.5, 41],
+              [43.5, 9.3, 50, 3.5], [56.5, 9.3, 50, 3.5]);
+    for (var i = 0; i < 16; i++){                 // aro da antena parabólica
+      var a0 = i / 16 * 6.2832, a1 = (i + 1) / 16 * 6.2832;
+      segs.push([50 + Math.cos(a0) * 7.5, 9 + Math.sin(a0) * 2, 50 + Math.cos(a1) * 7.5, 9 + Math.sin(a1) * 2]);
+    }
+    // tigela da antena: curva de (42.5, 9) a (57.5, 9) passando por baixo
+    function q(t){ return [(1 - t) * (1 - t) * 42.5 + 2 * (1 - t) * t * 50 + t * t * 57.5, (1 - t) * (1 - t) * 9 + 2 * (1 - t) * t * 16 + t * t * 9]; }
+    for (var j = 0; j < 8; j++){
+      var qa = q(j / 8), qb = q((j + 1) / 8);
+      segs.push([qa[0], qa[1], qb[0], qb[1]]);
+    }
+    var lens = segs.map(function(sg){ return Math.hypot(sg[2] - sg[0], sg[3] - sg[1]); });
+    var total = lens.reduce(function(x, y){ return x + y; }, 0);
+    function traco(){
+      var r = Math.random() * total, k = 0;
+      while (r > lens[k] && k < segs.length - 1){ r -= lens[k]; k++; }
+      var sg = segs[k], f = Math.random();
+      return P(sg[0] + (sg[2] - sg[0]) * f, sg[1] + (sg[3] - sg[1]) * f);
+    }
+    function asa(paineis){
+      // um ponto dentro de uma das 4 × 2 células de um painel solar
+      var pn = paineis[Math.floor(Math.random() * paineis.length)];
+      var cw = (pn[1] - pn[0]) / 4, col = Math.floor(Math.random() * 4), lin = Math.floor(Math.random() * 2);
+      return P(pn[0] + cw * col + 0.5 + Math.random() * (cw - 1), 25 + 5 * lin + 0.5 + Math.random() * 4);
+    }
+    return { P: P, u: u, segs: segs, traco: traco, asa: asa, ASA_ATENA: ASA_ATENA, ASA_AURORA: ASA_AURORA };
   }
 
   // ---- fases ----
@@ -2244,14 +2294,22 @@ window.PortfolioLB = (function(){
   function formed(){
     holding = false; auto = false;
     overlay.classList.remove('is-holding');
+    // primeiro o sistema: os nanorrobôs viram o satélite da hellys.
+    stage = 'sat';
+    setHint('do caos à ordem.', 'atena na engenharia · aurora na comunicação');
+    setTimeout(toWord, seenBefore ? 1300 : 1900);
+  }
+  function toWord(){
+    if (stage !== 'sat') return;
     if (useB){
       stage = 'lock';
       setHint('', '');
-      setTimeout(doBurst, 420);
+      setTimeout(doBurst, 1000);
     } else {
       stage = 'gag';
-      setHint('hm… isso não tá certo', '');
-      setTimeout(fix, 950);
+      setHint('agora o nome…', '');
+      setTimeout(function(){ if (stage === 'gag') setHint('hm… isso não tá certo', ''); }, 850);
+      setTimeout(fix, 1800);
     }
   }
   function fix(){
@@ -2340,7 +2398,7 @@ window.PortfolioLB = (function(){
         var ry = pt.hy + Math.sin(t * pt.fy + pt.ph) * pt.am * (1 - e);
         var gx = rx, gy = ry;
         if (pt.a){
-          var tg = useB ? pt.b : pt.a;
+          var tg = stage === 'sat' ? pt.sat : (useB ? pt.b : pt.a);
           gx = rx + (tg.x - rx) * e;
           gy = ry + (tg.y - ry) * e;
         } else if (e > 0){
@@ -2362,6 +2420,7 @@ window.PortfolioLB = (function(){
         pt.x += pt.vx * s; pt.y += pt.vy * s;
       }
     }
+    satA += ((stage === 'sat' ? 1 : 0) - satA) * Math.min(1, 0.08 * s);
     draw(now);
   }
 
@@ -2393,6 +2452,22 @@ window.PortfolioLB = (function(){
       ctx.beginPath();
       for (i = 0; i < arr.length; i++){ pt = arr[i]; ctx.rect(pt.x - pt.s * 1.6, pt.y - pt.s * 1.6, pt.s * 3.2, pt.s * 3.2); }
       ctx.fill();
+    }
+    if (sat && satA > 0.02){                        // traço técnico do satélite e o sinal da antena
+      ctx.globalAlpha = 0.28 * satA * alpha;
+      ctx.strokeStyle = 'rgb(' + COLORS[0] + ')';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      sat.segs.forEach(function(sg){ var a = sat.P(sg[0], sg[1]), b = sat.P(sg[2], sg[3]); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); });
+      ctx.stroke();
+      var foco = sat.P(50, 3.5), tt = now / 1000;
+      for (var w = 0; w < 3; w++){
+        var fw = (tt / 1.8 + w / 3) % 1;
+        ctx.globalAlpha = 0.45 * (1 - fw) * satA * alpha;
+        ctx.beginPath();
+        ctx.arc(foco.x, foco.y, (2 + fw * 14) * sat.u, Math.PI * 1.22, Math.PI * 1.78);
+        ctx.stroke();
+      }
     }
     if (holding && stage === 'idle' && p > 0.02 && pointerOn){   // anel de progresso em volta do dedo/mouse
       ctx.globalAlpha = 0.95;
@@ -2493,11 +2568,11 @@ window.PortfolioLB = (function(){
   var LINES = {
     atena: {
       _default: [
-        'Atena aqui. Baixo nível, sem enrolação — pergunta o que quiser sobre o código.',
+        'Atena aqui, engenheira de bordo. Baixo nível, sem enrolação — pergunta o que quiser sobre o código.',
         'Ainda tô aqui. Clica em mim de novo se quiser saber mais de algum sistema.'
       ],
       inicio: [
-        'Eu cuido da parte técnica. Bora ver o que ele construiu.',
+        'Engenheira de bordo na escuta. Eu cuido da parte técnica — bora ver o que ele construiu.',
         'Enquanto a Aurora te recebe, eu já vou adiantando: aqui embaixo tem código de verdade.'
       ],
       sobre: [
@@ -2540,11 +2615,11 @@ window.PortfolioLB = (function(){
     },
     aurora: {
       _default: [
-        'Aurora aqui. Eu cuido do resto — pergunta qualquer coisa.',
+        'Aurora aqui, comunicação de bordo. Eu cuido da conversa — pergunta qualquer coisa.',
         'Continuo por perto. Clica de novo quando quiser trocar uma ideia.'
       ],
       inicio: [
-        'Bem-vindo. Eu e a Atena vamos junto com você até o fim da página.',
+        'Bem-vindo a bordo. Eu e a Atena vamos junto com você até o fim da página.',
         'Esse portfólio foi feito pra ler com calma — role no seu ritmo, a gente acompanha.'
       ],
       sobre: [
@@ -2581,7 +2656,7 @@ window.PortfolioLB = (function(){
         'Se você jogar e ganhar, seu nome fica no ranking. Sem pressão.'
       ],
       contato: [
-        'Manda uma mensagem. Ele responde.',
+        'Comunicação de bordo: manda uma mensagem, ele responde.',
         'Sem formulário chato — é e-mail, WhatsApp ou GitHub, direto.'
       ]
     }

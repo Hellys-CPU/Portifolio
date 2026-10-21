@@ -1357,6 +1357,51 @@
     .companion .ai-orb{transition:none;}
   }
 
+  /* TRIPULAÇÃO — no céu da Plêiade a hellys. é o satélite: Atena é a engenheira de bordo, Aurora a comunicação de bordo.
+     O manual pede as duas sempre redondas, com brilho e dois olhos: o equipamento flutua em volta, nunca nelas. */
+  .orb-atena::before, .orb-atena::after,
+  .orb-aurora::before, .orb-aurora::after{
+    content:"";position:absolute;pointer-events:none;
+  }
+  /* Atena: escala de inspeção girando, com três nanorrobôs de ferramenta */
+  .orb-atena::before{
+    inset:-34%;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='none' stroke='%23ff8a3d' stroke-opacity='.55' stroke-width='1.6' stroke-dasharray='.6 2.3'/%3E%3Cg fill='%23ffc796'%3E%3Ccircle cx='50' cy='4' r='2.4'/%3E%3Ccircle cx='89.8' cy='73' r='2'/%3E%3Ccircle cx='10.2' cy='73' r='2'/%3E%3C/g%3E%3C/svg%3E") center/100% 100% no-repeat;
+    animation:tripulacao-girar 26s linear infinite;
+  }
+  /* Atena: a mira com os colchetes do kit */
+  .orb-atena::after{
+    inset:-24%;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M6 22V6h16M78 6h16v16M94 78v16H78M22 94H6V78' fill='none' stroke='%23ff8a3d' stroke-opacity='.85' stroke-width='3'/%3E%3C/svg%3E") center/100% 100% no-repeat;
+    animation:tripulacao-mirar 3.2s ease-in-out infinite;
+    transition:transform .25s var(--ease), filter .25s var(--ease);
+  }
+  /* Aurora: ondas de rádio */
+  .orb-aurora::before, .orb-aurora::after{
+    inset:0;border-radius:50%;
+    border:1.5px solid rgba(63,201,168,.6);
+    opacity:0;
+    animation:tripulacao-onda 3.4s ease-out infinite;
+  }
+  .orb-aurora::after{animation-delay:1.7s;}
+  /* falando: a mira da Atena fecha e acende; as ondas da Aurora aceleram */
+  .companion:has(.companion-bubble.open) .orb-atena::after{
+    animation:none;transform:scale(.88);filter:drop-shadow(0 0 4px rgba(255,138,61,.85));
+  }
+  .companion:has(.companion-bubble.open) .orb-aurora::before,
+  .companion:has(.companion-bubble.open) .orb-aurora::after{animation-duration:1.3s;}
+  @keyframes tripulacao-girar{ to{transform:rotate(360deg);} }
+  @keyframes tripulacao-mirar{ 0%,100%{transform:scale(1);} 50%{transform:scale(.94);} }
+  @keyframes tripulacao-onda{ 0%{transform:scale(1);opacity:.7;} 100%{transform:scale(2.2);opacity:0;} }
+  @media (prefers-reduced-motion: reduce){
+    .orb-atena::before, .orb-atena::after, .orb-aurora::after{animation:none;}
+    .orb-aurora::before{animation:none;opacity:.45;transform:scale(1.4);}
+  }
+
+  /* selo do grupo no rodapé */
+  .foot-grupo{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;}
+  .foot-grupo:hover{color:var(--accent-2);}
+
   /* trajetória — marco atual ganha leve pulso na cor da Atena */
   .stop.current::before{animation:stop-pulse 2.4s ease-in-out infinite;}
   @keyframes stop-pulse{
