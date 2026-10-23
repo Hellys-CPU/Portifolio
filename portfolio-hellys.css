@@ -1961,3 +1961,78 @@
     .skill-group{margin:0 0 4pt !important;padding:0 !important;border:0 !important;background:none !important;break-inside:avoid;}
     .skill-group h3{font-size:9.5pt;margin:0 0 1pt;color:#0a6f5a;}
   }
+
+  /* PULSAR — o satélite capta uma transmissão: o podcast agora é da Pulsar (marca irmã no grupo Plêiade)
+     e a seção dele assume a identidade dela. Só esta seção: paleta noite/limão/rosa-choque, Unbounded,
+     sombra dura. A interferência dura meio pulso (668 ms) e a troca acontece no meio dela. */
+  .pod-secao{position:relative;}
+  .pod-interferencia, .pod-transmissao{display:none;}
+
+  .pod-secao.pulsar{
+    --accent:#e4ff3a;--accent-2:#ff2d8a;
+    background:#08070d;box-shadow:0 0 0 100vmax #08070d;clip-path:inset(0 -100vmax);
+    border-bottom-color:#2c2842;
+  }
+  .pod-secao.pulsar h2.section-title{
+    font-family:'Unbounded',sans-serif;font-weight:900;text-transform:uppercase;letter-spacing:-.035em;
+    color:#f6f4ff;text-shadow:.055em .055em 0 #ff2d8a;
+  }
+  .pod-secao.pulsar h2.section-title::before{color:#e4ff3a;text-shadow:none;letter-spacing:0;text-transform:none;}
+  .pod-secao.pulsar p.section-sub{color:#aaa4c6;margin-bottom:22px;}
+  .pod-secao.pulsar .pod-transmissao{
+    display:inline-block;max-width:100%;line-height:1.5;margin:0 0 34px;padding:9px 16px;border-radius:18px;
+    background:#e4ff3a;color:#08070d;text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:12px;
+    letter-spacing:.06em;text-transform:uppercase;box-shadow:5px 5px 0 #ff2d8a;transform:rotate(-2deg);
+    animation:pl-estouro .3s cubic-bezier(.2,1.6,.4,1) both;transition:box-shadow .15s, transform .15s;
+  }
+  .pod-secao.pulsar .pod-transmissao b{font-family:'Unbounded',sans-serif;font-weight:900;letter-spacing:.01em;}
+  .pod-secao.pulsar .pod-transmissao:hover{transform:rotate(-2deg) translate(-2px,-2px);box-shadow:7px 7px 0 #ff2d8a;}
+  .pod-secao.pulsar .pod-transmissao:focus-visible{outline:2px solid #2de2ff;outline-offset:4px;}
+
+  .pod-secao.pulsar .pod-stage{background:#13111d;border:2px solid #2c2842;border-radius:22px;box-shadow:8px 8px 0 #ff2d8a;}
+  .pod-secao.pulsar .pod-stage::before{display:none;}
+  .pod-secao.pulsar .pod[data-state="playing"] .pod-stage,
+  .pod-secao.pulsar .pod[data-state="loading"] .pod-stage{border-color:#e4ff3a;}
+  .pod-secao.pulsar .pod-title{font-family:'Unbounded',sans-serif;font-weight:700;letter-spacing:-.025em;color:#f6f4ff;}
+  .pod-secao.pulsar .pod-badge{color:#2de2ff;border-color:#2c2842;background:#1c1929;}
+  .pod-secao.pulsar .pod-badge i{background:#2de2ff;box-shadow:none;}
+  .pod-secao.pulsar .pod-tag{border-color:#2c2842;color:#aaa4c6;}
+  .pod-secao.pulsar .pod-play{
+    background:#e4ff3a;color:#08070d;box-shadow:5px 5px 0 #ff2d8a;
+    animation:pl-bate 1.3373s cubic-bezier(.2,.8,.2,1) infinite;
+  }
+  .pod-secao.pulsar .pod-play:hover{box-shadow:7px 7px 0 #ff2d8a;}
+  .pod-secao.pulsar .pod-skip, .pod-secao.pulsar .pod-speed{border-color:#2c2842;}
+  .pod-secao.pulsar .pod-item{background:#13111d;border-color:#2c2842;border-radius:16px;}
+  .pod-secao.pulsar .pod-item:hover{border-color:rgba(228,255,58,.45);}
+  .pod-secao.pulsar .pod-item.is-active{border-color:#e4ff3a;background:#1c1929;}
+  .pod-secao.pulsar .pod-n{font-family:'Unbounded',sans-serif;font-weight:900;font-size:16px;color:#ff2d8a;}
+  .pod-secao.pulsar .pod-dl{border-left-color:#2c2842;}
+  .pod-secao.pulsar .pod-dl:hover{background:rgba(228,255,58,.08);}
+
+  /* A interferência: chiado de linhas, três faixas de estática descendo e um tranco no conteúdo */
+  .pod-secao.interferindo .pod-interferencia{
+    display:block;position:absolute;inset:0;z-index:5;pointer-events:none;overflow:hidden;
+    background:repeating-linear-gradient(0deg, rgba(246,244,255,.07) 0 2px, transparent 2px 4px);
+    animation:pl-chiado .1337s steps(2) infinite;
+  }
+  .pod-interferencia i{
+    position:absolute;left:-4%;right:-4%;top:0;height:14%;
+    background:repeating-linear-gradient(90deg, rgba(228,255,58,.55) 0 2px, transparent 2px 5px, rgba(255,45,138,.5) 5px 7px, transparent 7px 13px, rgba(246,244,255,.35) 13px 14px, transparent 14px 19px);
+    animation:pl-faixa .44s steps(6) both;
+  }
+  .pod-interferencia i:nth-child(2){animation-delay:.11s;height:7%;animation-direction:reverse;}
+  .pod-interferencia i:nth-child(3){animation-delay:.22s;height:22%;opacity:.75;}
+  .pod-secao.interferindo > :not(.pod-interferencia){animation:pl-tranco .668s steps(6) both;}
+
+  @keyframes pl-faixa{from{transform:translateY(-100%);}to{transform:translateY(700%);}}
+  @keyframes pl-chiado{to{background-position:0 4px;}}
+  @keyframes pl-tranco{0%,100%{transform:none;}20%{transform:translateX(-7px) skewX(5deg);}40%{transform:translateX(6px);}60%{transform:translateX(-4px) skewX(-3deg);}80%{transform:translateX(2px);}}
+  @keyframes pl-bate{0%{transform:scale(1.08);}30%,100%{transform:scale(1);}}
+  @keyframes pl-estouro{from{opacity:0;transform:scale(.6) rotate(-8deg);}to{opacity:1;transform:scale(1) rotate(-2deg);}}
+
+  @media (prefers-reduced-motion: reduce){
+    .pod-secao.pulsar .pod-play, .pod-secao.pulsar .pod-transmissao{animation:none;}
+    .pod-secao.interferindo .pod-interferencia{display:none;}
+    .pod-secao.interferindo > :not(.pod-interferencia){animation:none;}
+  }

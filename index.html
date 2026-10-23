@@ -33,7 +33,7 @@
 <meta name="theme-color" content="#10141a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Unbounded:wght@700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="portfolio-hellys.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -1102,9 +1102,11 @@ hellys<span class="tok-punc">.</span><span class="tok-fn">resolver</span><span c
   </div>
 </section>
 
-<section id="podcast" class="wrap">
-  <h2 class="section-title">Podcast</h2>
-  <p class="section-sub">Episódios em áudio sobre programação, gerados com IA. As vozes são sintéticas.</p>
+<section id="podcast" class="wrap pod-secao">
+  <div class="pod-interferencia" aria-hidden="true"><i></i><i></i><i></i></div>
+  <h2 class="section-title"><span class="pod-titulo" data-pulsar="Podcast Pulsar">Podcast</span></h2>
+  <p class="section-sub">O podcast agora é da Pulsar, a marca de curiosidades do grupo Plêiade, e continua tocando aqui. Episódios sobre programação, com vozes geradas por IA.</p>
+  <a class="pod-transmissao" href="https://hellys-cpu.github.io/pulsar/#podcast" target="_blank" rel="noopener" aria-label="Transmissão da Pulsar, marca do grupo Plêiade (abre em nova aba)"><b>Transmissão da Pulsar</b> · grupo Plêiade <span aria-hidden="true">↗</span></a>
 
   <div class="pod" id="pod" data-state="idle">
     <div class="pod-stage">
@@ -2644,7 +2646,8 @@ window.PortfolioLB = (function(){
         'Na aba Custo, ele põe os seus valores e vê quanto o gargalo custa por mês.'
       ],
       podcast: [
-        'As vozes dos episódios são geradas por IA — por isso o selo em cada player.',
+        'Esse sinal é da Pulsar, a marca de curiosidades do nosso grupo. O podcast agora é dela, mas continua tocando aqui no satélite.',
+        'As vozes dos episódios são geradas por IA, por isso o selo em cada player.',
         'Dá pra ouvir de fone, mudar a velocidade ou baixar o arquivo pra ouvir depois.'
       ],
       skills: [
@@ -2778,6 +2781,11 @@ window.PortfolioLB = (function(){
       bubble._autoCloseTimer = setTimeout(function(){ bubble.classList.remove('open'); }, typingMs + autoCloseMs);
     }
   }
+  // A Aurora é a comunicação de bordo: quando o satélite capta a transmissão da Pulsar, é ela quem avisa
+  document.addEventListener('pulsar:transmissao', function(e){
+    if (e.detail && e.detail.repeticao) return;
+    speak('aurora', 'Captei um sinal! É a Pulsar, nossa vizinha de grupo. O podcast agora é dela, mas continua tocando aqui.', 5200);
+  });
   document.querySelectorAll('.companion').forEach(function(wrap){
     var orbName = wrap.getAttribute('data-orb');
     var orb = wrap.querySelector('.ai-orb');
@@ -6577,6 +6585,13 @@ window.PortfolioLB = (function(){
   var C_ACC = cs.getPropertyValue('--accent').trim() || '#ff8a3d';
   var C_TEAL = cs.getPropertyValue('--accent-2').trim() || '#3fc9a8';
   var FILLS = ['rgba(159,176,201,.42)', C_ACC, C_TEAL, 'rgba(232,236,241,.92)']; // por tocar · já tocado · cabeça · mouse
+  // Quando a Pulsar assume a seção, a onda passa para as cores dela (limão e rosa-choque)
+  document.addEventListener('pulsar:transmissao', function(){
+    var novo = getComputedStyle(root);
+    FILLS[1] = novo.getPropertyValue('--accent').trim() || FILLS[1];
+    FILLS[2] = novo.getPropertyValue('--accent-2').trim() || FILLS[2];
+    draw(performance.now());
+  });
 
   var RATES = [1, 1.25, 1.5, 1.75, 2];
   var cur = 0, t = 0, loaded = -1, rateIdx = 0;
@@ -7806,6 +7821,79 @@ window.PortfolioLB = (function(){
     if (moved > 5){ e.preventDefault(); e.stopPropagation(); moved = 0; }
   }, true);
   track.addEventListener('dragstart', function(e){ e.preventDefault(); });
+})();
+</script>
+
+<script>
+/* PULSAR — o satélite capta uma transmissão. O podcast agora é da Pulsar, marca irmã no grupo Plêiade,
+   e quando a seção entra na tela ela é assumida pela identidade da Pulsar em um pulso (1,3373 s):
+   meio pulso de interferência (faixas de estática, tranco), a troca de cores no meio, e o título
+   reescrito letra por letra. Uma vez por sessão; depois, e para quem pede menos movimento, a seção
+   já aparece como Pulsar, sem interferência. */
+(function(){
+  var sec = document.getElementById('podcast');
+  if (!sec) return;
+  var titulo = sec.querySelector('.pod-titulo');
+  var PULSO = 1337;
+  var MEIO = Math.round(PULSO / 2);
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var visto = false;
+  try { visto = sessionStorage.getItem('hellys:pulsar') === 'sim'; } catch(e){}
+
+  function avisar(repeticao){
+    document.dispatchEvent(new CustomEvent('pulsar:transmissao', { detail: { repeticao: repeticao } }));
+  }
+
+  // O título "decodifica" de Podcast para Podcast Pulsar: cada letra embaralha e assenta, da esquerda pra direita
+  function reescrever(final, ms){
+    if (!titulo) return;
+    var GLIFOS = 'PULSAR#01/<>*+';
+    var inicio = performance.now();
+    function passo(agora){
+      var p = Math.min(1, (agora - inicio) / ms);
+      var feitas = Math.floor(p * final.length);
+      var txt = '';
+      for (var i = 0; i < final.length; i++){
+        if (i < feitas || final[i] === ' ') txt += final[i];
+        else txt += GLIFOS[Math.floor(Math.random() * GLIFOS.length)];
+      }
+      titulo.textContent = txt;
+      if (p < 1) requestAnimationFrame(passo);
+      else titulo.textContent = final;
+    }
+    requestAnimationFrame(passo);
+  }
+
+  function assumir(animado){
+    var final = titulo ? titulo.getAttribute('data-pulsar') : '';
+    if (!animado){
+      sec.classList.add('pulsar');
+      if (titulo) titulo.textContent = final;
+      avisar(true);
+      return;
+    }
+    sec.classList.add('interferindo');
+    setTimeout(function(){
+      sec.classList.add('pulsar');
+      avisar(false);
+      reescrever(final, MEIO);
+    }, MEIO);
+    setTimeout(function(){
+      sec.classList.remove('interferindo');
+      try { sessionStorage.setItem('hellys:pulsar', 'sim'); } catch(e){}
+    }, PULSO);
+  }
+
+  if (reduce || visto || !('IntersectionObserver' in window)){
+    assumir(false);
+    return;
+  }
+  var olho = new IntersectionObserver(function(es){
+    if (!es[0].isIntersecting) return;
+    olho.disconnect();
+    assumir(true);
+  }, { threshold: 0.35 });
+  olho.observe(sec);
 })();
 </script>
 
